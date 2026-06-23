@@ -513,31 +513,38 @@ async function loadOps() {
 
   // Agent grid
   const agentDefs = [
-    {key:'weather', icon:'🌧️', name:'Weather Intelligence', desc:'Real-time forecasts, rain probability, storm tracking'},
-    {key:'scam', icon:'⚠️', name:'Scam Intelligence', desc:'Tourist traps, taxi scams, pickpocket zones'},
-    {key:'destination', icon:'📍', name:'Destination Intelligence', desc:'Attractions, hidden gems, avoid lists'},
-    {key:'food', icon:'🍜', name:'Food Intelligence', desc:'Must-try dishes, restaurant recs, local specialties'},
-    {key:'budget', icon:'💰', name:'Budget Controller', desc:'Spending tracking, forecasts, savings'},
-    {key:'transport', icon:'🚌', name:'Transportation', desc:'Flights, buses, taxis, delays'},
-    {key:'route', icon:'🗺️', name:'Route Optimization', desc:'Daily route planning, fatigue reduction'},
-    {key:'content', icon:'📸', name:'Content Creator', desc:'Reel ideas, photo spots, YouTube titles'},
-    {key:'hotel', icon:'🏨', name:'Hotel Intelligence', desc:'Safety scores, location analysis, alternatives'},
-    {key:'packing', icon:'🎒', name:'Packing Agent', desc:'Weather-adjusted checklist, missing items'},
-    {key:'emergency', icon:'🚨', name:'Emergency Response', desc:'Backup plans, hospitals, embassy contacts'},
-    {key:'backup', icon:'🔄', name:'Backup Plan Intelligence', desc:'Weather-based alternatives, indoor options, city swaps'},
-    {key:'detailed_plan', icon:'📍', name:'Detailed Day Plan', desc:'Granular routes, walk times, distances, area guides'},
-    {key:'cto', icon:'👔', name:'Chief Travel Officer', desc:'Master orchestrator, daily briefings'},
-    {key:'design', icon:'🎨', name:'Design & Website', desc:'UI/UX improvements, new features'},
+    {key:'weather', icon:'🌧️', name:'Weather Intelligence', desc:'Real-time forecasts, rain probability, storm tracking', tier:'daily'},
+    {key:'scam', icon:'⚠️', name:'Scam Intelligence', desc:'Tourist traps, taxi scams, pickpocket zones', tier:'weekly'},
+    {key:'destination', icon:'📍', name:'Destination Intelligence', desc:'Attractions, hidden gems, avoid lists', tier:'weekly'},
+    {key:'food', icon:'🍜', name:'Food Intelligence', desc:'Must-try dishes, restaurant recs, local specialties', tier:'weekly'},
+    {key:'budget', icon:'💰', name:'Budget Controller', desc:'Spending tracking, forecasts, savings', tier:'daily'},
+    {key:'transport', icon:'🚌', name:'Transportation', desc:'Flights, buses, taxis, delays', tier:'weekly'},
+    {key:'route', icon:'🗺️', name:'Route Optimization', desc:'Daily route planning, fatigue reduction', tier:'weekly'},
+    {key:'content', icon:'📸', name:'Content Creator', desc:'Reel ideas, photo spots, YouTube titles', tier:'weekly'},
+    {key:'hotel', icon:'🏨', name:'Hotel Intelligence', desc:'Safety scores, location analysis, alternatives', tier:'weekly'},
+    {key:'packing', icon:'🎒', name:'Packing Agent', desc:'Weather-adjusted checklist, missing items', tier:'ondemand'},
+    {key:'emergency', icon:'🚨', name:'Emergency Response', desc:'Backup plans, hospitals, embassy contacts', tier:'ondemand'},
+    {key:'backup', icon:'🔄', name:'Backup Plan Intelligence', desc:'Weather-based alternatives, indoor options, city swaps', tier:'daily'},
+    {key:'detailed_plan', icon:'📍', name:'Detailed Day Plan', desc:'Granular routes, walk times, distances, area guides', tier:'weekly'},
+    {key:'cto', icon:'👔', name:'Chief Travel Officer', desc:'Master orchestrator, daily briefings', tier:'daily'},
+    {key:'design', icon:'🎨', name:'Design & Website', desc:'UI/UX improvements, new features', tier:'ondemand'},
   ];
+
+  const tierConfig = {
+    daily: {label:'DAILY', color:'badge-accent', pulse:true, desc:'Auto-runs every day 04:30 IST'},
+    weekly: {label:'WEEKLY', color:'badge-warn', pulse:false, desc:'Auto-runs Sunday 04:00 IST. Trigger manually anytime'},
+    ondemand: {label:'ON-DEMAND', color:'badge-danger', pulse:false, desc:'Does NOT auto-run. Trigger manually when needed'},
+  };
 
   const agentStatuses = status.agent_statuses || {};
   const grid = agentDefs.map(a => {
     const st = agentStatuses[a.key] || {};
+    const tier = tierConfig[a.tier] || tierConfig.ondemand;
     let metrics = '';
     if (a.key === 'weather' && weather) metrics = `<div class="agent-metric"><span class="ml">Score:</span> <span class="mv">${weather.score}/100</span></div><div class="agent-metric"><span class="ml">Alerts:</span> <span class="mv">${weather.alerts?.length||0}</span></div>`;
     else if (a.key === 'scam' && scams) metrics = `<div class="agent-metric"><span class="ml">High risk:</span> <span class="mv">${scams.high_risk_count}</span></div><div class="agent-metric"><span class="ml">Total:</span> <span class="mv">${scams.total_alerts}</span></div>`;
     else if (a.key === 'budget' && budget) metrics = `<div class="agent-metric"><span class="ml">Projected:</span> <span class="mv">₹${budget.projected_spend?.toLocaleString()}</span></div><div class="agent-metric"><span class="ml">Status:</span> <span class="mv">${budget.budget_health}</span></div>`;
-    else if (a.key === 'destination') metrics = `<div class="agent-metric"><span class="ml">Attractions:</span> <span class="mv">${st.total||'20'}</span></div>`;
+    else if (a.key === 'destination') metrics = `<div class="agent-metric"><span class="ml">Attractions:</span> <span class="mv">20</span></div>`;
     else if (a.key === 'route') metrics = `<div class="agent-metric"><span class="ml">Optimized:</span> <span class="mv">10/13</span></div>`;
     else if (a.key === 'content') metrics = `<div class="agent-metric"><span class="ml">Reels:</span> <span class="mv">7</span></div>`;
     else if (a.key === 'hotel') metrics = `<div class="agent-metric"><span class="ml">Safety:</span> <span class="mv">88/100</span></div>`;
@@ -546,29 +553,44 @@ async function loadOps() {
     else if (a.key === 'detailed_plan') metrics = `<div class="agent-metric"><span class="ml">Days:</span> <span class="mv">13 planned</span></div>`;
     else if (a.key === 'cto') metrics = `<div class="agent-metric"><span class="ml">Health:</span> <span class="mv">${status.travel_health}/100</span></div>`;
     else if (a.key === 'design') metrics = `<div class="agent-metric"><span class="ml">Score:</span> <span class="mv">78/100</span></div>`;
-    else if (st.last_run) metrics = `<div class="agent-metric"><span class="ml">Status:</span> <span class="mv">Active</span></div>`;
+
+    // Last updated time
+    let lastRun = '';
+    if (st.last_run) {
+      const d = new Date(st.last_run);
+      const ago = Math.round((Date.now() - d.getTime()) / 60000);
+      lastRun = ago < 60 ? `${ago}m ago` : ago < 1440 ? `${Math.round(ago/60)}h ago` : `${Math.round(ago/1440)}d ago`;
+    }
+    const statusDot = st.status === 'cached' ? 'var(--warn)' : 'var(--accent)';
 
     return `<div class="agent-card" onclick="document.querySelector('[data-tab=\\'${a.key}\\']')?.click()">
       <div class="agent-head">
         <span class="agent-icon">${a.icon}</span>
         <span class="agent-name">${a.name}</span>
-        <span class="agent-status"></span>
+        <span class="agent-status" style="background:${statusDot};box-shadow:0 0 8px ${statusDot};${!tier.pulse?'animation:none':''}"></span>
+      </div>
+      <div style="margin:4px 0;">
+        <span class="badge ${tier.color}" style="font-size:9px;">${tier.label}</span>
+        ${lastRun ? `<span style="font-size:10px;color:var(--muted);margin-left:6px;">⏱ ${lastRun}</span>` : ''}
       </div>
       <div class="agent-metrics">${metrics}</div>
       <div class="agent-desc">${a.desc}</div>
+      ${a.tier !== 'daily' ? `<div style="font-size:10px;color:var(--muted);margin-top:6px;font-style:italic;">💬 Send "run ${a.key}" to trigger</div>` : ''}
     </div>`;
   }).join('');
   document.getElementById('agentGrid').innerHTML = grid;
 
   // System log
   const logTime = new Date(status.last_run).toLocaleString();
+  const runType = status.run_type || 'unknown';
   document.getElementById('systemLog').innerHTML = `
     <div style="font-size:13px;line-height:2;">
-      <div><span class="badge badge-accent">ONLINE</span> All 15 agents operational</div>
+      <div><span class="badge badge-accent">ONLINE</span> 15 agents | Run: ${runType}</div>
       <div>⏱️ Last run: ${logTime}</div>
-      <div>🔄 Next run: Daily 06:00 ICT (04:30 IST)</div>
-      <div>📊 Data source: Open-Meteo API + Curated research + Apify (on-demand)</div>
-      <div>💾 Version: ATOS v1.0</div>
+      <div>🔄 Daily: 04:30 IST (4 agents) | Weekly: Sun 04:00 IST (12 agents)</div>
+      <div>💰 Token optimization: Daily runs 4 agents (not 15) | 2 heavy LLM cron jobs paused</div>
+      <div>📊 Data source: Open-Meteo API + Curated research</div>
+      <div>💾 Version: ATOS v1.3 (tiered agents)</div>
     </div>
   `;
 }

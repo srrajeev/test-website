@@ -1,6 +1,6 @@
 {
   "agent": "Backup Plan Intelligence",
-  "timestamp": "2026-06-23T19:04:10Z",
+  "timestamp": "2026-06-23T19:12:58Z",
   "day_backups": [
     {
       "day": 0,
@@ -63,7 +63,7 @@
       "label": "Full Day Explorer",
       "main_risk": "high",
       "rain_prob": 99,
-      "fog_hours": 0,
+      "fog_hours": 1,
       "best_window": {
         "start": "06:00",
         "end": "10:00",
@@ -109,7 +109,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
+      "recommendation": "⚠️ High weather risk (99% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
     },
     {
       "day": 2,
@@ -356,7 +356,7 @@
       "label": "Hanoi AM → Sapa PM",
       "main_risk": "high",
       "rain_prob": 99,
-      "fog_hours": 0,
+      "fog_hours": 1,
       "best_window": {
         "start": "06:00",
         "end": "06:00",
@@ -408,7 +408,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+      "recommendation": "⚠️ High weather risk (99% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
     },
     {
       "day": 7,

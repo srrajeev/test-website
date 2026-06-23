@@ -1670,101 +1670,193 @@ def agent_design():
 # ═══════════════════════════════════════════
 # MASTER ORCHESTRATOR
 # ═══════════════════════════════════════════
-def run_all():
-    """Run all agents in sequence — the daily execution flow."""
-    print("\n" + "=" * 60)
-    print("  ATOS — AUTONOMOUS TRAVEL OPERATING SYSTEM")
-    print("  Daily Execution Flow")
-    print("=" * 60 + "\n")
+# ═══════════════════════════════════════════
+# AGENT TIERS — Save tokens by not running everything daily
+# ═══════════════════════════════════════════
+# Tier 1 (DAILY) — Changes frequently, essential for trip safety
+#   weather, backup, budget, cto (briefing)
+# Tier 2 (WEEKLY) — Mostly static, refresh weekly
+#   destination, food, scam, hotel, transport, route, content, detailed_plan
+# Tier 3 (ON-DEMAND) — Rarely changes, trigger manually
+#   packing, emergency, design
+
+AGENT_TIERS = {
+    "daily": ["weather", "backup", "budget", "cto"],
+    "weekly": ["destination", "food", "scam", "hotel", "transport", "route", "content", "detailed_plan"],
+    "ondemand": ["packing", "emergency", "design"],
+}
+
+# Agent registry: name → function
+AGENTS = {
+    "weather": lambda: agent_weather(),
+    "destination": lambda: agent_destination(),
+    "food": lambda: agent_food(),
+    "hotel": lambda: agent_hotel(),
+    "scam": lambda: agent_scam(),
+    "route": lambda: agent_route(),
+    "transport": lambda: agent_transport(),
+    "budget": lambda: agent_budget(),
+    "packing": lambda: agent_packing(),
+    "content": lambda: agent_content(),
+    "emergency": lambda: agent_emergency(),
+    "backup": lambda: agent_backup(),
+    "detailed_plan": lambda: agent_detailed_plan(),
+    "cto": lambda: agent_cto(_load("weather"), _load("budget"), _load("scams"), _load("routes")),
+    "design": lambda: agent_design(),
+}
+
+def _build_status(run_type, results):
+    """Build status file from agent results."""
+    cto = results.get("cto", {})
+    w = results.get("weather", {})
+    s = results.get("scam", {})
     
-    start = time.time()
+    agent_statuses = {}
+    for name in AGENTS:
+        r = results.get(name)
+        if r:
+            st = {"status": "active", "last_run": r.get("timestamp"), "tier": _get_tier(name)}
+            if name == "weather": st["score"] = r.get("score")
+            elif name == "scam": st["alerts"] = r.get("total_alerts")
+            elif name == "budget": st["health"] = r.get("budget_health")
+            elif name == "backup": st["high_risk_days"] = r.get("high_risk_days")
+            agent_statuses[name] = st
+        else:
+            # Load cached timestamp
+            cached = _load(name.replace("scam", "scams").replace("detailed_plan", "detailed-plan"))
+            agent_statuses[name] = {
+                "status": "cached", 
+                "last_run": cached.get("timestamp") if cached else None,
+                "tier": _get_tier(name),
+            }
     
-    # Run agents in order (matching the daily execution flow)
-    print("06:00 — Weather Agent")
-    w = agent_weather()
-    
-    print("06:05 — Scam Agent")
-    s = agent_scam()
-    
-    print("06:10 — Destination Agent")
-    d = agent_destination()
-    
-    print("06:15 — Food Agent")
-    f = agent_food()
-    
-    print("06:20 — Budget Agent")
-    b = agent_budget()
-    
-    print("06:25 — Transport Agent")
-    t = agent_transport()
-    
-    print("06:30 — Route Agent")
-    r = agent_route()
-    
-    print("06:35 — Content Agent")
-    c = agent_content()
-    
-    print("06:37 — Hotel Agent")
-    h = agent_hotel()
-    
-    print("06:38 — Packing Agent")
-    p = agent_packing()
-    
-    print("06:39 — Emergency Agent")
-    e = agent_emergency()
-    
-    print("06:40 — Backup Plan Agent")
-    bu = agent_backup()
-    
-    print("06:41 — Detailed Day Plan Agent")
-    dp = agent_detailed_plan()
-    
-    print("06:42 — Chief Travel Officer")
-    cto = agent_cto(w, b, s, r)
-    
-    print("06:42 — Design Agent")
-    des = agent_design()
-    
-    # Generate master status file
-    status = {
+    return {
         "system": "ATOS — Autonomous Travel Operating System",
-        "version": "1.0",
+        "version": "1.3",
         "last_run": now_iso(),
-        "agents_active": 15,
+        "run_type": run_type,
+        "agents_active": len(AGENTS),
         "trip_phase": cto.get("phase", "unknown"),
         "travel_health": cto.get("travel_health_score", 0),
         "risk_level": cto.get("risk_status", "unknown"),
         "budget_health": cto.get("budget_status", "unknown"),
         "weather_score": w.get("score", 0) if w else 0,
-        "total_alerts": (w.get("alerts", []) if w else 0).__len__() + (s.get("total_alerts", 0) if s else 0),
-        "agent_statuses": {
-            "weather": {"status": "active", "last_run": w.get("timestamp") if w else None, "score": w.get("score") if w else None},
-            "scam": {"status": "active", "last_run": s.get("timestamp") if s else None, "alerts": s.get("total_alerts") if s else None},
-            "destination": {"status": "active", "last_run": d.get("timestamp") if d else None},
-            "food": {"status": "active", "last_run": f.get("timestamp") if f else None},
-            "budget": {"status": "active", "last_run": b.get("timestamp") if b else None, "health": b.get("budget_health") if b else None},
-            "transport": {"status": "active", "last_run": t.get("timestamp") if t else None},
-            "route": {"status": "active", "last_run": r.get("timestamp") if r else None},
-            "content": {"status": "active", "last_run": c.get("timestamp") if c else None},
-            "hotel": {"status": "active", "last_run": h.get("timestamp") if h else None},
-            "packing": {"status": "active", "last_run": p.get("timestamp") if p else None},
-            "emergency": {"status": "active", "last_run": e.get("timestamp") if e else None},
-            "backup": {"status": "active", "last_run": bu.get("timestamp") if bu else None, "high_risk_days": bu.get("high_risk_days") if bu else None},
-            "detailed_plan": {"status": "active", "last_run": dp.get("timestamp") if dp else None},
-            "cto": {"status": "active", "last_run": cto.get("timestamp") if cto else None},
-            "design": {"status": "active", "last_run": des.get("timestamp") if des else None},
-        }
+        "total_alerts": len(w.get("alerts", []) if w else []) + (s.get("total_alerts", 0) if s else 0),
+        "agent_tiers": AGENT_TIERS,
+        "agent_statuses": agent_statuses,
     }
+
+def _get_tier(name):
+    for tier, agents in AGENT_TIERS.items():
+        if name in agents:
+            return tier
+    return "unknown"
+
+def run_daily():
+    """Run only Tier 1 (daily) agents — saves 11 agents of compute."""
+    print("\n" + "=" * 60)
+    print("  ATOS — DAILY RUN (Tier 1: 4 agents)")
+    print("=" * 60 + "\n")
+    start = time.time()
+    
+    results = {}
+    for name in AGENT_TIERS["daily"]:
+        print(f"  → {name}...")
+        results[name] = AGENTS[name]()
+    
+    status = _build_status("daily", results)
     write_data("atos-status", status)
     
     elapsed = time.time() - start
-    print(f"\n{'=' * 60}")
-    print(f"  ATOS Run Complete — {elapsed:.1f}s")
-    print(f"  Health: {status['travel_health']}/100 | Risk: {status['risk_level']}")
-    print(f"  Data files written to: {DATA_DIR}")
-    print(f"{'=' * 60}\n")
-    
+    print(f"\n  Daily run complete — {elapsed:.1f}s (4 agents)")
+    print(f"  Health: {status['travel_health']}/100 | Risk: {status['risk_level']}\n")
     return status
 
+def run_weekly():
+    """Run Tier 1 + Tier 2 — full refresh minus on-demand agents."""
+    print("\n" + "=" * 60)
+    print("  ATOS — WEEKLY RUN (Tier 1+2: 12 agents)")
+    print("=" * 60 + "\n")
+    start = time.time()
+    
+    results = {}
+    for name in AGENT_TIERS["daily"] + AGENT_TIERS["weekly"]:
+        print(f"  → {name}...")
+        results[name] = AGENTS[name]()
+    
+    status = _build_status("weekly", results)
+    write_data("atos-status", status)
+    
+    elapsed = time.time() - start
+    print(f"\n  Weekly run complete — {elapsed:.1f}s (12 agents)")
+    print(f"  Health: {status['travel_health']}/100 | Risk: {status['risk_level']}\n")
+    return status
+
+def run_all():
+    """Run ALL agents — full refresh including on-demand."""
+    print("\n" + "=" * 60)
+    print("  ATOS — FULL RUN (All 15 agents)")
+    print("=" * 60 + "\n")
+    start = time.time()
+    
+    results = {}
+    for name in list(AGENTS.keys()):
+        print(f"  → {name}...")
+        results[name] = AGENTS[name]()
+    
+    status = _build_status("full", results)
+    write_data("atos-status", status)
+    
+    elapsed = time.time() - start
+    print(f"\n  Full run complete — {elapsed:.1f}s (15 agents)")
+    print(f"  Health: {status['travel_health']}/100 | Risk: {status['risk_level']}\n")
+    return status
+
+def run_single(agent_name):
+    """Run a single agent on-demand."""
+    if agent_name not in AGENTS:
+        print(f"Unknown agent: {agent_name}")
+        print(f"Available: {', '.join(AGENTS.keys())}")
+        return None
+    
+    print(f"\n  → Running single agent: {agent_name}")
+    result = AGENTS[agent_name]()
+    
+    # Update status file
+    all_results = {}
+    # Load existing cached results for other agents
+    for name in AGENTS:
+        if name == agent_name:
+            all_results[name] = result
+        else:
+            cache_name = name.replace("scam", "scams").replace("detailed_plan", "detailed-plan")
+            cached = _load(cache_name)
+            if cached:
+                all_results[name] = cached
+    
+    status = _build_status("single:" + agent_name, all_results)
+    write_data("atos-status", status)
+    print(f"  ✓ {agent_name} updated\n")
+    return result
+
 if __name__ == "__main__":
-    run_all()
+    import sys
+    mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
+    
+    if mode == "daily":
+        run_daily()
+    elif mode == "weekly":
+        run_weekly()
+    elif mode == "full" or mode == "all":
+        run_all()
+    elif mode == "single":
+        agent = sys.argv[2] if len(sys.argv) > 2 else None
+        if agent:
+            run_single(agent)
+        else:
+            print("Usage: python3 engine.py single <agent_name>")
+            print(f"Available: {', '.join(AGENTS.keys())}")
+    else:
+        print(f"Unknown mode: {mode}")
+        print("Usage: python3 engine.py [daily|weekly|full|single <agent>]")
+        print(f"Agents: {', '.join(AGENTS.keys())}")
