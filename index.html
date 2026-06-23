@@ -47,7 +47,11 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var
   border:1px solid var(--border);
 }
 .city-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
-.city-img { height:100px; position:relative; }
+.city-img { height:100px; position:relative; background-size:cover; background-position:center; }
+.city-img.sapa { background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.45)),url('https://images.unsplash.com/photo-1528127269322-539801943592?w=600&q=80'); }
+.city-img.hcmc { background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.45)),url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&q=80'); }
+.city-img.phuquoc { background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)),url('https://images.unsplash.com/photo-1559740449-5c435fdc054f?w=600&q=80'); }
+.city-img.hanoi { background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.45)),url('https://images.unsplash.com/photo-1509030450996-dd1a26d07e4e?w=600&q=80'); }
 .city-img .overlay { position:absolute; bottom:0; left:0; right:0; padding:14px; background:linear-gradient(transparent,rgba(0,0,0,0.75)); color:white; }
 .city-img .overlay h2 { font-size:18px; font-weight:700; }
 .city-img .overlay span { font-size:11px; opacity:0.85; }
@@ -343,6 +347,13 @@ function renderCity(city){
   if(existing) existing.remove();
   const div = document.createElement('div'); div.id='dayView'; div.innerHTML=html;
   document.querySelector('.container').appendChild(div);
+  // Auto-link maps URLs
+  div.querySelectorAll('.tl-detail,.tl-title').forEach(el=>{
+    el.innerHTML = el.innerHTML.replace(
+      /(maps\.google\.com\/\?q=[^\s<>]+)/g,
+      '<a href="https://$1" target="_blank" style="color:var(--accent2);font-weight:600;">🗺️ Open in Maps</a>'
+    );
+  });
   div.scrollIntoView({behavior:'smooth'});
 }
 
