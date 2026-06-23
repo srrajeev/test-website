@@ -1,0 +1,757 @@
+{
+  "agent": "Backup Plan Intelligence",
+  "timestamp": "2026-06-23T18:46:19Z",
+  "day_backups": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "dow": "SUN",
+      "city": "HCMC",
+      "label": "Night Arrival",
+      "main_risk": "high",
+      "rain_prob": 98,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 29
+      },
+      "original_plan": [
+        "Land Tan Son Nhat (SGN)",
+        "Check-in District 1",
+        "Bui Vien Walking Street — Sunday peak!"
+      ],
+      "backup_plan": [
+        {
+          "name": "War Remnants Museum",
+          "duration": "2 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC",
+          "note": "Fully indoor, harrowing history"
+        },
+        {
+          "name": "Van Gogh Metashow (Thiso Mall)",
+          "duration": "2 hrs",
+          "cost": "₹878",
+          "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",
+          "note": "30+ immersive AC rooms"
+        },
+        {
+          "name": "Saigon Opera House — Show",
+          "duration": "1.5 hrs",
+          "cost": "₹700-1400",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC",
+          "note": "AO Show — cultural performance"
+        },
+        {
+          "name": "Bui Vien indoor bars + cafes",
+          "duration": "3 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Bui+Vien+HCMC",
+          "note": "Beer street covered seating"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (98% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
+    },
+    {
+      "day": 1,
+      "date": "Jun 29",
+      "dow": "MON",
+      "city": "HCMC",
+      "label": "Full Day Explorer",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 33
+      },
+      "original_plan": [
+        "Pho breakfast — Pho Minh (since 1940s)",
+        "Hop-On Hop-Off Bus @ Opera House",
+        "Banh Canh Cua Ba Ba — MICHELIN 2026!",
+        "Van Gogh Metashow — 30+ immersive rooms",
+        "Vinh Khanh Food St — Seafood dinner",
+        "Bui Vien — Round 2!"
+      ],
+      "backup_plan": [
+        {
+          "name": "War Remnants Museum",
+          "duration": "2 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC",
+          "note": "Fully indoor, harrowing history"
+        },
+        {
+          "name": "Van Gogh Metashow (Thiso Mall)",
+          "duration": "2 hrs",
+          "cost": "₹878",
+          "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",
+          "note": "30+ immersive AC rooms"
+        },
+        {
+          "name": "Saigon Opera House — Show",
+          "duration": "1.5 hrs",
+          "cost": "₹700-1400",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC",
+          "note": "AO Show — cultural performance"
+        },
+        {
+          "name": "Bui Vien indoor bars + cafes",
+          "duration": "3 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Bui+Vien+HCMC",
+          "note": "Beer street covered seating"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "dow": "TUE",
+      "city": "Phu Quoc",
+      "label": "Arrival + Grand World",
+      "main_risk": "high",
+      "rain_prob": 92,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 33
+      },
+      "original_plan": [
+        "Cu Chi Tunnels (morning best)",
+        "Fly HCMC → Phu Quoc (1hr)",
+        "Grand World — FREE entry",
+        "Charm of Venice Show — FREE!",
+        "Laser Show — FREE!"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (92% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+    },
+    {
+      "day": 3,
+      "date": "Jul 1",
+      "dow": "WED",
+      "city": "Phu Quoc",
+      "label": "4 Island Tour",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 36
+      },
+      "original_plan": [
+        "4 Island Tour — Hotel pickup",
+        "World's longest oversea cable car",
+        "Sea Walking — walk ocean floor!",
+        "Sunset Town — Kiss Bridge FREE",
+        "Duong Dong Night Market"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 4,
+      "date": "Jul 2",
+      "dow": "THU",
+      "city": "Phu Quoc",
+      "label": "VinWonders",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 47,
+        "note": "No clear window — best available slot only"
+      },
+      "original_plan": [
+        "VinWonders — Vietnam's largest!",
+        "Deep Sea Restaurant — aquarium view",
+        "Typhoon Water Park",
+        "THE ONCE SHOW — $12M production!"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Beach AM + Fly + Hanoi PM",
+      "main_risk": "high",
+      "rain_prob": 98,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 39
+      },
+      "original_plan": [
+        "Ong Lang Beach — hidden gem",
+        "Ham Ninh Fishing Village",
+        "Fly Phu Quoc → Hanoi (2hr)",
+        "Hanoi Weekend Night Market!"
+      ],
+      "backup_plan": [
+        {
+          "name": "Water Puppet Theatre",
+          "duration": "1 hr",
+          "cost": "₹350",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "note": "Indoor, iconic, book ahead"
+        },
+        {
+          "name": "X Space Immersive (8 zones)",
+          "duration": "2 hrs",
+          "cost": "₹700",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "note": "Fully indoor AC immersive art"
+        },
+        {
+          "name": "Hoa Lo Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi",
+          "note": "Indoor, powerful history"
+        },
+        {
+          "name": "Vietnamese Women's Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi",
+          "note": "AC, fascinating exhibits"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (98% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "dow": "SAT",
+      "city": "Sapa",
+      "label": "Hanoi AM → Sapa PM",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 43,
+        "note": "No clear window — best available slot only"
+      },
+      "original_plan": [
+        "Pho Thin — #1 pho in Hanoi",
+        "Sapa Express Bus (6hrs)",
+        "Arrive Sapa — check-in",
+        "Sapa Square + Cathedral",
+        "Dinner — local BBQ"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Indoor cafe crawl (fog/rain)",
+          "duration": "3 hrs",
+          "cost": "₹200-400",
+          "maps": "https://maps.google.com/?q=Sapa+cafes",
+          "note": "The Hill Station, Leopard Cat Cafe — mountain views from inside"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 7,
+      "date": "Jul 5",
+      "dow": "SUN",
+      "city": "Sapa",
+      "label": "Moana + Cat Cat + Cafes",
+      "main_risk": "high",
+      "rain_prob": 97,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 35
+      },
+      "original_plan": [
+        "Moana Sapa — photo spot",
+        "Cat Cat Village — waterfall",
+        "Lunch — local Thang Co",
+        "Cafe crawl — The Hill Station",
+        "Sunset at Sapa Square"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        },
+        {
+          "name": "Hotel spa / hot spring",
+          "duration": "2 hrs",
+          "cost": "₹500-800",
+          "maps": "",
+          "note": "Many Sapa hotels have spa. Hot spring at Tan Phu village"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (97% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "dow": "MON",
+      "city": "Sapa",
+      "label": "Rong May Thrill Day",
+      "main_risk": "high",
+      "rain_prob": 91,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "08:00",
+        "hours": 3,
+        "max_rain_in_window": 35
+      },
+      "original_plan": [
+        "Rong May Tourism Area",
+        "Lunch — BBQ buffet included",
+        "Heaven's Gate pass — viewpoint",
+        "Return Sapa town",
+        "Dinner + cultural show"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Indoor cafe crawl (fog/rain)",
+          "duration": "3 hrs",
+          "cost": "₹200-400",
+          "maps": "https://maps.google.com/?q=Sapa+cafes",
+          "note": "The Hill Station, Leopard Cat Cafe — mountain views from inside"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (91% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "dow": "TUE",
+      "city": "Sapa",
+      "label": "Fansipan → Hanoi",
+      "main_risk": "high",
+      "rain_prob": 96,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 18
+      },
+      "original_plan": [
+        "Fansipan Cable Car — Indochina's roof!",
+        "Lunch — summit cafe",
+        "Return Sapa town",
+        "Sapa Express Bus → Hanoi (6hrs)",
+        "Arrive Hanoi — check-in"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        },
+        {
+          "name": "Hotel spa / hot spring",
+          "duration": "2 hrs",
+          "cost": "₹500-800",
+          "maps": "",
+          "note": "Many Sapa hotels have spa. Hot spring at Tan Phu village"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (96% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+    },
+    {
+      "day": 10,
+      "date": "Jul 8",
+      "dow": "WED",
+      "city": "Hanoi",
+      "label": "Full Day Explorer",
+      "main_risk": "high",
+      "rain_prob": 85,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 24
+      },
+      "original_plan": [
+        "Pho Thin — second visit (it's that good)",
+        "Hoan Kiem Lake + Ngoc Son Temple",
+        "Temple of Literature — 1000 years old",
+        "Bun Cha — Obama's spot",
+        "X Space Immersive — 8 zones",
+        "Train Street — iconic photo",
+        "Water Puppet Theatre"
+      ],
+      "backup_plan": [
+        {
+          "name": "X Space Immersive (8 zones)",
+          "duration": "2 hrs",
+          "cost": "₹700",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "note": "Fully indoor AC immersive art"
+        },
+        {
+          "name": "Hoa Lo Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi",
+          "note": "Indoor, powerful history"
+        },
+        {
+          "name": "Vietnamese Women's Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi",
+          "note": "AC, fascinating exhibits"
+        },
+        {
+          "name": "Ho Chi Minh Mausoleum",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Ho+Chi+Minh+Mausoleum",
+          "note": "Indoor (closed Mon/Fri — check)"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (85% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "dow": "THU",
+      "city": "Halong Bay",
+      "label": "Day Trip — Highest Risk Day",
+      "main_risk": "high",
+      "rain_prob": 73,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 39
+      },
+      "original_plan": [
+        "Limousine bus to Halong Bay (2.5hrs)",
+        "Halong Bay cruise — caves + kayaking",
+        "Seafood lunch on boat",
+        "Titop Island — beach + viewpoint",
+        "Return bus to Hanoi",
+        "Dinner — Hanoi Old Quarter"
+      ],
+      "backup_plan": [
+        {
+          "name": "Water Puppet + Hoa Lo Prison",
+          "duration": "Half day",
+          "cost": "₹420",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "note": "Iconic indoor activities"
+        },
+        {
+          "name": "Ceramic Mural + Long Bien Bridge walk",
+          "duration": "2 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Long+Bien+Bridge+Hanoi",
+          "note": "Bridge has covered walkway"
+        },
+        {
+          "name": "Old Quarter food crawl (covered)",
+          "duration": "3 hrs",
+          "cost": "₹500-1000",
+          "maps": "https://maps.google.com/?q=Hanoi+Old+Quarter+food",
+          "note": "Bun Cha, pho, egg coffee — all indoor seating"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "Highest risk day. Cruises cancel if wind > 25km/h or typhoon warning.",
+        "alternative": "Ninh Binh — 'Halong Bay on land' (boat ride through limestone karsts, rain or shine)",
+        "alternative2": "Hanoi full museum day + Train Street + water puppet",
+        "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
+        "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately."
+      },
+      "recommendation": "⚠️ High weather risk (73% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Departure Day",
+      "main_risk": "unknown",
+      "rain_prob": 0,
+      "fog_hours": 0,
+      "best_window": {},
+      "original_plan": [
+        "Dong Xuan Market — souvenirs",
+        "Last pho — Pho Bat Dan",
+        "Airport taxi — Noi Bai",
+        "Fly Hanoi → Delhi"
+      ],
+      "backup_plan": [],
+      "swap_suggestion": null,
+      "recommendation": "✅ Low risk (0% rain). Original plan is good. Best outdoor window: ?-?."
+    }
+  ],
+  "city_swaps": {
+    "Sapa": {
+      "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+      "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+      "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+      "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+      "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+    },
+    "Phu Quoc": {
+      "problem": "July = low season. Rough seas may cancel island tours.",
+      "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+      "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+      "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+      "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+    },
+    "Halong Bay": {
+      "problem": "Highest risk day. Cruises cancel if wind > 25km/h or typhoon warning.",
+      "alternative": "Ninh Binh — 'Halong Bay on land' (boat ride through limestone karsts, rain or shine)",
+      "alternative2": "Hanoi full museum day + Train Street + water puppet",
+      "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
+      "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately."
+    }
+  },
+  "high_risk_days": 12,
+  "swap_needed": 8,
+  "summary": "12 days need backup plans, 8 may need city swaps",
+  "indoor_alternatives_count": 33,
+  "source": "Weather forecast analysis + indoor venue research"
+}

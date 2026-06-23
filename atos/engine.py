@@ -46,29 +46,34 @@ def apify_run(actor_id, run_input, timeout_secs=120):
 # AGENT 1: WEATHER INTELLIGENCE
 # ═══════════════════════════════════════════
 def agent_weather():
-    """Fetch real weather forecasts from Open-Meteo (free, no key)."""
-    print("[Weather Agent] Fetching forecasts...")
+    """Fetch real weather forecasts from Open-Meteo — daily + hourly for trip days."""
+    print("[Weather Agent] Fetching hourly + daily forecasts...")
     results = {}
     all_day_risks = {}  # date -> worst risk level
     alerts = []
+
+    trip_start = "2026-06-28"
+    trip_end = "2026-07-10"
 
     for city_key, city in cfg.CITIES.items():
         lat, lon = city["lat"], city["lon"]
         url = (f"https://api.open-meteo.com/v1/forecast?"
                f"latitude={lat}&longitude={lon}&"
                f"hourly=temperature_2m,relative_humidity_2m,precipitation_probability,"
-               f"weather_code,wind_speed_10m,uv_index&"
+               f"precipitation,weather_code,wind_speed_10m,uv_index,visibility,cloud_cover&"
                f"daily=temperature_2m_max,temperature_2m_min,precipitation_sum,"
                f"precipitation_probability_max,weather_code,wind_speed_10m_max,uv_index_max&"
                f"timezone=Asia/Ho_Chi_Minh&forecast_days=16")
 
-        data = fetch_json(url, timeout=20)
+        data = fetch_json(url, timeout=25)
 
         if "error" in data:
             results[city_key] = {"error": data["error"]}
             continue
 
         daily = data.get("daily", {})
+        hourly = data.get("hourly", {})
+
         dates = daily.get("time", [])
         max_temps = daily.get("temperature_2m_max", [])
         min_temps = daily.get("temperature_2m_min", [])
@@ -78,9 +83,91 @@ def agent_weather():
         uv = daily.get("uv_index_max", [])
         wcode = daily.get("weather_code", [])
 
-        # Find trip days (Jun 28 - Jul 10, 2026)
-        trip_start = "2026-06-28"
-        trip_end = "2026-07-10"
+        # Hourly data arrays
+        h_times = hourly.get("time", [])
+        h_temp = hourly.get("temperature_2m", [])
+        h_rain_prob = hourly.get("precipitation_probability", [])
+        h_precip = hourly.get("precipitation", [])
+        h_wcode = hourly.get("weather_code", [])
+        h_wind = hourly.get("wind_speed_10m", [])
+        h_uv = hourly.get("uv_index", [])
+        h_vis = hourly.get("visibility", [])
+        h_cloud = hourly.get("cloud_cover", [])
+        h_humid = hourly.get("relative_humidity_2m", [])
+
+        # Build hourly forecast for trip days only
+        hourly_forecast = []
+        for hi, ht in enumerate(h_times):
+            d = ht[:10]  # date part
+            if trip_start <= d <= trip_end:
+                hour = int(ht[11:13])
+                rp = h_rain_prob[hi] if hi < len(h_rain_prob) and h_rain_prob[hi] is not None else 0
+                pr = h_precip[hi] if hi < len(h_precip) and h_precip[hi] is not None else 0
+                hrisk = "low"
+                if rp > 60 or pr > 2: hrisk = "high"
+                elif rp > 40 or pr > 0.5: hrisk = "medium"
+
+                hourly_forecast.append({
+                    "time": ht,
+                    "hour": hour,
+                    "temp": round(h_temp[hi]) if hi < len(h_temp) and h_temp[hi] is not None else None,
+                    "rain_prob": rp,
+                    "precip_mm": round(pr, 1) if pr else 0,
+                    "condition": _wmo_to_text(h_wcode[hi]) if hi < len(h_wcode) and h_wcode[hi] is not None else "Unknown",
+                    "wind_kmh": round(h_wind[hi]) if hi < len(h_wind) and h_wind[hi] is not None else 0,
+                    "uv": round(h_uv[hi], 1) if hi < len(h_uv) and h_uv[hi] is not None else 0,
+                    "visibility_m": round(h_vis[hi]) if hi < len(h_vis) and h_vis[hi] is not None else None,
+                    "cloud_pct": h_cloud[hi] if hi < len(h_cloud) and h_cloud[hi] is not None else None,
+                    "humidity": h_humid[hi] if hi < len(h_humid) and h_humid[hi] is not None else None,
+                    "risk": hrisk,
+                })
+
+        # Group hourly by date for per-day hour breakdown
+        hourly_by_date = {}
+        for h in hourly_forecast:
+            d = h["time"][:10]
+            if d not in hourly_by_date:
+                hourly_by_date[d] = []
+            hourly_by_date[d].append(h)
+
+        # Find best outdoor window per day (6AM-8PM)
+        best_windows = {}
+        for d, hours in hourly_by_date.items():
+            outdoor_hours = [h for h in hours if 6 <= h["hour"] <= 20]
+            if not outdoor_hours:
+                continue
+            # Find longest streak of low-risk hours
+            best_streak = []
+            current_streak = []
+            for h in outdoor_hours:
+                if h["risk"] == "low":
+                    current_streak.append(h)
+                else:
+                    if len(current_streak) > len(best_streak):
+                        best_streak = current_streak[:]
+                    current_streak = []
+            if len(current_streak) > len(best_streak):
+                best_streak = current_streak
+
+            if best_streak:
+                best_windows[d] = {
+                    "start": f"{best_streak[0]['hour']:02d}:00",
+                    "end": f"{best_streak[-1]['hour']:02d}:00",
+                    "hours": len(best_streak),
+                    "max_rain_in_window": max(h["rain_prob"] for h in best_streak),
+                }
+            else:
+                # No low-risk window — find least bad
+                least_bad = min(outdoor_hours, key=lambda x: x["rain_prob"])
+                best_windows[d] = {
+                    "start": f"{least_bad['hour']:02d}:00",
+                    "end": f"{least_bad['hour']:02d}:00",
+                    "hours": 1,
+                    "max_rain_in_window": least_bad["rain_prob"],
+                    "note": "No clear window — best available slot only",
+                }
+
+        # Daily forecast (same as before but with hourly reference)
         trip_forecast = []
         for i, d in enumerate(dates):
             if trip_start <= d <= trip_end:
@@ -93,6 +180,12 @@ def agent_weather():
 
                 condition = _wmo_to_text(wcode[i]) if i < len(wcode) and wcode[i] is not None else "Unknown"
 
+                # Count risky hours for this day
+                day_hours = hourly_by_date.get(d, [])
+                high_hours = sum(1 for h in day_hours if h["risk"] == "high")
+                low_hours = sum(1 for h in day_hours if h["risk"] == "low")
+                fog_hours = sum(1 for h in day_hours if h["visibility_m"] and h["visibility_m"] < 2000)
+
                 trip_forecast.append({
                     "date": d,
                     "day": d.split("-")[2],
@@ -104,6 +197,11 @@ def agent_weather():
                     "uv": round(uv[i], 1) if i < len(uv) and uv[i] is not None else 0,
                     "condition": condition,
                     "risk": risk,
+                    "hourly_count": len(day_hours),
+                    "high_risk_hours": high_hours,
+                    "low_risk_hours": low_hours,
+                    "fog_hours": fog_hours,
+                    "best_window": best_windows.get(d, {}),
                 })
 
                 # Track worst risk per unique day
@@ -113,23 +211,25 @@ def agent_weather():
 
         results[city_key] = {
             "forecasts": trip_forecast,
+            "hourly": hourly_forecast,
+            "hourly_by_date": {d: h for d, h in hourly_by_date.items()},
+            "best_windows": best_windows,
             "current": {
-                "temp": data.get("hourly", {}).get("temperature_2m", [None])[0],
-                "humidity": data.get("hourly", {}).get("relative_humidity_2m", [None])[0],
+                "temp": h_temp[0] if h_temp else None,
+                "humidity": h_humid[0] if h_humid else None,
             }
         }
 
-    # Score based on UNIQUE days, not per-city
+    # Score based on UNIQUE days
     high_days = sum(1 for r in all_day_risks.values() if r == "high")
     medium_days = sum(1 for r in all_day_risks.values() if r == "medium")
     total_days = len(all_day_risks)
     overall_score = max(20, 100 - high_days * 6 - medium_days * 3)
 
-    # Generate alerts — one per unique high-risk day, not per city
+    # Generate alerts
     for d in sorted(all_day_risks.keys()):
         risk = all_day_risks[d]
         if risk == "high":
-            # Find which cities have high risk on this day
             cities_high = []
             for ck, cv in results.items():
                 for f in cv.get("forecasts", []):
@@ -139,13 +239,13 @@ def agent_weather():
         elif risk == "medium":
             alerts.append(f"🌦️ {d}: Moderate rain — plan indoor backups")
 
-    # Suggested adjustments — only top 3
+    # Suggested adjustments
     adjustments = []
     high_alerts = [a for a in alerts if "High" in a]
     for a in high_alerts[:3]:
         adjustments.append(f"{a} — move outdoor activities to morning")
     if len(high_alerts) > 3:
-        adjustments.append(f"...and {len(high_alerts)-3} more high-risk days. See dashboard.")
+        adjustments.append(f"...and {len(high_alerts)-3} more high-risk days. See backup plans tab.")
     if not adjustments:
         adjustments.append("✅ Weather manageable. Outdoor activities as planned.")
 
@@ -156,7 +256,7 @@ def agent_weather():
         "cities": results,
         "alerts": alerts,
         "adjustments": adjustments,
-        "source": "Open-Meteo API (real-time)",
+        "source": "Open-Meteo API (real-time hourly + daily)",
     }
     write_data("weather", output)
     print(f"[Weather Agent] Score: {output['score']}/100, {len(alerts)} alerts")
@@ -699,7 +799,421 @@ def agent_emergency():
     return output
 
 # ═══════════════════════════════════════════
-# AGENT 12: CHIEF TRAVEL OFFICER (CTO)
+# AGENT 12: BACKUP PLAN (WEATHER-BASED ALTERNATIVES)
+# ═══════════════════════════════════════════
+def agent_backup():
+    """Generate weather-based backup plans for every day. Does NOT change the main plan — just prepares alternatives."""
+    print("[Backup Agent] Generating weather-based backup plans...")
+    weather = _load("weather")
+    
+    # Indoor/rain-proof alternatives per city
+    indoor_alternatives = {
+        "HCMC": [
+            {"name": "War Remnants Museum", "duration": "2 hrs", "cost": "₹70", "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC", "note": "Fully indoor, harrowing history"},
+            {"name": "Van Gogh Metashow (Thiso Mall)", "duration": "2 hrs", "cost": "₹878", "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc", "note": "30+ immersive AC rooms"},
+            {"name": "Saigon Opera House — Show", "duration": "1.5 hrs", "cost": "₹700-1400", "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC", "note": "AO Show — cultural performance"},
+            {"name": "Bui Vien indoor bars + cafes", "duration": "3 hrs", "cost": "₹200-500", "maps": "https://maps.google.com/?q=Bui+Vien+HCMC", "note": "Beer street covered seating"},
+            {"name": "Takashimaya Mall (District 1)", "duration": "2 hrs", "cost": "FREE", "maps": "https://maps.google.com/?q=Takashimaya+Saigon+Centre", "note": "Shopping + food court + AC"},
+            {"name": "Independence Palace", "duration": "1.5 hrs", "cost": "₹105", "maps": "https://maps.google.com/?q=Independence+Palace+HCMC", "note": "Indoor museum + underground bunkers"},
+            {"name": "Fine Arts Museum", "duration": "1.5 hrs", "cost": "₹35", "maps": "https://maps.google.com/?q=Fine+Arts+Museum+HCMC", "note": "Cheap, beautiful colonial building"},
+        ],
+        "Phu Quoc": [
+            {"name": "VinWonders (rain-proof: aquarium + indoor shows)", "duration": "Full day", "cost": "₹3,410", "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc", "note": "Aquarium, indoor rides, THE ONCE show"},
+            {"name": "Grand World indoor exhibits", "duration": "3 hrs", "cost": "FREE", "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc", "note": "Teddy Bear Museum + indoor art"},
+            {"name": "Phu Quoc Prison Museum", "duration": "1.5 hrs", "cost": "₹70", "maps": "https://maps.google.com/?q=Phu+Quoc+Prison", "note": "Historical site, mostly covered"},
+            {"name": "Fish Sauce Factory tour", "duration": "1 hr", "cost": "FREE", "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc", "note": "See how nuoc mam is made"},
+            {"name": "Coconut Prison + night market", "duration": "Half day", "cost": "₹200-500", "maps": "https://maps.google.com/?q=Duong+Dong+Night+Market", "note": "Market has covered stalls"},
+            {"name": "Spa day at hotel", "duration": "3 hrs", "cost": "₹500-1000", "maps": "", "note": "Monsoon = spa weather. Massage + sauna"},
+            {"name": "Pepper farm + pearl farm tour", "duration": "2 hrs", "cost": "₹200 taxi", "maps": "https://maps.google.com/?q=Phu+Quoc+pepper+farm", "note": "Covered areas, cheap taxi between"},
+        ],
+        "Hanoi": [
+            {"name": "Water Puppet Theatre", "duration": "1 hr", "cost": "₹350", "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi", "note": "Indoor, iconic, book ahead"},
+            {"name": "X Space Immersive (8 zones)", "duration": "2 hrs", "cost": "₹700", "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi", "note": "Fully indoor AC immersive art"},
+            {"name": "Hoa Lo Prison Museum", "duration": "1.5 hrs", "cost": "₹70", "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi", "note": "Indoor, powerful history"},
+            {"name": "Vietnamese Women's Museum", "duration": "1.5 hrs", "cost": "₹70", "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi", "note": "AC, fascinating exhibits"},
+            {"name": "Ho Chi Minh Mausoleum", "duration": "1 hr", "cost": "FREE", "maps": "https://maps.google.com/?q=Ho+Chi+Minh+Mausoleum", "note": "Indoor (closed Mon/Fri — check)"},
+            {"name": "Old Quarter cafe crawl", "duration": "3 hrs", "cost": "₹300-500", "maps": "https://maps.google.com/?q=Hanoi+Old+Quarter+cafes", "note": "Cafe Giang (egg coffee) + Cong Caphe — all indoor"},
+            {"name": "Vincom Center shopping + cinema", "duration": "3 hrs", "cost": "₹200-500", "maps": "https://maps.google.com/?q=Vincom+Center+Hanoi", "note": "Mall with food court + movies in English"},
+            {"name": "Ceramic Mosaic Mural (covered sections)", "duration": "1 hr", "cost": "FREE", "maps": "https://maps.google.com/?q=Ceramic+Mosaic+Mural+Hanoi", "note": "Walk under bridge overhangs"},
+        ],
+        "Sapa": [
+            {"name": "Sapa Museum", "duration": "1 hr", "cost": "₹35", "maps": "https://maps.google.com/?q=Sapa+Museum", "note": "Indoor ethnic culture exhibits"},
+            {"name": "Indoor cafe crawl (fog/rain)", "duration": "3 hrs", "cost": "₹200-400", "maps": "https://maps.google.com/?q=Sapa+cafes", "note": "The Hill Station, Leopard Cat Cafe — mountain views from inside"},
+            {"name": "Sapa Stone Church (Holy Rosary)", "duration": "30 min", "cost": "FREE", "maps": "https://maps.google.com/?q=Sapa+Stone+Church", "note": "Historic church, indoor"},
+            {"name": "Local market (covered)", "duration": "1.5 hrs", "cost": "₹200-500", "maps": "https://maps.google.com/?q=Sapa+Market", "note": "Covered market — handicrafts + hot food"},
+            {"name": "Hotel spa / hot spring", "duration": "2 hrs", "cost": "₹500-800", "maps": "", "note": "Many Sapa hotels have spa. Hot spring at Tan Phu village"},
+            {"name": "Cat Cat Village (partial indoor)", "duration": "2 hrs", "cost": "₹475", "maps": "https://maps.google.com/?q=Cat+Cat+Village+Sapa", "note": "Has covered areas + cultural show inside. Waterfall still visible in rain"},
+            {"name": "Fansipan cable car (if not windy)", "duration": "Half day", "cost": "₹2,800", "maps": "https://maps.google.com/?q=Fansipan+Cable+Car+Sapa", "note": "Cable car runs in rain (not wind). Summit may be in clouds — moody photos!"},
+        ],
+        "Halong Bay": [
+            {"name": "CANCEL cruise — Hanoi museum day", "duration": "Full day", "cost": "₹200-500", "maps": "https://maps.google.com/?q=Hanoi+museums", "note": "Use the Hanoi indoor list above"},
+            {"name": "Water Puppet + Hoa Lo Prison", "duration": "Half day", "cost": "₹420", "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi", "note": "Iconic indoor activities"},
+            {"name": "Ceramic Mural + Long Bien Bridge walk", "duration": "2 hrs", "cost": "FREE", "maps": "https://maps.google.com/?q=Long+Bien+Bridge+Hanoi", "note": "Bridge has covered walkway"},
+            {"name": "Old Quarter food crawl (covered)", "duration": "3 hrs", "cost": "₹500-1000", "maps": "https://maps.google.com/?q=Hanoi+Old+Quarter+food", "note": "Bun Cha, pho, egg coffee — all indoor seating"},
+        ],
+    }
+    
+    # City swap suggestions — if a city is consistently rainy, where to go instead
+    city_swaps = {
+        "Sapa": {
+            "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+            "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+            "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+            "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+            "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain.",
+        },
+        "Phu Quoc": {
+            "problem": "July = low season. Rough seas may cancel island tours.",
+            "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+            "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+            "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+            "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h.",
+        },
+        "Halong Bay": {
+            "problem": "Highest risk day. Cruises cancel if wind > 25km/h or typhoon warning.",
+            "alternative": "Ninh Binh — 'Halong Bay on land' (boat ride through limestone karsts, rain or shine)",
+            "alternative2": "Hanoi full museum day + Train Street + water puppet",
+            "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
+            "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately.",
+        },
+    }
+    
+    # Generate per-day backup plans
+    day_backups = []
+    for day in cfg.ITINERARY:
+        city = day["city"]
+        date = day["date"]
+        
+        # Get weather for this day
+        day_weather = None
+        if weather and "cities" in weather:
+            city_data = weather["cities"].get(city, {})
+            for f in city_data.get("forecasts", []):
+                if f.get("date") == f"2026-{date.replace('Jun','06').replace('Jul','07').strip()}":
+                    day_weather = f
+                    break
+        
+        # Also check if date matches "Jun 28" → "2026-06-28"
+        date_map = {"Jun 28": "2026-06-28", "Jun 29": "2026-06-29", "Jun 30": "2026-06-30",
+                    "Jul 1": "2026-07-01", "Jul 2": "2026-07-02", "Jul 3": "2026-07-03",
+                    "Jul 4": "2026-07-04", "Jul 5": "2026-07-05", "Jul 6": "2026-07-06",
+                    "Jul 7": "2026-07-07", "Jul 8": "2026-07-08", "Jul 9": "2026-07-09", "Jul 10": "2026-07-10"}
+        full_date = date_map.get(date, "")
+        
+        if not day_weather and weather:
+            for ck, cv in weather.get("cities", {}).items():
+                for f in cv.get("forecasts", []):
+                    if f.get("date") == full_date:
+                        day_weather = f
+                        break
+                if day_weather:
+                    break
+        
+        risk = day_weather.get("risk", "unknown") if day_weather else "unknown"
+        rain_prob = day_weather.get("rain_prob", 0) if day_weather else 0
+        fog_hours = day_weather.get("fog_hours", 0) if day_weather else 0
+        best_window = day_weather.get("best_window", {}) if day_weather else {}
+        
+        # Generate backup
+        backup = {
+            "day": day["day"],
+            "date": date,
+            "dow": day["dow"],
+            "city": city,
+            "label": day["label"],
+            "main_risk": risk,
+            "rain_prob": rain_prob,
+            "fog_hours": fog_hours,
+            "best_window": best_window,
+            "original_plan": [p["activity"] for p in day["plan"]],
+            "backup_plan": [],
+            "swap_suggestion": None,
+            "recommendation": "",
+        }
+        
+        # If high risk or foggy, generate alternatives
+        city_alts = indoor_alternatives.get(city, [])
+        
+        if risk == "high" or fog_hours > 4:
+            # Pick 3-4 indoor alternatives that don't overlap with original plan
+            original_activities = " ".join(p["activity"] for p in day["plan"]).lower()
+            suitable = []
+            for alt in city_alts:
+                # Skip if already in original plan
+                if alt["name"].lower() in original_activities or any(w in original_activities for w in alt["name"].split()[:2]):
+                    continue
+                suitable.append(alt)
+            
+            backup["backup_plan"] = suitable[:4]
+            backup["recommendation"] = f"⚠️ High weather risk ({rain_prob}% rain, {fog_hours}h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: {best_window.get('start','?')}-{best_window.get('end','?')}."
+            
+            # City swap for highest-risk cities
+            if city in city_swaps and (rain_prob > 70 or fog_hours > 6):
+                backup["swap_suggestion"] = city_swaps[city]
+        
+        elif risk == "medium":
+            # Suggest indoor backup for afternoon only
+            afternoon_alts = [a for a in city_alts if a["duration"] in ["1 hr", "1.5 hrs", "2 hrs"]][:2]
+            backup["backup_plan"] = afternoon_alts
+            backup["recommendation"] = f"🌦️ Moderate risk ({rain_prob}% rain). Do outdoor activities in best window ({best_window.get('start','?')}-{best_window.get('end','?')}). Indoor backup ready for afternoon."
+        else:
+            backup["recommendation"] = f"✅ Low risk ({rain_prob}% rain). Original plan is good. Best outdoor window: {best_window.get('start','?')}-{best_window.get('end','?')}."
+        
+        day_backups.append(backup)
+    
+    # Summary
+    high_risk_days = sum(1 for d in day_backups if d["main_risk"] == "high")
+    swap_needed = sum(1 for d in day_backups if d.get("swap_suggestion"))
+    
+    output = {
+        "agent": "Backup Plan Intelligence",
+        "timestamp": now_iso(),
+        "day_backups": day_backups,
+        "city_swaps": city_swaps,
+        "high_risk_days": high_risk_days,
+        "swap_needed": swap_needed,
+        "summary": f"{high_risk_days} days need backup plans, {swap_needed} may need city swaps",
+        "indoor_alternatives_count": sum(len(v) for v in indoor_alternatives.values()),
+        "source": "Weather forecast analysis + indoor venue research",
+    }
+    write_data("backup", output)
+    print(f"[Backup Agent] {high_risk_days} high-risk days, {swap_needed} swap suggestions")
+    return output
+
+
+# ═══════════════════════════════════════════
+# AGENT 13: DETAILED DAY PLAN (GRANULAR ROUTE)
+# ═══════════════════════════════════════════
+def agent_detailed_plan():
+    """Generate super-granular day plans with walk times, distances, transport, area recs."""
+    print("[Detailed Plan Agent] Building granular day plans...")
+    
+    # Area recommendations per city — where to stay and why
+    area_guide = {
+        "HCMC": {
+            "stay_area": "District 1 — Bui Vien / Ben Thanh area",
+            "why": "Walking distance to 80% of attractions. Bui Vien for nightlife, Ben Thanh for market. Grab to D5/D4 for food streets (10 min, ₹100-150).",
+            "hotel_price": "₹800-1,200/night",
+            "walk_radius": "1.5 km covers Opera House, Notre Dame, War Remnants, Ben Thanh Market",
+            "airport_to_hotel": {"mode": "Grab", "time": "30-40 min", "cost": "₹300-400", "distance": "7 km", "note": "SGN airport → D1. Fixed price Grab. Don't take airport taxis — they overcharge."},
+            "get_around": "Walk inside D1. Grab for anything > 2km. Bus #19 for Hop-On Hop-Off route. Motorbike taxi (Grab Bike) ₹50-100 per ride.",
+        },
+        "Phu Quoc": {
+            "stay_area": "Duong Dong town center",
+            "why": "Walking to night market, restaurants, beach. Grand World 15 min Grab. VinWonders 20 min. Airport 15 min.",
+            "hotel_price": "₹800-1,500/night (low season discount)",
+            "walk_radius": "0.5 km covers night market, beach, restaurants",
+            "airport_to_hotel": {"mode": "Grab / Taxi", "time": "15-20 min", "cost": "₹200-300", "distance": "10 km", "note": "Phu Quoc airport (PQC) → Duong Dong. Use Grab. If no Grab, Mai Linh taxi only — agree price first."},
+            "get_around": "Rent scooter ₹350/day (best option). Grab for evening drinking. Hotel usually arranges tour pickups free.",
+        },
+        "Hanoi": {
+            "stay_area": "Old Quarter — near Hoan Kiem Lake",
+            "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, pho spots, Bun Cha, cafes — all within 1 km. Airport is far (27km) so Grab needed.",
+            "hotel_price": "₹600-1,000/night",
+            "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street, Water Puppet, 50+ restaurants",
+            "airport_to_hotel": {"mode": "Grab", "time": "45-60 min", "cost": "₹500-700", "distance": "27 km", "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price. NO airport buses after 10 PM — book Grab in advance for late arrivals."},
+            "get_around": "Walk everywhere in Old Quarter. Grab for Temple of Literature (10 min, ₹100). Cyclo = SCAM — never take. Hoan Kiem loop is walkable in 20 min.",
+        },
+        "Sapa": {
+            "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+            "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+            "hotel_price": "₹500-800/night",
+            "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+            "bus_to_hotel": {"mode": "Walk from bus stop", "time": "5 min", "cost": "FREE", "distance": "400m", "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."},
+            "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100).",
+        },
+        "Halong Bay": {
+            "stay_area": "Day trip from Hanoi — no overnight needed",
+            "why": "Bus picks up from Hanoi Old Quarter at 6:30 AM. Returns by 8 PM. No hotel needed.",
+            "bus_to_cruise": {"mode": "Limousine bus", "time": "2.5 hrs", "cost": "₹800-1,200", "distance": "170 km", "note": "Book through cruise package — most include bus transfer. Pick up from Old Quarter hotels. Bring water + snacks."},
+            "get_around": "Everything is on the cruise. Bus picks up and drops at hotel.",
+        },
+    }
+    
+    # Walk times between key locations (minutes)
+    walk_times = {
+        ("HCMC", "Opera House", "Notre Dame Cathedral"): 4,
+        ("HCMC", "Notre Dame Cathedral", "War Remnants Museum"): 8,
+        ("HCMC", "War Remnants Museum", "Ben Thanh Market"): 12,
+        ("HCMC", "Ben Thanh Market", "Bui Vien"): 10,
+        ("HCMC", "Bui Vien", "Vinh Khanh Food Street"): 0,  # need Grab
+        ("Hanoi", "Hoan Kiem Lake", "Train Street"): 12,
+        ("Hanoi", "Train Street", "Old Quarter food"): 8,
+        ("Hanoi", "Old Quarter", "Temple of Literature"): 0,  # need Grab
+        ("Hanoi", "Temple of Literature", "Ho Chi Minh Mausoleum"): 10,
+        ("Hanoi", "Water Puppet Theatre", "Hoan Kiem Lake"): 2,
+        ("Sapa", "Sapa Square", "Moana Sapa"): 5,
+        ("Sapa", "Moana Sapa", "Cat Cat Village entrance"): 15,
+        ("Sapa", "Sapa Square", "The Hill Station cafe"): 8,
+        ("Sapa", "Sapa town", "Fansipan cable car"): 0,  # shuttle
+    }
+    
+    # Detailed plans per day
+    detailed_plans = []
+    for day in cfg.ITINERARY:
+        city = day["city"]
+        area = area_guide.get(city, {})
+        
+        # Build granular timeline with realistic times
+        timeline = []
+        prev_location = None
+        
+        for i, item in enumerate(day["plan"]):
+            time_str = item["time"]
+            activity = item["activity"]
+            cost = item.get("cost", "")
+            cat = item.get("category", "")
+            maps_link = item.get("maps", "")
+            
+            # Estimate duration based on category
+            if cat == "food":
+                duration = 45 if "breakfast" in activity.lower() or "pho" in activity.lower() else 60
+            elif cat == "transit":
+                if "fly" in activity.lower():
+                    duration = 120  # 2hr flight + boarding
+                elif "bus" in activity.lower():
+                    duration = 360  # 6hr Sapa bus
+                else:
+                    duration = 30
+            elif cat == "hotel":
+                duration = 15
+            elif cat == "activity":
+                if "museum" in activity.lower() or "van gogh" in activity.lower():
+                    duration = 120
+                elif "vinwonders" in activity.lower() or "island tour" in activity.lower():
+                    duration = 480  # full day
+                elif "cable car" in activity.lower() or "fansipan" in activity.lower():
+                    duration = 240  # half day
+                elif "show" in activity.lower():
+                    duration = 60
+                else:
+                    duration = 90
+            elif cat == "nightlife":
+                duration = 120
+            elif cat == "cafe":
+                duration = 45
+            elif cat == "shopping":
+                duration = 60
+            else:
+                duration = 60
+            
+            # Walk/transit to next location
+            transit_to_next = None
+            if i + 1 < len(day["plan"]):
+                next_item = day["plan"][i + 1]
+                next_cat = next_item.get("category", "")
+                
+                # If same general area, add walk time
+                if cat in ["food", "activity", "cafe"] and next_cat in ["food", "activity", "cafe"]:
+                    # Check if walkable (same city, nearby)
+                    transit_to_next = _estimate_transit(city, activity, next_item["activity"])
+            
+            timeline.append({
+                "time": time_str,
+                "activity": activity,
+                "cost": cost,
+                "category": cat,
+                "maps": maps_link,
+                "duration_min": duration,
+                "transit_to_next": transit_to_next,
+            })
+        
+        # Daily summary
+        total_activities = len([t for t in timeline if t["category"] not in ["transit", "hotel"]])
+        total_cost = sum(_extract_cost(t["cost"]) for t in timeline)
+        
+        detailed_plans.append({
+            "day": day["day"],
+            "date": day["date"],
+            "dow": day["dow"],
+            "city": city,
+            "label": day["label"],
+            "icon": day["icon"],
+            "tip": day["tip"],
+            "area_guide": area,
+            "timeline": timeline,
+            "total_activities": total_activities,
+            "estimated_cost": total_cost,
+        })
+    
+    output = {
+        "agent": "Detailed Day Plan",
+        "timestamp": now_iso(),
+        "area_guide": area_guide,
+        "detailed_plans": detailed_plans,
+        "total_days": len(detailed_plans),
+        "source": "Google Maps distances + on-ground research",
+    }
+    write_data("detailed-plan", output)
+    print(f"[Detailed Plan Agent] {len(detailed_plans)} days with granular timelines")
+    return output
+
+def _estimate_transit(city, from_activity, to_activity):
+    """Estimate transit between two activities."""
+    from_lower = from_activity.lower()
+    to_lower = to_activity.lower()
+    
+    # Same venue check
+    if from_activity == to_activity:
+        return {"mode": "Same location", "time": "0 min", "cost": "FREE", "distance": "0 m"}
+    
+    # Known walk times — used as reference (not exhaustive)
+    # Transit estimation is handled by city-specific heuristics below
+    
+    # Heuristic: if both are activities in same city
+    if city == "HCMC":
+        # D1 area — most things walkable
+        if "bui vien" in from_lower or "ben thanh" in from_lower:
+            if "opera" in to_lower or "notre dame" in to_lower:
+                return {"mode": "Walk", "time": "10 min", "cost": "FREE", "distance": "800 m"}
+        if "vinh khanh" in from_lower or "vinh khanh" in to_lower:
+            return {"mode": "Grab", "time": "10 min", "cost": "₹100-150", "distance": "3 km", "note": "Vinh Khanh is in D4 — need Grab"}
+        if "van gogh" in from_lower or "thiso" in from_lower or "van gogh" in to_lower:
+            return {"mode": "Grab", "time": "25 min", "cost": "₹200-300", "distance": "12 km", "note": "Thu Duc — far from D1. Budget rush hour time."}
+        return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "500-800 m", "note": "Most D1 attractions are walkable"}
+    
+    elif city == "Hanoi":
+        if "temple of literature" in from_lower or "temple of literature" in to_lower:
+            return {"mode": "Grab", "time": "10 min", "cost": "₹100", "distance": "3 km", "note": "Too far to walk from Old Quarter"}
+        if "hoan kiem" in from_lower and ("train street" in to_lower or "old quarter" in to_lower):
+            return {"mode": "Walk", "time": "10-12 min", "cost": "FREE", "distance": "900 m"}
+        if "water puppet" in from_lower or "water puppet" in to_lower:
+            return {"mode": "Walk", "time": "2-5 min", "cost": "FREE", "distance": "200 m", "note": "Right next to Hoan Kiem Lake"}
+        if "x space" in from_lower or "x space" in to_lower:
+            return {"mode": "Grab", "time": "12 min", "cost": "₹120", "distance": "4 km"}
+        return {"mode": "Walk", "time": "5-12 min", "cost": "FREE", "distance": "400-900 m", "note": "Old Quarter is compact — walkable"}
+    
+    elif city == "Sapa":
+        if "fansipan" in from_lower or "fansipan" in to_lower:
+            return {"mode": "Hotel shuttle", "time": "10 min", "cost": "FREE", "distance": "3 km", "note": "Most hotels offer free Fansipan shuttle"}
+        if "cat cat" in from_lower or "cat cat" in to_lower:
+            return {"mode": "Walk downhill", "time": "20 min down / 35 min up", "cost": "FREE", "distance": "2 km", "note": "Steep. Take motorbike taxi ₹100 back up"}
+        if "rong may" in from_lower or "rong may" in to_lower:
+            return {"mode": "Taxi/motorbike", "time": "30 min", "cost": "₹200-300", "distance": "15 km", "note": "Mountain road — book return taxi"}
+        if "moana" in from_lower or "moana" in to_lower:
+            return {"mode": "Walk", "time": "5 min", "cost": "FREE", "distance": "300 m", "note": "Right in Sapa town"}
+        return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "300-500 m"}
+    
+    elif city == "Phu Quoc":
+        if "vinwonders" in from_lower or "vinwonders" in to_lower:
+            return {"mode": "Grab / Hotel shuttle", "time": "20 min", "cost": "₹150-200", "distance": "12 km"}
+        if "grand world" in from_lower or "grand world" in to_lower:
+            return {"mode": "Grab", "time": "15 min", "cost": "₹120-150", "distance": "8 km"}
+        if "duong dong" in from_lower or "night market" in from_lower or "duong dong" in to_lower or "night market" in to_lower:
+            return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "300-500 m", "note": "If staying in Duong Dong"}
+        if "island tour" in from_lower or "an thoi" in from_lower:
+            return {"mode": "Hotel pickup", "time": "0 min", "cost": "FREE", "distance": "0", "note": "Tour includes hotel pickup"}
+        if "sunset town" in from_lower or "sunset town" in to_lower:
+            return {"mode": "Grab", "time": "15 min", "cost": "₹120", "distance": "10 km"}
+        return {"mode": "Grab / Scooter", "time": "10-20 min", "cost": "₹100-200", "distance": "5-12 km"}
+    
+    elif city == "Halong Bay":
+        return {"mode": "Cruise bus", "time": "Included", "cost": "Included", "distance": "—", "note": "Everything organized by cruise"}
+    
+    return {"mode": "Walk / Grab", "time": "5-15 min", "cost": "FREE - ₹200", "distance": "0.5-5 km"}
+
+# ═══════════════════════════════════════════
+# AGENT 14: CHIEF TRAVEL OFFICER (CTO)
 # ═══════════════════════════════════════════
 def agent_cto(weather_data=None, budget_data=None, scam_data=None, route_data=None):
     """Master orchestrator — generates daily briefing."""
@@ -906,7 +1420,13 @@ def run_all():
     print("06:39 — Emergency Agent")
     e = agent_emergency()
     
-    print("06:40 — Chief Travel Officer")
+    print("06:40 — Backup Plan Agent")
+    bu = agent_backup()
+    
+    print("06:41 — Detailed Day Plan Agent")
+    dp = agent_detailed_plan()
+    
+    print("06:42 — Chief Travel Officer")
     cto = agent_cto(w, b, s, r)
     
     print("06:42 — Design Agent")
@@ -917,7 +1437,7 @@ def run_all():
         "system": "ATOS — Autonomous Travel Operating System",
         "version": "1.0",
         "last_run": now_iso(),
-        "agents_active": 13,
+        "agents_active": 15,
         "trip_phase": cto.get("phase", "unknown"),
         "travel_health": cto.get("travel_health_score", 0),
         "risk_level": cto.get("risk_status", "unknown"),
@@ -936,6 +1456,8 @@ def run_all():
             "hotel": {"status": "active", "last_run": h.get("timestamp") if h else None},
             "packing": {"status": "active", "last_run": p.get("timestamp") if p else None},
             "emergency": {"status": "active", "last_run": e.get("timestamp") if e else None},
+            "backup": {"status": "active", "last_run": bu.get("timestamp") if bu else None, "high_risk_days": bu.get("high_risk_days") if bu else None},
+            "detailed_plan": {"status": "active", "last_run": dp.get("timestamp") if dp else None},
             "cto": {"status": "active", "last_run": cto.get("timestamp") if cto else None},
             "design": {"status": "active", "last_run": des.get("timestamp") if des else None},
         }

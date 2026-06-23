@@ -1,8 +1,8 @@
 {
   "system": "ATOS — Autonomous Travel Operating System",
   "version": "1.0",
-  "last_run": "2026-06-23T18:30:16Z",
-  "agents_active": 13,
+  "last_run": "2026-06-23T18:46:19Z",
+  "agents_active": 15,
   "trip_phase": "pre_trip",
   "travel_health": 56,
   "risk_level": "HIGH",
@@ -12,58 +12,67 @@
   "agent_statuses": {
     "weather": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z",
+      "last_run": "2026-06-23T18:46:19Z",
       "score": 28
     },
     "scam": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z",
+      "last_run": "2026-06-23T18:46:19Z",
       "alerts": 12
     },
     "destination": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "food": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "budget": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z",
+      "last_run": "2026-06-23T18:46:19Z",
       "health": "tight"
     },
     "transport": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "route": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "content": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "hotel": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "packing": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "emergency": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
+    },
+    "backup": {
+      "status": "active",
+      "last_run": "2026-06-23T18:46:19Z",
+      "high_risk_days": 12
+    },
+    "detailed_plan": {
+      "status": "active",
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "cto": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     },
     "design": {
       "status": "active",
-      "last_run": "2026-06-23T18:30:16Z"
+      "last_run": "2026-06-23T18:46:19Z"
     }
   }
 }

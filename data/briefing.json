@@ -1,6 +1,6 @@
 {
   "agent": "Chief Travel Officer",
-  "timestamp": "2026-06-23T18:30:16Z",
+  "timestamp": "2026-06-23T18:46:19Z",
   "phase": "pre_trip",
   "status": "4 days until departure",
   "current_day": null,
@@ -20,7 +20,7 @@
     "⚠️ 2026-07-05: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-06: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-07: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
-    "⚠️ 2026-07-08: High rain risk in Phu Quoc, Sapa, Halong Bay",
+    "⚠️ 2026-07-08: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay",
     "⚠️ 2026-07-09: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay"
   ],
   "scam_alerts": 12,

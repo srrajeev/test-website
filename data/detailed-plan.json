@@ -1,0 +1,1170 @@
+{
+  "agent": "Detailed Day Plan",
+  "timestamp": "2026-06-23T18:46:19Z",
+  "area_guide": {
+    "HCMC": {
+      "stay_area": "District 1 — Bui Vien / Ben Thanh area",
+      "why": "Walking distance to 80% of attractions. Bui Vien for nightlife, Ben Thanh for market. Grab to D5/D4 for food streets (10 min, ₹100-150).",
+      "hotel_price": "₹800-1,200/night",
+      "walk_radius": "1.5 km covers Opera House, Notre Dame, War Remnants, Ben Thanh Market",
+      "airport_to_hotel": {
+        "mode": "Grab",
+        "time": "30-40 min",
+        "cost": "₹300-400",
+        "distance": "7 km",
+        "note": "SGN airport → D1. Fixed price Grab. Don't take airport taxis — they overcharge."
+      },
+      "get_around": "Walk inside D1. Grab for anything > 2km. Bus #19 for Hop-On Hop-Off route. Motorbike taxi (Grab Bike) ₹50-100 per ride."
+    },
+    "Phu Quoc": {
+      "stay_area": "Duong Dong town center",
+      "why": "Walking to night market, restaurants, beach. Grand World 15 min Grab. VinWonders 20 min. Airport 15 min.",
+      "hotel_price": "₹800-1,500/night (low season discount)",
+      "walk_radius": "0.5 km covers night market, beach, restaurants",
+      "airport_to_hotel": {
+        "mode": "Grab / Taxi",
+        "time": "15-20 min",
+        "cost": "₹200-300",
+        "distance": "10 km",
+        "note": "Phu Quoc airport (PQC) → Duong Dong. Use Grab. If no Grab, Mai Linh taxi only — agree price first."
+      },
+      "get_around": "Rent scooter ₹350/day (best option). Grab for evening drinking. Hotel usually arranges tour pickups free."
+    },
+    "Hanoi": {
+      "stay_area": "Old Quarter — near Hoan Kiem Lake",
+      "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, pho spots, Bun Cha, cafes — all within 1 km. Airport is far (27km) so Grab needed.",
+      "hotel_price": "₹600-1,000/night",
+      "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street, Water Puppet, 50+ restaurants",
+      "airport_to_hotel": {
+        "mode": "Grab",
+        "time": "45-60 min",
+        "cost": "₹500-700",
+        "distance": "27 km",
+        "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price. NO airport buses after 10 PM — book Grab in advance for late arrivals."
+      },
+      "get_around": "Walk everywhere in Old Quarter. Grab for Temple of Literature (10 min, ₹100). Cyclo = SCAM — never take. Hoan Kiem loop is walkable in 20 min."
+    },
+    "Sapa": {
+      "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+      "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+      "hotel_price": "₹500-800/night",
+      "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+      "bus_to_hotel": {
+        "mode": "Walk from bus stop",
+        "time": "5 min",
+        "cost": "FREE",
+        "distance": "400m",
+        "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+      },
+      "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+    },
+    "Halong Bay": {
+      "stay_area": "Day trip from Hanoi — no overnight needed",
+      "why": "Bus picks up from Hanoi Old Quarter at 6:30 AM. Returns by 8 PM. No hotel needed.",
+      "bus_to_cruise": {
+        "mode": "Limousine bus",
+        "time": "2.5 hrs",
+        "cost": "₹800-1,200",
+        "distance": "170 km",
+        "note": "Book through cruise package — most include bus transfer. Pick up from Old Quarter hotels. Bring water + snacks."
+      },
+      "get_around": "Everything is on the cruise. Bus picks up and drops at hotel."
+    }
+  },
+  "detailed_plans": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "dow": "SUN",
+      "city": "HCMC",
+      "label": "Night Arrival",
+      "icon": "🌙",
+      "tip": "Sunday = Bui Vien peak night! Streets pedestrian-only, neon everywhere",
+      "area_guide": {
+        "stay_area": "District 1 — Bui Vien / Ben Thanh area",
+        "why": "Walking distance to 80% of attractions. Bui Vien for nightlife, Ben Thanh for market. Grab to D5/D4 for food streets (10 min, ₹100-150).",
+        "hotel_price": "₹800-1,200/night",
+        "walk_radius": "1.5 km covers Opera House, Notre Dame, War Remnants, Ben Thanh Market",
+        "airport_to_hotel": {
+          "mode": "Grab",
+          "time": "30-40 min",
+          "cost": "₹300-400",
+          "distance": "7 km",
+          "note": "SGN airport → D1. Fixed price Grab. Don't take airport taxis — they overcharge."
+        },
+        "get_around": "Walk inside D1. Grab for anything > 2km. Bus #19 for Hop-On Hop-Off route. Motorbike taxi (Grab Bike) ₹50-100 per ride."
+      },
+      "timeline": [
+        {
+          "time": "9:00 PM",
+          "activity": "Land Tan Son Nhat (SGN)",
+          "cost": "",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 30,
+          "transit_to_next": null
+        },
+        {
+          "time": "10:30 PM",
+          "activity": "Check-in District 1",
+          "cost": "",
+          "category": "hotel",
+          "maps": "",
+          "duration_min": 15,
+          "transit_to_next": null
+        },
+        {
+          "time": "10:45 PM",
+          "activity": "Bui Vien Walking Street — Sunday peak!",
+          "cost": "Beer ₹53-88",
+          "category": "nightlife",
+          "maps": "https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",
+          "duration_min": 120,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 1,
+      "estimated_cost": 53
+    },
+    {
+      "day": 1,
+      "date": "Jun 29",
+      "dow": "MON",
+      "city": "HCMC",
+      "label": "Full Day Explorer",
+      "icon": "🏙️",
+      "tip": "Outdoor 7AM-2PM. Museum/cafe crawl after. Rain is predictable!",
+      "area_guide": {
+        "stay_area": "District 1 — Bui Vien / Ben Thanh area",
+        "why": "Walking distance to 80% of attractions. Bui Vien for nightlife, Ben Thanh for market. Grab to D5/D4 for food streets (10 min, ₹100-150).",
+        "hotel_price": "₹800-1,200/night",
+        "walk_radius": "1.5 km covers Opera House, Notre Dame, War Remnants, Ben Thanh Market",
+        "airport_to_hotel": {
+          "mode": "Grab",
+          "time": "30-40 min",
+          "cost": "₹300-400",
+          "distance": "7 km",
+          "note": "SGN airport → D1. Fixed price Grab. Don't take airport taxis — they overcharge."
+        },
+        "get_around": "Walk inside D1. Grab for anything > 2km. Bus #19 for Hop-On Hop-Off route. Motorbike taxi (Grab Bike) ₹50-100 per ride."
+      },
+      "timeline": [
+        {
+          "time": "7:30 AM",
+          "activity": "Pho breakfast — Pho Minh (since 1940s)",
+          "cost": "₹246-316",
+          "category": "food",
+          "maps": "",
+          "duration_min": 45,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "500-800 m",
+            "note": "Most D1 attractions are walkable"
+          }
+        },
+        {
+          "time": "8:30 AM",
+          "activity": "Hop-On Hop-Off Bus @ Opera House",
+          "cost": "₹509 ⭐4.4",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "500-800 m",
+            "note": "Most D1 attractions are walkable"
+          }
+        },
+        {
+          "time": "10:45 AM",
+          "activity": "Banh Canh Cua Ba Ba — MICHELIN 2026!",
+          "cost": "₹158-351 ⭐4.3",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=84/6+Nguyen+Bieu+Quan+5+HCMC",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "25 min",
+            "cost": "₹200-300",
+            "distance": "12 km",
+            "note": "Thu Duc — far from D1. Budget rush hour time."
+          }
+        },
+        {
+          "time": "12:45 PM",
+          "activity": "Van Gogh Metashow — 30+ immersive rooms",
+          "cost": "₹878 ⭐4.6",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",
+          "duration_min": 120,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "10 min",
+            "cost": "₹100-150",
+            "distance": "3 km",
+            "note": "Vinh Khanh is in D4 — need Grab"
+          }
+        },
+        {
+          "time": "5:45 PM",
+          "activity": "Vinh Khanh Food St — Seafood dinner",
+          "cost": "₹105-175 ⭐4.5",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Vinh+Khanh+Food+Street+D4+HCMC",
+          "duration_min": 60,
+          "transit_to_next": null
+        },
+        {
+          "time": "7:30 PM",
+          "activity": "Bui Vien — Round 2!",
+          "cost": "",
+          "category": "nightlife",
+          "maps": "https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",
+          "duration_min": 120,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 6,
+      "estimated_cost": 1896
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "dow": "TUE",
+      "city": "Phu Quoc",
+      "label": "Arrival + Grand World",
+      "icon": "✈️",
+      "tip": "Evening FREE shows at Grand World: Venice water show 9:30PM + Laser 10:45PM",
+      "area_guide": {
+        "stay_area": "Duong Dong town center",
+        "why": "Walking to night market, restaurants, beach. Grand World 15 min Grab. VinWonders 20 min. Airport 15 min.",
+        "hotel_price": "₹800-1,500/night (low season discount)",
+        "walk_radius": "0.5 km covers night market, beach, restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab / Taxi",
+          "time": "15-20 min",
+          "cost": "₹200-300",
+          "distance": "10 km",
+          "note": "Phu Quoc airport (PQC) → Duong Dong. Use Grab. If no Grab, Mai Linh taxi only — agree price first."
+        },
+        "get_around": "Rent scooter ₹350/day (best option). Grab for evening drinking. Hotel usually arranges tour pickups free."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Cu Chi Tunnels (morning best)",
+          "cost": "~₹500",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 90,
+          "transit_to_next": null
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Fly HCMC → Phu Quoc (1hr)",
+          "cost": "~₹2,500-3,500",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 120,
+          "transit_to_next": null
+        },
+        {
+          "time": "6:00 PM",
+          "activity": "Grand World — FREE entry",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "15 min",
+            "cost": "₹120-150",
+            "distance": "8 km"
+          }
+        },
+        {
+          "time": "9:30 PM",
+          "activity": "Charm of Venice Show — FREE!",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Grab / Scooter",
+            "time": "10-20 min",
+            "cost": "₹100-200",
+            "distance": "5-12 km"
+          }
+        },
+        {
+          "time": "10:45 PM",
+          "activity": "Laser Show — FREE!",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 4,
+      "estimated_cost": 3000
+    },
+    {
+      "day": 3,
+      "date": "Jul 1",
+      "dow": "WED",
+      "city": "Phu Quoc",
+      "label": "4 Island Tour",
+      "icon": "🏝️",
+      "tip": "BOOK LOCAL ₹4,200 (NOT online ₹8,250!). July = low season, negotiate!",
+      "area_guide": {
+        "stay_area": "Duong Dong town center",
+        "why": "Walking to night market, restaurants, beach. Grand World 15 min Grab. VinWonders 20 min. Airport 15 min.",
+        "hotel_price": "₹800-1,500/night (low season discount)",
+        "walk_radius": "0.5 km covers night market, beach, restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab / Taxi",
+          "time": "15-20 min",
+          "cost": "₹200-300",
+          "distance": "10 km",
+          "note": "Phu Quoc airport (PQC) → Duong Dong. Use Grab. If no Grab, Mai Linh taxi only — agree price first."
+        },
+        "get_around": "Rent scooter ₹350/day (best option). Grab for evening drinking. Hotel usually arranges tour pickups free."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "4 Island Tour — Hotel pickup",
+          "cost": "₹4,200-5,250",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=An+Thoi+Port+Phu+Quoc",
+          "duration_min": 480,
+          "transit_to_next": {
+            "mode": "Hotel pickup",
+            "time": "0 min",
+            "cost": "FREE",
+            "distance": "0",
+            "note": "Tour includes hotel pickup"
+          }
+        },
+        {
+          "time": "8:00 AM",
+          "activity": "World's longest oversea cable car",
+          "cost": "included",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 240,
+          "transit_to_next": {
+            "mode": "Grab / Scooter",
+            "time": "10-20 min",
+            "cost": "₹100-200",
+            "distance": "5-12 km"
+          }
+        },
+        {
+          "time": "10:00 AM",
+          "activity": "Sea Walking — walk ocean floor!",
+          "cost": "included",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "15 min",
+            "cost": "₹120",
+            "distance": "10 km"
+          }
+        },
+        {
+          "time": "5:30 PM",
+          "activity": "Sunset Town — Kiss Bridge FREE",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Sunset+Town+Phu+Quoc",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "300-500 m",
+            "note": "If staying in Duong Dong"
+          }
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Duong Dong Night Market",
+          "cost": "₹200-500",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Duong+Dong+Night+Market+Phu+Quoc",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 5,
+      "estimated_cost": 4400
+    },
+    {
+      "day": 4,
+      "date": "Jul 2",
+      "dow": "THU",
+      "city": "Phu Quoc",
+      "label": "VinWonders",
+      "icon": "🎢",
+      "tip": "Aquarium + indoor shows = rain-proof! THE ONCE SHOW 6:45PM — $12M production!",
+      "area_guide": {
+        "stay_area": "Duong Dong town center",
+        "why": "Walking to night market, restaurants, beach. Grand World 15 min Grab. VinWonders 20 min. Airport 15 min.",
+        "hotel_price": "₹800-1,500/night (low season discount)",
+        "walk_radius": "0.5 km covers night market, beach, restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab / Taxi",
+          "time": "15-20 min",
+          "cost": "₹200-300",
+          "distance": "10 km",
+          "note": "Phu Quoc airport (PQC) → Duong Dong. Use Grab. If no Grab, Mai Linh taxi only — agree price first."
+        },
+        "get_around": "Rent scooter ₹350/day (best option). Grab for evening drinking. Hotel usually arranges tour pickups free."
+      },
+      "timeline": [
+        {
+          "time": "9:00 AM",
+          "activity": "VinWonders — Vietnam's largest!",
+          "cost": "₹3,410",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "duration_min": 480,
+          "transit_to_next": {
+            "mode": "Grab / Hotel shuttle",
+            "time": "20 min",
+            "cost": "₹150-200",
+            "distance": "12 km"
+          }
+        },
+        {
+          "time": "1:00 PM",
+          "activity": "Deep Sea Restaurant — aquarium view",
+          "cost": "₹500-700",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Grab / Scooter",
+            "time": "10-20 min",
+            "cost": "₹100-200",
+            "distance": "5-12 km"
+          }
+        },
+        {
+          "time": "3:00 PM",
+          "activity": "Typhoon Water Park",
+          "cost": "included",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab / Scooter",
+            "time": "10-20 min",
+            "cost": "₹100-200",
+            "distance": "5-12 km"
+          }
+        },
+        {
+          "time": "6:45 PM",
+          "activity": "THE ONCE SHOW — $12M production!",
+          "cost": "included",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 4,
+      "estimated_cost": 3910
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Beach AM + Fly + Hanoi PM",
+      "icon": "✈️",
+      "tip": "Ong Lang hidden beach morning, then fly. Hanoi evening: Weekend Night Market!",
+      "area_guide": {
+        "stay_area": "Old Quarter — near Hoan Kiem Lake",
+        "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, pho spots, Bun Cha, cafes — all within 1 km. Airport is far (27km) so Grab needed.",
+        "hotel_price": "₹600-1,000/night",
+        "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street, Water Puppet, 50+ restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab",
+          "time": "45-60 min",
+          "cost": "₹500-700",
+          "distance": "27 km",
+          "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price. NO airport buses after 10 PM — book Grab in advance for late arrivals."
+        },
+        "get_around": "Walk everywhere in Old Quarter. Grab for Temple of Literature (10 min, ₹100). Cyclo = SCAM — never take. Hoan Kiem loop is walkable in 20 min."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Ong Lang Beach — hidden gem",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Ong+Lang+Beach+Phu+Quoc",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-12 min",
+            "cost": "FREE",
+            "distance": "400-900 m",
+            "note": "Old Quarter is compact — walkable"
+          }
+        },
+        {
+          "time": "11:00 AM",
+          "activity": "Ham Ninh Fishing Village",
+          "cost": "₹200-400",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Ham+Ninh+Village+Phu+Quoc",
+          "duration_min": 60,
+          "transit_to_next": null
+        },
+        {
+          "time": "3:00 PM",
+          "activity": "Fly Phu Quoc → Hanoi (2hr)",
+          "cost": "~₹3,000-4,000",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 120,
+          "transit_to_next": null
+        },
+        {
+          "time": "8:00 PM",
+          "activity": "Hanoi Weekend Night Market!",
+          "cost": "₹200-500",
+          "category": "nightlife",
+          "maps": "https://maps.google.com/?q=Hanoi+Night+Market+Old+Quarter",
+          "duration_min": 120,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 3,
+      "estimated_cost": 3400
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "dow": "SAT",
+      "city": "Sapa",
+      "label": "Hanoi AM → Sapa PM",
+      "icon": "⛰️",
+      "tip": "Bus ~9:30 AM arrive 3:30 PM. Sapa cool mountain air!",
+      "area_guide": {
+        "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "hotel_price": "₹500-800/night",
+        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "bus_to_hotel": {
+          "mode": "Walk from bus stop",
+          "time": "5 min",
+          "cost": "FREE",
+          "distance": "400m",
+          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+        },
+        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Pho Thin — #1 pho in Hanoi",
+          "cost": "₹150 ⭐4.5",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Pho+Thin+Hanoi",
+          "duration_min": 45,
+          "transit_to_next": null
+        },
+        {
+          "time": "9:30 AM",
+          "activity": "Sapa Express Bus (6hrs)",
+          "cost": "₹700-1,050",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 360,
+          "transit_to_next": null
+        },
+        {
+          "time": "3:30 PM",
+          "activity": "Arrive Sapa — check-in",
+          "cost": "",
+          "category": "hotel",
+          "maps": "",
+          "duration_min": 15,
+          "transit_to_next": null
+        },
+        {
+          "time": "4:00 PM",
+          "activity": "Sapa Square + Cathedral",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Sapa+Square+Church",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "300-500 m"
+          }
+        },
+        {
+          "time": "6:00 PM",
+          "activity": "Dinner — local BBQ",
+          "cost": "₹300-500",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 3,
+      "estimated_cost": 1150
+    },
+    {
+      "day": 7,
+      "date": "Jul 5",
+      "dow": "SUN",
+      "city": "Sapa",
+      "label": "Moana + Cat Cat + Cafes",
+      "icon": "📸",
+      "tip": "Outdoor activities BEFORE 2PM. July fog rolls in afternoon.",
+      "area_guide": {
+        "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "hotel_price": "₹500-800/night",
+        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "bus_to_hotel": {
+          "mode": "Walk from bus stop",
+          "time": "5 min",
+          "cost": "FREE",
+          "distance": "400m",
+          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+        },
+        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Moana Sapa — photo spot",
+          "cost": "₹350",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Moana+Sapa",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk downhill",
+            "time": "20 min down / 35 min up",
+            "cost": "FREE",
+            "distance": "2 km",
+            "note": "Steep. Take motorbike taxi ₹100 back up"
+          }
+        },
+        {
+          "time": "9:00 AM",
+          "activity": "Cat Cat Village — waterfall",
+          "cost": "₹475 ⭐4.4",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Cat+Cat+Village+Sapa",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk downhill",
+            "time": "20 min down / 35 min up",
+            "cost": "FREE",
+            "distance": "2 km",
+            "note": "Steep. Take motorbike taxi ₹100 back up"
+          }
+        },
+        {
+          "time": "12:00 PM",
+          "activity": "Lunch — local Thang Co",
+          "cost": "₹200-300",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "300-500 m"
+          }
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Cafe crawl — The Hill Station",
+          "cost": "₹150-250",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=Hill+Station+Sapa",
+          "duration_min": 45,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "300-500 m"
+          }
+        },
+        {
+          "time": "5:00 PM",
+          "activity": "Sunset at Sapa Square",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "",
+          "duration_min": 90,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 5,
+      "estimated_cost": 1175
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "dow": "MON",
+      "city": "Sapa",
+      "label": "Rong May Thrill Day",
+      "icon": "🎢",
+      "tip": "Rong May: glass bridge + zipline + alpine coaster. No weekend crowd difference.",
+      "area_guide": {
+        "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "hotel_price": "₹500-800/night",
+        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "bus_to_hotel": {
+          "mode": "Walk from bus stop",
+          "time": "5 min",
+          "cost": "FREE",
+          "distance": "400m",
+          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+        },
+        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+      },
+      "timeline": [
+        {
+          "time": "8:00 AM",
+          "activity": "Rong May Tourism Area",
+          "cost": "₹1,400 ⭐4.5",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Rong+May+Tourism+Sapa",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Taxi/motorbike",
+            "time": "30 min",
+            "cost": "₹200-300",
+            "distance": "15 km",
+            "note": "Mountain road — book return taxi"
+          }
+        },
+        {
+          "time": "12:00 PM",
+          "activity": "Lunch — BBQ buffet included",
+          "cost": "included",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-10 min",
+            "cost": "FREE",
+            "distance": "300-500 m"
+          }
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Heaven's Gate pass — viewpoint",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Heaven's+Gate+Sapa",
+          "duration_min": 90,
+          "transit_to_next": null
+        },
+        {
+          "time": "4:00 PM",
+          "activity": "Return Sapa town",
+          "cost": "",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 30,
+          "transit_to_next": null
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Dinner + cultural show",
+          "cost": "₹400-600",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 4,
+      "estimated_cost": 1800
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "dow": "TUE",
+      "city": "Sapa",
+      "label": "Fansipan → Hanoi",
+      "icon": "🏔️",
+      "tip": "Fansipan MOVED Sun→Tue: Sun queue = 2 HOURS, Tue = 10 min!",
+      "area_guide": {
+        "stay_area": "Sapa town center — near Sapa Square / Stone Church",
+        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "hotel_price": "₹500-800/night",
+        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "bus_to_hotel": {
+          "mode": "Walk from bus stop",
+          "time": "5 min",
+          "cost": "FREE",
+          "distance": "400m",
+          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+        },
+        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Fansipan Cable Car — Indochina's roof!",
+          "cost": "₹2,800 ⭐4.7",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Fansipan+Cable+Car+Sapa",
+          "duration_min": 240,
+          "transit_to_next": {
+            "mode": "Hotel shuttle",
+            "time": "10 min",
+            "cost": "FREE",
+            "distance": "3 km",
+            "note": "Most hotels offer free Fansipan shuttle"
+          }
+        },
+        {
+          "time": "11:00 AM",
+          "activity": "Lunch — summit cafe",
+          "cost": "₹300-400",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        },
+        {
+          "time": "1:00 PM",
+          "activity": "Return Sapa town",
+          "cost": "",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 30,
+          "transit_to_next": null
+        },
+        {
+          "time": "4:00 PM",
+          "activity": "Sapa Express Bus → Hanoi (6hrs)",
+          "cost": "₹700-1,050",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 360,
+          "transit_to_next": null
+        },
+        {
+          "time": "10:00 PM",
+          "activity": "Arrive Hanoi — check-in",
+          "cost": "",
+          "category": "hotel",
+          "maps": "",
+          "duration_min": 15,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 2,
+      "estimated_cost": 3800
+    },
+    {
+      "day": 10,
+      "date": "Jul 8",
+      "dow": "WED",
+      "city": "Hanoi",
+      "label": "Full Day Explorer",
+      "icon": "🏙️",
+      "tip": "Morning outdoor, afternoon indoor. X Space immersive + Train Street!",
+      "area_guide": {
+        "stay_area": "Old Quarter — near Hoan Kiem Lake",
+        "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, pho spots, Bun Cha, cafes — all within 1 km. Airport is far (27km) so Grab needed.",
+        "hotel_price": "₹600-1,000/night",
+        "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street, Water Puppet, 50+ restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab",
+          "time": "45-60 min",
+          "cost": "₹500-700",
+          "distance": "27 km",
+          "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price. NO airport buses after 10 PM — book Grab in advance for late arrivals."
+        },
+        "get_around": "Walk everywhere in Old Quarter. Grab for Temple of Literature (10 min, ₹100). Cyclo = SCAM — never take. Hoan Kiem loop is walkable in 20 min."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Pho Thin — second visit (it's that good)",
+          "cost": "₹150 ⭐4.5",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Pho+Thin+Hanoi",
+          "duration_min": 45,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "5-12 min",
+            "cost": "FREE",
+            "distance": "400-900 m",
+            "note": "Old Quarter is compact — walkable"
+          }
+        },
+        {
+          "time": "8:30 AM",
+          "activity": "Hoan Kiem Lake + Ngoc Son Temple",
+          "cost": "₹70",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "10 min",
+            "cost": "₹100",
+            "distance": "3 km",
+            "note": "Too far to walk from Old Quarter"
+          }
+        },
+        {
+          "time": "10:00 AM",
+          "activity": "Temple of Literature — 1000 years old",
+          "cost": "₹105 ⭐4.7",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Temple+of+Literature+Hanoi",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "10 min",
+            "cost": "₹100",
+            "distance": "3 km",
+            "note": "Too far to walk from Old Quarter"
+          }
+        },
+        {
+          "time": "12:00 PM",
+          "activity": "Bun Cha — Obama's spot",
+          "cost": "₹250 ⭐4.5",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Bun+Cha+Huong+Lien+Hanoi",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "12 min",
+            "cost": "₹120",
+            "distance": "4 km"
+          }
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "X Space Immersive — 8 zones",
+          "cost": "₹700 ⭐4.6",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Grab",
+            "time": "12 min",
+            "cost": "₹120",
+            "distance": "4 km"
+          }
+        },
+        {
+          "time": "5:00 PM",
+          "activity": "Train Street — iconic photo",
+          "cost": "₹100 coffee",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Hanoi+Train+Street",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Walk",
+            "time": "2-5 min",
+            "cost": "FREE",
+            "distance": "200 m",
+            "note": "Right next to Hoan Kiem Lake"
+          }
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Water Puppet Theatre",
+          "cost": "₹350 ⭐4.6",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "duration_min": 90,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 7,
+      "estimated_cost": 1725
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "dow": "THU",
+      "city": "Halong Bay",
+      "label": "Day Trip — Highest Risk Day",
+      "icon": "🚢",
+      "tip": "HIGHEST risk day. Check windy.com 3 days before. Backup: Water Puppet + Ceramic Mural.",
+      "area_guide": {
+        "stay_area": "Day trip from Hanoi — no overnight needed",
+        "why": "Bus picks up from Hanoi Old Quarter at 6:30 AM. Returns by 8 PM. No hotel needed.",
+        "bus_to_cruise": {
+          "mode": "Limousine bus",
+          "time": "2.5 hrs",
+          "cost": "₹800-1,200",
+          "distance": "170 km",
+          "note": "Book through cruise package — most include bus transfer. Pick up from Old Quarter hotels. Bring water + snacks."
+        },
+        "get_around": "Everything is on the cruise. Bus picks up and drops at hotel."
+      },
+      "timeline": [
+        {
+          "time": "6:30 AM",
+          "activity": "Limousine bus to Halong Bay (2.5hrs)",
+          "cost": "₹800-1,200",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 360,
+          "transit_to_next": null
+        },
+        {
+          "time": "9:00 AM",
+          "activity": "Halong Bay cruise — caves + kayaking",
+          "cost": "₹1,500-2,500 ⭐4.6",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Halong+Bay+Cruise",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "Cruise bus",
+            "time": "Included",
+            "cost": "Included",
+            "distance": "—",
+            "note": "Everything organized by cruise"
+          }
+        },
+        {
+          "time": "12:00 PM",
+          "activity": "Seafood lunch on boat",
+          "cost": "included",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "Cruise bus",
+            "time": "Included",
+            "cost": "Included",
+            "distance": "—",
+            "note": "Everything organized by cruise"
+          }
+        },
+        {
+          "time": "3:00 PM",
+          "activity": "Titop Island — beach + viewpoint",
+          "cost": "included",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Titop+Island+Halong+Bay",
+          "duration_min": 90,
+          "transit_to_next": null
+        },
+        {
+          "time": "5:00 PM",
+          "activity": "Return bus to Hanoi",
+          "cost": "included",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 360,
+          "transit_to_next": null
+        },
+        {
+          "time": "8:00 PM",
+          "activity": "Dinner — Hanoi Old Quarter",
+          "cost": "₹300-500",
+          "category": "food",
+          "maps": "",
+          "duration_min": 60,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 4,
+      "estimated_cost": 2600
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Departure Day",
+      "icon": "✈️",
+      "tip": "Morning market run. Airport by 12 PM. Flight to Delhi.",
+      "area_guide": {
+        "stay_area": "Old Quarter — near Hoan Kiem Lake",
+        "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, pho spots, Bun Cha, cafes — all within 1 km. Airport is far (27km) so Grab needed.",
+        "hotel_price": "₹600-1,000/night",
+        "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street, Water Puppet, 50+ restaurants",
+        "airport_to_hotel": {
+          "mode": "Grab",
+          "time": "45-60 min",
+          "cost": "₹500-700",
+          "distance": "27 km",
+          "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price. NO airport buses after 10 PM — book Grab in advance for late arrivals."
+        },
+        "get_around": "Walk everywhere in Old Quarter. Grab for Temple of Literature (10 min, ₹100). Cyclo = SCAM — never take. Hoan Kiem loop is walkable in 20 min."
+      },
+      "timeline": [
+        {
+          "time": "7:00 AM",
+          "activity": "Dong Xuan Market — souvenirs",
+          "cost": "₹500-2000",
+          "category": "shopping",
+          "maps": "https://maps.google.com/?q=Dong+Xuan+Market+Hanoi",
+          "duration_min": 60,
+          "transit_to_next": null
+        },
+        {
+          "time": "9:00 AM",
+          "activity": "Last pho — Pho Bat Dan",
+          "cost": "₹140 ⭐4.6",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Pho+Bat+Dan+Hanoi",
+          "duration_min": 45,
+          "transit_to_next": null
+        },
+        {
+          "time": "11:00 AM",
+          "activity": "Airport taxi — Noi Bai",
+          "cost": "₹700-1,000",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 30,
+          "transit_to_next": null
+        },
+        {
+          "time": "2:00 PM",
+          "activity": "Fly Hanoi → Delhi",
+          "cost": "included in intl",
+          "category": "transit",
+          "maps": "",
+          "duration_min": 120,
+          "transit_to_next": null
+        }
+      ],
+      "total_activities": 2,
+      "estimated_cost": 1340
+    }
+  ],
+  "total_days": 13,
+  "source": "Google Maps distances + on-ground research"
+}

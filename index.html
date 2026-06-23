@@ -252,6 +252,8 @@ a:hover { text-decoration:underline; }
       <button class="nav-tab active" data-tab="ops">⚙️ Operations</button>
       <button class="nav-tab" data-tab="briefing">📋 Briefing</button>
       <button class="nav-tab" data-tab="itinerary">🗺️ Itinerary</button>
+      <button class="nav-tab" data-tab="detailed">📍 Day Plan</button>
+      <button class="nav-tab" data-tab="backup">🔄 Backup Plans</button>
       <button class="nav-tab" data-tab="weather">🌧️ Weather</button>
       <button class="nav-tab" data-tab="budget">💰 Budget</button>
       <button class="nav-tab" data-tab="scams">⚠️ Scams</button>
@@ -320,6 +322,26 @@ a:hover { text-decoration:underline; }
     <div class="section-title"><span class="icon">🗺️</span> 13-Day Vietnam Itinerary</div>
     <div class="tip-box accent" id="itineraryTip">Click any day to expand details</div>
     <div id="itineraryList"></div>
+  </div>
+
+  <!-- DETAILED DAY PLAN -->
+  <div class="tab-content" id="tab-detailed">
+    <div class="section-title"><span class="icon">📍</span> Detailed Day Plans — Granular Route & Timing</div>
+    <div class="tip-box accent">Realistic timing with walk times, distances, transport costs, and area guides. No back-and-forth travel.</div>
+    <div id="detailedPlanList">
+      <div class="loading"><div class="spinner"></div>Loading detailed plans...</div>
+    </div>
+  </div>
+
+  <!-- BACKUP PLANS -->
+  <div class="tab-content" id="tab-backup">
+    <div class="section-title"><span class="icon">🔄</span> Weather Backup Plans</div>
+    <div class="tip-box">Original plan is NEVER changed. These are backup alternatives if weather turns bad. Check the best time window before heading out.</div>
+    <div class="stats-grid" id="backupStats"></div>
+    <div class="section-title"><span class="icon">🏙️</span> City Swap Suggestions</div>
+    <div id="citySwaps"></div>
+    <div class="section-title"><span class="icon">📋</span> Day-by-Day Backup Plans</div>
+    <div id="backupList"></div>
   </div>
 
   <!-- WEATHER -->
@@ -487,7 +509,7 @@ async function loadOps() {
   document.getElementById('sWeatherSub').textContent = weather ? `${weather.alerts?.length} alerts` : '';
   document.getElementById('sAlerts').textContent = status.total_alerts || 0;
   document.getElementById('sAlertsSub').textContent = 'Weather + Scam alerts';
-  document.getElementById('sAgents').textContent = status.agents_active || 13;
+  document.getElementById('sAgents').textContent = status.agents_active || 15;
 
   // Agent grid
   const agentDefs = [
@@ -502,6 +524,8 @@ async function loadOps() {
     {key:'hotel', icon:'🏨', name:'Hotel Intelligence', desc:'Safety scores, location analysis, alternatives'},
     {key:'packing', icon:'🎒', name:'Packing Agent', desc:'Weather-adjusted checklist, missing items'},
     {key:'emergency', icon:'🚨', name:'Emergency Response', desc:'Backup plans, hospitals, embassy contacts'},
+    {key:'backup', icon:'🔄', name:'Backup Plan Intelligence', desc:'Weather-based alternatives, indoor options, city swaps'},
+    {key:'detailed_plan', icon:'📍', name:'Detailed Day Plan', desc:'Granular routes, walk times, distances, area guides'},
     {key:'cto', icon:'👔', name:'Chief Travel Officer', desc:'Master orchestrator, daily briefings'},
     {key:'design', icon:'🎨', name:'Design & Website', desc:'UI/UX improvements, new features'},
   ];
@@ -518,6 +542,8 @@ async function loadOps() {
     else if (a.key === 'content') metrics = `<div class="agent-metric"><span class="ml">Reels:</span> <span class="mv">7</span></div>`;
     else if (a.key === 'hotel') metrics = `<div class="agent-metric"><span class="ml">Safety:</span> <span class="mv">88/100</span></div>`;
     else if (a.key === 'emergency') metrics = `<div class="agent-metric"><span class="ml">Ready:</span> <span class="mv">92/100</span></div>`;
+    else if (a.key === 'backup') metrics = `<div class="agent-metric"><span class="ml">High risk:</span> <span class="mv">${st.high_risk_days||'12'} days</span></div>`;
+    else if (a.key === 'detailed_plan') metrics = `<div class="agent-metric"><span class="ml">Days:</span> <span class="mv">13 planned</span></div>`;
     else if (a.key === 'cto') metrics = `<div class="agent-metric"><span class="ml">Health:</span> <span class="mv">${status.travel_health}/100</span></div>`;
     else if (a.key === 'design') metrics = `<div class="agent-metric"><span class="ml">Score:</span> <span class="mv">78/100</span></div>`;
     else if (st.last_run) metrics = `<div class="agent-metric"><span class="ml">Status:</span> <span class="mv">Active</span></div>`;
@@ -538,7 +564,7 @@ async function loadOps() {
   const logTime = new Date(status.last_run).toLocaleString();
   document.getElementById('systemLog').innerHTML = `
     <div style="font-size:13px;line-height:2;">
-      <div><span class="badge badge-accent">ONLINE</span> All 13 agents operational</div>
+      <div><span class="badge badge-accent">ONLINE</span> All 15 agents operational</div>
       <div>⏱️ Last run: ${logTime}</div>
       <div>🔄 Next run: Daily 06:00 ICT (04:30 IST)</div>
       <div>📊 Data source: Open-Meteo API + Curated research + Apify (on-demand)</div>
@@ -924,10 +950,197 @@ async function loadEmergency() {
 // ═══════════════════════════════════════════
 // TAB ROUTER
 // ═══════════════════════════════════════════
+// ═══════════════════════════════════════════
+// DETAILED DAY PLAN
+// ═══════════════════════════════════════════
+async function loadDetailedPlan() {
+  const d = await loadData('detailed-plan');
+  if (!d) return;
+
+  const plans = d.detailed_plans || [];
+  const list = document.getElementById('detailedPlanList');
+  
+  list.innerHTML = plans.map(day => {
+    const ag = day.area_guide || {};
+    
+    // Area guide box
+    let areaHtml = '';
+    if (ag.stay_area) {
+      areaHtml = `<div class="card" style="background:var(--bg2);border-color:var(--accent);">
+        <div class="card-title">🏨 Where to Stay — ${day.city}</div>
+        <div style="font-size:13px;line-height:1.8;">
+          <div><strong>📍 Area:</strong> ${ag.stay_area}</div>
+          <div><strong>💡 Why:</strong> ${ag.why || ''}</div>
+          ${ag.hotel_price ? `<div><strong>💰 Price:</strong> ${ag.hotel_price}</div>` : ''}
+          ${ag.walk_radius ? `<div><strong>🚶 Walk radius:</strong> ${ag.walk_radius}</div>` : ''}
+          ${ag.get_around ? `<div><strong>🚌 Get around:</strong> ${ag.get_around}</div>` : ''}
+        </div>`;
+      if (ag.airport_to_hotel) {
+        const t = ag.airport_to_hotel;
+        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
+          <strong>✈️ Airport → Hotel:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
+          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      if (ag.bus_to_hotel) {
+        const t = ag.bus_to_hotel;
+        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
+          <strong>🚌 Bus → Hotel:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
+          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      if (ag.bus_to_cruise) {
+        const t = ag.bus_to_cruise;
+        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
+          <strong>🚢 Bus → Cruise:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
+          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      areaHtml += `</div>`;
+    }
+
+    // Timeline
+    const timelineHtml = (day.timeline || []).map((t, i) => {
+      const catColors = {food:'var(--accent)',activity:'var(--blue)',transit:'var(--purple)',hotel:'var(--gold)',nightlife:'var(--warn)',cafe:'var(--accent)',shopping:'var(--blue)'};
+      const catColor = catColors[t.category] || 'var(--muted)';
+      let transitHtml = '';
+      if (t.transit_to_next) {
+        const tn = t.transit_to_next;
+        const modeIcon = tn.mode.includes('Walk') ? '🚶' : tn.mode.includes('Grab') ? '🚗' : tn.mode.includes('Bus') ? '🚌' : tn.mode.includes('shuttle') ? '🚐' : tn.mode.includes('Taxi') ? '🚕' : tn.mode.includes('Same') ? '📍' : '→';
+        transitHtml = `<div style="margin:4px 0 4px 20px;padding:6px 10px;background:var(--bg2);border-radius:6px;font-size:11px;color:var(--muted);border-left:2px solid var(--border);">
+          ${modeIcon} <strong>${tn.mode}</strong> → ${tn.time} | ${tn.distance}${tn.cost ? ' | ' + tn.cost : ''}${tn.note ? '<br>📌 ' + tn.note : ''}
+        </div>`;
+      }
+      return `<div class="plan-item" style="border-left:3px solid ${catColor};padding-left:12px;">
+        <div class="plan-time">${t.time}</div>
+        <div class="plan-activity">
+          ${t.activity}
+          ${t.cost ? `<div class="plan-cost">${t.cost}</div>` : ''}
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">⏱️ ${t.duration_min} min</div>
+          ${t.maps ? `<div><a href="${t.maps}" target="_blank" style="font-size:11px;">📍 Google Maps</a></div>` : ''}
+        </div>
+        <div class="plan-cat" style="background:${catColor}20;color:${catColor};">${t.category}</div>
+      </div>${transitHtml}`;
+    }).join('');
+
+    return `<div class="day-card" style="margin-bottom:16px;">
+      <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;">
+        <div class="day-num">${day.icon}</div>
+        <div class="day-info">
+          <div class="day-city">Day ${day.day+1} • ${day.date} ${day.dow} — ${day.city}</div>
+          <div class="day-label">${day.label}</div>
+        </div>
+        <div class="day-meta">
+          <span class="badge badge-accent">${day.total_activities} stops</span>
+          <span class="badge badge-warn">₹${day.estimated_cost}</span>
+        </div>
+      </div>
+      <div class="day-body open">
+        <div class="tip-box accent">${day.tip}</div>
+        ${areaHtml}
+        <div style="margin-top:12px;">
+          <div style="font-size:13px;font-weight:700;margin-bottom:8px;">📋 Timeline with transit</div>
+          ${timelineHtml}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════
+// BACKUP PLANS
+// ═══════════════════════════════════════════
+async function loadBackup() {
+  const b = await loadData('backup');
+  if (!b) return;
+
+  document.getElementById('backupStats').innerHTML = `
+    <div class="stat danger"><div class="label">High Risk Days</div><div class="value">${b.high_risk_days}</div><div class="sub">Need backup plan</div></div>
+    <div class="stat warn"><div class="label">City Swaps</div><div class="value">${b.swap_needed}</div><div class="sub">May need alt city</div></div>
+    <div class="stat accent"><div class="label">Indoor Alternatives</div><div class="value">${b.indoor_alternatives_count}</div><div class="sub">Rain-proof options</div></div>
+    <div class="stat"><div class="label">Summary</div><div class="value" style="font-size:14px;">${b.summary}</div></div>
+  `;
+
+  // City swaps
+  const swaps = b.city_swaps || {};
+  document.getElementById('citySwaps').innerHTML = Object.entries(swaps).map(([city, s]) => 
+    `<div class="card" style="border-left:4px solid var(--warn);">
+      <div class="card-title">🔄 ${city} — Swap Option</div>
+      <div style="font-size:13px;line-height:1.8;">
+        <div>⚠️ <strong>Problem:</strong> ${s.problem}</div>
+        <div>📍 <strong>Alternative 1:</strong> ${s.alternative}</div>
+        <div>📍 <strong>Alternative 2:</strong> ${s.alternative2}</div>
+        <div>💰 <strong>Cost impact:</strong> ${s.cost_impact}</div>
+        <div class="tip-box accent" style="margin-top:6px;">📋 <strong>Verdict:</strong> ${s.verdict}</div>
+      </div>
+    </div>`
+  ).join('');
+
+  // Day-by-day backups
+  document.getElementById('backupList').innerHTML = (b.day_backups || []).map(d => {
+    const riskClass = d.main_risk === 'high' ? 'wx-high' : d.main_risk === 'medium' ? 'wx-med' : 'wx-low';
+    const riskBadge = `<span class="day-wx ${riskClass}">${d.main_risk?.toUpperCase() || 'UNKNOWN'}</span>`;
+    
+    let backupHtml = '';
+    if (d.backup_plan && d.backup_plan.length) {
+      backupHtml = `<div style="margin-top:8px;">
+        <div style="font-size:12px;font-weight:700;color:var(--warn);margin-bottom:6px;">🏠 Indoor Alternatives (if weather turns bad):</div>
+        ${d.backup_plan.map(a => `<div class="card" style="padding:10px;margin-bottom:6px;">
+          <div style="font-size:13px;font-weight:600;">${a.name}</div>
+          <div style="font-size:11px;color:var(--muted);">${a.duration} • ${a.cost}</div>
+          ${a.note ? `<div style="font-size:11px;color:var(--accent);margin-top:2px;">${a.note}</div>` : ''}
+          ${a.maps ? `<a href="${a.maps}" target="_blank" style="font-size:11px;">📍 Maps</a>` : ''}
+        </div>`).join('')}
+      </div>`;
+    }
+
+    let swapHtml = '';
+    if (d.swap_suggestion) {
+      const s = d.swap_suggestion;
+      swapHtml = `<div class="card" style="border-left:4px solid var(--danger);margin-top:8px;">
+        <div style="font-size:13px;font-weight:700;color:var(--danger);">🔄 CITY SWAP RECOMMENDED</div>
+        <div style="font-size:12px;margin-top:4px;">${s.alternative}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">💰 ${s.cost_impact}</div>
+      </div>`;
+    }
+
+    const window = d.best_window || {};
+    let windowHtml = '';
+    if (window.start) {
+      windowHtml = `<div style="font-size:12px;margin-top:4px;">
+        🌤️ <strong>Best outdoor window:</strong> ${window.start}–${window.end} (${window.hours}h clear)
+        ${window.note ? `<br><span style="color:var(--warn)">⚠️ ${window.note}</span>` : ''}
+      </div>`;
+    }
+
+    return `<div class="day-card" style="margin-bottom:8px;">
+      <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;">
+        <div class="day-num">Day ${d.day+1}</div>
+        <div class="day-info">
+          <div class="day-city">${d.date} ${d.dow} — ${d.city}</div>
+          <div class="day-label">${d.label}</div>
+        </div>
+        <div class="day-meta">
+          ${riskBadge}
+          <span style="font-size:11px;color:var(--muted);">🌧️ ${d.rain_prob}%</span>
+        </div>
+      </div>
+      <div class="day-body open">
+        <div class="${d.main_risk === 'high' ? 'tip-box' : 'tip-box accent'}">${d.recommendation}</div>
+        ${windowHtml}
+        ${swapHtml}
+        ${backupHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
 const tabLoaders = {
   ops: loadOps,
   briefing: loadBriefing,
   itinerary: loadItinerary,
+  detailed: loadDetailedPlan,
+  backup: loadBackup,
   weather: loadWeather,
   budget: loadBudget,
   scams: loadScams,
