@@ -1,6 +1,6 @@
 {
   "agent": "Detailed Day Plan",
-  "timestamp": "2026-06-23T19:04:10Z",
+  "timestamp": "2026-06-23T19:29:45Z",
   "area_guide": {
     "HCMC": {
       "stay_area": "District 1 — Bui Vien / Ben Thanh area",
@@ -109,7 +109,8 @@
             "distance": "7 km",
             "recommendation": "Take Grab from SGN airport to D1. Fixed price, book inside terminal. DON'T take street taxis — they overcharge 2-3x.",
             "directions": "https://www.google.com/maps/dir/Tan%20Son%20Nhat%20Airport%20HCMC/District%201%20Ho%20Chi%20Minh%20City"
-          }
+          },
+          "venue": null
         },
         {
           "time": "10:30 PM",
@@ -125,7 +126,8 @@
             "distance": "300 m",
             "recommendation": "Walk — if staying in D1 near Bui Vien, it's a 5-min walk. Ask hotel for directions.",
             "directions": "https://www.google.com/maps/dir/District%201%20HCMC%20hotels/Bui%20Vien%20Walking%20Street%20HCMC"
-          }
+          },
+          "venue": null
         },
         {
           "time": "10:45 PM",
@@ -134,7 +136,13 @@
           "category": "nightlife",
           "maps": "https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",
           "duration_min": 120,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": {
+            "order": "Banh Mi Huynh Hoa (₹105) — Bourdain approved. Saigon Special beer (₹53).",
+            "highlight": "Sunday = pedestrian-only street. Neon, live music, street food. Peak energy 9 PM-1 AM.",
+            "rating": "4.2",
+            "tip": "Keep phone in FRONT pocket. Don't flash cash. Beer is cheapest at street stalls (₹53) not bars (₹175)."
+          }
         }
       ],
       "total_activities": 1,
@@ -177,6 +185,12 @@
             "distance": "650 m",
             "recommendation": "Walk — same District 1 area. Head south on Nguyen Binh Khiem → left on Le Thanh Ton.",
             "directions": "https://www.google.com/maps/dir/Pho%20Minh%20Ho%20Chi%20Minh/Saigon%20Opera%20House"
+          },
+          "venue": {
+            "order": "Pho Tai (rare beef) + Quay (fried dough sticks)",
+            "highlight": "Since 1940s, family recipe. Broth simmered 12+ hours. Go before 9 AM — sells out by 10.",
+            "rating": "4.6",
+            "tip": "Add lime + chili from the condiment tray. Don't add hoisin — purists say it ruins the broth."
           }
         },
         {
@@ -193,6 +207,12 @@
             "distance": "3.5 km",
             "recommendation": "Take Grab — D5 is across the river. Don't walk, it's 45 min through traffic.",
             "directions": "https://www.google.com/maps/dir/Saigon%20Opera%20House/Banh%20Canh%20Cua%20Ba%20Ba%20Quan%205"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Full city loop 60 min. Double-decker bus, upper deck best for photos. Audio guide in English.",
+            "rating": "4.4",
+            "tip": "Sit on the RIGHT side of upper deck for better Opera House + Notre Dame views."
           }
         },
         {
@@ -209,6 +229,12 @@
             "distance": "14 km",
             "recommendation": "Take Grab — Thu Duc is far east. Budget 30 min for rush hour traffic. ~₹300.",
             "directions": "https://www.google.com/maps/dir/Banh%20Canh%20Cua%20Ba%20Ba%20Quan%205/Thiso%20Mall%20Sala%20Thu%20Duc"
+          },
+          "venue": {
+            "order": "Banh Canh Cua (crab udon soup) — large bowl",
+            "highlight": "MICHELIN Bib Gourmand 2026. Silky thick noodles in crab broth. SELLS OUT 1 PM!",
+            "rating": "4.3",
+            "tip": "Arrive by 11 AM. They close when soup runs out. Add chili + lime."
           }
         },
         {
@@ -225,6 +251,12 @@
             "distance": "15 km",
             "recommendation": "Take Grab — from Thu Duc back to D4. Cross-town ride, budget 35 min for evening traffic.",
             "directions": "https://www.google.com/maps/dir/Thiso%20Mall%20Sala%20Thu%20Duc/Vinh%20Khanh%20Food%20Street%20District%204"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "30+ immersive projection rooms. AC — great rain escape. 2 hrs minimum.",
+            "rating": "4.6",
+            "tip": "Start from top floor and work down. Last entry 5 PM. Thiso Mall has food court after."
           }
         },
         {
@@ -241,6 +273,12 @@
             "distance": "2 km",
             "recommendation": "Take Grab — short ride from D4 to D1. Walking is 25 min through narrow streets, not recommended at night.",
             "directions": "https://www.google.com/maps/dir/Vinh%20Khanh%20Food%20Street/Bui%20Vien%20Walking%20Street%20HCMC"
+          },
+          "venue": {
+            "order": "Grilled oysters (₹105/6), scallops with chili (₹175), sea snails",
+            "highlight": "Time Out UK top 31 food streets. Open-air seafood, locals' spot. Pick your seafood live.",
+            "rating": "4.5",
+            "tip": "Go to stall #12 or #15 — best reviews. Negotiate price BEFORE cooking. Bring wet wipes."
           }
         },
         {
@@ -250,7 +288,13 @@
           "category": "nightlife",
           "maps": "https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",
           "duration_min": 120,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": {
+            "order": "Banh Mi Huynh Hoa (₹105) — Bourdain approved. Saigon Special beer (₹53).",
+            "highlight": "Sunday = pedestrian-only street. Neon, live music, street food. Peak energy 9 PM-1 AM.",
+            "rating": "4.2",
+            "tip": "Keep phone in FRONT pocket. Don't flash cash. Beer is cheapest at street stalls (₹53) not bars (₹175)."
+          }
         }
       ],
       "total_activities": 6,
@@ -293,6 +337,12 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Underground tunnel network from Vietnam War. 200km of tunnels. Firing range (real AK-47 ₹700/10 rounds).",
+            "rating": "4.5",
+            "tip": "Wear closed shoes — mud + insects. Skip if claustrophobic. Bring water — very humid."
           }
         },
         {
@@ -309,7 +359,8 @@
             "distance": "12 km",
             "recommendation": "Take Grab from Duong Dong to Grand World (north). 20 min ride. Or hotel shuttle if available (free).",
             "directions": "https://www.google.com/maps/dir/Duong%20Dong%20Phu%20Quoc/Grand%20World%20Phu%20Quoc"
-          }
+          },
+          "venue": null
         },
         {
           "time": "6:00 PM",
@@ -325,6 +376,12 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
+          },
+          "venue": {
+            "order": "",
+            "highlight": "FREE entry. Venice replica + Teddy Bear Museum (₹718). Evening shows: Venice water 9:30 PM, Laser 10:45 PM — both FREE.",
+            "rating": "4.4",
+            "tip": "Eat BEFORE coming — food inside is 2x price. Park near the lake for best show viewing."
           }
         },
         {
@@ -341,7 +398,8 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "10:45 PM",
@@ -350,7 +408,8 @@
           "category": "activity",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 4,
@@ -393,6 +452,12 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Bring motion sickness pills. Lunch included on boat — seafood + rice.",
+            "highlight": "World's longest oversea cable car (8km). Sea walking helmet (walk ocean floor). Snorkeling at 4 islands.",
+            "rating": "4.6",
+            "tip": "BOOK LOCAL at hotel reception (₹4,200) NOT online (₹8,250). Bring towel + sunscreen. Cables close in high wind."
           }
         },
         {
@@ -409,7 +474,8 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "10:00 AM",
@@ -425,7 +491,8 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "5:30 PM",
@@ -441,6 +508,12 @@
             "distance": "15 km",
             "recommendation": "Grab from Sunset Town (south) to Duong Dong (center). 20 min ride north.",
             "directions": "https://www.google.com/maps/dir/Sunset%20Town%20Phu%20Quoc/Duong%20Dong%20Night%20Market"
+          },
+          "venue": {
+            "order": "Kiss Bridge selfie at golden hour. Mediterranean gelato (₹150).",
+            "highlight": "Italian-style sunset town. Kiss Bridge, Clock Tower, Pompeii Ruins replica, Dragon Stairs. FREE.",
+            "rating": "4.5",
+            "tip": "Best at 5-6 PM golden hour. Walk the Dragon Stairs for panorama. Free — no entry fee anywhere."
           }
         },
         {
@@ -450,7 +523,13 @@
           "category": "food",
           "maps": "https://maps.google.com/?q=Duong+Dong+Night+Market+Phu+Quoc",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": {
+            "order": "Sim wine (₹200-400), fresh seafood by weight, fish sauce souvenirs (₹300-600), grilled corn (₹50)",
+            "highlight": "150+ stalls. Nightly 6 PM-midnight. Starfish, sea urchin, lobster. Best food market in Phu Quoc.",
+            "rating": "4.7",
+            "tip": "Ask TOTAL price not per-100g (scam trap). Try sim wine (rose myrtle). Negotiate 20% off. Cash only."
+          }
         }
       ],
       "total_activities": 5,
@@ -493,6 +572,12 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Deep Sea Restaurant (₹500-700) — aquarium view while eating. Combo meal deals at food court.",
+            "highlight": "Vietnam's largest theme park. Aquarium + water park + rides. THE ONCE show 6:45 PM ($12M production, fire+water+light).",
+            "rating": "4.5",
+            "tip": "Go counter-clockwise: rides → aquarium → water park → show. Book online for 10% off. Lockers ₹100."
           }
         },
         {
@@ -509,7 +594,8 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "3:00 PM",
@@ -525,7 +611,8 @@
             "distance": "5-15 km",
             "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "6:45 PM",
@@ -534,7 +621,8 @@
           "category": "activity",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 4,
@@ -577,6 +665,12 @@
             "distance": "300m - 5 km",
             "recommendation": "Old Quarter is compact — walk if < 1km. Grab for Temple of Literature or airport. NEVER take cyclo — scam.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Bring own snacks + water. No food stalls.",
+            "highlight": "Hidden cove beach. No crowds, crystal water. Best sunrise spot on island. FREE.",
+            "rating": "4.6",
+            "tip": "Go 6-8 AM for calm water. No facilities — bring everything. Reef shoes help (rocky entry)."
           }
         },
         {
@@ -593,6 +687,12 @@
             "distance": "300m - 5 km",
             "recommendation": "Old Quarter is compact — walk if < 1km. Grab for Temple of Literature or airport. NEVER take cyclo — scam.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Sea urchin (₹200, live from tank), crab hotpot (₹500), grilled scallops",
+            "highlight": "Authentic fishing village on stilts. Locals eat here, not tourists. Cheap fresh seafood.",
+            "rating": "4.3",
+            "tip": "Pick seafood from the tanks. Price by weight — check before cooking. 30 min from Duong Dong."
           }
         },
         {
@@ -609,7 +709,8 @@
             "distance": "300m - 5 km",
             "recommendation": "Old Quarter is compact — walk if < 1km. Grab for Temple of Literature or airport. NEVER take cyclo — scam.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "8:00 PM",
@@ -618,7 +719,8 @@
           "category": "nightlife",
           "maps": "https://maps.google.com/?q=Hanoi+Night+Market+Old+Quarter",
           "duration_min": 120,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 3,
@@ -661,6 +763,12 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Pho Tai Nam (rare + well-done beef) — THE dish. Add Quay.",
+            "highlight": "#1 pho in Vietnam since 1979. Charred ginger broth — unique smoky flavor. Obama's team ate here.",
+            "rating": "4.5",
+            "tip": "Go 6-7 AM — no queue. After 8 AM = 20 min wait. Only 2 things on menu: Pho Tai and Pho Tai Nam."
           }
         },
         {
@@ -677,7 +785,8 @@
             "distance": "400 m",
             "recommendation": "Walk — Sapa Express bus drops at town center. Most hotels 5-min walk. Hotel can send staff to carry bags if you ask.",
             "directions": "https://www.google.com/maps/dir/Sapa%20Bus%20Station/Sapa%20town%20center"
-          }
+          },
+          "venue": null
         },
         {
           "time": "3:30 PM",
@@ -693,7 +802,8 @@
             "distance": "200 m",
             "recommendation": "Walk — Sapa Square and Stone Church are in the absolute center. 3 min from any town hotel.",
             "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Stone%20Church"
-          }
+          },
+          "venue": null
         },
         {
           "time": "4:00 PM",
@@ -709,6 +819,12 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Roasted chestnuts (₹100), corn on cob (₹50), hot soy milk (₹50)",
+            "highlight": "Town center. Local life. Mountain backdrop. Free. Best at sunset (5-6 PM).",
+            "rating": "4.3",
+            "tip": "Minority women sell handicrafts here — negotiate. Don't take photos without asking + paying small tip."
           }
         },
         {
@@ -718,7 +834,8 @@
           "category": "food",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 3,
@@ -761,6 +878,12 @@
             "distance": "1.5 km",
             "recommendation": "Walk downhill 20 min — steep path from Moana to Cat Cat Village entrance. Coming back up is 35 min — take motorbike taxi ₹100.",
             "directions": "https://www.google.com/maps/dir/Moana%20Sapa/Cat%20Cat%20Village%20Sapa"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Photo zone with rice terrace backdrop. Swing, infinity pool illusion, bamboo bridge. ₹350 entry.",
+            "rating": "4.3",
+            "tip": "Go 7 AM for clear skies + no crowds. Fog after 2 PM ruins photos. Bring someone to take your photo — staff won't."
           }
         },
         {
@@ -777,6 +900,12 @@
             "distance": "2 km",
             "recommendation": "Take motorbike taxi back up to Sapa town — ₹100. Walking up is 35 min steep climb, not worth it.",
             "directions": "https://www.google.com/maps/dir/Cat%20Cat%20Village%20Sapa/Sapa%20town%20center"
+          },
+          "venue": {
+            "order": "Thang Co (horse meat stew ₹200) — try if adventurous. BBQ corn (₹50).",
+            "highlight": "Hmong village + waterfall. Cultural show (dance + music) at 10 AM + 3 PM. Traditional houses.",
+            "rating": "4.4",
+            "tip": "Walk DOWN (20 min) — take motorbike UP (₹100, 35 min walk otherwise). Don't touch the dye vats."
           }
         },
         {
@@ -793,7 +922,8 @@
             "distance": "500 m",
             "recommendation": "Walk — The Hill Station cafe is 500m from Sapa town center. 8 min walk. Mountain valley views from the cafe.",
             "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Hill%20Station%20Sapa"
-          }
+          },
+          "venue": null
         },
         {
           "time": "2:00 PM",
@@ -809,6 +939,12 @@
             "distance": "200 m",
             "recommendation": "Walk — Sapa Square and Stone Church are in the absolute center. 3 min from any town hotel.",
             "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Stone%20Church"
+          },
+          "venue": {
+            "order": "Sapa mountain coffee (₹200), hot chocolate with cinnamon (₹250), apple pie (₹200)",
+            "highlight": "Best cafe in Sapa. Valley + mountain views from window. Roasts own beans. Warm inside.",
+            "rating": "4.5",
+            "tip": "Sit by the window. WiFi good. Great rain/fog escape. Try the salt coffee — local specialty."
           }
         },
         {
@@ -818,7 +954,13 @@
           "category": "activity",
           "maps": "",
           "duration_min": 90,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": {
+            "order": "Roasted chestnuts (₹100), corn on cob (₹50), hot soy milk (₹50)",
+            "highlight": "Town center. Local life. Mountain backdrop. Free. Best at sunset (5-6 PM).",
+            "rating": "4.3",
+            "tip": "Minority women sell handicrafts here — negotiate. Don't take photos without asking + paying small tip."
+          }
         }
       ],
       "total_activities": 5,
@@ -861,6 +1003,12 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
+          },
+          "venue": {
+            "order": "BBQ buffet lunch included in ticket. Grilled pork, vegetables, rice.",
+            "highlight": "Glass bridge 2200m altitude. Zipline + alpine coaster. Cloud sea views. Full day activity.",
+            "rating": "4.5",
+            "tip": "Go early (8 AM) before clouds roll in. Glass bridge closes in high wind. Alpine coaster is the best part — go twice."
           }
         },
         {
@@ -877,7 +1025,8 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "2:00 PM",
@@ -893,6 +1042,12 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Highest mountain pass in Vietnam. Free viewpoint. Cloud sea on clear days.",
+            "rating": "4.6",
+            "tip": "Ask taxi driver to stop 10 min. Best at 9-11 AM before afternoon fog. Free — no entry fee."
           }
         },
         {
@@ -909,7 +1064,8 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "7:00 PM",
@@ -918,7 +1074,8 @@
           "category": "food",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 4,
@@ -961,6 +1118,12 @@
             "distance": "3 km",
             "recommendation": "Shuttle back to Sapa town. 10 min. Or Grab for ₹100.",
             "directions": "https://www.google.com/maps/dir/Fansipan%20Cable%20Car%20Sapa/Sapa%20town%20center"
+          },
+          "venue": {
+            "order": "Summit cafe: hot chocolate (₹250), instant noodles (₹200) — warm up at 3000m!",
+            "highlight": "Roof of Indochina (3143m). Cable car 6km up. Buddha statue, pagoda, cloud sea. Tuesday = 10 min queue!",
+            "rating": "4.7",
+            "tip": "Go TUESDAY not Sunday (2hr vs 10min queue). Bring jacket — 10°C at summit vs 20°C in town. Camera fogs — bring microfiber."
           }
         },
         {
@@ -977,7 +1140,8 @@
             "distance": "200m - 18 km",
             "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "1:00 PM",
@@ -993,7 +1157,8 @@
             "distance": "400 m",
             "recommendation": "Walk to Sapa Express bus stop. 5 min from any town hotel. Bring water + snacks for 6-hr ride back to Hanoi.",
             "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Express%20Bus"
-          }
+          },
+          "venue": null
         },
         {
           "time": "4:00 PM",
@@ -1009,7 +1174,8 @@
             "distance": "400 m",
             "recommendation": "Walk — Sapa Express bus drops at town center. Most hotels 5-min walk. Hotel can send staff to carry bags if you ask.",
             "directions": "https://www.google.com/maps/dir/Sapa%20Bus%20Station/Sapa%20town%20center"
-          }
+          },
+          "venue": null
         },
         {
           "time": "10:00 PM",
@@ -1018,7 +1184,8 @@
           "category": "hotel",
           "maps": "",
           "duration_min": 15,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 2,
@@ -1061,6 +1228,12 @@
             "distance": "800 m",
             "recommendation": "Walk — from Lo Duc St west to Hoan Kiem Lake. 10 min pleasant morning walk through Old Quarter streets.",
             "directions": "https://www.google.com/maps/dir/Pho%20Thin%20Hanoi/Hoan%20Kiem%20Lake%20Hanoi"
+          },
+          "venue": {
+            "order": "Pho Tai Nam (rare + well-done beef) — THE dish. Add Quay.",
+            "highlight": "#1 pho in Vietnam since 1979. Charred ginger broth — unique smoky flavor. Obama's team ate here.",
+            "rating": "4.5",
+            "tip": "Go 6-7 AM — no queue. After 8 AM = 20 min wait. Only 2 things on menu: Pho Tai and Pho Tai Nam."
           }
         },
         {
@@ -1077,6 +1250,12 @@
             "distance": "3 km",
             "recommendation": "Take Grab — Temple of Literature is 3km south of Old Quarter. Too far to walk (35 min). Grab is ₹100.",
             "directions": "https://www.google.com/maps/dir/Hoan%20Kiem%20Lake%20Hanoi/Temple%20of%20Literature%20Hanoi"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Heart of Hanoi. Ngoc Son Temple on island (₹70). Turtle Tower in center. Free to walk around.",
+            "rating": "4.6",
+            "tip": "Morning = locals doing tai chi. Evening = weekend walking street (no cars). Best photos at sunrise."
           }
         },
         {
@@ -1093,6 +1272,12 @@
             "distance": "600 m",
             "recommendation": "Walk 8 min — Bun Cha Huong Lien (Obama's spot) is just 600m from Temple of Literature. Same Dong Da area. Or Grab for ₹70.",
             "directions": "https://www.google.com/maps/dir/Temple%20of%20Literature%20Hanoi/Bun%20Cha%20Huong%20Lien%20Hanoi"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Vietnam's first university (1070 AD). 1000 years old. Courtyards of stone turtles with names of scholars.",
+            "rating": "4.7",
+            "tip": "Go 8 AM before tour buses. 5 courtyards — don't skip the last (doctoral steles). Audio guide ₹50."
           }
         },
         {
@@ -1109,6 +1294,12 @@
             "distance": "5 km",
             "recommendation": "Take Grab from Dong Da back to Hoan Kiem area. X Space is near Old Quarter. 15 min ride.",
             "directions": "https://www.google.com/maps/dir/Bun%20Cha%20Huong%20Lien%20Hanoi/X%20Space%20Immersive%20Hanoi"
+          },
+          "venue": {
+            "order": "Bun Cha (grilled pork + noodles + dipping sauce) + Nem Cua Be (crab spring rolls)",
+            "highlight": "Bun Cha Huong Lien — Obama + Bourdain ate here in 2016. Smoky grilled pork over charcoal.",
+            "rating": "4.5",
+            "tip": "Order the 'Obama combo' (Bun Cha + spring rolls + beer). Mix everything in the sauce. Don't be shy — use hands for spring rolls."
           }
         },
         {
@@ -1125,6 +1316,12 @@
             "distance": "900 m",
             "recommendation": "Walk — Train Street (Le Duan) is 900m from X Space. 12 min walk through Old Quarter. Train passes ~3:45 PM and 7:00 PM.",
             "directions": "https://www.google.com/maps/dir/X%20Space%20Immersive%20Hanoi/Hanoi%20Train%20Street"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "8 immersive zones. Largest digital art space in SE Asia. AC, rain-proof. Instagram heaven.",
+            "rating": "4.6",
+            "tip": "2 hours minimum. Wear white — looks amazing under UV lights. Last entry 8 PM."
           }
         },
         {
@@ -1141,6 +1338,12 @@
             "distance": "1 km",
             "recommendation": "Walk — from Train Street (Le Duan) north to Thang Long Water Puppet Theatre at Hoan Kiem Lake. 12 min.",
             "directions": "https://www.google.com/maps/dir/Hanoi%20Train%20Street/Thang%20Long%20Water%20Puppet%20Hanoi"
+          },
+          "venue": {
+            "order": "Ca Phe Trung (egg coffee ₹100) — Hanoi specialty. Coconut coffee.",
+            "highlight": "Train passes 2 FEET from cafes. Trains at 3:45 PM and 7:00 PM. Iconic Hanoi photo.",
+            "rating": "4.5",
+            "tip": "Sit at cafe ON the tracks (they move you when train comes). Buy a coffee — that's the 'fee'. Train times change — ask cafe owner."
           }
         },
         {
@@ -1150,7 +1353,13 @@
           "category": "activity",
           "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
           "duration_min": 90,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": {
+            "order": "",
+            "highlight": "1000-year-old tradition. Puppets on water, live traditional music. 1 hour show. UNMISSABLE.",
+            "rating": "4.6",
+            "tip": "Book ahead (hotel can do). Front rows get splashed. Photography allowed. English subtitles on screen."
+          }
         }
       ],
       "total_activities": 7,
@@ -1191,6 +1400,12 @@
             "distance": "—",
             "recommendation": "Bus drops at Tuan Chau port. Walk to cruise boat — 5 min. Everything organized by cruise package.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Seafood lunch on boat (included). Squid, shrimp, fish + rice. Vegetarian available — request when booking.",
+            "highlight": "UNESCO World Heritage. 1600 limestone islands. Surprise Cave, kayaking, Titop Island viewpoint.",
+            "rating": "4.6",
+            "tip": "Check windy.com 3 days before. If wind >25km/h → cruise cancels. Book top-rated on Klook. Photograph boat name — prevents bait-and-switch."
           }
         },
         {
@@ -1207,6 +1422,12 @@
             "distance": "—",
             "recommendation": "Everything is organized by the cruise package — bus pickup, boat, lunch, activities, return. Just be on time.",
             "directions": ""
+          },
+          "venue": {
+            "order": "Seafood lunch on boat (included). Squid, shrimp, fish + rice. Vegetarian available — request when booking.",
+            "highlight": "UNESCO World Heritage. 1600 limestone islands. Surprise Cave, kayaking, Titop Island viewpoint.",
+            "rating": "4.6",
+            "tip": "Check windy.com 3 days before. If wind >25km/h → cruise cancels. Book top-rated on Klook. Photograph boat name — prevents bait-and-switch."
           }
         },
         {
@@ -1223,7 +1444,8 @@
             "distance": "—",
             "recommendation": "Everything is organized by the cruise package — bus pickup, boat, lunch, activities, return. Just be on time.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "3:00 PM",
@@ -1239,6 +1461,12 @@
             "distance": "—",
             "recommendation": "Everything is organized by the cruise package — bus pickup, boat, lunch, activities, return. Just be on time.",
             "directions": ""
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Climb 400 steps to viewpoint — BEST panorama of Halong Bay. Beach at bottom for swimming.",
+            "rating": "4.5",
+            "tip": "Climb first, swim after (you'll sweat). 15 min up. Bring water. Steps are steep — take breaks."
           }
         },
         {
@@ -1255,7 +1483,8 @@
             "distance": "—",
             "recommendation": "Everything is organized by the cruise package — bus pickup, boat, lunch, activities, return. Just be on time.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "8:00 PM",
@@ -1264,7 +1493,8 @@
           "category": "food",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 4,
@@ -1307,6 +1537,12 @@
             "distance": "450 m",
             "recommendation": "Walk — Pho Bat Dan is 450m south of Dong Xuan Market. 6 min walk through Old Quarter.",
             "directions": "https://www.google.com/maps/dir/Dong%20Xuan%20Market%20Hanoi/Pho%20Bat%20Dan%20Hanoi"
+          },
+          "venue": {
+            "order": "Dried mango (₹200), cashew nuts (₹400), Vietnamese coffee beans (₹500), lacquerware",
+            "highlight": "Hanoi's largest indoor market. Souvenirs, clothes, food. 3 floors. Wholesale + retail.",
+            "rating": "4.0",
+            "tip": "Negotiate 50% off asking price. Ground floor = tourist, upper floors = better prices. Cash only."
           }
         },
         {
@@ -1323,6 +1559,12 @@
             "distance": "27 km",
             "recommendation": "Take Grab to Noi Bai airport. 45 min, ₹500-700. Leave hotel 3 hrs before international flight.",
             "directions": "https://www.google.com/maps/dir/Pho%20Bat%20Dan%20Hanoi/Noi%20Bai%20Airport%20Hanoi"
+          },
+          "venue": {
+            "order": "Pho Tai (rare beef). Only pho — no menu.",
+            "highlight": "Old Quarter institution since 1960s. Beef simmered overnight. Locals queue from 5 AM.",
+            "rating": "4.6",
+            "tip": "Queue moves fast. Point at what you want. Pay at counter first, then collect bowl. Best last meal in Hanoi."
           }
         },
         {
@@ -1339,7 +1581,8 @@
             "distance": "300m - 5 km",
             "recommendation": "Old Quarter is compact — walk if < 1km. Grab for Temple of Literature or airport. NEVER take cyclo — scam.",
             "directions": ""
-          }
+          },
+          "venue": null
         },
         {
           "time": "2:00 PM",
@@ -1348,7 +1591,8 @@
           "category": "transit",
           "maps": "",
           "duration_min": 120,
-          "transit_to_next": null
+          "transit_to_next": null,
+          "venue": null
         }
       ],
       "total_activities": 2,

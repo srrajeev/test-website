@@ -1048,6 +1048,55 @@ def agent_detailed_plan():
         ("Sapa", "Sapa town", "Fansipan cable car"): 0,  # shuttle
     }
     
+    # Venue guide — what to order, highlights, tips for each specific place
+    venue_guide = {
+        # HCMC
+        "pho minh": {"order": "Pho Tai (rare beef) + Quay (fried dough sticks)", "highlight": "Since 1940s, family recipe. Broth simmered 12+ hours. Go before 9 AM — sells out by 10.", "rating": "4.6", "tip": "Add lime + chili from the condiment tray. Don't add hoisin — purists say it ruins the broth."},
+        "hop-on hop-off": {"order": "", "highlight": "Full city loop 60 min. Double-decker bus, upper deck best for photos. Audio guide in English.", "rating": "4.4", "tip": "Sit on the RIGHT side of upper deck for better Opera House + Notre Dame views."},
+        "banh canh cua": {"order": "Banh Canh Cua (crab udon soup) — large bowl", "highlight": "MICHELIN Bib Gourmand 2026. Silky thick noodles in crab broth. SELLS OUT 1 PM!", "rating": "4.3", "tip": "Arrive by 11 AM. They close when soup runs out. Add chili + lime."},
+        "van gogh": {"order": "", "highlight": "30+ immersive projection rooms. AC — great rain escape. 2 hrs minimum.", "rating": "4.6", "tip": "Start from top floor and work down. Last entry 5 PM. Thiso Mall has food court after."},
+        "vinh khanh": {"order": "Grilled oysters (₹105/6), scallops with chili (₹175), sea snails", "highlight": "Time Out UK top 31 food streets. Open-air seafood, locals' spot. Pick your seafood live.", "rating": "4.5", "tip": "Go to stall #12 or #15 — best reviews. Negotiate price BEFORE cooking. Bring wet wipes."},
+        "bui vien": {"order": "Banh Mi Huynh Hoa (₹105) — Bourdain approved. Saigon Special beer (₹53).", "highlight": "Sunday = pedestrian-only street. Neon, live music, street food. Peak energy 9 PM-1 AM.", "rating": "4.2", "tip": "Keep phone in FRONT pocket. Don't flash cash. Beer is cheapest at street stalls (₹53) not bars (₹175)."},
+        "cu chi": {"order": "", "highlight": "Underground tunnel network from Vietnam War. 200km of tunnels. Firing range (real AK-47 ₹700/10 rounds).", "rating": "4.5", "tip": "Wear closed shoes — mud + insects. Skip if claustrophobic. Bring water — very humid."},
+        # Phu Quoc
+        "grand world": {"order": "", "highlight": "FREE entry. Venice replica + Teddy Bear Museum (₹718). Evening shows: Venice water 9:30 PM, Laser 10:45 PM — both FREE.", "rating": "4.4", "tip": "Eat BEFORE coming — food inside is 2x price. Park near the lake for best show viewing."},
+        "4 island": {"order": "Bring motion sickness pills. Lunch included on boat — seafood + rice.", "highlight": "World's longest oversea cable car (8km). Sea walking helmet (walk ocean floor). Snorkeling at 4 islands.", "rating": "4.6", "tip": "BOOK LOCAL at hotel reception (₹4,200) NOT online (₹8,250). Bring towel + sunscreen. Cables close in high wind."},
+        "sunset town": {"order": "Kiss Bridge selfie at golden hour. Mediterranean gelato (₹150).", "highlight": "Italian-style sunset town. Kiss Bridge, Clock Tower, Pompeii Ruins replica, Dragon Stairs. FREE.", "rating": "4.5", "tip": "Best at 5-6 PM golden hour. Walk the Dragon Stairs for panorama. Free — no entry fee anywhere."},
+        "duong dong": {"order": "Sim wine (₹200-400), fresh seafood by weight, fish sauce souvenirs (₹300-600), grilled corn (₹50)", "highlight": "150+ stalls. Nightly 6 PM-midnight. Starfish, sea urchin, lobster. Best food market in Phu Quoc.", "rating": "4.7", "tip": "Ask TOTAL price not per-100g (scam trap). Try sim wine (rose myrtle). Negotiate 20% off. Cash only."},
+        "vinwonders": {"order": "Deep Sea Restaurant (₹500-700) — aquarium view while eating. Combo meal deals at food court.", "highlight": "Vietnam's largest theme park. Aquarium + water park + rides. THE ONCE show 6:45 PM ($12M production, fire+water+light).", "rating": "4.5", "tip": "Go counter-clockwise: rides → aquarium → water park → show. Book online for 10% off. Lockers ₹100."},
+        "ong lang": {"order": "Bring own snacks + water. No food stalls.", "highlight": "Hidden cove beach. No crowds, crystal water. Best sunrise spot on island. FREE.", "rating": "4.6", "tip": "Go 6-8 AM for calm water. No facilities — bring everything. Reef shoes help (rocky entry)."},
+        "ham ninh": {"order": "Sea urchin (₹200, live from tank), crab hotpot (₹500), grilled scallops", "highlight": "Authentic fishing village on stilts. Locals eat here, not tourists. Cheap fresh seafood.", "rating": "4.3", "tip": "Pick seafood from the tanks. Price by weight — check before cooking. 30 min from Duong Dong."},
+        # Hanoi
+        "pho thin": {"order": "Pho Tai Nam (rare + well-done beef) — THE dish. Add Quay.", "highlight": "#1 pho in Vietnam since 1979. Charred ginger broth — unique smoky flavor. Obama's team ate here.", "rating": "4.5", "tip": "Go 6-7 AM — no queue. After 8 AM = 20 min wait. Only 2 things on menu: Pho Tai and Pho Tai Nam."},
+        "hoan kiem": {"order": "", "highlight": "Heart of Hanoi. Ngoc Son Temple on island (₹70). Turtle Tower in center. Free to walk around.", "rating": "4.6", "tip": "Morning = locals doing tai chi. Evening = weekend walking street (no cars). Best photos at sunrise."},
+        "temple of literature": {"order": "", "highlight": "Vietnam's first university (1070 AD). 1000 years old. Courtyards of stone turtles with names of scholars.", "rating": "4.7", "tip": "Go 8 AM before tour buses. 5 courtyards — don't skip the last (doctoral steles). Audio guide ₹50."},
+        "bun cha": {"order": "Bun Cha (grilled pork + noodles + dipping sauce) + Nem Cua Be (crab spring rolls)", "highlight": "Bun Cha Huong Lien — Obama + Bourdain ate here in 2016. Smoky grilled pork over charcoal.", "rating": "4.5", "tip": "Order the 'Obama combo' (Bun Cha + spring rolls + beer). Mix everything in the sauce. Don't be shy — use hands for spring rolls."},
+        "x space": {"order": "", "highlight": "8 immersive zones. Largest digital art space in SE Asia. AC, rain-proof. Instagram heaven.", "rating": "4.6", "tip": "2 hours minimum. Wear white — looks amazing under UV lights. Last entry 8 PM."},
+        "train street": {"order": "Ca Phe Trung (egg coffee ₹100) — Hanoi specialty. Coconut coffee.", "highlight": "Train passes 2 FEET from cafes. Trains at 3:45 PM and 7:00 PM. Iconic Hanoi photo.", "rating": "4.5", "tip": "Sit at cafe ON the tracks (they move you when train comes). Buy a coffee — that's the 'fee'. Train times change — ask cafe owner."},
+        "water puppet": {"order": "", "highlight": "1000-year-old tradition. Puppets on water, live traditional music. 1 hour show. UNMISSABLE.", "rating": "4.6", "tip": "Book ahead (hotel can do). Front rows get splashed. Photography allowed. English subtitles on screen."},
+        "dong xuan": {"order": "Dried mango (₹200), cashew nuts (₹400), Vietnamese coffee beans (₹500), lacquerware", "highlight": "Hanoi's largest indoor market. Souvenirs, clothes, food. 3 floors. Wholesale + retail.", "rating": "4.0", "tip": "Negotiate 50% off asking price. Ground floor = tourist, upper floors = better prices. Cash only."},
+        "pho bat dan": {"order": "Pho Tai (rare beef). Only pho — no menu.", "highlight": "Old Quarter institution since 1960s. Beef simmered overnight. Locals queue from 5 AM.", "rating": "4.6", "tip": "Queue moves fast. Point at what you want. Pay at counter first, then collect bowl. Best last meal in Hanoi."},
+        # Sapa
+        "moana": {"order": "", "highlight": "Photo zone with rice terrace backdrop. Swing, infinity pool illusion, bamboo bridge. ₹350 entry.", "rating": "4.3", "tip": "Go 7 AM for clear skies + no crowds. Fog after 2 PM ruins photos. Bring someone to take your photo — staff won't."},
+        "cat cat": {"order": "Thang Co (horse meat stew ₹200) — try if adventurous. BBQ corn (₹50).", "highlight": "Hmong village + waterfall. Cultural show (dance + music) at 10 AM + 3 PM. Traditional houses.", "rating": "4.4", "tip": "Walk DOWN (20 min) — take motorbike UP (₹100, 35 min walk otherwise). Don't touch the dye vats."},
+        "hill station": {"order": "Sapa mountain coffee (₹200), hot chocolate with cinnamon (₹250), apple pie (₹200)", "highlight": "Best cafe in Sapa. Valley + mountain views from window. Roasts own beans. Warm inside.", "rating": "4.5", "tip": "Sit by the window. WiFi good. Great rain/fog escape. Try the salt coffee — local specialty."},
+        "rong may": {"order": "BBQ buffet lunch included in ticket. Grilled pork, vegetables, rice.", "highlight": "Glass bridge 2200m altitude. Zipline + alpine coaster. Cloud sea views. Full day activity.", "rating": "4.5", "tip": "Go early (8 AM) before clouds roll in. Glass bridge closes in high wind. Alpine coaster is the best part — go twice."},
+        "heaven": {"order": "", "highlight": "Highest mountain pass in Vietnam. Free viewpoint. Cloud sea on clear days.", "rating": "4.6", "tip": "Ask taxi driver to stop 10 min. Best at 9-11 AM before afternoon fog. Free — no entry fee."},
+        "fansipan": {"order": "Summit cafe: hot chocolate (₹250), instant noodles (₹200) — warm up at 3000m!", "highlight": "Roof of Indochina (3143m). Cable car 6km up. Buddha statue, pagoda, cloud sea. Tuesday = 10 min queue!", "rating": "4.7", "tip": "Go TUESDAY not Sunday (2hr vs 10min queue). Bring jacket — 10°C at summit vs 20°C in town. Camera fogs — bring microfiber."},
+        "sapa square": {"order": "Roasted chestnuts (₹100), corn on cob (₹50), hot soy milk (₹50)", "highlight": "Town center. Local life. Mountain backdrop. Free. Best at sunset (5-6 PM).", "rating": "4.3", "tip": "Minority women sell handicrafts here — negotiate. Don't take photos without asking + paying small tip."},
+        # Halong Bay
+        "halong": {"order": "Seafood lunch on boat (included). Squid, shrimp, fish + rice. Vegetarian available — request when booking.", "highlight": "UNESCO World Heritage. 1600 limestone islands. Surprise Cave, kayaking, Titop Island viewpoint.", "rating": "4.6", "tip": "Check windy.com 3 days before. If wind >25km/h → cruise cancels. Book top-rated on Klook. Photograph boat name — prevents bait-and-switch."},
+        "titop": {"order": "", "highlight": "Climb 400 steps to viewpoint — BEST panorama of Halong Bay. Beach at bottom for swimming.", "rating": "4.5", "tip": "Climb first, swim after (you'll sweat). 15 min up. Bring water. Steps are steep — take breaks."},
+    }
+    
+    def _match_venue(activity_text):
+        """Match activity text to venue guide key."""
+        al = activity_text.lower()
+        for key in venue_guide:
+            if key in al:
+                return venue_guide[key]
+        return None
+
     # Detailed plans per day
     detailed_plans = []
     for day in cfg.ITINERARY:
@@ -1096,6 +1145,9 @@ def agent_detailed_plan():
             else:
                 duration = 60
             
+            # Match venue for recommendations
+            venue = _match_venue(activity)
+            
             # Walk/transit to next location — ALWAYS generate for next item
             transit_to_next = None
             if i + 1 < len(day["plan"]):
@@ -1110,6 +1162,7 @@ def agent_detailed_plan():
                 "maps": maps_link,
                 "duration_min": duration,
                 "transit_to_next": transit_to_next,
+                "venue": venue,
             })
         
         # Daily summary
