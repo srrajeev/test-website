@@ -60,7 +60,7 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var
 .theme-btn { width:36px; height:36px; border-radius:8px; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; }
 
 /* Container */
-.container { max-width:1400px; margin:0 auto; padding:16px; }
+.container { max-width:900px; margin:0 auto; padding:16px; }
 .tab-content { display:none; }
 .tab-content.active { display:block; }
 
@@ -982,72 +982,103 @@ async function loadDetailedPlan() {
   const plans = d.detailed_plans || [];
   const list = document.getElementById('detailedPlanList');
   
+  // Category icons and colors
+  const catIcons = {food:'🍜',activity:'🎯',transit:'✈️',hotel:'🏨',nightlife:'🍺',cafe:'☕',shopping:'🛍️'};
+  const catColors = {food:'#00d4aa',activity:'#42a5f5',transit:'#ab47bc',hotel:'#ffd54f',nightlife:'#ffa726',cafe:'#00d4aa',shopping:'#42a5f5'};
+  
   list.innerHTML = plans.map(day => {
     const ag = day.area_guide || {};
     
-    // Area guide box
+    // Compact area guide — grid layout, no empty space
     let areaHtml = '';
     if (ag.stay_area) {
-      areaHtml = `<div class="card" style="background:var(--bg2);border-color:var(--accent);">
-        <div class="card-title">🏨 Where to Stay — ${day.city}</div>
-        <div style="font-size:13px;line-height:1.8;">
-          <div><strong>📍 Area:</strong> ${ag.stay_area}</div>
-          <div><strong>💡 Why:</strong> ${ag.why || ''}</div>
-          ${ag.hotel_price ? `<div><strong>💰 Price:</strong> ${ag.hotel_price}</div>` : ''}
-          ${ag.walk_radius ? `<div><strong>🚶 Walk radius:</strong> ${ag.walk_radius}</div>` : ''}
-          ${ag.get_around ? `<div><strong>🚌 Get around:</strong> ${ag.get_around}</div>` : ''}
-        </div>`;
+      let transportHtml = '';
       if (ag.airport_to_hotel) {
         const t = ag.airport_to_hotel;
-        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
-          <strong>✈️ Airport → Hotel:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
-          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">✈️ Airport → Hotel</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
         </div>`;
       }
       if (ag.bus_to_hotel) {
         const t = ag.bus_to_hotel;
-        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
-          <strong>🚌 Bus → Hotel:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
-          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">🚌 Bus → Hotel</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
         </div>`;
       }
       if (ag.bus_to_cruise) {
         const t = ag.bus_to_cruise;
-        areaHtml += `<div style="margin-top:8px;padding:8px;background:var(--card);border-radius:8px;font-size:12px;">
-          <strong>🚢 Bus → Cruise:</strong> ${t.mode} | ${t.time} | ${t.distance} | ${t.cost}<br>
-          <span style="color:var(--muted)">📌 ${t.note || ''}</span>
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">🚢 Bus → Cruise</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
         </div>`;
       }
-      areaHtml += `</div>`;
+      
+      areaHtml = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">🏨 Stay Area</div>
+          <div style="font-size:12px;font-weight:600;">${ag.stay_area}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;">${ag.why || ''}</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">💰 Hotel & Transport</div>
+          <div style="font-size:11px;">💵 ${ag.hotel_price || '—'}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">🚶 ${ag.walk_radius || '—'}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">🚌 ${ag.get_around ? ag.get_around.substring(0,60)+'...' : '—'}</div>
+        </div>
+      </div>
+      ${transportHtml ? `<div style="margin:8px 0;">${transportHtml}</div>` : ''}`;
     }
 
-    // Timeline
+    // Timeline — denser, richer cards
     const timelineHtml = (day.timeline || []).map((t, i) => {
-      const catColors = {food:'var(--accent)',activity:'var(--blue)',transit:'var(--purple)',hotel:'var(--gold)',nightlife:'var(--warn)',cafe:'var(--accent)',shopping:'var(--blue)'};
-      const catColor = catColors[t.category] || 'var(--muted)';
+      const cc = catColors[t.category] || '#7a8294';
+      const ci = catIcons[t.category] || '📌';
+      const durHrs = Math.floor(t.duration_min / 60);
+      const durMin = t.duration_min % 60;
+      const durStr = durHrs > 0 ? `${durHrs}h${durMin > 0 ? ' '+durMin+'m' : ''}` : `${durMin}m`;
+      
+      // Transit block — bolder, more visible
       let transitHtml = '';
       if (t.transit_to_next) {
         const tn = t.transit_to_next;
         const hasDirs = tn.directions && tn.directions.length > 0;
-        transitHtml = `<div style="margin:4px 0 8px 20px;padding:10px 12px;background:var(--bg2);border-radius:8px;font-size:12px;color:var(--text);border-left:3px solid var(--accent);">
-          <div style="font-weight:700;margin-bottom:4px;">${tn.mode} → ${tn.time} | ${tn.distance}${tn.cost ? ' | ' + tn.cost : ''}</div>
-          ${tn.recommendation ? `<div style="color:var(--muted);line-height:1.5;">💡 ${tn.recommendation}</div>` : ''}
-          ${hasDirs ? `<a href="${tn.directions}" target="_blank" style="font-size:11px;color:var(--accent);display:inline-block;margin-top:4px;">📍 Get Directions on Google Maps →</a>` : ''}
+        transitHtml = `<div style="margin:2px 0 2px 16px;padding:8px 12px;background:var(--bg2);border-radius:8px;border-left:4px solid var(--accent);display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;">
+          <div style="font-size:12px;font-weight:700;white-space:nowrap;">${tn.mode} → ${tn.time}</div>
+          <div style="font-size:11px;color:var(--muted);white-space:nowrap;">${tn.distance}${tn.cost ? ' · ' + tn.cost : ''}</div>
+          ${hasDirs ? `<a href="${tn.directions}" target="_blank" style="font-size:10px;color:var(--accent);white-space:nowrap;">📍 Directions →</a>` : ''}
+          ${tn.recommendation ? `<div style="font-size:11px;color:var(--muted);width:100%;line-height:1.4;margin-top:2px;">💡 ${tn.recommendation}</div>` : ''}
         </div>`;
       }
-      return `<div class="plan-item" style="border-left:3px solid ${catColor};padding-left:12px;">
-        <div class="plan-time">${t.time}</div>
-        <div class="plan-activity">
-          ${t.activity}
-          ${t.cost ? `<div class="plan-cost">${t.cost}</div>` : ''}
-          <div style="font-size:11px;color:var(--muted);margin-top:2px;">⏱️ ${t.duration_min} min</div>
-          ${t.maps ? `<div><a href="${t.maps}" target="_blank" style="font-size:11px;">📍 Google Maps</a></div>` : ''}
+      
+      return `<div style="display:flex;gap:0;margin-bottom:2px;">
+        <div style="width:60px;flex-shrink:0;text-align:right;padding:10px 8px 0 0;">
+          <div style="font-size:12px;font-weight:700;color:${cc};">${t.time}</div>
         </div>
-        <div class="plan-cat" style="background:${catColor}20;color:${catColor};">${t.category}</div>
-      </div>${transitHtml}`;
+        <div style="width:3px;background:${cc};border-radius:2px;flex-shrink:0;margin-top:10px;margin-bottom:10px;"></div>
+        <div style="flex:1;padding:8px 12px;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;gap:10px;align-items:flex-start;">
+            <div style="font-size:22px;flex-shrink:0;">${ci}</div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:14px;font-weight:700;line-height:1.3;">${t.activity}</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;align-items:center;">
+                <span style="font-size:11px;color:var(--muted);">⏱️ ${durStr}</span>
+                ${t.cost ? `<span style="font-size:11px;color:var(--accent);font-weight:600;">💰 ${t.cost}</span>` : ''}
+                <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:${cc}20;color:${cc};font-weight:600;text-transform:uppercase;">${t.category}</span>
+                ${t.maps ? `<a href="${t.maps}" target="_blank" style="font-size:10px;color:var(--blue);">📍 Maps</a>` : ''}
+              </div>
+            </div>
+          </div>
+          ${transitHtml}
+        </div>
+      </div>`;
     }).join('');
 
-    return `<div class="day-card" style="margin-bottom:16px;">
+    return `<div class="day-card" style="margin-bottom:12px;">
       <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;">
         <div class="day-num">${day.icon}</div>
         <div class="day-info">
@@ -1060,12 +1091,10 @@ async function loadDetailedPlan() {
         </div>
       </div>
       <div class="day-body open">
-        <div class="tip-box accent">${day.tip}</div>
+        <div class="tip-box accent" style="font-size:12px;padding:8px 12px;">💡 ${day.tip}</div>
         ${areaHtml}
-        <div style="margin-top:12px;">
-          <div style="font-size:13px;font-weight:700;margin-bottom:8px;">📋 Timeline with transit</div>
-          ${timelineHtml}
-        </div>
+        <div style="font-size:12px;font-weight:700;margin:10px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;">📋 Timeline</div>
+        ${timelineHtml}
       </div>
     </div>`;
   }).join('');
