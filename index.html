@@ -260,6 +260,40 @@ body {
 
 a { color: var(--teal); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* Utility Panel */
+.util-toggle {
+  position:fixed; bottom:20px; right:20px; z-index:200;
+  width:50px; height:50px; border-radius:50%;
+  background:var(--accent); color:white; border:none; font-size:24px;
+  cursor:pointer; box-shadow:var(--shadow-lg);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform 0.2s;
+}
+.util-toggle:hover { transform:scale(1.1); }
+.util-panel {
+  position:fixed; bottom:80px; right:20px; z-index:199;
+  width:300px; max-height:450px; overflow-y:auto;
+  background:var(--surface); border-radius:16px;
+  box-shadow:var(--shadow-lg); border:1px solid var(--border);
+  padding:16px; display:none;
+}
+.util-panel.open { display:block; }
+.util-tabs {
+  display:flex; gap:4px; margin-bottom:12px;
+}
+.util-tab {
+  flex:1; padding:8px; border:none; border-radius:8px;
+  background:var(--bg); color:var(--text-secondary);
+  font-size:12px; font-weight:600; cursor:pointer;
+}
+.util-tab.active { background:var(--accent); color:white; }
+.util-content { display:none; }
+.util-content.active { display:block; }
+.util-content h4 { font-size:14px; margin-bottom:8px; }
+@media (max-width:400px) {
+  .util-panel { width:calc(100vw-32px); right:16px; }
+}
 </style>
 </head>
 <body>
@@ -654,6 +688,129 @@ function toggleTheme() {
     if (tab) tab.classList.add('active');
   }
 })();
+</script>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- INTERACTIVE UTILITY PANEL -->
+<!-- ═══════════════════════════════════════ -->
+<div id="util-panel" class="util-panel">
+  <div class="util-tabs">
+    <button class="util-tab active" onclick="switchUtil('checklist')">✅ Done</button>
+    <button class="util-tab" onclick="switchUtil('budget')">💰 Budget</button>
+    <button class="util-tab" onclick="switchUtil('emergency')">🆘 Help</button>
+  </div>
+  <div id="util-checklist" class="util-content active">
+    <h4>Mark what you've done:</h4>
+    <div id="checklist-items"></div>
+    <button onclick="resetChecklist()" style="font-size:11px;margin-top:8px;">🔄 Reset</button>
+  </div>
+  <div id="util-budget" class="util-content">
+    <h4>Spent so far:</h4>
+    <div style="font-size:13px;">
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Sapa</span><span id="spent-sapa">₹0 / ₹11,480</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>HCMC</span><span id="spent-hcmc">₹0 / ₹2,600</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Phu Quoc</span><span id="spent-phuquoc">₹0 / ₹9,128</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Hanoi</span><span id="spent-hanoi">₹0 / ₹7,200</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;font-weight:700;"><span>TOTAL</span><span id="spent-total">₹0 / ₹30,408</span></div>
+    </div>
+    <input id="quick-add" type="number" placeholder="Quick add ₹" style="width:100%;padding:6px;margin-top:8px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);">
+    <button onclick="addQuickSpend()" style="margin-top:4px;width:100%;padding:6px;background:var(--accent);color:white;border:none;border-radius:8px;cursor:pointer;">+ Add</button>
+  </div>
+  <div id="util-emergency" class="util-content">
+    <h4>🆘 Emergency Contacts</h4>
+    <div style="font-size:12px;line-height:2;">
+      🇻🇳 Police: <b>113</b><br>
+      🚑 Ambulance: <b>115</b><br>
+      🔥 Fire: <b>114</b><br>
+      🇮🇳 Indian Embassy Hanoi: <b>+84-24-38244989</b><br>
+      🇮🇳 Consulate HCMC: <b>+84-28-38227056</b><br>
+      🏥 SOS Intl Clinic HCMC: <b>+84-28-38278525</b><br>
+      🏥 Family Medical Hanoi: <b>+84-24-38430748</b>
+    </div>
+  </div>
+</div>
+<button class="util-toggle" onclick="toggleUtil()" title="Tools">🧰</button>
+
+<script>
+// ═══ UTILITY PANEL ═══
+function toggleUtil(){
+  document.getElementById('util-panel').classList.toggle('open');
+}
+function switchUtil(tab){
+  document.querySelectorAll('.util-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.util-content').forEach(c=>c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('util-'+tab).classList.add('active');
+}
+
+// ═══ CHECKLIST ═══
+const MUST_DO = [
+  "⛰️ Sapa: Fansipan Summit", "⛰️ Sapa: Cat Cat Village", "⛰️ Sapa: Moana 7AM",
+  "⛰️ Sapa: Rong May Glass Bridge", "⛰️ Sapa: Phansi BBQ dinner",
+  "🏙️ HCMC: MICHELIN crab soup", "🏙️ HCMC: Van Gogh METASHOW", "🏙️ HCMC: Bui Vien night",
+  "🏝️ PQ: 4 Island Tour", "🏝️ PQ: THE ONCE SHOW", "🏝️ PQ: Grand World Venice show",
+  "🍜 Hanoi: Pho Thin #1", "🍜 Hanoi: Giang egg coffee", "🍜 Hanoi: Train Street",
+  "🍜 Hanoi: Bun Cha Obama", "🚢 Halong Bay cruise"
+];
+
+function renderChecklist(){
+  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
+  document.getElementById('checklist-items').innerHTML = MUST_DO.map((item,i)=>{
+    const done = saved[i] || false;
+    return `<label style="display:flex;align-items:center;gap:8px;padding:5px 0;cursor:pointer;font-size:13px;">
+      <input type="checkbox" ${done?'checked':''} onchange="toggleCheck(${i},this.checked)" style="width:16px;height:16px;">
+      <span style="${done?'text-decoration:line-through;color:var(--text-secondary)':''}">${item}</span>
+    </label>`;
+  }).join('');
+}
+function toggleCheck(i,checked){
+  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
+  saved[i] = checked; 
+  localStorage.setItem('vn_checklist',JSON.stringify(saved));
+  renderChecklist();
+  updateBudget();
+}
+function resetChecklist(){
+  localStorage.removeItem('vn_checklist');
+  renderChecklist();
+  updateBudget();
+}
+
+// ═══ BUDGET ═══
+const CITY_COSTS = {sapa:11480, hcmc:2600, phuquoc:9128, hanoi:7200};
+function updateBudget(){
+  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
+  const done = Object.values(saved).filter(v=>v).length;
+  const pct = Math.round((done/MUST_DO.length)*100);
+  const totalBudget = Object.values(CITY_COSTS).reduce((a,b)=>a+b,0);
+  const spent = Math.round((pct/100)*totalBudget);
+  
+  for(const [city,cost] of Object.entries(CITY_COSTS)){
+    document.getElementById('spent-'+city).textContent = `₹${Math.round((pct/100)*cost)} / ₹${cost}`;
+  }
+  document.getElementById('spent-total').textContent = `₹${spent} / ₹${totalBudget}`;
+  
+  // Bonus spend
+  const bonus = JSON.parse(localStorage.getItem('vn_bonus')||'0');
+  if(bonus>0){
+    document.getElementById('spent-total').textContent += ` + ₹${bonus} extra`;
+  }
+}
+function addQuickSpend(){
+  const inp = document.getElementById('quick-add');
+  const val = parseInt(inp.value)||0;
+  if(val>0){
+    const bonus = JSON.parse(localStorage.getItem('vn_bonus')||'0');
+    localStorage.setItem('vn_bonus',JSON.stringify(bonus+val));
+    inp.value = '';
+    updateBudget();
+  }
+}
+
+// ═══ INIT ═══
+renderChecklist();
+updateBudget();
+updateBudget(); // double call intentional for bonus
 </script>
 
 </body>
