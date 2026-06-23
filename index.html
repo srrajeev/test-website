@@ -1006,9 +1006,11 @@ async function loadDetailedPlan() {
       let transitHtml = '';
       if (t.transit_to_next) {
         const tn = t.transit_to_next;
-        const modeIcon = tn.mode.includes('Walk') ? '🚶' : tn.mode.includes('Grab') ? '🚗' : tn.mode.includes('Bus') ? '🚌' : tn.mode.includes('shuttle') ? '🚐' : tn.mode.includes('Taxi') ? '🚕' : tn.mode.includes('Same') ? '📍' : '→';
-        transitHtml = `<div style="margin:4px 0 4px 20px;padding:6px 10px;background:var(--bg2);border-radius:6px;font-size:11px;color:var(--muted);border-left:2px solid var(--border);">
-          ${modeIcon} <strong>${tn.mode}</strong> → ${tn.time} | ${tn.distance}${tn.cost ? ' | ' + tn.cost : ''}${tn.note ? '<br>📌 ' + tn.note : ''}
+        const hasDirs = tn.directions && tn.directions.length > 0;
+        transitHtml = `<div style="margin:4px 0 8px 20px;padding:10px 12px;background:var(--bg2);border-radius:8px;font-size:12px;color:var(--text);border-left:3px solid var(--accent);">
+          <div style="font-weight:700;margin-bottom:4px;">${tn.mode} → ${tn.time} | ${tn.distance}${tn.cost ? ' | ' + tn.cost : ''}</div>
+          ${tn.recommendation ? `<div style="color:var(--muted);line-height:1.5;">💡 ${tn.recommendation}</div>` : ''}
+          ${hasDirs ? `<a href="${tn.directions}" target="_blank" style="font-size:11px;color:var(--accent);display:inline-block;margin-top:4px;">📍 Get Directions on Google Maps →</a>` : ''}
         </div>`;
       }
       return `<div class="plan-item" style="border-left:3px solid ${catColor};padding-left:12px;">

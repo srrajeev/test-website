@@ -1,6 +1,6 @@
 {
   "agent": "Backup Plan Intelligence",
-  "timestamp": "2026-06-23T18:46:19Z",
+  "timestamp": "2026-06-23T19:04:10Z",
   "day_backups": [
     {
       "day": 0,
@@ -421,9 +421,9 @@
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "09:00",
-        "hours": 4,
-        "max_rain_in_window": 35
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 22
       },
       "original_plan": [
         "Moana Sapa — photo spot",
@@ -469,7 +469,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (97% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+      "recommendation": "⚠️ High weather risk (97% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
     },
     {
       "day": 8,
@@ -482,9 +482,9 @@
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "08:00",
-        "hours": 3,
-        "max_rain_in_window": 35
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 29
       },
       "original_plan": [
         "Rong May Tourism Area",
@@ -530,7 +530,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (91% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+      "recommendation": "⚠️ High weather risk (91% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
     },
     {
       "day": 9,
@@ -543,9 +543,9 @@
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "07:00",
-        "hours": 2,
-        "max_rain_in_window": 18
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 34
       },
       "original_plan": [
         "Fansipan Cable Car — Indochina's roof!",
@@ -591,7 +591,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (96% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+      "recommendation": "⚠️ High weather risk (96% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
     },
     {
       "day": 10,
@@ -604,9 +604,9 @@
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "06:00",
-        "hours": 1,
-        "max_rain_in_window": 24
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 32
       },
       "original_plan": [
         "Pho Thin — second visit (it's that good)",
@@ -648,7 +648,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (85% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+      "recommendation": "⚠️ High weather risk (85% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
     },
     {
       "day": 11,

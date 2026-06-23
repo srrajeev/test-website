@@ -1056,7 +1056,6 @@ def agent_detailed_plan():
         
         # Build granular timeline with realistic times
         timeline = []
-        prev_location = None
         
         for i, item in enumerate(day["plan"]):
             time_str = item["time"]
@@ -1097,16 +1096,11 @@ def agent_detailed_plan():
             else:
                 duration = 60
             
-            # Walk/transit to next location
+            # Walk/transit to next location — ALWAYS generate for next item
             transit_to_next = None
             if i + 1 < len(day["plan"]):
                 next_item = day["plan"][i + 1]
-                next_cat = next_item.get("category", "")
-                
-                # If same general area, add walk time
-                if cat in ["food", "activity", "cafe"] and next_cat in ["food", "activity", "cafe"]:
-                    # Check if walkable (same city, nearby)
-                    transit_to_next = _estimate_transit(city, activity, next_item["activity"])
+                transit_to_next = _estimate_transit(city, day["day"], activity, next_item["activity"], maps_link, next_item.get("maps", ""))
             
             timeline.append({
                 "time": time_str,
@@ -1148,69 +1142,368 @@ def agent_detailed_plan():
     print(f"[Detailed Plan Agent] {len(detailed_plans)} days with granular timelines")
     return output
 
-def _estimate_transit(city, from_activity, to_activity):
-    """Estimate transit between two activities."""
+def _estimate_transit(city, day_num, from_activity, to_activity, from_maps="", to_maps=""):
+    """Estimate specific transit between two activities with real distances."""
     from_lower = from_activity.lower()
     to_lower = to_activity.lower()
     
     # Same venue check
     if from_activity == to_activity:
-        return {"mode": "Same location", "time": "0 min", "cost": "FREE", "distance": "0 m"}
+        return {"mode": "Same location", "time": "0 min", "cost": "FREE", "distance": "0 m", "recommendation": "Already here", "directions": ""}
     
-    # Known walk times — used as reference (not exhaustive)
-    # Transit estimation is handled by city-specific heuristics below
+    # Generate Google Maps directions link
+    def gmaps_dirs(from_place, to_place):
+        return f"https://www.google.com/maps/dir/{urllib.parse.quote(from_place)}/{urllib.parse.quote(to_place)}"
     
-    # Heuristic: if both are activities in same city
+    # ═══════════════════════════════════════
+    # HCMC — District 1 centered, specific venues
+    # ═══════════════════════════════════════
     if city == "HCMC":
-        # D1 area — most things walkable
-        if "bui vien" in from_lower or "ben thanh" in from_lower:
-            if "opera" in to_lower or "notre dame" in to_lower:
-                return {"mode": "Walk", "time": "10 min", "cost": "FREE", "distance": "800 m"}
-        if "vinh khanh" in from_lower or "vinh khanh" in to_lower:
-            return {"mode": "Grab", "time": "10 min", "cost": "₹100-150", "distance": "3 km", "note": "Vinh Khanh is in D4 — need Grab"}
-        if "van gogh" in from_lower or "thiso" in from_lower or "van gogh" in to_lower:
-            return {"mode": "Grab", "time": "25 min", "cost": "₹200-300", "distance": "12 km", "note": "Thu Duc — far from D1. Budget rush hour time."}
-        return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "500-800 m", "note": "Most D1 attractions are walkable"}
+        # Pho Minh → Opera House
+        if "pho minh" in from_lower and ("opera" in to_lower or "hop-on" in to_lower):
+            return {"mode": "🚶 Walk", "time": "8 min", "cost": "FREE", "distance": "650 m",
+                    "recommendation": "Walk — same District 1 area. Head south on Nguyen Binh Khiem → left on Le Thanh Ton.",
+                    "directions": gmaps_dirs("Pho Minh Ho Chi Minh", "Saigon Opera House")}
+        
+        # Opera House → Banh Canh Cua Ba Ba (D5)
+        if ("opera" in from_lower or "hop-on" in from_lower) and "banh canh" in to_lower:
+            return {"mode": "🚗 Grab", "time": "12 min", "cost": "₹100-140", "distance": "3.5 km",
+                    "recommendation": "Take Grab — D5 is across the river. Don't walk, it's 45 min through traffic.",
+                    "directions": gmaps_dirs("Saigon Opera House", "Banh Canh Cua Ba Ba Quan 5")}
+        
+        # Banh Canh Cua Ba Ba → Van Gogh (Thu Duc)
+        if "banh canh" in from_lower and ("van gogh" in to_lower or "thiso" in to_lower):
+            return {"mode": "🚗 Grab", "time": "25 min", "cost": "₹250-350", "distance": "14 km",
+                    "recommendation": "Take Grab — Thu Duc is far east. Budget 30 min for rush hour traffic. ~₹300.",
+                    "directions": gmaps_dirs("Banh Canh Cua Ba Ba Quan 5", "Thiso Mall Sala Thu Duc")}
+        
+        # Van Gogh → Vinh Khanh Food Street
+        if ("van gogh" in from_lower or "thiso" in from_lower) and "vinh khanh" in to_lower:
+            return {"mode": "🚗 Grab", "time": "30 min", "cost": "₹300-400", "distance": "15 km",
+                    "recommendation": "Take Grab — from Thu Duc back to D4. Cross-town ride, budget 35 min for evening traffic.",
+                    "directions": gmaps_dirs("Thiso Mall Sala Thu Duc", "Vinh Khanh Food Street District 4")}
+        
+        # Vinh Khanh → Bui Vien
+        if "vinh khanh" in from_lower and "bui vien" in to_lower:
+            return {"mode": "🚗 Grab", "time": "8 min", "cost": "₹80-100", "distance": "2 km",
+                    "recommendation": "Take Grab — short ride from D4 to D1. Walking is 25 min through narrow streets, not recommended at night.",
+                    "directions": gmaps_dirs("Vinh Khanh Food Street", "Bui Vien Walking Street HCMC")}
+        
+        # Bui Vien → Bui Vien (same place)
+        if "bui vien" in from_lower and "bui vien" in to_lower:
+            return {"mode": "📍 Same area", "time": "0 min", "cost": "FREE", "distance": "0 m",
+                    "recommendation": "Already on Bui Vien — just walk to the next spot.",
+                    "directions": ""}
+        
+        # Airport → Hotel (Day 0 arrival)
+        if ("land" in from_lower or "airport" in from_lower or "sgn" in from_lower) and ("check-in" in to_lower or "hotel" in to_lower):
+            return {"mode": "🚗 Grab", "time": "35 min", "cost": "₹300-400", "distance": "7 km",
+                    "recommendation": "Take Grab from SGN airport to D1. Fixed price, book inside terminal. DON'T take street taxis — they overcharge 2-3x.",
+                    "directions": gmaps_dirs("Tan Son Nhat Airport HCMC", "District 1 Ho Chi Minh City")}
+        
+        # Hotel → Bui Vien (Day 0 night)
+        if "check-in" in from_lower and "bui vien" in to_lower:
+            return {"mode": "🚶 Walk", "time": "5 min", "cost": "FREE", "distance": "300 m",
+                    "recommendation": "Walk — if staying in D1 near Bui Vien, it's a 5-min walk. Ask hotel for directions.",
+                    "directions": gmaps_dirs("District 1 HCMC hotels", "Bui Vien Walking Street HCMC")}
+        
+        # Hotel → Cu Chi (Day 2 morning)
+        if "cu chi" in to_lower:
+            return {"mode": "🚗 Grab/Tour", "time": "1.5 hr", "cost": "₹500-700", "distance": "50 km",
+                    "recommendation": "Book a half-day tour (hotel reception ~₹500 incl transport). Grab is ₹700+ one-way. Tour is cheaper + includes guide.",
+                    "directions": gmaps_dirs("District 1 HCMC", "Cu Chi Tunnels")}
+        
+        # Cu Chi → Airport (Day 2)
+        if "cu chi" in from_lower and "fly" in to_lower:
+            return {"mode": "🚗 Grab", "time": "45 min", "cost": "₹400-500", "distance": "35 km",
+                    "recommendation": "Take Grab directly from Cu Chi to SGN airport. 45 min, ₹450. Don't go back to hotel first.",
+                    "directions": gmaps_dirs("Cu Chi Tunnels", "Tan Son Nhat Airport HCMC")}
+        
+        # Default HCMC
+        return {"mode": "🚶 Walk / 🚗 Grab", "time": "10-15 min", "cost": "FREE - ₹150", "distance": "1-3 km",
+                "recommendation": "Check Google Maps — if < 1km, walk. If > 1km, take Grab (₹80-150 per ride in D1).",
+                "directions": ""}
     
-    elif city == "Hanoi":
-        if "temple of literature" in from_lower or "temple of literature" in to_lower:
-            return {"mode": "Grab", "time": "10 min", "cost": "₹100", "distance": "3 km", "note": "Too far to walk from Old Quarter"}
-        if "hoan kiem" in from_lower and ("train street" in to_lower or "old quarter" in to_lower):
-            return {"mode": "Walk", "time": "10-12 min", "cost": "FREE", "distance": "900 m"}
-        if "water puppet" in from_lower or "water puppet" in to_lower:
-            return {"mode": "Walk", "time": "2-5 min", "cost": "FREE", "distance": "200 m", "note": "Right next to Hoan Kiem Lake"}
-        if "x space" in from_lower or "x space" in to_lower:
-            return {"mode": "Grab", "time": "12 min", "cost": "₹120", "distance": "4 km"}
-        return {"mode": "Walk", "time": "5-12 min", "cost": "FREE", "distance": "400-900 m", "note": "Old Quarter is compact — walkable"}
-    
-    elif city == "Sapa":
-        if "fansipan" in from_lower or "fansipan" in to_lower:
-            return {"mode": "Hotel shuttle", "time": "10 min", "cost": "FREE", "distance": "3 km", "note": "Most hotels offer free Fansipan shuttle"}
-        if "cat cat" in from_lower or "cat cat" in to_lower:
-            return {"mode": "Walk downhill", "time": "20 min down / 35 min up", "cost": "FREE", "distance": "2 km", "note": "Steep. Take motorbike taxi ₹100 back up"}
-        if "rong may" in from_lower or "rong may" in to_lower:
-            return {"mode": "Taxi/motorbike", "time": "30 min", "cost": "₹200-300", "distance": "15 km", "note": "Mountain road — book return taxi"}
-        if "moana" in from_lower or "moana" in to_lower:
-            return {"mode": "Walk", "time": "5 min", "cost": "FREE", "distance": "300 m", "note": "Right in Sapa town"}
-        return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "300-500 m"}
-    
+    # ═══════════════════════════════════════
+    # PHU QUOC — Duong Dong centered, island distances
+    # ═══════════════════════════════════════
     elif city == "Phu Quoc":
-        if "vinwonders" in from_lower or "vinwonders" in to_lower:
-            return {"mode": "Grab / Hotel shuttle", "time": "20 min", "cost": "₹150-200", "distance": "12 km"}
-        if "grand world" in from_lower or "grand world" in to_lower:
-            return {"mode": "Grab", "time": "15 min", "cost": "₹120-150", "distance": "8 km"}
-        if "duong dong" in from_lower or "night market" in from_lower or "duong dong" in to_lower or "night market" in to_lower:
-            return {"mode": "Walk", "time": "5-10 min", "cost": "FREE", "distance": "300-500 m", "note": "If staying in Duong Dong"}
-        if "island tour" in from_lower or "an thoi" in from_lower:
-            return {"mode": "Hotel pickup", "time": "0 min", "cost": "FREE", "distance": "0", "note": "Tour includes hotel pickup"}
-        if "sunset town" in from_lower or "sunset town" in to_lower:
-            return {"mode": "Grab", "time": "15 min", "cost": "₹120", "distance": "10 km"}
-        return {"mode": "Grab / Scooter", "time": "10-20 min", "cost": "₹100-200", "distance": "5-12 km"}
+        # Hotel → Grand World
+        if ("arrive" in from_lower or "check-in" in from_lower or "fly" in from_lower) and "grand world" in to_lower:
+            return {"mode": "🚗 Grab", "time": "20 min", "cost": "₹150-200", "distance": "12 km",
+                    "recommendation": "Take Grab from Duong Dong to Grand World (north). 20 min ride. Or hotel shuttle if available (free).",
+                    "directions": gmaps_dirs("Duong Dong Phu Quoc", "Grand World Phu Quoc")}
+        
+        # Airport → Hotel
+        if ("land" in from_lower or "airport" in from_lower or "pqc" in from_lower) and ("check-in" in to_lower or "hotel" in to_lower):
+            return {"mode": "🚗 Grab", "time": "15 min", "cost": "₹200-250", "distance": "10 km",
+                    "recommendation": "Take Grab from PQC airport to Duong Dong. 15 min. If no Grab, Mai Linh taxi only — agree price first (~₹200).",
+                    "directions": gmaps_dirs("Phu Quoc Airport", "Duong Dong town")}
+        
+        # Grand World → Hotel
+        if "grand world" in from_lower and ("hotel" in to_lower or "check-in" in to_lower):
+            return {"mode": "🚗 Grab", "time": "20 min", "cost": "₹150-200", "distance": "12 km",
+                    "recommendation": "Grab back to Duong Dong hotel. 20 min ride.",
+                    "directions": gmaps_dirs("Grand World Phu Quoc", "Duong Dong town")}
+        
+        # Hotel → 4 Island Tour pickup
+        if ("4 island" in to_lower or "island tour" in to_lower or "an thoi" in to_lower):
+            return {"mode": "🚐 Hotel pickup", "time": "0 min", "cost": "FREE", "distance": "—",
+                    "recommendation": "Tour picks up from hotel lobby. Be ready 15 min before departure time. Free pickup included in tour.",
+                    "directions": ""}
+        
+        # Island tour → Sunset Town
+        if ("island tour" in from_lower or "4 island" in from_lower) and "sunset" in to_lower:
+            return {"mode": "🚗 Grab", "time": "15 min", "cost": "₹120-150", "distance": "8 km",
+                    "recommendation": "Grab from An Thoi port to Sunset Town. 15 min, both in south Phu Quoc.",
+                    "directions": gmaps_dirs("An Thoi Port Phu Quoc", "Sunset Town Phu Quoc")}
+        
+        # Sunset Town → Duong Dong Night Market
+        if "sunset" in from_lower and ("duong dong" in to_lower or "night market" in to_lower):
+            return {"mode": "🚗 Grab", "time": "20 min", "cost": "₹150-200", "distance": "15 km",
+                    "recommendation": "Grab from Sunset Town (south) to Duong Dong (center). 20 min ride north.",
+                    "directions": gmaps_dirs("Sunset Town Phu Quoc", "Duong Dong Night Market")}
+        
+        # Hotel → VinWonders
+        if "vinwonders" in to_lower:
+            return {"mode": "🚗 Grab / Hotel shuttle", "time": "20 min", "cost": "₹150-200", "distance": "12 km",
+                    "recommendation": "Grab from Duong Dong to VinWonders (north). 20 min. Many hotels offer free shuttle — ask reception.",
+                    "directions": gmaps_dirs("Duong Dong Phu Quoc", "VinWonders Phu Quoc")}
+        
+        # VinWonders → Hotel
+        if "vinwonders" in from_lower and ("hotel" in to_lower or "check-in" in to_lower):
+            return {"mode": "🚗 Grab", "time": "20 min", "cost": "₹150-200", "distance": "12 km",
+                    "recommendation": "Grab back to Duong Dong after THE ONCE show ends ~8 PM. Grab available at VinWonders exit.",
+                    "directions": gmaps_dirs("VinWonders Phu Quoc", "Duong Dong town")}
+        
+        # Hotel → Ong Lang Beach
+        if "ong lang" in to_lower:
+            return {"mode": "🚗 Grab / Scooter", "time": "15 min", "cost": "₹100-150", "distance": "6 km",
+                    "recommendation": "Grab or rent scooter (₹350/day). Ong Lang is 6km north of Duong Dong. Hidden cove, go early for no crowds.",
+                    "directions": gmaps_dirs("Duong Dong Phu Quoc", "Ong Lang Beach")}
+        
+        # Ong Lang → Ham Ninh
+        if "ong lang" in from_lower and "ham ninh" in to_lower:
+            return {"mode": "🚗 Grab / Scooter", "time": "25 min", "cost": "₹150-200", "distance": "18 km",
+                    "recommendation": "Cross-island ride from west coast (Ong Lang) to east coast (Ham Ninh). 25 min. Rent scooter for flexibility.",
+                    "directions": gmaps_dirs("Ong Lang Beach Phu Quoc", "Ham Ninh Village Phu Quoc")}
+        
+        # Ham Ninh → Airport
+        if "ham ninh" in from_lower and ("fly" in to_lower or "airport" in to_lower):
+            return {"mode": "🚗 Grab", "time": "20 min", "cost": "₹200-250", "distance": "12 km",
+                    "recommendation": "Grab from Ham Ninh to PQC airport. 20 min. Leave 2.5 hrs before flight.",
+                    "directions": gmaps_dirs("Ham Ninh Village Phu Quoc", "Phu Quoc Airport")}
+        
+        # Default Phu Quoc
+        return {"mode": "🛵 Scooter / 🚗 Grab", "time": "10-20 min", "cost": "₹100-200", "distance": "5-15 km",
+                "recommendation": "Rent scooter ₹350/day (best option on island) or take Grab. Everything is 10-20 min from Duong Dong.",
+                "directions": ""}
     
+    # ═══════════════════════════════════════
+    # HANOI — Old Quarter centered
+    # ═══════════════════════════════════════
+    elif city == "Hanoi":
+        # Airport → Hotel
+        if ("land" in from_lower or "airport" in to_lower or "fly" in from_lower) and ("check-in" in to_lower or "hotel" in to_lower):
+            return {"mode": "🚗 Grab", "time": "45-60 min", "cost": "₹500-700", "distance": "27 km",
+                    "recommendation": "Take Grab from Noi Bai (HAN) to Old Quarter. 45-60 min, ₹500-700. Fixed price. NO airport buses after 10 PM.",
+                    "directions": gmaps_dirs("Noi Bai Airport Hanoi", "Hanoi Old Quarter")}
+        
+        # Hotel → Pho Thin
+        if "pho thin" in to_lower and ("hotel" in from_lower or "check-in" in from_lower or "check-in" in to_lower):
+            return {"mode": "🚶 Walk", "time": "8 min", "cost": "FREE", "distance": "600 m",
+                    "recommendation": "Walk from Old Quarter hotel to Pho Thin (Lo Duc St). 8 min. Opens 6 AM, go early to avoid queue.",
+                    "directions": gmaps_dirs("Hanoi Old Quarter", "Pho Thin Hanoi")}
+        
+        # Pho Thin → Hoan Kiem Lake
+        if "pho thin" in from_lower and "hoan kiem" in to_lower:
+            return {"mode": "🚶 Walk", "time": "10 min", "cost": "FREE", "distance": "800 m",
+                    "recommendation": "Walk — from Lo Duc St west to Hoan Kiem Lake. 10 min pleasant morning walk through Old Quarter streets.",
+                    "directions": gmaps_dirs("Pho Thin Hanoi", "Hoan Kiem Lake Hanoi")}
+        
+        # Hoan Kiem → Temple of Literature
+        if "hoan kiem" in from_lower and "temple of literature" in to_lower:
+            return {"mode": "🚗 Grab", "time": "12 min", "cost": "₹100-120", "distance": "3 km",
+                    "recommendation": "Take Grab — Temple of Literature is 3km south of Old Quarter. Too far to walk (35 min). Grab is ₹100.",
+                    "directions": gmaps_dirs("Hoan Kiem Lake Hanoi", "Temple of Literature Hanoi")}
+        
+        # Temple of Literature → Bun Cha Huong Lien
+        if "temple of literature" in from_lower and "bun cha" in to_lower:
+            return {"mode": "🚶 Walk / 🚗 Grab", "time": "8 min walk / 3 min Grab", "cost": "FREE / ₹70", "distance": "600 m",
+                    "recommendation": "Walk 8 min — Bun Cha Huong Lien (Obama's spot) is just 600m from Temple of Literature. Same Dong Da area. Or Grab for ₹70.",
+                    "directions": gmaps_dirs("Temple of Literature Hanoi", "Bun Cha Huong Lien Hanoi")}
+        
+        # Bun Cha → X Space
+        if "bun cha" in from_lower and "x space" in to_lower:
+            return {"mode": "🚗 Grab", "time": "15 min", "cost": "₹120-150", "distance": "5 km",
+                    "recommendation": "Take Grab from Dong Da back to Hoan Kiem area. X Space is near Old Quarter. 15 min ride.",
+                    "directions": gmaps_dirs("Bun Cha Huong Lien Hanoi", "X Space Immersive Hanoi")}
+        
+        # X Space → Train Street
+        if "x space" in from_lower and "train street" in to_lower:
+            return {"mode": "🚶 Walk", "time": "12 min", "cost": "FREE", "distance": "900 m",
+                    "recommendation": "Walk — Train Street (Le Duan) is 900m from X Space. 12 min walk through Old Quarter. Train passes ~3:45 PM and 7:00 PM.",
+                    "directions": gmaps_dirs("X Space Immersive Hanoi", "Hanoi Train Street")}
+        
+        # Train Street → Water Puppet
+        if "train street" in from_lower and "water puppet" in to_lower:
+            return {"mode": "🚶 Walk", "time": "12 min", "cost": "FREE", "distance": "1 km",
+                    "recommendation": "Walk — from Train Street (Le Duan) north to Thang Long Water Puppet Theatre at Hoan Kiem Lake. 12 min.",
+                    "directions": gmaps_dirs("Hanoi Train Street", "Thang Long Water Puppet Hanoi")}
+        
+        # Night Market → Hotel
+        if "night market" in from_lower and ("hotel" in to_lower or "check-in" in to_lower):
+            return {"mode": "🚶 Walk", "time": "5 min", "cost": "FREE", "distance": "300 m",
+                    "recommendation": "Walk — Night Market is on Hang Dao St, right in Old Quarter. 5 min walk to any Old Quarter hotel.",
+                    "directions": ""}
+        
+        # Hotel → Sapa Bus
+        if "sapa" in to_lower and "bus" in to_lower:
+            return {"mode": "🚶 Walk / 🚗 Grab", "time": "5-10 min", "cost": "FREE / ₹70", "distance": "500 m",
+                    "recommendation": "Sapa Express bus departs from Old Quarter office. Walk 5-10 min from hotel. Or Grab for ₹70. Bring snacks + water for 6-hr ride.",
+                    "directions": gmaps_dirs("Hanoi Old Quarter", "Sapa Express Bus Hanoi")}
+        
+        # Hotel → Dong Xuan Market
+        if "dong xuan" in to_lower:
+            return {"mode": "🚶 Walk", "time": "8 min", "cost": "FREE", "distance": "600 m",
+                    "recommendation": "Walk — Dong Xuan Market is in the north end of Old Quarter. 8 min walk from Hoan Kiem area.",
+                    "directions": gmaps_dirs("Hanoi Old Quarter", "Dong Xuan Market Hanoi")}
+        
+        # Dong Xuan → Pho Bat Dan
+        if "dong xuan" in from_lower and "pho bat" in to_lower:
+            return {"mode": "🚶 Walk", "time": "6 min", "cost": "FREE", "distance": "450 m",
+                    "recommendation": "Walk — Pho Bat Dan is 450m south of Dong Xuan Market. 6 min walk through Old Quarter.",
+                    "directions": gmaps_dirs("Dong Xuan Market Hanoi", "Pho Bat Dan Hanoi")}
+        
+        # Pho Bat Dan → Airport
+        if "pho bat" in from_lower and ("airport" in to_lower or "taxi" in to_lower):
+            return {"mode": "🚗 Grab", "time": "45 min", "cost": "₹500-700", "distance": "27 km",
+                    "recommendation": "Take Grab to Noi Bai airport. 45 min, ₹500-700. Leave hotel 3 hrs before international flight.",
+                    "directions": gmaps_dirs("Pho Bat Dan Hanoi", "Noi Bai Airport Hanoi")}
+        
+        # Default Hanoi
+        return {"mode": "🚶 Walk / 🚗 Grab", "time": "5-15 min", "cost": "FREE - ₹120", "distance": "300m - 5 km",
+                "recommendation": "Old Quarter is compact — walk if < 1km. Grab for Temple of Literature or airport. NEVER take cyclo — scam.",
+                "directions": ""}
+    
+    # ═══════════════════════════════════════
+    # SAPA — Town center, mountain distances
+    # ═══════════════════════════════════════
+    elif city == "Sapa":
+        # Bus → Hotel
+        if "bus" in from_lower and ("arrive" in to_lower or "check-in" in to_lower or "hotel" in to_lower):
+            return {"mode": "🚶 Walk", "time": "5 min", "cost": "FREE", "distance": "400 m",
+                    "recommendation": "Walk — Sapa Express bus drops at town center. Most hotels 5-min walk. Hotel can send staff to carry bags if you ask.",
+                    "directions": gmaps_dirs("Sapa Bus Station", "Sapa town center")}
+        
+        # Hotel → Sapa Square
+        if "sapa square" in to_lower or "cathedral" in to_lower:
+            return {"mode": "🚶 Walk", "time": "3 min", "cost": "FREE", "distance": "200 m",
+                    "recommendation": "Walk — Sapa Square and Stone Church are in the absolute center. 3 min from any town hotel.",
+                    "directions": gmaps_dirs("Sapa town center", "Sapa Stone Church")}
+        
+        # Hotel → Moana
+        if "moana" in to_lower:
+            return {"mode": "🚶 Walk", "time": "5 min", "cost": "FREE", "distance": "300 m",
+                    "recommendation": "Walk — Moana Sapa is 300m from Sapa Square. 5 min walk. Go early morning (7 AM) for best photos without crowds.",
+                    "directions": gmaps_dirs("Sapa Square", "Moana Sapa")}
+        
+        # Moana → Cat Cat Village
+        if "moana" in from_lower and "cat cat" in to_lower:
+            return {"mode": "🚶 Walk downhill", "time": "20 min down", "cost": "FREE", "distance": "1.5 km",
+                    "recommendation": "Walk downhill 20 min — steep path from Moana to Cat Cat Village entrance. Coming back up is 35 min — take motorbike taxi ₹100.",
+                    "directions": gmaps_dirs("Moana Sapa", "Cat Cat Village Sapa")}
+        
+        # Cat Cat → Lunch
+        if "cat cat" in from_lower and "lunch" in to_lower:
+            return {"mode": "🚵 Motorbike taxi", "time": "15 min", "cost": "₹100", "distance": "2 km",
+                    "recommendation": "Take motorbike taxi back up to Sapa town — ₹100. Walking up is 35 min steep climb, not worth it.",
+                    "directions": gmaps_dirs("Cat Cat Village Sapa", "Sapa town center")}
+        
+        # Lunch → Hill Station cafe
+        if "lunch" in from_lower and ("hill station" in to_lower or "cafe" in to_lower):
+            return {"mode": "🚶 Walk", "time": "8 min", "cost": "FREE", "distance": "500 m",
+                    "recommendation": "Walk — The Hill Station cafe is 500m from Sapa town center. 8 min walk. Mountain valley views from the cafe.",
+                    "directions": gmaps_dirs("Sapa town center", "Hill Station Sapa")}
+        
+        # Hotel → Rong May
+        if "rong may" in to_lower:
+            return {"mode": "🚕 Taxi / 🚗 Grab", "time": "30 min", "cost": "₹250-350", "distance": "18 km",
+                    "recommendation": "Take taxi — Rong May is 18km from Sapa on O Quy Ho pass. 30 min mountain road. Book return taxi with same driver (₹500 round trip). Don't take motorbike — too far + dangerous road.",
+                    "directions": gmaps_dirs("Sapa town", "Rong May Tourism Sapa")}
+        
+        # Rong May → Heaven's Gate
+        if "rong may" in from_lower and "heaven" in to_lower:
+            return {"mode": "🚕 Taxi", "time": "10 min", "cost": "₹100", "distance": "5 km",
+                    "recommendation": "Heaven's Gate pass viewpoint is 5km from Rong May — same road. Ask your taxi driver to stop. 10 min drive.",
+                    "directions": gmaps_dirs("Rong May Tourism Sapa", "Heaven's Gate Sapa")}
+        
+        # Rong May → Hotel
+        if "rong may" in from_lower and ("return" in to_lower or "hotel" in to_lower or "dinner" in to_lower):
+            return {"mode": "🚕 Taxi", "time": "30 min", "cost": "₹250-300", "distance": "18 km",
+                    "recommendation": "Return taxi to Sapa town — 30 min mountain road. Same driver from morning if booked round trip.",
+                    "directions": gmaps_dirs("Rong May Tourism Sapa", "Sapa town center")}
+        
+        # Hotel → Fansipan
+        if "fansipan" in to_lower:
+            return {"mode": "🚐 Hotel shuttle", "time": "10 min", "cost": "FREE", "distance": "3 km",
+                    "recommendation": "Hotel shuttle to Fansipan cable car station — 3km, 10 min, FREE. Most hotels offer this. Go at 7 AM — Tuesday = 10 min queue (vs 2 hours on Sunday!).",
+                    "directions": gmaps_dirs("Sapa town", "Fansipan Cable Car Sapa")}
+        
+        # Fansipan → Hotel
+        if "fansipan" in from_lower and ("return" in to_lower or "lunch" in to_lower):
+            return {"mode": "🚐 Hotel shuttle / 🚗 Grab", "time": "10 min", "cost": "FREE / ₹100", "distance": "3 km",
+                    "recommendation": "Shuttle back to Sapa town. 10 min. Or Grab for ₹100.",
+                    "directions": gmaps_dirs("Fansipan Cable Car Sapa", "Sapa town center")}
+        
+        # Hotel → Sapa Bus (departure)
+        if "sapa" in from_lower and "bus" in to_lower and ("hanoi" in to_lower or "express" in to_lower):
+            return {"mode": "🚶 Walk", "time": "5 min", "cost": "FREE", "distance": "400 m",
+                    "recommendation": "Walk to Sapa Express bus stop. 5 min from any town hotel. Bring water + snacks for 6-hr ride back to Hanoi.",
+                    "directions": gmaps_dirs("Sapa town center", "Sapa Express Bus")}
+        
+        # Default Sapa
+        return {"mode": "🚶 Walk / 🚕 Taxi", "time": "5-30 min", "cost": "FREE - ₹300", "distance": "200m - 18 km",
+                "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+                "directions": ""}
+    
+    # ═══════════════════════════════════════
+    # HALONG BAY — Day trip from Hanoi
+    # ═══════════════════════════════════════
     elif city == "Halong Bay":
-        return {"mode": "Cruise bus", "time": "Included", "cost": "Included", "distance": "—", "note": "Everything organized by cruise"}
+        # Hotel → Bus
+        if "bus" in to_lower and "halong" in to_lower:
+            return {"mode": "🚐 Cruise bus pickup", "time": "0 min", "cost": "Included", "distance": "—",
+                    "recommendation": "Limousine bus picks up from Old Quarter hotel lobby. Be ready 15 min early. 2.5 hr drive to Halong Bay. Bring water + snacks.",
+                    "directions": ""}
+        
+        # Bus → Cruise
+        if "bus" in from_lower and "cruise" in to_lower:
+            return {"mode": "🚐 Bus transfer", "time": "Included", "cost": "Included", "distance": "—",
+                    "recommendation": "Bus drops at Tuan Chau port. Walk to cruise boat — 5 min. Everything organized by cruise package.",
+                    "directions": ""}
+        
+        # Cruise → Titop Island
+        if "cruise" in from_lower and "titop" in to_lower:
+            return {"mode": "🚢 Boat", "time": "20 min", "cost": "Included", "distance": "—",
+                    "recommendation": "Cruise boat takes you to Titop Island. 20 min on boat. Climb 400 steps to viewpoint — best panorama of Halong Bay.",
+                    "directions": ""}
+        
+        # Cruise → Return
+        if "cruise" in from_lower and ("return" in to_lower or "bus" in to_lower or "dinner" in to_lower):
+            return {"mode": "🚐 Cruise bus", "time": "2.5 hr", "cost": "Included", "distance": "170 km",
+                    "recommendation": "Bus returns to Hanoi Old Quarter. 2.5 hr drive. Arrives ~8 PM. Dinner in Hanoi after.",
+                    "directions": ""}
+        
+        # Default Halong
+        return {"mode": "🚢 Cruise organized", "time": "Included", "cost": "Included", "distance": "—",
+                "recommendation": "Everything is organized by the cruise package — bus pickup, boat, lunch, activities, return. Just be on time.",
+                "directions": ""}
     
-    return {"mode": "Walk / Grab", "time": "5-15 min", "cost": "FREE - ₹200", "distance": "0.5-5 km"}
+    # Generic fallback
+    return {"mode": "🚶 Walk / 🚗 Grab", "time": "5-15 min", "cost": "FREE - ₹200", "distance": "0.5-5 km",
+            "recommendation": "Check Google Maps for exact distance. Walk if < 1km, Grab if > 1km.",
+            "directions": ""}
 
 # ═══════════════════════════════════════════
 # AGENT 14: CHIEF TRAVEL OFFICER (CTO)
