@@ -3,914 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🇻🇳 Vietnam Trip 2026 — Solo Adventure</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<title>🇻🇳 Vietnam Trip 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f8f6f0;
-  --surface: rgba(255,255,255,0.85);
-  --surface-glass: rgba(255,255,255,0.6);
+  --bg: #f5f2eb;
+  --card: #ffffff;
   --text: #1a1a1a;
-  --text-secondary: #5c5c5c;
+  --muted: #6b6b6b;
   --accent: #e85d04;
-  --accent-light: #fff3e8;
-  --border: rgba(0,0,0,0.08);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-  --shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
-  --teal: #0d7377;
+  --accent2: #0d7377;
   --gold: #d4a017;
-  --radius: 20px;
-  --radius-sm: 12px;
-  --radius-lg: 28px;
-  --blur: blur(20px);
+  --red: #dc2f02;
+  --border: #e8e4db;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,0.08);
+  --radius: 14px;
 }
-
 [data-theme="dark"] {
-  --bg: #0f0f1a;
-  --surface: rgba(20,20,40,0.85);
-  --surface-glass: rgba(20,20,40,0.5);
-  --text: #e8e6e3;
-  --text-secondary: #989898;
-  --accent: #ff7b2c;
-  --accent-light: rgba(255,123,44,0.1);
-  --border: rgba(255,255,255,0.08);
-  --shadow: 0 4px 20px rgba(0,0,0,0.3);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
-  --teal: #14b8a6;
-  --gold: #f59e0b;
+  --bg: #0d0d14;
+  --card: #1a1a28;
+  --text: #e0ddd8;
+  --muted: #8a8a8a;
+  --border: #2a2a38;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,0.5);
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'DM Sans', system-ui, sans-serif;
-  background: var(--bg);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  transition: background 0.3s, color 0.3s;
+body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; }
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
+
+/* Stats Bar */
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:24px 0; }
+.stat-card { background:var(--card); border-radius:var(--radius); padding:16px 20px; box-shadow:var(--shadow); text-align:center; }
+.stat-card .num { font-size:28px; font-weight:800; color:var(--accent); }
+.stat-card .lbl { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+
+/* City Grid */
+.city-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:24px 0; }
+.city-card { 
+  background:var(--card); border-radius:var(--radius); overflow:hidden; 
+  box-shadow:var(--shadow); cursor:pointer; transition:all 0.3s;
+  border:1px solid var(--border);
 }
+.city-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+.city-img { height:140px; position:relative; }
+.city-img.sapa { background:linear-gradient(135deg,#2d5016,#4a7c2e,#8ab85a); }
+.city-img.hcmc { background:linear-gradient(135deg,#ff6b35,#e85d04,#c2410c); }
+.city-img.phuquoc { background:linear-gradient(135deg,#006994,#0d7377,#14b8a6); }
+.city-img.hanoi { background:linear-gradient(135deg,#9d0208,#dc2f02,#e85d04); }
+.city-img .overlay {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:20px; background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  color:white;
+}
+.city-img .overlay h2 { font-size:22px; font-weight:700; }
+.city-img .overlay span { font-size:12px; opacity:0.85; }
+.city-body { padding:16px; }
+.city-body .quick { display:flex; flex-wrap:wrap; gap:6px; }
+.city-body .quick span {
+  font-size:11px; padding:4px 10px; border-radius:100px;
+  background:var(--bg); color:var(--muted);
+}
+.warn { 
+  font-size:12px; padding:8px 12px; border-radius:8px; margin-top:10px;
+  background:#fff3e8; color:#c2410c; border-left:3px solid #e85d04;
+}
+[data-theme="dark"] .warn { background:rgba(232,93,4,0.1); }
+
+/* Day Viewer */
+.day-view { display:none; margin:24px 0; }
+.day-view.active { display:block; }
+.day-timeline { position:relative; padding-left:30px; }
+.day-timeline::before {
+  content:''; position:absolute; left:10px; top:0; bottom:0;
+  width:2px; background:var(--border);
+}
+.tl-item {
+  position:relative; padding:10px 0 10px 20px; margin-bottom:4px;
+  border-radius:8px; transition:background 0.2s;
+}
+.tl-item:hover { background:var(--bg); }
+.tl-item::before {
+  content:''; position:absolute; left:-24px; top:16px;
+  width:10px; height:10px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--card);
+}
+.tl-time { font-size:11px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.5px; }
+.tl-title { font-size:14px; font-weight:600; margin:2px 0; }
+.tl-detail { font-size:12px; color:var(--muted); line-height:1.6; }
+.tl-detail a { color:var(--accent2); text-decoration:none; font-weight:600; }
+.tl-detail a:hover { text-decoration:underline; }
+
+/* Badges */
+.badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700; vertical-align:middle; margin-left:6px; }
+.badge-must { background:#e85d04; color:#fff; }
+.badge-rec { background:#d4a017; color:#1a1a1a; }
+.badge-opt { background:#e8e4db; color:#6b6b6b; }
+[data-theme="dark"] .badge-opt { background:#2a2a38; }
 
 /* Header */
-.hero {
-  background: linear-gradient(135deg, #e85d04 0%, #dc2f02 30%, #9d0208 70%, #0d7377 100%);
-  color: white;
-  padding: 56px 24px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.header {
+  background:linear-gradient(135deg,#e85d04,#dc2f02,#9d0208);
+  color:white; padding:40px 20px; text-align:center;
 }
-.hero::before {
-  content: '';
-  position: absolute; top:0;left:0;right:0;bottom:0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3Ccircle cx='60' cy='20' r='1.5'/%3E%3Ccircle cx='20' cy='60' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
-}
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px,5vw,52px); margin-bottom: 8px; position:relative; z-index:1; letter-spacing:-0.5px; }
-.hero .dates { font-size: 18px; opacity: 0.9; font-weight: 500; position:relative; z-index:1; }
-.hero .route { font-size: 13px; opacity: 0.7; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; position:relative; z-index:1; }
-
-/* Theme Toggle */
-.theme-toggle {
-  position: fixed; top: 16px; right: 16px; z-index: 100;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--surface); border: 1px solid var(--border);
-  cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow); transition: transform 0.2s;
-}
-.theme-toggle:hover { transform: scale(1.1); }
-
-/* Nav Tabs */
-.nav-tabs {
-  display: flex; gap: 6px; padding: 12px 24px;
-  background: var(--surface-glass);
-  backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto; position: sticky; top: 0; z-index: 50;
-  box-shadow: var(--shadow-sm);
-}
-.nav-tab {
-  padding: 10px 18px; border-radius: 100px; border: 1px solid var(--border);
-  background: var(--bg); color: var(--text-secondary);
-  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
-  cursor: pointer; white-space: nowrap; transition: all 0.25s;
-}
-.nav-tab:hover { background: var(--accent-light); color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
-.nav-tab.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 2px 12px rgba(232,93,4,0.3); }
-.nav-tab .emoji { margin-right: 6px; }
-
-/* Main Content */
-.container { max-width: 900px; margin: 0 auto; padding: 24px; }
-.city-panel { display: none; }
-.city-panel.active { display: block; }
-
-/* Day Card */
-.day-card {
-  background: var(--surface-glass);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border-radius: var(--radius);
-  padding: 24px; margin-bottom: 20px;
-  box-shadow: var(--shadow); 
-  border: 1px solid var(--border);
-  border-left: 5px solid var(--accent);
-  transition: all 0.3s ease;
-}
-.day-card:hover { 
-  box-shadow: var(--shadow-lg); 
-  transform: translateY(-2px);
-}
-.day-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-.day-title { font-weight: 700; font-size: 18px; color: var(--accent); }
-.day-date { font-size: 13px; color: var(--text-secondary); font-weight: 500; background:var(--accent-light); padding:3px 10px; border-radius:100px; }
-.day-theme { font-size: 14px; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
-
-/* Time Entry — Visual Timeline */
-.time-entry {
-  display: flex; gap: 16px; padding: 14px 0;
-  border-left: 2px solid var(--border);
-  margin-left: 6px; padding-left: 20px;
-  position: relative;
-}
-.time-entry::before {
-  content: '';
-  position: absolute; left: -6px; top: 18px;
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--accent); border: 2px solid var(--surface-glass);
-}
-.time-entry:last-child { border-left-color: transparent; }
-.time-stamp {
-  min-width: 80px; font-weight: 700; font-size: 13px;
-  color: var(--accent); padding-top: 2px;
-}
-.time-content { flex: 1; }
-.time-content strong { display: block; margin-bottom: 4px; font-size: 15px; }
-.time-content .detail { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
-
-/* Cafe Card */
-.cafe-card {
-  background: var(--surface-glass);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border-radius: var(--radius);
-  padding: 22px; box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-.cafe-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.cafe-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-.cafe-name { font-weight: 700; font-size: 17px; }
-.cafe-rating { 
-  background: var(--accent-light); color: var(--accent);
-  padding: 3px 10px; border-radius: 100px; font-size: 13px; font-weight: 700;
-}
-.cafe-detail { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
-.cafe-detail .label { font-weight: 600; color: var(--text); }
-.cafe-map-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  color: var(--teal); font-size: 13px; font-weight: 600; text-decoration: none;
-  padding: 6px 12px; border-radius: 100px; background: rgba(13,148,136,0.08);
-  transition: background 0.2s;
-}
-.cafe-map-link:hover { background: rgba(13,148,136,0.15); }
-
-/* Cafe Grid */
-.cafe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
-
-/* Why Section */
-.why-card {
-  background: linear-gradient(135deg, var(--accent-light), var(--surface));
-  border: 1px solid var(--accent); border-radius: var(--radius);
-  padding: 20px; margin: 16px 0;
-}
-.why-card h4 { color: var(--accent); font-size: 16px; margin-bottom: 8px; }
-.why-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
-
-/* Hidden Gems */
-.hidden-gem {
-  background: var(--surface); border-radius: var(--radius);
-  padding: 18px; box-shadow: var(--shadow); border-left: 3px solid var(--gold);
-  margin-bottom: 12px;
-}
-.hidden-gem .gem-rank { color: var(--gold); font-weight: 700; font-size: 13px; }
-.hidden-gem h4 { font-size: 16px; margin: 4px 0; }
-.hidden-gem .quote { font-style: italic; color: var(--text-secondary); font-size: 13px; padding: 6px 0; border-left: 2px solid var(--border); margin: 8px 0; padding-left: 12px; }
-
-/* Budget Bar */
-.budget-bar {
-  display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0;
-}
-.budget-chip {
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 8px 16px; border-radius: 100px;
-  font-size: 13px; font-weight: 600;
-}
-.budget-chip .amount { color: var(--accent); }
-
-/* Status Banner */
-.status-banner {
-  background: var(--accent-light); border: 1px solid var(--accent);
-  border-radius: var(--radius); padding: 12px 20px;
-  margin: 16px 0; font-size: 13px; font-weight: 600; color: var(--accent);
-  display: flex; align-items: center; gap: 8px;
-}
-.pulse { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 1.5s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-/* Responsive */
-@media (max-width: 640px) {
-  .container { padding: 12px; }
-  .day-card { padding: 16px; }
-  .time-entry { flex-direction: column; gap: 4px; }
-  .cafe-grid { grid-template-columns: 1fr; }
+.header h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,44px); letter-spacing:-0.5px; }
+.header .sub { font-size:14px; opacity:0.8; margin-top:6px; }
+.header .countdown { 
+  display:inline-block; margin-top:12px; font-size:14px; font-weight:700;
+  background:rgba(255,255,255,0.15); padding:6px 16px; border-radius:100px;
 }
 
-/* Print */
-@media print {
-  .nav-tabs, .theme-toggle { display: none; }
-  .city-panel { display: block !important; page-break-after: always; }
-  body { background: white; }
+/* Nav */
+.nav { 
+  display:flex; gap:6px; padding:10px 20px; overflow-x:auto;
+  background:var(--card); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:50; box-shadow:var(--shadow);
 }
+.nav button {
+  padding:8px 16px; border-radius:100px; border:1px solid var(--border);
+  background:var(--bg); font-size:12px; font-weight:600; cursor:pointer;
+  white-space:nowrap; transition:all 0.2s; color:var(--muted);
+}
+.nav button:hover { background:var(--accent); color:white; border-color:var(--accent); }
+.nav button.active { background:var(--accent); color:white; border-color:var(--accent); }
+.nav input {
+  margin-left:auto; padding:8px 14px; border-radius:100px;
+  border:1px solid var(--border); background:var(--bg); color:var(--text);
+  font-size:12px; width:150px; transition:width 0.3s;
+}
+.nav input:focus { width:200px; outline:none; border-color:var(--accent); }
 
-/* Accordion */
-.accordion-toggle {
-  width: 100%; text-align: left; background: none; border: none;
-  font-family: 'DM Sans', sans-serif; cursor: pointer;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.accordion-toggle::after { content: '▾'; transition: transform 0.3s; font-size: 20px; }
-.accordion-toggle.open::after { transform: rotate(180deg); }
-.accordion-content { display: none; }
-.accordion-content.open { display: block; }
+/* Theme toggle */
+.toggle { position:fixed; top:12px; right:12px; z-index:100; width:38px; height:38px; border-radius:50%; background:var(--card); border:1px solid var(--border); cursor:pointer; font-size:18px; box-shadow:var(--shadow); }
 
-/* Section Title */
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px; margin: 32px 0 16px;
-  color: var(--accent);
-}
-.section-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+/* Utility */
+.util-btn { position:fixed; bottom:16px; right:16px; z-index:99; width:44px; height:44px; border-radius:50%; background:var(--accent); color:white; border:none; font-size:20px; box-shadow:var(--shadow-lg); cursor:pointer; }
+.panel { position:fixed; bottom:68px; right:16px; z-index:98; width:280px; max-height:380px; overflow-y:auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow-lg); padding:16px; display:none; }
+.panel.open { display:block; }
 
-/* Warning Banner */
-.warning {
-  background: #fff7ed; border: 1px solid #f97316;
-  color: #c2410c; padding: 12px 18px; border-radius: 12px;
-  font-size: 13px; font-weight: 600; margin: 12px 0;
-}
-[data-theme="dark"] .warning { background: #2d1b0f; }
-
-/* Tip */
-.tip {
-  background: rgba(13,148,136,0.08); border: 1px solid var(--teal);
-  color: var(--teal); padding: 10px 16px; border-radius: 12px;
-  font-size: 13px; font-weight: 500; margin: 8px 0;
-}
-/* Priority badges */
-.badge-must { 
-  display:inline-block; background:#c2410c; color:#fff; 
-  padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700;
-  margin-left:6px; vertical-align:middle;
-}
-.badge-rec { 
-  display:inline-block; background:#d4a574; color:#222; 
-  padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700;
-  margin-left:6px; vertical-align:middle;
-}
-.badge-opt { 
-  display:inline-block; background:var(--border); color:var(--text-secondary); 
-  padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600;
-  margin-left:6px; vertical-align:middle;
-}
-
-a { color: var(--teal); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Utility Panel */
-.util-toggle {
-  position:fixed; bottom:20px; right:20px; z-index:200;
-  width:50px; height:50px; border-radius:50%;
-  background:var(--accent); color:white; border:none; font-size:24px;
-  cursor:pointer; box-shadow:var(--shadow-lg);
-  display:flex; align-items:center; justify-content:center;
-  transition:transform 0.2s;
-}
-.util-toggle:hover { transform:scale(1.1); }
-.util-panel {
-  position:fixed; bottom:80px; right:20px; z-index:199;
-  width:300px; max-height:450px; overflow-y:auto;
-  background:var(--surface); border-radius:16px;
-  box-shadow:var(--shadow-lg); border:1px solid var(--border);
-  padding:16px; display:none;
-}
-.util-panel.open { display:block; }
-.util-tabs {
-  display:flex; gap:4px; margin-bottom:12px;
-}
-.util-tab {
-  flex:1; padding:8px; border:none; border-radius:8px;
-  background:var(--bg); color:var(--text-secondary);
-  font-size:12px; font-weight:600; cursor:pointer;
-}
-.util-tab.active { background:var(--accent); color:white; }
-.util-content { display:none; }
-.util-content.active { display:block; }
-.util-content h4 { font-size:14px; margin-bottom:8px; }
-@media (max-width:400px) {
-  .util-panel { width:calc(100vw-32px); right:16px; }
+@media(max-width:768px) {
+  .city-grid { grid-template-columns:1fr; }
+  .stats { grid-template-columns:repeat(2,1fr); }
 }
 </style>
 </head>
 <body>
 
-<div class="hero">
+<div class="header">
   <h1>🇻🇳 Vietnam Solo Adventure</h1>
-  <div class="dates">June 28 – July 10, 2026</div>
-  <div class="route">Delhi → HCMC → Phu Quoc → Hanoi → Sapa → Hanoi → Delhi</div>
-  <div id="countdown" style="margin-top:12px;font-size:16px;font-weight:700;background:rgba(255,255,255,0.15);display:inline-block;padding:6px 16px;border-radius:100px;"></div>
+  <div class="sub">June 28 – July 10, 2026 · Delhi → HCMC → Phu Quoc → Hanoi → Sapa</div>
+  <div class="countdown" id="countdown"></div>
 </div>
+<button class="toggle" onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');localStorage.setItem('theme',document.documentElement.getAttribute('data-theme'))">🌓</button>
 
-<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌓</button>
-
-<nav class="nav-tabs">
-  <button class="nav-tab active" onclick="switchCity('sapa')"><span class="emoji">⛰️</span>Sapa</button>
-  <button class="nav-tab" onclick="switchCity('hcmc')"><span class="emoji">🏙️</span>HCMC</button>
-  <button class="nav-tab" onclick="switchCity('phuquoc')"><span class="emoji">🏝️</span>Phu Quoc</button>
-  <button class="nav-tab" onclick="switchCity('hanoi')"><span class="emoji">🍜</span>Hanoi</button>
-  <button class="nav-tab" onclick="switchCity('overview')"><span class="emoji">🗺️</span>Overview</button>
-  <input id="searchBox" type="text" placeholder="🔍 Search any place..." oninput="doSearch()" style="margin-left:auto;padding:8px 14px;border-radius:100px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;width:160px;transition:width 0.3s;" onfocus="this.style.width='220px'" onblur="this.style.width='160px'">
+<nav class="nav" id="nav">
+  <button class="active" data-city="all">🏠 All</button>
+  <button data-city="sapa">⛰️ Sapa</button>
+  <button data-city="hcmc">🏙️ HCMC</button>
+  <button data-city="phuquoc">🏝️ Phu Quoc</button>
+  <button data-city="hanoi">🍜 Hanoi</button>
+  <button data-city="map">🗺️ Map</button>
+  <input type="text" placeholder="🔍 Search..." id="search" oninput="filter()">
 </nav>
 
-<main class="container">
-<!-- ═══════════════════════════════════════ -->
-<!-- SAPA -->
-<!-- ═══════════════════════════════════════ -->
-<div class="city-panel active" id="panel-sapa">
+<div class="container">
 
-<div class="status-banner">
-  <span class="pulse"></span> Status: <strong>Deep-Researched ✅</strong> — Multi-source verified, Google Maps linked
+<div class="stats">
+  <div class="stat-card"><div class="num">13</div><div class="lbl">Days</div></div>
+  <div class="stat-card"><div class="num">4</div><div class="lbl">Cities</div></div>
+  <div class="stat-card"><div class="num">52</div><div class="lbl">Places</div></div>
+  <div class="stat-card"><div class="num">₹30K</div><div class="lbl">Activities</div></div>
 </div>
 
-<h2 class="section-title">⛰️ Sapa — 4-Day Master Plan</h2>
-<p class="section-subtitle">July 4–7, 2026 | All prices in ₹ (1 INR = 285 VND)</p>
-
-<div class="warning">☔ <strong>WEATHER ALERT: 22/31 rain days — wettest destination!</strong> Fansipan cable car CLOSES in heavy rain. Check windy.com daily. Rain backup: Sapa Museum, spa, car tour, cooking class.</div>
-
-<div class="warning">⚠️ <strong>Fansipan MOVED to Monday!</strong> Saturday = 2 HOUR queue, Monday = 10 minutes. Plan restructured around this critical finding.</div>
-
-<!-- Day 1 -->
-<div class="day-card">
-  <div class="day-header">
-    <div>
-      <div class="day-title">📅 July 4 (Friday) — ARRIVAL + SUNSET</div>
-      <div class="day-theme">Theme: Land, settle, 3 cafes, Best View sunset</div>
-      <div class="day-date">💰 ~₹1,000</div>
+<div class="city-grid" id="cityGrid">
+  <div class="city-card" data-city="sapa" onclick="showCity('sapa')">
+    <div class="city-img sapa"><div class="overlay"><h2>⛰️ Sapa</h2><span>July 4–7 · 3 Nights · ₹11,480</span></div></div>
+    <div class="city-body">
+      <div class="quick"><span>⭐Fansipan Mon</span><span>☔22 rain days</span><span>6 cafes</span><span>12 gems</span></div>
+      <div class="warn">☔ Wettest! Fansipan closes in rain. Rain backup ready.</div>
     </div>
   </div>
-  <div class="time-entry"><div class="time-stamp">1:00 PM</div><div class="time-content"><strong>🚌 Arrive Sapa</strong><div class="detail">Walk 5 min to hotel near Sapa Station</div></div></div>
-  <div class="time-entry"><div class="time-stamp">2:15 PM</div><div class="time-content"><strong>🍜 WHITE CLOUD CAFE — Lunch</strong><div class="detail">📍 65 Fansipan St | ⭐4.4 (867 reviews) | <a href="https://maps.google.com/?q=22.3321,103.8391" target="_blank">🗺️ Maps</a><br>🥇 MUST: Crème Brûlée Egg Coffee — "Better than famous Hanoi spots" —Michelin J. ⭐5/5<br>✅ ORDER: Bánh mì (crispy!), Salted Coffee | 🚫 SKIP: Pho (average), Burgers</div></div></div>
-  <div class="time-entry"><div class="time-stamp">4:45 PM</div><div class="time-content"><strong>☕ Ô LA LA COFFEE</strong><div class="detail">📍 Làng Mèo Mèo, Cat Cat area | <a href="https://maps.google.com/?q=22.3355,103.8422" target="_blank">🗺️ Maps</a><br>Hidden gem — "small and cute" per locals. Drip coffee ₹83-117, Egg coffee ₹117-150, Banana bread. Budget-friendly local spot!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">5:45 PM</div><div class="time-content"><strong>🌅 BEST VIEW SA PA — Sunset</strong><div class="detail">📍 Tổ 3, Cầu Mây | ⭐4.2 (904 reviews) | <a href="https://maps.google.com/?q=22.3375,103.8445" target="_blank">🗺️ Maps</a><br>💰 120K VND (₹400) INCLUDES 1 drink!<br>🥥 Fresh Coconut — "they open it after, you eat the meat!"<br>⚠️ BBQ takes 1.5 HOURS prep — order immediately on arrival!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:00 PM</div><div class="time-content"><strong>🏮 Sapa Night Market</strong><div class="detail">Street food, souvenirs, local vibe</div></div></div>
-</div>
-
-<!-- Day 2 -->
-<div class="day-card">
-  <div class="day-header">
-    <div>
-      <div class="day-title">📅 July 5 (Saturday) — MOANA + CAT CAT + CAFE CRAWL</div>
-      <div class="day-theme">Theme: Moana & Cat Cat (1.3km apart — back-to-back!)</div>
-      <div class="day-date">💰 ~₹3,650</div>
+  <div class="city-card" data-city="hcmc" onclick="showCity('hcmc')">
+    <div class="city-img hcmc"><div class="overlay"><h2>🏙️ HCMC</h2><span>Jun 28-30 · 2 Nights · ₹2,600</span></div></div>
+    <div class="city-body">
+      <div class="quick"><span>🦀MICHELIN</span><span>☔17 rain days</span><span>10 spots</span><span>Bui Vien</span></div>
+      <div class="warn">⚠️ Land 9PM Jun 28 — straight to Bui Vien Sunday peak!</div>
     </div>
   </div>
-  <div class="time-entry"><div class="time-stamp">7:00 AM</div><div class="time-content"><strong>🌅 MOANA SAPA — "Gate of Heaven"</strong><div class="detail">📍 <a href="https://maps.google.com/?q=22.3274,103.8463" target="_blank">🗺️ Maps</a> | 💰 ₹280-525<br>13 photo spots! Bali Heaven Gate, Golden Buddha Hand, Infinity Pool. Arrive 7AM = ZERO queues!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:45 AM</div><div class="time-content"><strong>🏘️ CAT CAT VILLAGE</strong><div class="detail">📍 <a href="https://maps.google.com/?q=22.3310,103.8341" target="_blank">🗺️ Maps</a> | 💰 ₹525<br>Only 1.3km from Moana! Catch 9:00 AM cultural show.<br>Walk DOWN (easy) → Tien Sa Waterfall → Motorbike taxi back ₹105-175<br>🛍️ Brocade scarves ₹350-1,050, Silver jewelry ₹525-1,750</div></div></div>
-  <div class="time-entry"><div class="time-stamp">2:00 PM</div><div class="time-content"><strong>☕ CAFE CRAWL — All within 500m!</strong><div class="detail">Ô La La (35m from Church) → Phansi (38m) → Viettrekking (271m) → White Cloud (477m)</div></div></div>
-  <div class="time-entry"><div class="time-stamp">5:45 PM</div><div class="time-content"><strong>🍖 PHANSI CAFE — Sunset BBQ Dinner ⭐</strong><div class="detail">📍 <a href="https://maps.google.com/?q=22.3354,103.8426" target="_blank">🗺️ Maps</a> | 💰 FREE ENTRY<br>"A boat floating in a sea of clouds" — ship-shaped venue with 360° views!<br>🍸 Jazz bar + cocktails (₹167-300), BBQ combo ₹833-1,333 for 2</div></div></div>
-</div>
-
-<!-- Day 3 -->
-<div class="day-card">
-  <div class="day-header">
-    <div>
-      <div class="day-title">📅 July 6 (Sunday) — RONG MAY THRILL DAY</div>
-      <div class="day-theme">Theme: All 5 activities within 500m — then village afternoon</div>
-      <div class="day-date">💰 ~₹2,000</div>
+  <div class="city-card" data-city="phuquoc" onclick="showCity('phuquoc')">
+    <div class="city-img phuquoc"><div class="overlay"><h2>🏝️ Phu Quoc</h2><span>Jun 30-Jul 3 · 3 Nights · ₹9,128</span></div></div>
+    <div class="city-body">
+      <div class="quick"><span>🤿Sea Walking</span><span>☔18 rain days</span><span>4 gems</span><span>Book LOCAL</span></div>
+      <div class="warn">⚠️ 4 Island Tour may cancel in rough seas. Book locally save ₹3,500!</div>
     </div>
   </div>
-  <div class="time-entry"><div class="time-stamp">9:45 AM</div><div class="time-content"><strong>🌉 RONG MAY GLASS BRIDGE COMPLEX</strong><div class="detail">📍 <a href="https://maps.google.com/?q=22.3682,103.8025" target="_blank">🗺️ Maps</a> | 17km from Sapa<br>💰 ₹1,750 (Klook saves ₹175 + skips queue!)<br>All 5 activities within 500m: Glass Bridge → Cloud Bridge → Infinity Swing → Rainbow Slide → Sky Cycling<br>⚡ Zipline (₹525) — BEST add-on! | 🚫 SKIP: Rope Bike</div></div></div>
-  <div class="time-entry"><div class="time-stamp">2:00 PM</div><div class="time-content"><strong>⚠️ ALL OUTDOOR END BY 2PM</strong><div class="detail">July = afternoon fog guaranteed. Golden rule!</div></div></div>
-</div>
-
-<!-- Day 4 — FANSIPAN -->
-<div class="day-card">
-  <div class="day-header">
-    <div>
-      <div class="day-title">📅 July 7 (Monday) — ⭐ FANSIPAN SUMMIT DAY!</div>
-      <div class="day-theme">Theme: WEEKDAY = 10 MIN QUEUE (vs 2 HOURS weekend!)</div>
-      <div class="day-date">💰 ~₹3,905 (incl. bus to Hanoi)</div>
+  <div class="city-card" data-city="hanoi" onclick="showCity('hanoi')">
+    <div class="city-img hanoi"><div class="overlay"><h2>🍜 Hanoi</h2><span>Jul 3-4, 7-10 · 3 Days · ₹7,200</span></div></div>
+    <div class="city-body">
+      <div class="quick"><span>🍜#1 Pho</span><span>🚂Train St</span><span>☔16 rain days</span><span>🚢Halong</span></div>
+      <div class="warn">⚠️ Halong Bay Jul 9 — typhoon risk! Cruise may cancel.</div>
     </div>
   </div>
-  <div class="time-entry"><div class="time-stamp">5:30 AM</div><div class="time-content"><strong>⏰ Wake up — EARLY!</strong></div></div>
-  <div class="time-entry"><div class="time-stamp">6:05 AM</div><div class="time-content"><strong>🍳 VIETTREKKING COFFEE — Breakfast</strong><div class="detail">📍 <a href="https://maps.google.com/?q=22.3342,103.8399" target="_blank">🗺️ Maps</a> | ⭐4.3 | Opens 6AM<br>🥩 Braised Pork Belly (₹358) + "Sapa White Cloud" coffee (₹183-217)<br>🌄 "Café in the Clouds" — Muong Hoa funicular passes by!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:30 AM</div><div class="time-content"><strong>🚡 FANSIPAN CABLE CAR — 10 MIN QUEUE!</strong> <span class="badge-must">MUST</span><div class="detail">📍 <a href="https://maps.google.com/?q=22.3343,103.8404" target="_blank">🗺️ Maps</a><br>💰 Combo ₹2,805 | Klook e-ticket skips counter queue<br>🚂 Muong Hoa Funicular → 🚡 Cable Car (15 min, Guinness 6,292m!) → 600 steps → 🏔️ SUMMIT 3,143m!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">12:30 PM</div><div class="time-content"><strong>🚌 BUS TO HANOI</strong><div class="detail">VIP sleeper ₹800 | 6 hours | Arrive Hanoi 7PM</div></div></div>
-</div>
-
-<!-- Sapa Cafes -->
-<h2 class="section-title">☕ Sapa's 6 Best Cafes — Ranked with WHY</h2>
-<div class="cafe-grid">
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">🥇 Phansi Cafe</div><div class="cafe-rating">⭐5.0</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> Lane 66 Violet | <a href="https://maps.google.com/?q=22.3354,103.8426" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> "A boat floating in a sea of clouds" — ship-shaped venue with insane 360° views. Jazz bar, BBQ at your table, FREE entry. "Crazy & surreal views... jazz music keeps you there all afternoon."</div>
-  <div class="cafe-detail"><span class="label">MUST:</span> BBQ Combo ₹833-1,333 + Signature Cocktail ₹250</div>
-</div>
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">🥈 Viettrekking Coffee</div><div class="cafe-rating">⭐4.3</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> 33 Hoàng Liên | <a href="https://maps.google.com/?q=22.3342,103.8399" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> "Café in the Clouds." The Muong Hoa funicular train passes RIGHT below the terrace! 200-seat airy space. Opens 6AM — perfect pre-Fansipan. Braised Pork Belly + Sapa White Cloud coffee = ultimate breakfast.</div>
-  <div class="cafe-detail"><span class="label">MUST:</span> Braised Pork Belly ₹358, Sapa White Cloud Coffee ₹200</div>
-</div>
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">🥉 Best View Sa Pa</div><div class="cafe-rating">⭐4.2</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> Tổ 3, Cầu Mây | <a href="https://maps.google.com/?q=22.3375,103.8445" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> Entry ₹400 includes 1 drink! 40,000m² at 1,600m. "Genuinely the best panoramic view in Sapa — quiet, breezy." Fresh coconut they open for you to eat the meat after!</div>
-  <div class="cafe-detail"><span class="label">MUST:</span> Fresh Coconut, BBQ (⚠️ 1.5hr prep — order on arrival!)</div>
-</div>
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">4. White Cloud Cafe</div><div class="cafe-rating">⭐4.4</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> 65 Fansipan St | <a href="https://maps.google.com/?q=22.3321,103.8391" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> Michelin reviewer rated 5/5: "Egg Coffee & Salted Coffee BETTER than famous Hanoi spots." Crème Brûlée Egg Coffee UNIQUE to White Cloud in all Sapa. Multi-story mountain ambiance.</div>
-  <div class="cafe-detail"><span class="label">MUST:</span> Crème Brûlée Egg Coffee ₹165, Salted Coffee, Bánh Mì</div>
-</div>
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">5. Ô La La Coffee</div><div class="cafe-rating">⭐~4.2</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> Làng Mèo Mèo, Cat Cat | <a href="https://maps.google.com/?q=22.3355,103.8422" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> Hidden tiny gem — "small and cute" per Vietnamese reviews. Cheapest cafe on the list. Authentic, non-touristy local vibe. Drip coffee ₹83-117, Egg coffee ₹117-150, banana bread.</div>
-</div>
-
-<div class="cafe-card">
-  <div class="cafe-header"><div class="cafe-name">6. La Do Homestay Coffee</div><div class="cafe-rating">⭐3.0</div></div>
-  <div class="cafe-detail"><span class="label">📍</span> 31 Hoàng Liên | <a href="https://maps.google.com/?q=22.3320,103.8355" target="_blank">🗺️ Maps</a></div>
-  <div class="cafe-detail"><span class="label">WHY:</span> ⚠️ NOT a steak/high-tea venue! Simple budget cafe. THE reason to go: Muong Hoa monorail passes directly below balcony — best train photography in Sapa. "Da Lat vibe" rustic decor.</div>
-  <div class="cafe-detail"><span class="label">MUST:</span> Egg Coffee ₹150, Ginger Tea ₹133 — grab balcony seat!</div>
 </div>
 
 </div>
 
-<!-- Hidden Gems -->
-<h2 class="section-title">💎 12 Hidden Gems — What Tourists MISS</h2>
-<p class="section-subtitle">Discovered through 37+ searches across Reddit, Vietnamese blogs, TripAdvisor forums</p>
-
-<div class="hidden-gem">
-  <div class="gem-rank">#1 MUST-VISIT</div>
-  <h4>🌄 Heaven's Gate (O Quy Ho Pass)</h4>
-  <div class="detail">Vietnam's highest mountain pass — "sea of clouds" at sunrise. Already near Rong May, 17km from Sapa. FREE.</div>
-  <div class="quote">"The clouds literally roll over the pass like a waterfall. Most tourists skip this — they go straight to the Glass Bridge." — TripAdvisor</div>
+<button class="util-btn" onclick="document.getElementById('panel').classList.toggle('open')">🧰</button>
+<div class="panel" id="panel" style="font-size:12px;">
+  <b>✅ Checklist</b>
+  <div id="checklist"></div>
+  <hr style="margin:8px 0;border-color:var(--border)">
+  <b>🆘 Emergency</b><br>
+  Police: 113 · Ambulance: 115<br>
+  🇮🇳 Embassy Hanoi: +84-24-38244989<br>
+  🇮🇳 Consulate HCMC: +84-28-38227056
 </div>
-
-<div class="hidden-gem">
-  <div class="gem-rank">#2 MUST-VISIT</div>
-  <h4>♨️ Ban Ho Village + Natural Hot Springs</h4>
-  <div class="detail">30-40°C mineral springs in the mountains. Swim surrounded by rice terraces. 25km from Sapa. Guide ₹1,400 half-day.</div>
-  <div class="quote">"Sitting in a natural hot spring looking at rice terraces after a 3-day trek. Pure bliss." — u/digitalburro, r/VietNam</div>
-</div>
-
-<div class="hidden-gem">
-  <div class="gem-rank">#3 MUST-VISIT</div>
-  <h4>🏛️ Ta Phin Village + Monastery + Red Dao Herbal Bath</h4>
-  <div class="detail">3-in-1: abandoned French monastery + Red Dao minority village + herbal bath (₹500). 12km from Sapa.</div>
-  <div class="quote">"The Red Dao herbal bath after trekking Ta Phin was the highlight of my entire Sapa trip." — u/Ok_Zucchini3324</div>
-</div>
-
-<div class="hidden-gem">
-  <div class="gem-rank">#4</div>
-  <h4>🌅 Lonely Tree Sunset Point</h4>
-  <div class="detail">Singular pine on a hilltop with 360° sunset views. Better than Best View cafe. FREE, 2km from center.</div>
-</div>
-
-<div class="hidden-gem">
-  <div class="gem-rank">#5</div>
-  <h4>🏘️ Sin Chai Village</h4>
-  <div class="detail">Cat Cat's authentic, uncommercialized neighbor. Same H'mong culture, ZERO tourist shops. Walk from Cat Cat.</div>
-</div>
-
-</div>
-
-</div><!-- end sapa -->
-
-<!-- ═══════════════════════════════════════ -->
-<!-- HCMC -->
-<!-- ═══════════════════════════════════════ -->
-<div class="city-panel" id="panel-hcmc">
-
-<div class="status-banner">
-  ✅ Status: <strong>Deep-Researched ✅</strong> — 10 spots, MICHELIN verified
-</div>
-
-<h2 class="section-title">🏙️ Ho Chi Minh City</h2>
-<p class="section-subtitle">June 28 (9PM) – June 30, 2026 | 2.5 days | 10 spots (3 dropped) | Stay: D1</p>
-
-<div class="warning">☔ <strong>17/31 rain days — afternoon storms 2-5PM like clockwork!</strong> Mornings reliable. Rain backup: museums, Ben Thanh (covered), cafe hopping.</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 June 28 (Sun) — 9PM LANDING → BUI VIEN NIGHT!</div><div class="day-date">💰 ~₹500-800</div></div></div>
-  <div class="time-entry"><div class="time-stamp">9:00 PM</div><div class="time-content"><strong>🛬 Land Tan Son Nhat Airport</strong></div></div>
-  <div class="time-entry"><div class="time-stamp">10:30 PM</div><div class="time-content"><strong>🏨 Check-in District 1</strong><div class="detail">Grab ₹350-500, ~30 min. 🗺️ Stay near Bui Vien / Pham Ngu Lao area</div></div></div>
-  <div class="time-entry"><div class="time-stamp">10:45 PM</div><div class="time-content"><strong>🍺 BUI VIEN — SUNDAY PEAK NIGHT!</strong><div class="detail">📍 Bui Vien St, D1 | <a href="https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC" target="_blank">🗺️ Maps</a><br>💰 Bia hoi ₹53-88/cup! Walking street till 2AM. Neon, live music. Peak energy!</div></div></div>
-</div>
-
-<div class="warning">⚠️ <strong>3 spots DROPPED!</strong> Me Coffee (12km away), Chon Binh Yen (unverifiable), Nomad Land (generic chain). 10 remaining — fully researched.</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 June 29 (Sunday) — 5-PHASE MAXIMUM DAY</div><div class="day-date">💰 ~₹2,100</div></div></div>
-
-  <div class="time-entry"><div class="time-stamp">7:30 AM</div><div class="time-content"><strong>🍜 PHASE 1 — Pho + Bus Tour</strong><div class="detail">⭐ Pho Minh (63/6 Pasteur, D3) | <a href="https://maps.google.com/?q=63+Pasteur+District+3+HCMC" target="_blank">🗺️ Maps</a> — hidden gem since 1940s! ₹246-316<br>8:15AM: 🚌 Klook Bus Tour — Opera House start, ₹509, ⭐4.4 | <a href="https://maps.google.com/?q=Saigon+Opera+House+HCMC" target="_blank">🗺️ Maps</a><br>9:30AM: 🚶 Nguyen Hue Walking St — FREE, 800m promenade | <a href="https://maps.google.com/?q=Nguyen+Hue+Walking+Street+HCMC" target="_blank">🗺️ Maps</a></div></div></div>
-  
-  <div class="time-entry"><div class="time-stamp">10:45 AM</div><div class="time-content"><strong>🍜 PHASE 2 — MICHELIN Bib Gourmand!</strong> <span class="badge-must">MUST</span><div class="detail">🦀 BANH CANH CUA BA BA — 84/6 Nguyen Bieu, D5 | <a href="https://maps.google.com/?q=84/6+Nguyen+Bieu+District+5+HCMC" target="_blank">🗺️ Maps</a><br>💰 ₹158-351 | ⭐4.3 | MICHELIN Bib Gourmand 2026!<br>"Silky broth filled with crab leg meat & egg ribbons" — MICHELIN Guide<br>⚠️ Hidden in alley! SELLS OUT BY 1PM!</div></div></div>
-
-  <div class="time-entry"><div class="time-stamp">12:45 PM</div><div class="time-content"><strong>🎨 PHASE 3 — Thu Duc Cluster</strong><div class="detail">🎨 Van Gogh METASHOW — 4F Thiso Mall Sala | <a href="https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc+HCMC" target="_blank">🗺️ Maps</a> | ₹878 | ⭐4.6<br>☕ Noong Oi Cafe (Mini Sapa) — ⭐4.8 (4,661 reviews!) + 🚶 15 min walk → Chuyen Cua Tung</div></div></div>
-
-  <div class="time-entry"><div class="time-stamp">4:30 PM</div><div class="time-content"><strong>🦪 PHASE 4 — Seafood Trail</strong><div class="detail">☕ Oasis Cafe — Koi pond tables 🐟 | <a href="https://maps.google.com/?q=176+Le+Van+Sy+Phu+Nhuan+HCMC" target="_blank">🗺️ Maps</a> | 45K-65K<br>🦪 VINH KHANH STREET — Time Out's 31 coolest streets! | <a href="https://maps.google.com/?q=Vinh+Khanh+Street+District+4+HCMC" target="_blank">🗺️ Maps</a><br>Oysters 30K-50K, Snails 40K-80K, DIY BBQ 150K-300K<br>"Best seafood dining in 2 weeks in Vietnam" — Will Fly for Food</div></div></div>
-
-  <div class="time-entry"><div class="time-stamp">7:30 PM</div><div class="time-content"><strong>🍺 PHASE 5 — Bui Vien Night (Round 2!)</strong><div class="detail">Sunday peak! 🍢 Banh Mi Huynh Hoa — Bourdain-approved! 42K-68K | <a href="https://maps.google.com/?q=26+Le+Thi+Rieng+District+1+HCMC" target="_blank">🗺️ Maps</a><br>🍺 Bia hoi 15K-25K/cup | ⚠️ Confirm prices before ordering</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 June 30 (Mon) — DEPARTURE MORNING</div><div class="day-date">💰 ~₹500</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:00 AM</div><div class="time-content"><strong>🍜 Pho Le — local secret!</strong><div class="detail">📍 413-415 Nguyen Trai, D5 | <a href="https://maps.google.com/?q=413+Nguyen+Trai+District+5+HCMC" target="_blank">🗺️ Maps</a><br>Tourists go to Pho 2000 — locals come here! 70K-100K VND</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:00 AM</div><div class="time-content"><strong>🚶 Nguyen Hue — peaceful morning photos</strong><div class="detail">Golden light, zero crowds! <a href="https://maps.google.com/?q=Nguyen+Hue+Walking+Street+HCMC" target="_blank">🗺️ Maps</a></div></div></div>
-  <div class="time-entry"><div class="time-stamp">9:00 AM</div><div class="time-content"><strong>☕ Mien Thao Moc Cafe (optional)</strong> <span class="badge-opt">OPTIONAL</span><div class="detail">D11 garden zen | ⭐4.8 (3,898 reviews). OR skip, enjoy D1 cafes</div></div></div>
-  <div class="time-entry"><div class="time-stamp">11:00 AM</div><div class="time-content"><strong>🚕 Tan Son Nhat Airport → Fly Phu Quoc!</strong><div class="detail">Grab ₹350-500, ~30 min</div></div></div>
-</div>
-
-</div><!-- end hcmc -->
-
-<!-- ═══════════════════════════════════════ -->
-<!-- PHU QUOC -->
-<!-- ═══════════════════════════════════════ -->
-<div class="city-panel" id="panel-phuquoc">
-
-<div class="status-banner">
-  ✅ Status: <strong>Deep-Researched ✅</strong> — Reviews, weather, hidden gems, maps linked
-</div>
-
-<h2 class="section-title">🏝️ Phu Quoc Island</h2>
-<p class="section-subtitle">June 30 – July 3, 2026 | 3 Nights | Total: ~₹9,128</p>
-
-<div class="warning">☔ <strong>18/31 rain days + rough seas!</strong> 4 Island Tour CAN be cancelled. Rain backup: Prison Museum, Fish Sauce Factory, Pearl Farm, VinWonders Aquarium, spa.</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 June 30 (Sunday) — ARRIVAL + GRAND WORLD</div><div class="day-date">💰 ₹718</div></div></div>
-  <div class="time-entry"><div class="time-stamp">PM</div><div class="time-content"><strong>🛬 Arrive Phu Quoc Airport</strong><div class="detail">🏨 Check-in near Grand World/VinWonders</div></div></div>
-  <div class="time-entry"><div class="time-stamp">5:30PM</div><div class="time-content"><strong>🏛️ GRAND WORLD</strong><div class="detail">📍 Ganh Dau | <a href="https://maps.google.com/?q=Grand+World+Phu+Quoc" target="_blank">🗺️ Maps</a><br>🆓 FREE entry! 🧸 Teddy Bear Museum (₹718) | <a href="https://maps.google.com/?q=Teddy+Bear+Museum+Phu+Quoc" target="_blank">🗺️ Maps</a><br>🌊 Charm of Venice Show 9:30PM (FREE) | 🔦 Laser Show 10:45PM (FREE)<br>💡 Go 5:30PM for golden hour + night lights | Skip overpriced restaurants inside</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 1 (Monday) — 4 ISLANDS + SEA WALKING</div><div class="day-date">💰 ~₹5,000 (book locally!)</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7AM-5:30PM</div><div class="time-content"><strong>🚢 4 Island Tour + Sea Walking</strong> <span class="badge-must">MUST</span><div class="detail">📍 Depart: An Thoi Port | <a href="https://maps.google.com/?q=An+Thoi+Port+Phu+Quoc" target="_blank">🗺️ Maps</a><br>💰 ₹4,200-5,250 LOCAL booking (NOT ₹8,250 online!)<br>🏝️ Hon Thom, May Rut, Gam Ghi, Mong Tay<br>🚡 World's longest oversea cable car included<br>🤿 Sea Walking — "standing on ocean floor with fish circling"<br>⚠️ July: rough seas 2-5 days/month, larger boats safer!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">5:30PM</div><div class="time-content"><strong>🌅 SUNSET TOWN + KISS BRIDGE</strong><div class="detail"><a href="https://maps.google.com/?q=Sunset+Town+Phu+Quoc" target="_blank">🗺️ Maps</a> | FREE with cable car ticket | Clock Tower, Pompeii Ruins, Dragon Stairs</div></div></div>
-  <div class="time-entry"><div class="time-stamp">Night</div><div class="time-content"><strong>🏮 DUONG DONG NIGHT MARKET</strong><div class="detail"><a href="https://maps.google.com/?q=Duong+Dong+Night+Market+Phu+Quoc" target="_blank">🗺️ Maps</a> | 150+ stalls, seafood, souvenirs | ⭐5/5 for solo travelers<br>⚠️ Avoid stalls with English menus — 2-3x price!</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 2 (Tuesday) — VINWONDERS FULL DAY</div><div class="day-date">💰 ₹3,410</div></div></div>
-  <div class="time-entry"><div class="time-stamp">9AM-7:30PM</div><div class="time-content"><strong>🎢 VINWONDERS</strong><div class="detail"><a href="https://maps.google.com/?q=VinWonders+Phu+Quoc" target="_blank">🗺️ Maps</a><br>💰 ₹3,410 | Palace of Dreams → Viking Village → Adventure World → Typhoon Water Park<br>🌙 6:45PM: ★ THE ONCE SHOW ★ — $12M production! INCLUDED in ticket.</div></div></div>
-</div>
-
-<h2 class="section-title">💎 Hidden Gems</h2>
-<div class="hidden-gem"><h4>🏖️ Ong Lang Beach — Best Solo Beach</h4><div class="detail"><a href="https://maps.google.com/?q=Ong+Lang+Beach+Phu+Quoc" target="_blank">🗺️ Maps</a> | No mass tourism, beach bar sunbeds ₹100-175, 15-20 min Grab</div></div>
-<div class="hidden-gem"><h4>🦀 Ham Ninh Fishing Village</h4><div class="detail"><a href="https://maps.google.com/?q=Ham+Ninh+Fishing+Village+Phu+Quoc" target="_blank">🗺️ Maps</a> | Authentic local seafood, pick from nets! Crab ₹420-700/kg</div></div>
-<div class="hidden-gem"><h4>☕ Chuon Chuon Bistro</h4><div class="detail"><a href="https://maps.google.com/?q=Chuon+Chuon+Bistro+Phu+Quoc" target="_blank">🗺️ Maps</a> | Hilltop sea panorama, Vietnamese coffee ₹123, spectacular sunset</div></div>
-<div class="hidden-gem"><h4>🍜 Bun Quay Kien Xay</h4><div class="detail"><a href="https://maps.google.com/?q=28+Bach+Dang+Duong+Dong+Phu+Quoc" target="_blank">🗺️ Maps</a> | Legendary noodles ₹175-228, "Absolute must" — Reddit</div></div>
-
-</div><!-- end phuquoc -->
-
-<!-- ═══════════════════════════════════════ -->
-<!-- HANOI -->
-<!-- ═══════════════════════════════════════ -->
-<div class="city-panel" id="panel-hanoi">
-
-<div class="status-banner">
-  ✅ Status: <strong>Deep-Researched ✅</strong> — #1 Pho found, Train St OPEN, Cha Ca La Vong DROPPED
-</div>
-
-<h2 class="section-title">🍜 Hanoi</h2>
-<p class="section-subtitle">July 3 eve, July 7 eve–July 10 | 3 Days | Total: ~₹7,200</p>
-
-<div class="warning">☔ <strong>16/31 rain days + Halong Bay typhoon risk!</strong> July 9 = highest-risk day. Cruise may cancel. Rain backup: Water Puppet Theatre, museums, cafe culture.</div>
-
-<div class="warning">🚫 <strong>Cha Ca La Vong DROPPED!</strong> Tourist trap (3.6★). 2 better local alternatives: Chả Cá Thăng Long (⭐4.5) or Chả Cá Anh Vũ.</div>
-
-<div class="warning">⚠️ <strong>Weekend Night Market ONLY on Friday July 4!</strong> Saturday July 5 you're in Sapa.</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 3 (Thu) — EVENING ARRIVAL</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:00 PM</div><div class="time-content"><strong>🏨 Check-in Old Quarter</strong><div class="detail">🚌 Bus 86 from airport: ₹158, 60-80 min | 🚕 Grab: ₹700-1,050, 40-50 min</div></div></div>
-  <div class="time-entry"><div class="time-stamp">9:00 PM</div><div class="time-content"><strong>🍺 BIA HOI CORNER</strong><div class="detail"><a href="https://maps.google.com/?q=Luong+Ngoc+Quyen+Hoan+Kiem+Hanoi" target="_blank">🗺️ Maps</a> | 💰 Beer ₹18-35/CUP! Ta Hien / Luong Ngoc Quyen. Live music + street snacks.</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 4 (Fri) — MORNING BLITZ (before Sapa bus)</div><div class="day-date">💰 ~₹500</div></div></div>
-  <div class="time-entry"><div class="time-stamp">6:00 AM</div><div class="time-content"><strong>🌅 Hoan Kiem Lake — sunrise + Tai Chi</strong><div class="detail"><a href="https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi" target="_blank">🗺️ Maps</a> | Best photos — zero tourists! Golden light on Turtle Tower.</div></div></div>
-  <div class="time-entry"><div class="time-stamp">6:45 AM</div><div class="time-content"><strong>🍜 PHỞ THÌN 13 LÒ ĐÚC — #1 Hanoi Pho!</strong> <span class="badge-must">MUST</span><div class="detail"><a href="https://maps.google.com/?q=13+Lo+Duc+Hai+Ba+Trung+Hanoi" target="_blank">🗺️ Maps</a> | 💰 ₹246-316 | 🔥 GARLIC STIR-FRIED BEEF — unique!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:30 AM</div><div class="time-content"><strong>☕ GIANG CAFE — Birthplace of Egg Coffee (1946)</strong><div class="detail"><a href="https://maps.google.com/?q=39+Nguyen+Huu+Huan+Hoan+Kiem+Hanoi" target="_blank">🗺️ Maps</a> | 💰 ₹123-158 | ⭐4.8 (22K reviews!)<br>"Down a small alleyway... surrounded by locals on miniature chairs" — TripAdvisor</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:15 AM</div><div class="time-content"><strong>🥖 BANH MI 25 — grab for bus!</strong><div class="detail"><a href="https://maps.google.com/?q=25+Hang+Ca+Hoan+Kiem+Hanoi" target="_blank">🗺️ Maps</a> | 👨‍🎤 Justin Bieber ate here! 💰 ₹88-158 | ⭐4.7 (5,769 reviews)</div></div></div>
-  <div class="time-entry"><div class="time-stamp">9:30 AM</div><div class="time-content"><strong>🚌 Sapa bus pickup</strong><div class="detail">Free hotel pickup by all bus operators. 6hr to Sapa.</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 7 (Mon) — EVENING RETURN</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:00 PM</div><div class="time-content"><strong>🏙️ Arrive from Sapa</strong></div></div>
-  <div class="time-entry"><div class="time-stamp">8:00 PM</div><div class="time-content"><strong>🍜 BUN CHA HUONG LIEN — Obama's Spot!</strong><div class="detail"><a href="https://maps.google.com/?q=24+Le+Van+Huu+Hai+Ba+Trung+Hanoi" target="_blank">🗺️ Maps</a> | 💰 Combo Obama ₹456 | 🎬 Bourdain + Obama 2016</div></div></div>
-</div>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 July 8 (Tue) — FULL HANOI MAXIMUM DAY</div><div class="day-date">💰 ~₹2,000</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:30 AM</div><div class="time-content"><strong>🍜 Pho Bat Dan — most traditional</strong><div class="detail">📍 49 Bat Dan | Self-service, no-frills local vibe</div></div></div>
-  <div class="time-entry"><div class="time-stamp">9:00 AM</div><div class="time-content"><strong>🏛️ Temple of Literature (1070 AD)</strong><div class="detail"><a href="https://maps.google.com/?q=Temple+of+Literature+Hanoi" target="_blank">🗺️ Maps</a> | Vietnam's first university | ₹246 | ⭐4.5</div></div></div>
-  <div class="time-entry"><div class="time-stamp">11:00 AM</div><div class="time-content"><strong>🚂 TRAIN STREET CAFE — 11:50 AM TRAIN!</strong> <span class="badge-must">MUST</span><div class="detail"><a href="https://maps.google.com/?q=Train+Street+Phung+Hung+Hanoi" target="_blank">🗺️ Maps</a> | 💰 Coffee ₹105-228<br>✅ OPEN 2026! 🚂 Train at 11:50 AM!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">2:00 PM</div><div class="time-content"><strong>🎨 X SPACE IMMERSIVE</strong><div class="detail"><a href="https://maps.google.com/?q=X+Space+Immersive+Vincom+Royal+City+Hanoi" target="_blank">🗺️ Maps</a> | 💰 ₹878-1,050 | ⭐4.8<br>⚠️ B2 floor, hard to find — ask mall staff!</div></div></div>
-  <div class="time-entry"><div class="time-stamp">7:30 PM</div><div class="time-content"><strong>🚂 TRAIN STREET — 7:50 PM BEST TRAIN!</strong><div class="detail">★ SUNSET SLOT: lanterns + train headlight through dusk</div></div></div>
-  <div class="time-entry"><div class="time-stamp">8:30 PM</div><div class="time-content"><strong>🐟 Chả Cá Thăng Long (SKIP Cha Ca La Vong!)</strong><div class="detail"><a href="https://maps.google.com/?q=21+Duong+Thanh+Hoan+Kiem+Hanoi" target="_blank">🗺️ Maps</a> | ⭐4.5 | 120K-180K VND — what locals prefer!</div></div></div>
-</div>
-
-</div><!-- end hanoi -->
-
-<!-- ═══════════════════════════════════════ -->
-<!-- OVERVIEW -->
-<!-- ═══════════════════════════════════════ -->
-<div class="city-panel" id="panel-overview">
-
-<h2 class="section-title">🗺️ Complete Trip Overview</h2>
-
-<div class="day-card">
-  <div class="day-header"><div><div class="day-title">📅 13-Day Master Schedule</div></div></div>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;">
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jun 28</td><td style="padding:8px;">✈️</td><td style="padding:8px;">Delhi → HCMC (overnight)</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jun 29</td><td style="padding:8px;">🏙️</td><td style="padding:8px;">HCMC — arrive, bus tour, walking streets, cafes</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jun 30</td><td style="padding:8px;">🏙️→🏝️</td><td style="padding:8px;">HCMC AM → Fly Phu Quoc PM → Grand World</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 1</td><td style="padding:8px;">🏝️</td><td style="padding:8px;">4 Islands + Sea Walking + Sunset Town</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 2</td><td style="padding:8px;">🏝️</td><td style="padding:8px;">VinWonders full day — THE ONCE SHOW</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 3</td><td style="padding:8px;">🏝️→🏙️</td><td style="padding:8px;">Phu Quoc relax → Fly Hanoi eve</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 4</td><td style="padding:8px;">⛰️</td><td style="padding:8px;">Hanoi AM → Bus Sapa PM → 3 cafes</td></tr>
-    <tr style="border-bottom:1px solid var(--border);background:var(--accent-light);"><td style="padding:8px;font-weight:700;color:var(--accent);">Jul 5</td><td style="padding:8px;">⛰️</td><td style="padding:8px;">Sapa — Moana + Cat Cat + Cafe Crawl</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 6</td><td style="padding:8px;">⛰️</td><td style="padding:8px;">Sapa — Rong May + Ta Van</td></tr>
-    <tr style="border-bottom:1px solid var(--border);background:var(--accent-light);"><td style="padding:8px;font-weight:700;color:var(--accent);">Jul 7</td><td style="padding:8px;">⛰️→🏙️</td><td style="padding:8px;">FANSIPAN MONDAY (10min queue!) → Bus Hanoi</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 8</td><td style="padding:8px;">🏙️</td><td style="padding:8px;">Hanoi — Full food trail + X Space</td></tr>
-    <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;font-weight:700;">Jul 9</td><td style="padding:8px;">🚢</td><td style="padding:8px;">Halong Bay day trip</td></tr>
-    <tr><td style="padding:8px;font-weight:700;">Jul 10</td><td style="padding:8px;">✈️</td><td style="padding:8px;">Hanoi → Delhi</td></tr>
-  </table>
-</div>
-
-<h2 class="section-title">💰 Budget Tracker</h2>
-<div class="budget-bar">
-  <div class="budget-chip">⛰️ Sapa <span class="amount">₹11,480</span></div>
-  <div class="budget-chip">🏝️ Phu Quoc <span class="amount">₹12,378</span></div>
-  <div class="budget-chip">🏙️ HCMC <span class="amount">~₹3,000</span></div>
-  <div class="budget-chip">🍜 Hanoi <span class="amount">₹5,670</span></div>
-  <div class="budget-chip">✈️ Flights <span class="amount">~₹18,000</span></div>
-  <div class="budget-chip">🏨 Hotels <span class="amount">~₹12,000</span></div>
-  <div class="budget-chip" style="background:var(--accent);color:white;">TOTAL <span class="amount" style="color:white;">~₹62,000</span></div>
-</div>
-
-</div><!-- end overview -->
-
-</main>
 
 <script>
-function switchCity(city) {
-  document.querySelectorAll('.city-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + city).classList.add('active');
-  event.target.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-  localStorage.setItem('activeCity', city);
-}
-
-function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-}
-
-// Restore state
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved) document.documentElement.setAttribute('data-theme', saved);
-  const city = localStorage.getItem('activeCity');
-  if (city && document.getElementById('panel-' + city)) {
-    document.querySelectorAll('.city-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('panel-' + city).classList.add('active');
-    const tab = document.querySelector('[onclick*="' + city + '"]');
-    if (tab) tab.classList.add('active');
+const DATA = {
+  sapa: {
+    days: [
+      {date:"Jul 4 Fri",theme:"Arrival + Sunset",items:[
+        {t:"3:30 PM",h:"🚌 Arrive Sapa",d:""},
+        {t:"4:15 PM",h:"☕ White Cloud Cafe 🥇",d:"📍 65 Fansipan St · ⭐4.4 · Crème Brûlée Egg Coffee ₹165 — UNIQUE to White Cloud! \"Better than famous Hanoi spots\" —Michelin J. ⭐5/5<br>✅ Bánh mì · 🚫 Skip Pho (average)"},
+        {t:"5:30 PM",h:"🌅 Best View Sa Pa 🥉",d:"📍 Tổ 3, Cầu Mây · ⭐4.2 · Entry ₹400 INCLUDES 1 drink!<br>🥥 Fresh Coconut — \"they open it after, you eat the meat!\"<br>⚠️ BBQ takes 1.5hr prep — order immediately!"},
+        {t:"8:00 PM",h:"🏮 Sapa Night Market",d:"📍 Sapa Square · 🗺️ maps.google.com/?q=Sapa+Night+Market"}
+      ]},
+      {date:"Jul 5 Sat",theme:"Moana + Cat Cat + Cafes",items:[
+        {t:"7:00 AM",h:"🌅 Moana Sapa 🟡",d:"📍 maps.google.com/?q=22.3274,103.8463 · ₹350<br>13 photo spots! Bali Heaven Gate #1. Arrive 7AM=ZERO queues!"},
+        {t:"8:45 AM",h:"🏘️ Cat Cat Village 🟡",d:"📍 maps.google.com/?q=22.3310,103.8341 · ₹525<br>Only 1.3km from Moana! Catch 9AM cultural show.<br>Walk DOWN → Tien Sa Waterfall → Motorbike taxi back ₹175"},
+        {t:"12:00 PM",h:"🍜 White Cloud Cafe — LUNCH",d:"🥇 Crème Brûlée Egg Coffee + Bánh mì"},
+        {t:"3:15 PM",h:"☕ Ô La La Coffee 🟢",d:"Tiny local gem · Drip coffee ₹83-117 · Banana bread"},
+        {t:"6:00 PM",h:"🍖 Phansi Cafe 🥇 — DINNER",d:"📍 Lane 66 Violet · FREE ENTRY! Ship-shaped, 360° views<br>🔥 BBQ Combo ₹1,720 (for 2) + 🍸 Cocktail ₹250"}
+      ]},
+      {date:"Jul 6 Sun",theme:"Rong May Thrill Day",items:[
+        {t:"7:00 AM",h:"🍳 Viettrekking Coffee 🥈",d:"📍 33 Hoàng Liên · ⭐4.3 · Braised Pork Belly ₹358<br>\"Café in the Clouds\" — funicular passes below terrace!"},
+        {t:"8:30 AM",h:"🌉 Rong May Glass Bridge 🔴",d:"📍 O Quy Ho · maps.google.com/?q=22.3682,103.8025 · ₹1,750<br>All 5 activities within 500m! ⚡ Zipline ₹525 BEST add-on"},
+        {t:"1:00 PM",h:"🏨 Return + Shower",d:""},
+        {t:"3:15 PM",h:"☕ La Do Homestay 🟢",d:"📍 31 Hoang Lien · ⭐3.0 · Monorail passes below balcony!<br>Best train photography in Sapa. Simple coffee ₹150."}
+      ]},
+      {date:"Jul 7 Mon",theme:"⭐ FANSIPAN SUMMIT — 10 MIN QUEUE!",items:[
+        {t:"6:05 AM",h:"🍳 Viettrekking — Breakfast",d:""},
+        {t:"7:30 AM",h:"🏔️ FANSIPAN CABLE CAR 🔴 MUST",d:"📍 Sun Plaza · maps.google.com/?q=22.3343,103.8404<br>💰 ₹2,805 · Klook e-ticket · MONDAY = 10 MIN QUEUE!<br>🚂 Funicular → 🚡 Cable Car (15min, Guinness 6,292m!) → 🏔️ 3,143m!"},
+        {t:"12:30 PM",h:"🚌 Bus to Hanoi",d:"VIP sleeper ₹800 · 6 hours"}
+      ]}
+    ]
+  },
+  hcmc: {
+    days: [
+      {date:"Jun 28 Sun",theme:"9PM LANDING → BUI VIEN NIGHT!",items:[
+        {t:"9:00 PM",h:"🛬 Land Tan Son Nhat",d:""},
+        {t:"10:45 PM",h:"🍺 BUI VIEN WALKING ST 🔴",d:"📍 maps.google.com/?q=Bui+Vien+Walking+Street+HCMC<br>Sunday PEAK NIGHT! Bia hoi ₹53-88/cup · Walking street till 2AM"}
+      ]},
+      {date:"Jun 29 Sun",theme:"5-Phase Maximum Day",items:[
+        {t:"7:30 AM",h:"🍜 Pho Minh + 🚌 Bus Tour",d:"📍 63 Pasteur D3 · maps.google.com/?q=63+Pasteur+D3+HCMC<br>₹509 Klook Bus — Opera House start"},
+        {t:"10:45 AM",h:"🦀 BANH CANH CUA BA BA 🔴 MUST",d:"📍 84/6 Nguyen Bieu D5 · maps.google.com/?q=84/6+Nguyen+Bieu+D5+HCMC<br>💰 ₹158-351 · MICHELIN Bib Gourmand 2026! ⚠️ SELLS OUT BY 1PM!"},
+        {t:"12:45 PM",h:"🎨 Van Gogh METASHOW 🟡",d:"📍 Thiso Mall Sala · maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc · ₹878 ⭐4.6"},
+        {t:"4:30 PM",h:"🦪 VINH KHANH STREET 🟡",d:"📍 D4 · maps.google.com/?q=Vinh+Khanh+Street+D4+HCMC<br>Time Out's 31 coolest streets! Oysters 30K-50K"},
+        {t:"7:30 PM",h:"🍺 Bui Vien Night Round 2",d:"🍢 Banh Mi Huynh Hoa — Bourdain-approved! 42K-68K"}
+      ]},
+      {date:"Jun 30 Mon",theme:"Departure Morning",items:[
+        {t:"7:00 AM",h:"🍜 Pho Le 🟢",d:"📍 413 Nguyen Trai D5 · Local secret!"},
+        {t:"11:00 AM",h:"🚕 Fly to Phu Quoc",d:""}
+      ]}
+    ]
+  },
+  phuquoc: {
+    days: [
+      {date:"Jun 30 Sun",theme:"Arrival + Grand World",items:[
+        {t:"PM",h:"🛬 Arrive + Check-in",d:""},
+        {t:"5:30 PM",h:"🏛️ Grand World 🔴",d:"📍 Ganh Dau · maps.google.com/?q=Grand+World+Phu+Quoc · FREE!<br>🧸 Teddy Bear Museum ₹718 · 🌊 Venice Show 9:30PM FREE · 🔦 Laser Show FREE"},
+      ]},
+      {date:"Jul 1 Mon",theme:"4 Islands + Sea Walking",items:[
+        {t:"7AM-5:30PM",h:"🚢 4 Island Tour + Sea Walking 🔴 MUST",d:"📍 An Thoi Port · maps.google.com/?q=An+Thoi+Port+Phu+Quoc<br>💰 ₹4,200-5,250 LOCAL (NOT ₹8,250 online!) · July low season = negotiate!<br>🤿 \"Standing on ocean floor with fish circling\"<br>⚠️ Rough seas 2-5 days/month — larger boats safer!"},
+        {t:"5:30 PM",h:"🌅 Sunset Town + Kiss Bridge",d:"maps.google.com/?q=Sunset+Town+Phu+Quoc · FREE with cable car"},
+        {t:"Night",h:"🏮 Duong Dong Night Market",d:"maps.google.com/?q=Duong+Dong+Night+Market+Phu+Quoc<br>⚠️ Avoid English menu stalls — 2-3x price!"}
+      ]},
+      {date:"Jul 2 Tue",theme:"VinWonders Full Day",items:[
+        {t:"9AM-7:30PM",h:"🎢 VinWonders 🔴",d:"maps.google.com/?q=VinWonders+Phu+Quoc · ₹3,410<br>🌙 6:45PM ★ THE ONCE SHOW ★ — $12M production! INCLUDED!"}
+      ]}
+    ]
+  },
+  hanoi: {
+    days: [
+      {date:"Jul 3 Thu",theme:"Evening Arrival",items:[
+        {t:"9:00 PM",h:"🍺 BIA HOI CORNER",d:"📍 Luong Ngoc Quyen · Beer ₹18-35/CUP! Live music."}
+      ]},
+      {date:"Jul 4 Fri",theme:"Morning Blitz before Sapa Bus",items:[
+        {t:"6:00 AM",h:"🌅 Hoan Kiem Lake sunrise",d:"maps.google.com/?q=Hoan+Kiem+Lake+Hanoi · Golden light, zero tourists!"},
+        {t:"6:45 AM",h:"🍜 PHỞ THÌN 13 LÒ ĐÚC 🔴 MUST",d:"📍 13 Lo Duc · maps.google.com/?q=13+Lo+Duc+Hanoi<br>💰 ₹246-316 · 🔥 GARLIC STIR-FRIED BEEF — unique to this spot!"},
+        {t:"7:30 AM",h:"☕ Giang Cafe — Egg Coffee birthplace (1946)",d:"📍 39 Nguyen Huu Huan · maps.google.com/?q=39+Nguyen+Huu+Huan+Hanoi<br>💰 ₹123-158 · ⭐4.8 (22K reviews!)"},
+        {t:"8:15 AM",h:"🥖 Banh Mi 25 — grab for bus!",d:"📍 25 Hang Ca · Justin Bieber ate here! ₹88-158 · ⭐4.7"},
+        {t:"9:30 AM",h:"🚌 Sapa bus pickup",d:"Free hotel pickup · 6hr to Sapa"}
+      ]},
+      {date:"Jul 7 Mon",theme:"Evening Return from Sapa",items:[
+        {t:"8:00 PM",h:"🍜 BUN CHA HUONG LIEN — Obama's Spot!",d:"📍 24 Le Van Huu · maps.google.com/?q=24+Le+Van+Huu+Hanoi<br>💰 Combo Obama ₹456 · 🎬 Bourdain + Obama 2016"}
+      ]},
+      {date:"Jul 8 Tue",theme:"Full Hanoi Maximum Day",items:[
+        {t:"9:00 AM",h:"🏛️ Temple of Literature (1070 AD)",d:"maps.google.com/?q=Temple+of+Literature+Hanoi · ₹246 · ⭐4.5"},
+        {t:"11:00 AM",h:"🚂 TRAIN STREET CAFE 🔴 MUST",d:"📍 Phung Hung St · maps.google.com/?q=Train+Street+Phung+Hung+Hanoi<br>💰 Coffee ₹105-228 · ✅ OPEN 2026! 🚂 Train at 11:50 AM!"},
+        {t:"2:00 PM",h:"🎨 X Space Immersive 🟡",d:"B2 Vincom Royal City · maps.google.com/?q=X+Space+Immersive+Hanoi · ₹878-1,050 ⭐4.8<br>⚠️ B2 floor hard to find — ask mall staff!"},
+        {t:"7:30 PM",h:"🚂 Train Street — 7:50 PM BEST TRAIN!",d:"★ SUNSET SLOT: lanterns + train headlight through dusk"},
+        {t:"8:30 PM",h:"🐟 Chả Cá Thăng Long 🟡",d:"📍 21 Duong Thanh · ⭐4.5 · 120K-180K — locals prefer this!<br>🚫 Cha Ca La Vong DROPPED (tourist trap 3.6★)"}
+      ]},
+      {date:"Jul 9 Wed",theme:"🚢 HALONG BAY — HIGHEST RISK DAY!",items:[
+        {t:"7:30AM-7PM",h:"🚢 Halong Bay Day Trip 🔴 MUST",d:"💰 ₹4,170 (Cozy Bay) · Sung Sot Cave · Kayaking · Titop Island<br>⚠️ TYPHOON = CANCELLED! Backup: Lan Ha Bay, Quang Ninh Museum, Hanoi museums"},
+      ]}
+    ]
   }
-})();
-</script>
+};
 
-<!-- ═══════════════════════════════════════ -->
-<!-- INTERACTIVE UTILITY PANEL -->
-<!-- ═══════════════════════════════════════ -->
-<div id="util-panel" class="util-panel">
-  <div class="util-tabs">
-    <button class="util-tab active" onclick="switchUtil('checklist')">✅ Done</button>
-    <button class="util-tab" onclick="switchUtil('budget')">💰 Budget</button>
-    <button class="util-tab" onclick="switchUtil('emergency')">🆘 Help</button>
-  </div>
-  <div id="util-checklist" class="util-content active">
-    <h4>Mark what you've done:</h4>
-    <div id="checklist-items"></div>
-    <button onclick="resetChecklist()" style="font-size:11px;margin-top:8px;">🔄 Reset</button>
-  </div>
-  <div id="util-budget" class="util-content">
-    <h4>Spent so far:</h4>
-    <div style="font-size:13px;">
-      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Sapa</span><span id="spent-sapa">₹0 / ₹11,480</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>HCMC</span><span id="spent-hcmc">₹0 / ₹2,600</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Phu Quoc</span><span id="spent-phuquoc">₹0 / ₹9,128</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><span>Hanoi</span><span id="spent-hanoi">₹0 / ₹7,200</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;font-weight:700;"><span>TOTAL</span><span id="spent-total">₹0 / ₹30,408</span></div>
-    </div>
-    <input id="quick-add" type="number" placeholder="Quick add ₹" style="width:100%;padding:6px;margin-top:8px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);">
-    <button onclick="addQuickSpend()" style="margin-top:4px;width:100%;padding:6px;background:var(--accent);color:white;border:none;border-radius:8px;cursor:pointer;">+ Add</button>
-  </div>
-  <div id="util-emergency" class="util-content">
-    <h4>🆘 Emergency Contacts</h4>
-    <div style="font-size:12px;line-height:2;">
-      🇻🇳 Police: <b>113</b><br>
-      🚑 Ambulance: <b>115</b><br>
-      🔥 Fire: <b>114</b><br>
-      🇮🇳 Indian Embassy Hanoi: <b>+84-24-38244989</b><br>
-      🇮🇳 Consulate HCMC: <b>+84-28-38227056</b><br>
-      🏥 SOS Intl Clinic HCMC: <b>+84-28-38278525</b><br>
-      🏥 Family Medical Hanoi: <b>+84-24-38430748</b>
-    </div>
-  </div>
-</div>
-<button class="util-toggle" onclick="toggleUtil()" title="Tools">🧰</button>
-
-<script>
-// ═══ UTILITY PANEL ═══
-function toggleUtil(){
-  document.getElementById('util-panel').classList.toggle('open');
+function showCity(city){
+  document.querySelectorAll('.city-card').forEach(c=>c.style.outline='');
+  document.querySelector('[data-city="'+city+'"]').style.outline='2px solid var(--accent)';
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('[data-city="'+city+'"]').classList.add('active');
+  renderCity(city);
 }
-function switchUtil(tab){
-  document.querySelectorAll('.util-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.util-content').forEach(c=>c.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('util-'+tab).classList.add('active');
+function renderCity(city){
+  const data = DATA[city]; if(!data) return;
+  let html = '<div class="day-view active">';
+  data.days.forEach(day=>{
+    html += `<div style="background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow);border-left:4px solid var(--accent)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <b style="font-size:16px;color:var(--accent)">📅 ${day.date}</b>
+        <span style="font-size:12px;padding:3px 10px;background:var(--bg);border-radius:100px">${day.theme}</span>
+      </div>
+      <div class="day-timeline">`;
+    day.items.forEach(item=>{
+      html += `<div class="tl-item">
+        <div class="tl-time">${item.t}</div>
+        <div class="tl-title">${item.h}</div>
+        ${item.d?`<div class="tl-detail">${item.d}</div>`:''}
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  // Replace or append
+  let existing = document.getElementById('dayView');
+  if(existing) existing.remove();
+  const div = document.createElement('div'); div.id='dayView'; div.innerHTML=html;
+  document.querySelector('.container').appendChild(div);
+  div.scrollIntoView({behavior:'smooth'});
 }
 
-// ═══ CHECKLIST ═══
-const MUST_DO = [
-  "⛰️ Sapa: Fansipan Summit", "⛰️ Sapa: Cat Cat Village", "⛰️ Sapa: Moana 7AM",
-  "⛰️ Sapa: Rong May Glass Bridge", "⛰️ Sapa: Phansi BBQ dinner",
-  "🏙️ HCMC: MICHELIN crab soup", "🏙️ HCMC: Van Gogh METASHOW", "🏙️ HCMC: Bui Vien night",
-  "🏝️ PQ: 4 Island Tour", "🏝️ PQ: THE ONCE SHOW", "🏝️ PQ: Grand World Venice show",
-  "🍜 Hanoi: Pho Thin #1", "🍜 Hanoi: Giang egg coffee", "🍜 Hanoi: Train Street",
-  "🍜 Hanoi: Bun Cha Obama", "🚢 Halong Bay cruise"
-];
-
-function renderChecklist(){
-  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
-  document.getElementById('checklist-items').innerHTML = MUST_DO.map((item,i)=>{
-    const done = saved[i] || false;
-    return `<label style="display:flex;align-items:center;gap:8px;padding:5px 0;cursor:pointer;font-size:13px;">
-      <input type="checkbox" ${done?'checked':''} onchange="toggleCheck(${i},this.checked)" style="width:16px;height:16px;">
-      <span style="${done?'text-decoration:line-through;color:var(--text-secondary)':''}">${item}</span>
-    </label>`;
-  }).join('');
-}
-function toggleCheck(i,checked){
-  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
-  saved[i] = checked; 
-  localStorage.setItem('vn_checklist',JSON.stringify(saved));
-  renderChecklist();
-  updateBudget();
-}
-function resetChecklist(){
-  localStorage.removeItem('vn_checklist');
-  renderChecklist();
-  updateBudget();
+function filter(){
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.city-card').forEach(c=>{
+    c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
 }
 
-// ═══ BUDGET ═══
-const CITY_COSTS = {sapa:11480, hcmc:2600, phuquoc:9128, hanoi:7200};
-function updateBudget(){
-  const saved = JSON.parse(localStorage.getItem('vn_checklist')||'{}');
-  const done = Object.values(saved).filter(v=>v).length;
-  const pct = Math.round((done/MUST_DO.length)*100);
-  const totalBudget = Object.values(CITY_COSTS).reduce((a,b)=>a+b,0);
-  const spent = Math.round((pct/100)*totalBudget);
-  
-  for(const [city,cost] of Object.entries(CITY_COSTS)){
-    document.getElementById('spent-'+city).textContent = `₹${Math.round((pct/100)*cost)} / ₹${cost}`;
-  }
-  document.getElementById('spent-total').textContent = `₹${spent} / ₹${totalBudget}`;
-  
-  // Bonus spend
-  const bonus = JSON.parse(localStorage.getItem('vn_bonus')||'0');
-  if(bonus>0){
-    document.getElementById('spent-total').textContent += ` + ₹${bonus} extra`;
-  }
-}
-function addQuickSpend(){
-  const inp = document.getElementById('quick-add');
-  const val = parseInt(inp.value)||0;
-  if(val>0){
-    const bonus = JSON.parse(localStorage.getItem('vn_bonus')||'0');
-    localStorage.setItem('vn_bonus',JSON.stringify(bonus+val));
-    inp.value = '';
-    updateBudget();
-  }
-}
-
-// ═══ INIT ═══
-renderChecklist();
-updateBudget();
-updateBudget();
-
-// ═══ COUNTDOWN ═══
+// Countdown
 (function tick(){
   const trip = new Date('2026-06-28T00:00:00+05:30');
-  const now = new Date();
-  const diff = trip - now;
-  if(diff <= 0){ document.getElementById('countdown').textContent = '🎉 TRIP STARTED! Enjoy Vietnam!'; return; }
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  document.getElementById('countdown').textContent = `⏳ ${d}d ${h}h ${m}m until Vietnam! 🇻🇳`;
+  const diff = trip - new Date();
+  if(diff<=0){ document.getElementById('countdown').textContent='🎉 TRIP STARTED!'; return; }
+  const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000);
+  document.getElementById('countdown').textContent=`⏳ ${d}d ${h}h ${m}m until Vietnam! 🇻🇳`;
   setTimeout(tick,60000);
 })();
 
-// ═══ SEARCH ═══
-function doSearch(){
-  const q = document.getElementById('searchBox').value.toLowerCase().trim();
-  document.querySelectorAll('.city-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  if(!q) return;
-  // Show all panels and highlight matches
-  document.querySelectorAll('.city-panel').forEach(p=>{
-    p.classList.add('active');
-    const matches = p.textContent.toLowerCase().includes(q);
-    p.style.opacity = matches ? '1' : '0.3';
-  });
-  document.querySelectorAll('.time-entry,.day-card,.cafe-card,.hidden-gem').forEach(el=>{
-    const txt = el.textContent.toLowerCase();
-    if(txt.includes(q)){
-      el.style.background = 'rgba(251,191,36,0.15)';
-      el.style.borderRadius = '12px';
-      el.style.transition = '0.3s';
-      setTimeout(()=>{ el.style.background = ''; }, 2000);
-    }
-  });
-  // Scroll to first match
-  const first = document.querySelector('.time-entry[style*="background"],.cafe-card[style*="background"],.hidden-gem[style*="background"]');
-  if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
-}
+// Checklist
+const MUST_DO=["⛰️Fansipan Summit","⛰️Cat Cat Village","⛰️Rong May Glass Bridge","🌉Phansi BBQ","🏙️MICHELIN crab soup","🏙️Bui Vien night","🏝️4 Island Tour","🏝️THE ONCE SHOW","🍜Pho Thin #1","🍜Giang egg coffee","🚂Train Street","🚢Halong Bay"];
+(function render(){
+  const s=JSON.parse(localStorage.getItem('vn_cl')||'{}'),c=MUST_DO.map((m,i)=>`<label style="display:block;padding:4px 0;font-size:12px;cursor:pointer"><input type=checkbox ${s[i]?'checked':''} onchange="let x=JSON.parse(localStorage.getItem('vn_cl')||'{}');x[${i}]=this.checked;localStorage.setItem('vn_cl',JSON.stringify(x))"> ${m}</label>`).join('');
+  document.getElementById('checklist').innerHTML=c;
+})();
 
-// ═══ ACCORDION ═══
-document.querySelectorAll('.day-card').forEach(card=>{
-  const header = card.querySelector('.day-header');
-  if(!header) return;
-  header.style.cursor = 'pointer';
-  header.addEventListener('click',function(){
-    card.classList.toggle('collapsed');
-  });
-  // Add collapse indicator
-  const indicator = document.createElement('span');
-  indicator.textContent = ' ▼';
-  indicator.style.fontSize = '12px';
-  indicator.style.color = 'var(--text-secondary)';
-  header.appendChild(indicator);
-});
+// Nav clicks
+document.querySelectorAll('.nav button[data-city]').forEach(b=>b.addEventListener('click',()=>showCity(b.dataset.city)));
 
-// Accordion CSS injection
-const accStyle = document.createElement('style');
-accStyle.textContent = `
-.day-card.collapsed .time-entry { display:none; }
-.day-card.collapsed .day-header span:last-child { transform:rotate(-90deg); display:inline-block; transition:0.2s; }
-.day-header span:last-child { transition:0.2s; }
-`;
-document.head.appendChild(accStyle);
-
-// Reset search when switching cities
-const origSwitch = switchCity;
-switchCity = function(city){
-  document.getElementById('searchBox').value = '';
-  document.querySelectorAll('.city-panel').forEach(p=>{ p.style.opacity = '1'; });
-  document.querySelectorAll('.time-entry,.day-card,.cafe-card,.hidden-gem').forEach(el=>{ el.style.background = ''; });
-  origSwitch(city);
-};
+// Theme restore
+if(localStorage.getItem('theme')==='dark') document.documentElement.setAttribute('data-theme','dark');
 </script>
-
 </body>
 </html>
