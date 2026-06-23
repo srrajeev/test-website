@@ -1,0 +1,145 @@
+{
+  "agent": "Scam Intelligence",
+  "timestamp": "2026-06-23T18:22:05Z",
+  "scams": [
+    {
+      "city": "HCMC",
+      "type": "Taxi",
+      "scam": "Fake taxi meters / overcharging",
+      "risk": "high",
+      "avoid": "Use Grab app only. Never street hail.",
+      "action": "Download Grab before landing. Always check plate matches app."
+    },
+    {
+      "city": "HCMC",
+      "type": "Pickpocket",
+      "scam": "Bui Vien pickpockets",
+      "risk": "medium",
+      "avoid": "Keep phone in front pocket. No back pocket wallet.",
+      "action": "Money belt under clothes. Minimal cash out."
+    },
+    {
+      "city": "HCMC",
+      "type": "Motorbike",
+      "scam": "Bag snatching from motorbikes",
+      "risk": "high",
+      "avoid": "Don't hold phone near road edge.",
+      "action": "Walk on building side of sidewalk. Cross-body bag."
+    },
+    {
+      "city": "Phu Quoc",
+      "type": "Tour",
+      "scam": "4-island tour overcharging",
+      "risk": "high",
+      "avoid": "Online booking ₹8,250 vs local ₹4,200",
+      "action": "Book at hotel reception or local agencies. Walk-in prices 50% lower."
+    },
+    {
+      "city": "Phu Quoc",
+      "type": "Taxi",
+      "scam": "No meter / inflated fares",
+      "risk": "high",
+      "avoid": "Only use Grab or Mai Linh taxi",
+      "action": "Agree price before getting in if no Grab."
+    },
+    {
+      "city": "Phu Quoc",
+      "type": "Market",
+      "scam": "Duong Dong night market per-100g pricing trap",
+      "risk": "medium",
+      "avoid": "Clarify total price, not per-100g",
+      "action": "Ask 'how much total?' not 'how much per 100g'."
+    },
+    {
+      "city": "Hanoi",
+      "type": "Cyclo",
+      "scam": "Cyclo scam — agreed ₹200, charged ₹2000",
+      "risk": "high",
+      "avoid": "NEVER take cyclos. Walk or Grab.",
+      "action": "Politely refuse. If trapped, pay ₹500 max and walk away."
+    },
+    {
+      "city": "Hanoi",
+      "type": "Shoe shine",
+      "scam": "Unsolicited shoe shine → demand ₹1000",
+      "risk": "medium",
+      "avoid": "Keep walking. Don't stop.",
+      "action": "If they already started, pay ₹100 max."
+    },
+    {
+      "city": "Sapa",
+      "type": "Trekking",
+      "scam": "Fake guides offering 'free' trekking",
+      "risk": "medium",
+      "avoid": "Book through hotel. Official guides have ID.",
+      "action": "Demand official guide card. Refuse 'free' offers."
+    },
+    {
+      "city": "Halong Bay",
+      "type": "Cruise",
+      "scam": "Bait-and-switch cruise quality",
+      "risk": "medium",
+      "avoid": "Book top-rated on Klook/Tripadvisor.",
+      "action": "Photograph boat name. Complain on the spot if different."
+    },
+    {
+      "city": "All",
+      "type": "SIM Card",
+      "scam": "Airport SIM overcharging (₹2000 vs ₹500)",
+      "risk": "high",
+      "avoid": "Buy at official Viettel/Vinaphone store.",
+      "action": "Buy at city center, not airport. ~₹500 for 5GB/7 days."
+    },
+    {
+      "city": "All",
+      "type": "Exchange",
+      "scam": "Money exchange short counting",
+      "risk": "medium",
+      "avoid": "Only exchange at banks or official counters.",
+      "action": "Count money yourself before leaving counter. Use ATM instead."
+    }
+  ],
+  "total_alerts": 12,
+  "high_risk_count": 6,
+  "medium_risk_count": 6,
+  "risk_score": 0,
+  "top_3_threats": [
+    {
+      "threat": "Grab/ taxi scams",
+      "action": "Download Grab app BEFORE landing. Never street hail."
+    },
+    {
+      "threat": "Airport SIM overcharging",
+      "action": "Buy SIM in city center (~₹500 vs ₹2000 at airport)"
+    },
+    {
+      "threat": "Cyclo/shoe shine scams",
+      "action": "NEVER engage. Walk away. Don't stop."
+    }
+  ],
+  "avoid_areas": {
+    "HCMC": [
+      "Bui Vien after midnight",
+      "Unlit alleys in District 1"
+    ],
+    "Hanoi": [
+      "Cyclo stand near Hoan Kiem Lake",
+      "Shoe shine guys in Old Quarter"
+    ],
+    "Phu Quoc": [
+      "Unlicensed taxi touts at airport",
+      "Per-100g pricing at night market"
+    ],
+    "Sapa": [
+      "'Free' trekking guide offers",
+      "Unofficial Fansipan ticket resellers"
+    ]
+  },
+  "emergency_actions": [
+    "If scammed: Don't argue. Walk away. ₹500 loss is not worth conflict.",
+    "If pickpocketed: Cancel cards immediately. File police report for insurance.",
+    "If overcharged: Pay and leave. Negative review is your revenge.",
+    "If threatened: Call 113 (police). Indian Embassy: Hanoi +84-24-38239899"
+  ],
+  "source": "Reddit, TripAdvisor forums, travel blogs"
+}

@@ -1,0 +1,788 @@
+{
+  "agent": "Weather Intelligence",
+  "timestamp": "2026-06-23T18:22:05Z",
+  "score": 28,
+  "cities": {
+    "HCMC": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "day": "28",
+          "high": 31,
+          "low": 26,
+          "rain_prob": 98,
+          "precip_mm": 10.8,
+          "wind_kmh": 10,
+          "uv": 5.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "day": "29",
+          "high": 32,
+          "low": 25,
+          "rain_prob": 99,
+          "precip_mm": 31.3,
+          "wind_kmh": 13,
+          "uv": 7.3,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "day": "30",
+          "high": 32,
+          "low": 25,
+          "rain_prob": 92,
+          "precip_mm": 4.4,
+          "wind_kmh": 11,
+          "uv": 6.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "day": "01",
+          "high": 28,
+          "low": 25,
+          "rain_prob": 99,
+          "precip_mm": 5.0,
+          "wind_kmh": 16,
+          "uv": 3.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "day": "02",
+          "high": 27,
+          "low": 25,
+          "rain_prob": 99,
+          "precip_mm": 15.2,
+          "wind_kmh": 9,
+          "uv": 1.1,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "day": "03",
+          "high": 26,
+          "low": 24,
+          "rain_prob": 98,
+          "precip_mm": 12.8,
+          "wind_kmh": 15,
+          "uv": 0.8,
+          "condition": "Rain showers",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "day": "04",
+          "high": 29,
+          "low": 24,
+          "rain_prob": 99,
+          "precip_mm": 20.4,
+          "wind_kmh": 10,
+          "uv": 2.3,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "day": "05",
+          "high": 32,
+          "low": 24,
+          "rain_prob": 97,
+          "precip_mm": 13.8,
+          "wind_kmh": 10,
+          "uv": 2.8,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "day": "06",
+          "high": 32,
+          "low": 25,
+          "rain_prob": 91,
+          "precip_mm": 15.6,
+          "wind_kmh": 11,
+          "uv": 2.4,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "day": "07",
+          "high": 30,
+          "low": 25,
+          "rain_prob": 96,
+          "precip_mm": 21.4,
+          "wind_kmh": 7,
+          "uv": 1.6,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "day": "08",
+          "high": 25,
+          "low": 23,
+          "rain_prob": 60,
+          "precip_mm": 2.8,
+          "wind_kmh": 13,
+          "uv": 1.4,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-09",
+          "day": "09",
+          "high": null,
+          "low": null,
+          "rain_prob": 72,
+          "precip_mm": 0,
+          "wind_kmh": 0,
+          "uv": 0,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "current": {
+        "temp": 27.4,
+        "humidity": 94
+      }
+    },
+    "Phu Quoc": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "day": "28",
+          "high": 29,
+          "low": 24,
+          "rain_prob": 98,
+          "precip_mm": 14.4,
+          "wind_kmh": 20,
+          "uv": 7.5,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "day": "29",
+          "high": 27,
+          "low": 25,
+          "rain_prob": 98,
+          "precip_mm": 36.1,
+          "wind_kmh": 23,
+          "uv": 7.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "day": "30",
+          "high": 29,
+          "low": 25,
+          "rain_prob": 98,
+          "precip_mm": 10.6,
+          "wind_kmh": 24,
+          "uv": 2.2,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "day": "01",
+          "high": 29,
+          "low": 24,
+          "rain_prob": 100,
+          "precip_mm": 24.8,
+          "wind_kmh": 20,
+          "uv": 1.1,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "day": "02",
+          "high": 28,
+          "low": 25,
+          "rain_prob": 98,
+          "precip_mm": 43.8,
+          "wind_kmh": 20,
+          "uv": 1.3,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "day": "03",
+          "high": 26,
+          "low": 24,
+          "rain_prob": 96,
+          "precip_mm": 59.6,
+          "wind_kmh": 18,
+          "uv": 1.6,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "day": "04",
+          "high": 25,
+          "low": 24,
+          "rain_prob": 94,
+          "precip_mm": 34.6,
+          "wind_kmh": 19,
+          "uv": 1.4,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "day": "05",
+          "high": 28,
+          "low": 25,
+          "rain_prob": 90,
+          "precip_mm": 11.6,
+          "wind_kmh": 12,
+          "uv": 2.5,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "day": "06",
+          "high": 29,
+          "low": 26,
+          "rain_prob": 94,
+          "precip_mm": 9.6,
+          "wind_kmh": 12,
+          "uv": 3.4,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "day": "07",
+          "high": 27,
+          "low": 25,
+          "rain_prob": 94,
+          "precip_mm": 13.2,
+          "wind_kmh": 13,
+          "uv": 5.2,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "day": "08",
+          "high": 27,
+          "low": 25,
+          "rain_prob": 78,
+          "precip_mm": 2.7,
+          "wind_kmh": 25,
+          "uv": 1.6,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "day": "09",
+          "high": null,
+          "low": null,
+          "rain_prob": 61,
+          "precip_mm": 0,
+          "wind_kmh": 0,
+          "uv": 0,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "current": {
+        "temp": 28.4,
+        "humidity": 80
+      }
+    },
+    "Hanoi": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "day": "28",
+          "high": 33,
+          "low": 25,
+          "rain_prob": 80,
+          "precip_mm": 23.6,
+          "wind_kmh": 9,
+          "uv": 7.6,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "day": "29",
+          "high": 33,
+          "low": 26,
+          "rain_prob": 84,
+          "precip_mm": 9.0,
+          "wind_kmh": 8,
+          "uv": 7.3,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "day": "30",
+          "high": 33,
+          "low": 26,
+          "rain_prob": 81,
+          "precip_mm": 10.4,
+          "wind_kmh": 12,
+          "uv": 3.6,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "day": "01",
+          "high": 33,
+          "low": 26,
+          "rain_prob": 58,
+          "precip_mm": 11.6,
+          "wind_kmh": 15,
+          "uv": 6.3,
+          "condition": "Storm + hail",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-02",
+          "day": "02",
+          "high": 34,
+          "low": 29,
+          "rain_prob": 59,
+          "precip_mm": 2.8,
+          "wind_kmh": 15,
+          "uv": 6.2,
+          "condition": "Storm + hail",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-03",
+          "day": "03",
+          "high": 32,
+          "low": 27,
+          "rain_prob": 69,
+          "precip_mm": 7.8,
+          "wind_kmh": 15,
+          "uv": 5.5,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "day": "04",
+          "high": 32,
+          "low": 25,
+          "rain_prob": 71,
+          "precip_mm": 12.2,
+          "wind_kmh": 8,
+          "uv": 6.2,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "day": "05",
+          "high": 32,
+          "low": 25,
+          "rain_prob": 61,
+          "precip_mm": 14.2,
+          "wind_kmh": 8,
+          "uv": 3.5,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "day": "06",
+          "high": 32,
+          "low": 26,
+          "rain_prob": 76,
+          "precip_mm": 20.4,
+          "wind_kmh": 10,
+          "uv": 1.0,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "day": "07",
+          "high": 30,
+          "low": 27,
+          "rain_prob": 76,
+          "precip_mm": 7.8,
+          "wind_kmh": 10,
+          "uv": 3.0,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "day": "08",
+          "high": 29,
+          "low": 26,
+          "rain_prob": 53,
+          "precip_mm": 7.3,
+          "wind_kmh": 9,
+          "uv": 4.3,
+          "condition": "Thunderstorm",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-09",
+          "day": "09",
+          "high": null,
+          "low": null,
+          "rain_prob": 51,
+          "precip_mm": 0,
+          "wind_kmh": 0,
+          "uv": 0,
+          "condition": "Unknown",
+          "risk": "medium"
+        }
+      ],
+      "current": {
+        "temp": 30.7,
+        "humidity": 65
+      }
+    },
+    "Sapa": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "day": "28",
+          "high": 24,
+          "low": 19,
+          "rain_prob": 100,
+          "precip_mm": 19.1,
+          "wind_kmh": 7,
+          "uv": 6.2,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "day": "29",
+          "high": 26,
+          "low": 19,
+          "rain_prob": 97,
+          "precip_mm": 13.7,
+          "wind_kmh": 7,
+          "uv": 4.3,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "day": "30",
+          "high": 25,
+          "low": 19,
+          "rain_prob": 98,
+          "precip_mm": 9.8,
+          "wind_kmh": 7,
+          "uv": 1.1,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "day": "01",
+          "high": 26,
+          "low": 18,
+          "rain_prob": 93,
+          "precip_mm": 9.6,
+          "wind_kmh": 7,
+          "uv": 4.6,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "day": "02",
+          "high": 27,
+          "low": 18,
+          "rain_prob": 87,
+          "precip_mm": 7.4,
+          "wind_kmh": 9,
+          "uv": 5.2,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "day": "03",
+          "high": 24,
+          "low": 19,
+          "rain_prob": 94,
+          "precip_mm": 10.0,
+          "wind_kmh": 8,
+          "uv": 5.8,
+          "condition": "Rain showers",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "day": "04",
+          "high": 22,
+          "low": 19,
+          "rain_prob": 94,
+          "precip_mm": 16.6,
+          "wind_kmh": 7,
+          "uv": 1.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "day": "05",
+          "high": 24,
+          "low": 18,
+          "rain_prob": 94,
+          "precip_mm": 14.4,
+          "wind_kmh": 6,
+          "uv": 8.4,
+          "condition": "Rain showers",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "day": "06",
+          "high": 23,
+          "low": 19,
+          "rain_prob": 100,
+          "precip_mm": 4.8,
+          "wind_kmh": 8,
+          "uv": 4.9,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "day": "07",
+          "high": 22,
+          "low": 18,
+          "rain_prob": 98,
+          "precip_mm": 9.8,
+          "wind_kmh": 7,
+          "uv": 1.1,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "day": "08",
+          "high": 20,
+          "low": 18,
+          "rain_prob": 85,
+          "precip_mm": 19.2,
+          "wind_kmh": 5,
+          "uv": 2.0,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "day": "09",
+          "high": null,
+          "low": null,
+          "rain_prob": 87,
+          "precip_mm": 0,
+          "wind_kmh": 0,
+          "uv": 0,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "current": {
+        "temp": 19.3,
+        "humidity": 96
+      }
+    },
+    "Halong Bay": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "day": "28",
+          "high": 31,
+          "low": 26,
+          "rain_prob": 98,
+          "precip_mm": 14.7,
+          "wind_kmh": 15,
+          "uv": 4.8,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "day": "29",
+          "high": 31,
+          "low": 26,
+          "rain_prob": 100,
+          "precip_mm": 18.3,
+          "wind_kmh": 16,
+          "uv": 8.7,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "day": "30",
+          "high": 31,
+          "low": 28,
+          "rain_prob": 98,
+          "precip_mm": 15.8,
+          "wind_kmh": 16,
+          "uv": 6.0,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "day": "01",
+          "high": 31,
+          "low": 27,
+          "rain_prob": 96,
+          "precip_mm": 12.0,
+          "wind_kmh": 21,
+          "uv": 7.8,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "day": "02",
+          "high": 31,
+          "low": 29,
+          "rain_prob": 84,
+          "precip_mm": 6.4,
+          "wind_kmh": 21,
+          "uv": 7.8,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "day": "03",
+          "high": 30,
+          "low": 28,
+          "rain_prob": 84,
+          "precip_mm": 6.8,
+          "wind_kmh": 19,
+          "uv": 7.4,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "day": "04",
+          "high": 31,
+          "low": 26,
+          "rain_prob": 80,
+          "precip_mm": 9.8,
+          "wind_kmh": 18,
+          "uv": 7.2,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "day": "05",
+          "high": 30,
+          "low": 25,
+          "rain_prob": 86,
+          "precip_mm": 15.4,
+          "wind_kmh": 13,
+          "uv": 1.3,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "day": "06",
+          "high": 31,
+          "low": 26,
+          "rain_prob": 76,
+          "precip_mm": 10.4,
+          "wind_kmh": 14,
+          "uv": 2.5,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "day": "07",
+          "high": 29,
+          "low": 26,
+          "rain_prob": 80,
+          "precip_mm": 41.4,
+          "wind_kmh": 11,
+          "uv": 7.5,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "day": "08",
+          "high": 30,
+          "low": 26,
+          "rain_prob": 79,
+          "precip_mm": 22.9,
+          "wind_kmh": 18,
+          "uv": 8.7,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "day": "09",
+          "high": null,
+          "low": null,
+          "rain_prob": 61,
+          "precip_mm": 0,
+          "wind_kmh": 0,
+          "uv": 0,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "current": {
+        "temp": 30.7,
+        "humidity": 81
+      }
+    }
+  },
+  "alerts": [
+    "⚠️ 2026-06-28: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-06-29: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-06-30: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-01: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay",
+    "⚠️ 2026-07-02: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay",
+    "⚠️ 2026-07-03: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-04: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-05: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-06: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-07: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-08: High rain risk in Phu Quoc, Sapa, Halong Bay",
+    "⚠️ 2026-07-09: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay"
+  ],
+  "adjustments": [
+    "⚠️ 2026-06-28: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay — move outdoor activities to morning",
+    "⚠️ 2026-06-29: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay — move outdoor activities to morning",
+    "⚠️ 2026-06-30: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay — move outdoor activities to morning",
+    "...and 9 more high-risk days. See dashboard."
+  ],
+  "source": "Open-Meteo API (real-time)"
+}

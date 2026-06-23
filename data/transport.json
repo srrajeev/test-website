@@ -1,0 +1,124 @@
+{
+  "agent": "Transportation",
+  "timestamp": "2026-06-23T18:22:05Z",
+  "transit_segments": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "time": "9:00 PM",
+      "activity": "Land Tan Son Nhat (SGN)",
+      "cost": "",
+      "type": "other"
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "time": "2:00 PM",
+      "activity": "Fly HCMC → Phu Quoc (1hr)",
+      "cost": "~₹2,500-3,500",
+      "type": "flight"
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "time": "3:00 PM",
+      "activity": "Fly Phu Quoc → Hanoi (2hr)",
+      "cost": "~₹3,000-4,000",
+      "type": "flight"
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "time": "9:30 AM",
+      "activity": "Sapa Express Bus (6hrs)",
+      "cost": "₹700-1,050",
+      "type": "bus"
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "time": "4:00 PM",
+      "activity": "Return Sapa town",
+      "cost": "",
+      "type": "other"
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "time": "1:00 PM",
+      "activity": "Return Sapa town",
+      "cost": "",
+      "type": "other"
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "time": "4:00 PM",
+      "activity": "Sapa Express Bus → Hanoi (6hrs)",
+      "cost": "₹700-1,050",
+      "type": "bus"
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "time": "6:30 AM",
+      "activity": "Limousine bus to Halong Bay (2.5hrs)",
+      "cost": "₹800-1,200",
+      "type": "bus"
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "time": "5:00 PM",
+      "activity": "Return bus to Hanoi",
+      "cost": "included",
+      "type": "bus"
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "time": "11:00 AM",
+      "activity": "Airport taxi — Noi Bai",
+      "cost": "₹700-1,000",
+      "type": "taxi"
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "time": "2:00 PM",
+      "activity": "Fly Hanoi → Delhi",
+      "cost": "included in intl",
+      "type": "flight"
+    }
+  ],
+  "total_segments": 11,
+  "recommendations": [
+    {
+      "type": "Grab",
+      "note": "Download before landing. Cheaper than taxis. Works in all cities."
+    },
+    {
+      "type": "Domestic flights",
+      "note": "HCMC→Phu Quoc + Phu Quoc→Hanoi. Book Vietnam Airlines or VietJet."
+    },
+    {
+      "type": "Sapa bus",
+      "note": "Sapa Express (6hrs, ₹700-1,050). Book hotel pickup. Morning bus best."
+    },
+    {
+      "type": "Halong Bay bus",
+      "note": "Limousine bus (2.5hrs, ₹800-1,200). Most cruises include transfer."
+    },
+    {
+      "type": "Airport transfer",
+      "note": "HCMC: Grab from airport ₹300-400. Hanoi: Grab ₹500-700."
+    }
+  ],
+  "alerts": [],
+  "buffer_suggestions": [
+    "Arrive airport 2hrs before domestic, 3hrs before international",
+    "Sapa bus: 30-min buffer for mountain road delays",
+    "Halong Bay cruise: departures are strict — don't be late"
+  ],
+  "source": "Research + airline schedules"
+}

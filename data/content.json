@@ -1,0 +1,175 @@
+{
+  "agent": "Content Creator",
+  "timestamp": "2026-06-23T18:22:05Z",
+  "reels": [
+    {
+      "title": "Bui Vien Sunday Night — Neon Chaos 🌙",
+      "day": 0,
+      "concept": "Walking through pedestrian-only street, neon lights, street food, beers",
+      "hook": "POV: It's Sunday night in Saigon and the streets are ALIVE"
+    },
+    {
+      "title": "MICHELIN Crab Noodles for ₹158 🦀",
+      "day": 1,
+      "concept": "Banh Canh Cua Ba Ba — close-up of crab broth, queue, sells out by 1PM",
+      "hook": "This ₹158 MICHELIN noodle bowl sells out every single day"
+    },
+    {
+      "title": "World's Longest Oversea Cable Car 🚡",
+      "day": 3,
+      "concept": "4-island tour, cable car POV, sea walking helmet cam",
+      "hook": "I walked on the OCEAN FLOOR in Vietnam"
+    },
+    {
+      "title": "VinWonders $12M Show 🎢",
+      "day": 4,
+      "concept": "Theme park day + THE ONCE show — fire, water, light spectacle",
+      "hook": "This $12M show is INCLUDED in a ₹3,410 theme park ticket"
+    },
+    {
+      "title": "Fansipan — Roof of Indochina 🏔️",
+      "day": 9,
+      "concept": "Cable car ascent, summit clouds, Buddha statue, 10-min queue flex",
+      "hook": "2 hour queue on Sunday. 10 minutes on Tuesday. Timing is EVERYTHING."
+    },
+    {
+      "title": "Halong Bay — Nature's Masterpiece 🚢",
+      "day": 11,
+      "concept": "Cruise through limestone karsts, cave exploration, kayaking",
+      "hook": "This is why Halong Bay is a UNESCO World Heritage Site"
+    },
+    {
+      "title": "Train Street — Inches from Death 🚂",
+      "day": 10,
+      "concept": "Drinking coffee as train passes 2 feet away",
+      "hook": "Would you drink coffee HERE?"
+    }
+  ],
+  "youtube_titles": [
+    "I Spent ₹54,000 in Vietnam for 13 Days (Full Breakdown)",
+    "Vietnam's MICHELIN Street Food Costs LESS Than McDonald's",
+    "The Fansipan Timing Hack That Saved Me 2 Hours",
+    "Vietnam Night Markets: What Tourists Get Wrong",
+    "Solo Vietnam: 4 Cities in 13 Days — Complete Guide"
+  ],
+  "photo_spots": [
+    {
+      "spot": "Bui Vien neon at night",
+      "city": "HCMC",
+      "time": "10 PM",
+      "tip": "Long exposure for light trails"
+    },
+    {
+      "spot": "Sunset Town Kiss Bridge",
+      "city": "Phu Quoc",
+      "time": "5:30 PM",
+      "tip": "Golden hour — silhouette on bridge"
+    },
+    {
+      "spot": "Fansipan summit",
+      "city": "Sapa",
+      "time": "8 AM",
+      "tip": "Cloud sea below — arrive early for clear shot"
+    },
+    {
+      "spot": "Train Street",
+      "city": "Hanoi",
+      "time": "5 PM",
+      "tip": "Train passes ~3:45 and 7:00 PM. Coffee shop rooftop angle"
+    },
+    {
+      "spot": "Halong Bay from Titop Island",
+      "city": "Halong Bay",
+      "time": "3 PM",
+      "tip": "Climb to viewpoint — 400 steps, best panorama"
+    },
+    {
+      "spot": "Sapa rice terraces",
+      "city": "Sapa",
+      "time": "7 AM",
+      "tip": "Morning fog creates layered mountain shots"
+    },
+    {
+      "spot": "Temple of Literature",
+      "city": "Hanoi",
+      "time": "8 AM",
+      "tip": "Empty before tour buses arrive"
+    }
+  ],
+  "stories": [
+    "Day 0: Landing in Saigon — first impressions",
+    "Day 1: MICHELIN street food hunt",
+    "Day 3: Island hopping — cable car + sea walking",
+    "Day 7: Sapa mountain life — Cat Cat village",
+    "Day 9: Summit of Indochina — Fansipan",
+    "Day 11: Halong Bay — risk vs reward"
+  ],
+  "daily_plan": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "content_focus": "Bui Vien night vibes — neon, street food, energy"
+    },
+    {
+      "day": 1,
+      "date": "Jun 29",
+      "content_focus": "MICHELIN street food + Van Gogh immersive"
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "content_focus": "Grand World FREE shows + arrival vibes"
+    },
+    {
+      "day": 3,
+      "date": "Jul 1",
+      "content_focus": "4-island tour — cable car + sea walking"
+    },
+    {
+      "day": 4,
+      "date": "Jul 2",
+      "content_focus": "VinWonders — theme park + $12M show"
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "content_focus": "Phu Quoc beach → Hanoi night market transition"
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "content_focus": "Sapa arrival — mountain air, cool vibes"
+    },
+    {
+      "day": 7,
+      "date": "Jul 5",
+      "content_focus": "Cat Cat village + Sapa cafe culture"
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "content_focus": "Rong May thrill day — glass bridge + zipline"
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "content_focus": "Fansipan summit — Roof of Indochina"
+    },
+    {
+      "day": 10,
+      "date": "Jul 8",
+      "content_focus": "Hanoi full day — Train Street + Water Puppet"
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "content_focus": "Halong Bay — UNESCO World Heritage"
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "content_focus": "Departure — last pho + market run"
+    }
+  ],
+  "source": "Itinerary analysis + trend research"
+}

@@ -1,0 +1,60 @@
+{
+  "agent": "Packing",
+  "timestamp": "2026-06-23T18:22:05Z",
+  "categories": {
+    "documents": [
+      "Passport (6+ months validity)",
+      "Visa approval letter",
+      "Travel insurance",
+      "Flight printouts",
+      "Hotel bookings",
+      "Emergency contacts"
+    ],
+    "electronics": [
+      "Phone + charger",
+      "Power bank (20000mAh)",
+      "Universal adapter (Type A/C)",
+      "Earphones",
+      "Camera (optional)"
+    ],
+    "clothing": [
+      "Light cotton t-shirts (5-6)",
+      "Shorts (3)",
+      "Light jacket (Sapa cool)",
+      "Rain jacket/poncho",
+      "Swimwear (Phu Quoc)",
+      "Comfortable walking shoes",
+      "Flip flops",
+      "Socks (5 pairs)"
+    ],
+    "health": [
+      "Basic first aid kit",
+      "Mosquito repellent (DEET)",
+      "Sunscreen SPF50+",
+      "Hand sanitizer",
+      "Wet wipes",
+      "Any prescription meds",
+      "Anti-diarrheal (Imodium)",
+      "Rehydration salts"
+    ],
+    "misc": [
+      "Money belt",
+      "Sunglasses",
+      "Hat/cap",
+      "Reusable water bottle",
+      "Snacks for travel",
+      "Small backpack",
+      "Zip-lock bags (waterproof)"
+    ],
+    "weather_specific": {
+      "HCMC": "Rain gear essential — PM storms daily. UV protection.",
+      "Phu Quoc": "Reef-safe sunscreen. Snorkel gear optional. Seasickness meds.",
+      "Hanoi": "Hot + humid. Light clothes. PM storm protection.",
+      "Sapa": "Cool mountain mornings (15-17°C). Light jacket + layers. Fog protection for camera."
+    }
+  },
+  "total_items": 38,
+  "critical_missing": [],
+  "weather_adjusted": true,
+  "source": "Weather forecast + destination analysis"
+}
