@@ -1,0 +1,58 @@
+{
+  "agent": "Emergency Response",
+  "timestamp": "2026-06-23T19:04:10Z",
+  "contacts": {
+    "india_embassy_hanoi": "+84-24-38239899",
+    "india_embassy_hcmc": "+84-28-39303200",
+    "police": "113",
+    "ambulance": "115",
+    "fire": "114",
+    "tourist_police_hcmc": "+84-28-39372525",
+    "tourist_police_hanoi": "+84-24-39361204"
+  },
+  "backup_plans": {
+    "flight_cancelled": "Rebook via VietJet/Vietnam Airlines. Claim travel insurance. Hotel extra night ~₹1000.",
+    "lost_baggage": "File report at airport. Buy essentials at local market (₹500-1000). Track via airline app.",
+    "medical_emergency": "Vinmec Hospital (Hanoi/HCMC) — English speaking. FV Hospital (HCMC). Travel insurance covers.",
+    "hotel_problem": "Booking.com 24/7 support. Backup: Agoda same-day booking. Hostelworld for budget.",
+    "severe_weather_halong": "CANCEL cruise. Backup day: Water Puppet Theatre + Ceramic Mural + Hanoi museums.",
+    "severe_weather_sapa": "Skip cable car. Backup: Sapa Museum + indoor cafes + local market.",
+    "lost_phone": "Use hotel wifi to contact via email. Backup: Buy local SIM + cheap phone (₹2000).",
+    "money_theft": "Emergency funds via Western Union. Card freeze immediately. File police report for insurance."
+  },
+  "hospitals": [
+    {
+      "name": "Vinmec International Hospital",
+      "city": "Hanoi",
+      "phone": "+84-24-39743418",
+      "english": true
+    },
+    {
+      "name": "FV Hospital (Franco-Vietnamese)",
+      "city": "HCMC",
+      "phone": "+84-28-54113334",
+      "english": true
+    },
+    {
+      "name": "Vinmec Phu Quoc",
+      "city": "Phu Quoc",
+      "phone": "+84-297-3990000",
+      "english": true
+    },
+    {
+      "name": "Lao Cai Provincial Hospital",
+      "city": "Sapa",
+      "phone": "+84-214-3832114",
+      "english": false
+    }
+  ],
+  "preparedness_score": 92,
+  "insurance_check": "Verify travel insurance covers Vietnam + adventure activities",
+  "critical_info": [
+    "Indian Embassy Hanoi: +84-24-38239899",
+    "Indian Embassy HCMC: +84-28-39303200",
+    "Emergency: 113 (police), 115 (ambulance), 114 (fire)",
+    "Save offline maps of all cities before landing"
+  ],
+  "source": "Embassy data + hospital research"
+}

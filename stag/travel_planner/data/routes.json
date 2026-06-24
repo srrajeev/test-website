@@ -1,0 +1,146 @@
+{
+  "agent": "Route Optimization",
+  "timestamp": "2026-06-23T19:04:10Z",
+  "days": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "city": "HCMC",
+      "total_stops": 3,
+      "morning_weight": 0,
+      "warnings": [],
+      "fatigue_risk": "low",
+      "optimized": true
+    },
+    {
+      "day": 1,
+      "date": "Jun 29",
+      "city": "HCMC",
+      "total_stops": 6,
+      "morning_weight": 3,
+      "warnings": [
+        "7-stop zigzag D1→D5→Thu Duc→Phu Nhuan→D4→D1 — skip Oasis if tired"
+      ],
+      "fatigue_risk": "medium",
+      "optimized": false
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "city": "Phu Quoc",
+      "total_stops": 5,
+      "morning_weight": 1,
+      "warnings": [],
+      "fatigue_risk": "medium",
+      "optimized": true
+    },
+    {
+      "day": 3,
+      "date": "Jul 1",
+      "city": "Phu Quoc",
+      "total_stops": 5,
+      "morning_weight": 3,
+      "warnings": [],
+      "fatigue_risk": "medium",
+      "optimized": true
+    },
+    {
+      "day": 4,
+      "date": "Jul 2",
+      "city": "Phu Quoc",
+      "total_stops": 4,
+      "morning_weight": 1,
+      "warnings": [],
+      "fatigue_risk": "low",
+      "optimized": true
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "city": "Hanoi",
+      "total_stops": 4,
+      "morning_weight": 2,
+      "warnings": [],
+      "fatigue_risk": "low",
+      "optimized": true
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "city": "Sapa",
+      "total_stops": 5,
+      "morning_weight": 2,
+      "warnings": [
+        "6hr bus — download offline maps + movies"
+      ],
+      "fatigue_risk": "medium",
+      "optimized": false
+    },
+    {
+      "day": 7,
+      "date": "Jul 5",
+      "city": "Sapa",
+      "total_stops": 5,
+      "morning_weight": 2,
+      "warnings": [],
+      "fatigue_risk": "medium",
+      "optimized": true
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "city": "Sapa",
+      "total_stops": 5,
+      "morning_weight": 1,
+      "warnings": [],
+      "fatigue_risk": "medium",
+      "optimized": true
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "city": "Sapa",
+      "total_stops": 5,
+      "morning_weight": 2,
+      "warnings": [],
+      "fatigue_risk": "medium",
+      "optimized": true
+    },
+    {
+      "day": 10,
+      "date": "Jul 8",
+      "city": "Hanoi",
+      "total_stops": 7,
+      "morning_weight": 3,
+      "warnings": [],
+      "fatigue_risk": "high",
+      "optimized": true
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "city": "Halong Bay",
+      "total_stops": 6,
+      "morning_weight": 2,
+      "warnings": [
+        "2.5hr bus each way — long day. Bring snacks + water."
+      ],
+      "fatigue_risk": "medium",
+      "optimized": false
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "city": "Hanoi",
+      "total_stops": 4,
+      "morning_weight": 3,
+      "warnings": [],
+      "fatigue_risk": "low",
+      "optimized": true
+    }
+  ],
+  "total_optimized_days": 10,
+  "total_warnings": 3,
+  "route_efficiency": 77,
+  "source": "Algorithmic analysis of itinerary"
+}

@@ -1,0 +1,2023 @@
+{
+  "agent": "Backup Plan Intelligence",
+  "timestamp": "2026-06-23T23:00:58Z",
+  "day_backups": [
+    {
+      "day": 0,
+      "date": "Jun 28",
+      "dow": "SUN",
+      "city": "HCMC",
+      "label": "Night Arrival",
+      "main_risk": "high",
+      "rain_prob": 92,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 31
+      },
+      "original_plan": [
+        "Land Tan Son Nhat (SGN)",
+        "Check-in District 1",
+        "Bui Vien Walking Street — Sunday peak!"
+      ],
+      "backup_plan": [
+        {
+          "name": "War Remnants Museum",
+          "duration": "2 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC",
+          "note": "Fully indoor, harrowing history"
+        },
+        {
+          "name": "Van Gogh Metashow (Thiso Mall)",
+          "duration": "2 hrs",
+          "cost": "₹878",
+          "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",
+          "note": "30+ immersive AC rooms"
+        },
+        {
+          "name": "Saigon Opera House — Show",
+          "duration": "1.5 hrs",
+          "cost": "₹700-1400",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC",
+          "note": "AO Show — cultural performance"
+        },
+        {
+          "name": "Bui Vien indoor bars + cafes",
+          "duration": "3 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Bui+Vien+HCMC",
+          "note": "Beer street covered seating"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (92% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
+    },
+    {
+      "day": 1,
+      "date": "Jun 29",
+      "dow": "MON",
+      "city": "HCMC",
+      "label": "Full Day Explorer",
+      "main_risk": "high",
+      "rain_prob": 92,
+      "fog_hours": 1,
+      "best_window": {
+        "start": "06:00",
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 37
+      },
+      "original_plan": [
+        "Pho breakfast — Pho Minh (since 1940s)",
+        "Hop-On Hop-Off Bus @ Opera House",
+        "Banh Canh Cua Ba Ba — MICHELIN 2026!",
+        "Van Gogh Metashow — 30+ immersive rooms",
+        "Vinh Khanh Food St — Seafood dinner",
+        "Bui Vien — Round 2!"
+      ],
+      "backup_plan": [
+        {
+          "name": "War Remnants Museum",
+          "duration": "2 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC",
+          "note": "Fully indoor, harrowing history"
+        },
+        {
+          "name": "Van Gogh Metashow (Thiso Mall)",
+          "duration": "2 hrs",
+          "cost": "₹878",
+          "maps": "https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",
+          "note": "30+ immersive AC rooms"
+        },
+        {
+          "name": "Saigon Opera House — Show",
+          "duration": "1.5 hrs",
+          "cost": "₹700-1400",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House+HCMC",
+          "note": "AO Show — cultural performance"
+        },
+        {
+          "name": "Bui Vien indoor bars + cafes",
+          "duration": "3 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Bui+Vien+HCMC",
+          "note": "Beer street covered seating"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (92% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+    },
+    {
+      "day": 2,
+      "date": "Jun 30",
+      "dow": "TUE",
+      "city": "Phu Quoc",
+      "label": "Arrival + Grand World",
+      "main_risk": "high",
+      "rain_prob": 92,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "08:00",
+        "hours": 3,
+        "max_rain_in_window": 39
+      },
+      "original_plan": [
+        "Cu Chi Tunnels (morning best)",
+        "Fly HCMC → Phu Quoc (1hr)",
+        "Grand World — FREE entry",
+        "Charm of Venice Show — FREE!",
+        "Laser Show — FREE!"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (92% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+    },
+    {
+      "day": 3,
+      "date": "Jul 1",
+      "dow": "WED",
+      "city": "Phu Quoc",
+      "label": "4 Island Tour",
+      "main_risk": "high",
+      "rain_prob": 97,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 37
+      },
+      "original_plan": [
+        "4 Island Tour — Hotel pickup",
+        "World's longest oversea cable car",
+        "Sea Walking — walk ocean floor!",
+        "Sunset Town — Kiss Bridge FREE",
+        "Duong Dong Night Market"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (97% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 4,
+      "date": "Jul 2",
+      "dow": "THU",
+      "city": "Phu Quoc",
+      "label": "VinWonders",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 46,
+        "note": "No clear window — best available slot only"
+      },
+      "original_plan": [
+        "VinWonders — Vietnam's largest!",
+        "Deep Sea Restaurant — aquarium view",
+        "Typhoon Water Park",
+        "THE ONCE SHOW — $12M production!"
+      ],
+      "backup_plan": [
+        {
+          "name": "VinWonders (rain-proof: aquarium + indoor shows)",
+          "duration": "Full day",
+          "cost": "₹3,410",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc",
+          "note": "Aquarium, indoor rides, THE ONCE show"
+        },
+        {
+          "name": "Grand World indoor exhibits",
+          "duration": "3 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc",
+          "note": "Teddy Bear Museum + indoor art"
+        },
+        {
+          "name": "Phu Quoc Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Phu+Quoc+Prison",
+          "note": "Historical site, mostly covered"
+        },
+        {
+          "name": "Fish Sauce Factory tour",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Khoe+Be+fish+sauce+factory+Phu+Quoc",
+          "note": "See how nuoc mam is made"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = low season. Rough seas may cancel island tours.",
+        "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+        "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+        "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+        "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+      },
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 5,
+      "date": "Jul 3",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Beach AM + Fly + Hanoi PM",
+      "main_risk": "high",
+      "rain_prob": 99,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 42,
+        "note": "No clear window — best available slot only"
+      },
+      "original_plan": [
+        "Ong Lang Beach — hidden gem",
+        "Ham Ninh Fishing Village",
+        "Fly Phu Quoc → Hanoi (2hr)",
+        "Hanoi Weekend Night Market!"
+      ],
+      "backup_plan": [
+        {
+          "name": "Water Puppet Theatre",
+          "duration": "1 hr",
+          "cost": "₹350",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "note": "Indoor, iconic, book ahead"
+        },
+        {
+          "name": "X Space Immersive (8 zones)",
+          "duration": "2 hrs",
+          "cost": "₹700",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "note": "Fully indoor AC immersive art"
+        },
+        {
+          "name": "Hoa Lo Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi",
+          "note": "Indoor, powerful history"
+        },
+        {
+          "name": "Vietnamese Women's Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi",
+          "note": "AC, fascinating exhibits"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+    },
+    {
+      "day": 6,
+      "date": "Jul 4",
+      "dow": "SAT",
+      "city": "Sapa",
+      "label": "Hanoi AM → Sapa PM",
+      "main_risk": "high",
+      "rain_prob": 96,
+      "fog_hours": 1,
+      "best_window": {
+        "start": "06:00",
+        "end": "08:00",
+        "hours": 3,
+        "max_rain_in_window": 40
+      },
+      "original_plan": [
+        "Pho Thin — #1 pho in Hanoi",
+        "Sapa Express Bus (6hrs)",
+        "Arrive Sapa — check-in",
+        "Sapa Square + Cathedral",
+        "Dinner — local BBQ"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Indoor cafe crawl (fog/rain)",
+          "duration": "3 hrs",
+          "cost": "₹200-400",
+          "maps": "https://maps.google.com/?q=Sapa+cafes",
+          "note": "The Hill Station, Leopard Cat Cafe — mountain views from inside"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (96% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+    },
+    {
+      "day": 7,
+      "date": "Jul 5",
+      "dow": "SUN",
+      "city": "Sapa",
+      "label": "Moana + Cat Cat + Cafes",
+      "main_risk": "high",
+      "rain_prob": 100,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 25
+      },
+      "original_plan": [
+        "Moana Sapa — photo spot",
+        "Cat Cat Village — waterfall",
+        "Lunch — local Thang Co",
+        "Cafe crawl — The Hill Station",
+        "Sunset at Sapa Square"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        },
+        {
+          "name": "Hotel spa / hot spring",
+          "duration": "2 hrs",
+          "cost": "₹500-800",
+          "maps": "",
+          "note": "Many Sapa hotels have spa. Hot spring at Tan Phu village"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+    },
+    {
+      "day": 8,
+      "date": "Jul 6",
+      "dow": "MON",
+      "city": "Sapa",
+      "label": "Rong May Thrill Day",
+      "main_risk": "high",
+      "rain_prob": 94,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 27
+      },
+      "original_plan": [
+        "Rong May Tourism Area",
+        "Lunch — BBQ buffet included",
+        "Heaven's Gate pass — viewpoint",
+        "Return Sapa town",
+        "Dinner + cultural show"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Indoor cafe crawl (fog/rain)",
+          "duration": "3 hrs",
+          "cost": "₹200-400",
+          "maps": "https://maps.google.com/?q=Sapa+cafes",
+          "note": "The Hill Station, Leopard Cat Cafe — mountain views from inside"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (94% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+    },
+    {
+      "day": 9,
+      "date": "Jul 7",
+      "dow": "TUE",
+      "city": "Sapa",
+      "label": "Fansipan → Hanoi",
+      "main_risk": "high",
+      "rain_prob": 96,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 38
+      },
+      "original_plan": [
+        "Fansipan Cable Car — Indochina's roof!",
+        "Lunch — summit cafe",
+        "Return Sapa town",
+        "Sapa Express Bus → Hanoi (6hrs)",
+        "Arrive Hanoi — check-in"
+      ],
+      "backup_plan": [
+        {
+          "name": "Sapa Museum",
+          "duration": "1 hr",
+          "cost": "₹35",
+          "maps": "https://maps.google.com/?q=Sapa+Museum",
+          "note": "Indoor ethnic culture exhibits"
+        },
+        {
+          "name": "Sapa Stone Church (Holy Rosary)",
+          "duration": "30 min",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Sapa+Stone+Church",
+          "note": "Historic church, indoor"
+        },
+        {
+          "name": "Local market (covered)",
+          "duration": "1.5 hrs",
+          "cost": "₹200-500",
+          "maps": "https://maps.google.com/?q=Sapa+Market",
+          "note": "Covered market — handicrafts + hot food"
+        },
+        {
+          "name": "Hotel spa / hot spring",
+          "duration": "2 hrs",
+          "cost": "₹500-800",
+          "maps": "",
+          "note": "Many Sapa hotels have spa. Hot spring at Tan Phu village"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+        "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+        "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+        "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+        "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+      },
+      "recommendation": "⚠️ High weather risk (96% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+    },
+    {
+      "day": 10,
+      "date": "Jul 8",
+      "dow": "WED",
+      "city": "Hanoi",
+      "label": "Full Day Explorer",
+      "main_risk": "high",
+      "rain_prob": 89,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 36
+      },
+      "original_plan": [
+        "Pho Thin — second visit (it's that good)",
+        "Hoan Kiem Lake + Ngoc Son Temple",
+        "Temple of Literature — 1000 years old",
+        "Bun Cha — Obama's spot",
+        "X Space Immersive — 8 zones",
+        "Train Street — iconic photo",
+        "Water Puppet Theatre"
+      ],
+      "backup_plan": [
+        {
+          "name": "X Space Immersive (8 zones)",
+          "duration": "2 hrs",
+          "cost": "₹700",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "note": "Fully indoor AC immersive art"
+        },
+        {
+          "name": "Hoa Lo Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi",
+          "note": "Indoor, powerful history"
+        },
+        {
+          "name": "Vietnamese Women's Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi",
+          "note": "AC, fascinating exhibits"
+        },
+        {
+          "name": "Ho Chi Minh Mausoleum",
+          "duration": "1 hr",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Ho+Chi+Minh+Mausoleum",
+          "note": "Indoor (closed Mon/Fri — check)"
+        }
+      ],
+      "swap_suggestion": null,
+      "recommendation": "⚠️ High weather risk (89% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+    },
+    {
+      "day": 11,
+      "date": "Jul 9",
+      "dow": "THU",
+      "city": "Halong Bay",
+      "label": "Day Trip — Highest Risk Day",
+      "main_risk": "high",
+      "rain_prob": 73,
+      "fog_hours": 0,
+      "best_window": {
+        "start": "06:00",
+        "end": "07:00",
+        "hours": 2,
+        "max_rain_in_window": 39
+      },
+      "original_plan": [
+        "Limousine bus to Halong Bay (2.5hrs)",
+        "Halong Bay cruise — caves + kayaking",
+        "Seafood lunch on boat",
+        "Titop Island — beach + viewpoint",
+        "Return bus to Hanoi",
+        "Dinner — Hanoi Old Quarter"
+      ],
+      "backup_plan": [
+        {
+          "name": "Water Puppet + Hoa Lo Prison",
+          "duration": "Half day",
+          "cost": "₹420",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "note": "Iconic indoor activities"
+        },
+        {
+          "name": "Ceramic Mural + Long Bien Bridge walk",
+          "duration": "2 hrs",
+          "cost": "FREE",
+          "maps": "https://maps.google.com/?q=Long+Bien+Bridge+Hanoi",
+          "note": "Bridge has covered walkway"
+        },
+        {
+          "name": "Old Quarter food crawl (covered)",
+          "duration": "3 hrs",
+          "cost": "₹500-1000",
+          "maps": "https://maps.google.com/?q=Hanoi+Old+Quarter+food",
+          "note": "Bun Cha, pho, egg coffee — all indoor seating"
+        }
+      ],
+      "swap_suggestion": {
+        "problem": "Highest risk day. Cruises cancel if wind > 25km/h or typhoon warning.",
+        "alternative": "Ninh Binh — 'Halong Bay on land' (boat ride through limestone karsts, rain or shine)",
+        "alternative2": "Hanoi full museum day + Train Street + water puppet",
+        "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
+        "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately."
+      },
+      "recommendation": "⚠️ High weather risk (73% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+    },
+    {
+      "day": 12,
+      "date": "Jul 10",
+      "dow": "FRI",
+      "city": "Hanoi",
+      "label": "Departure Day",
+      "main_risk": "unknown",
+      "rain_prob": 0,
+      "fog_hours": 0,
+      "best_window": {},
+      "original_plan": [
+        "Dong Xuan Market — souvenirs",
+        "Last pho — Pho Bat Dan",
+        "Airport taxi — Noi Bai",
+        "Fly Hanoi → Delhi"
+      ],
+      "backup_plan": [],
+      "swap_suggestion": null,
+      "recommendation": "✅ Low risk (0% rain). Original plan is good. Best outdoor window: ?-?."
+    }
+  ],
+  "city_swaps": {
+    "Sapa": {
+      "problem": "July = peak fog season. Visibility near zero after 2PM. Fansipan summit often in clouds.",
+      "alternative": "Stay extra day in Hanoi — day trip to Ninh Binh (Trang An boat ride, rain or shine)",
+      "alternative2": "Swap Sapa days for Phong Nha caves (indoor cave tours, weather-proof)",
+      "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
+      "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
+    },
+    "Phu Quoc": {
+      "problem": "July = low season. Rough seas may cancel island tours.",
+      "alternative": "If island tour cancelled: VinWonders full day (rain-proof)",
+      "alternative2": "Extend HCMC by 1 day (more museums/food) and reduce Phu Quoc",
+      "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
+      "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
+    },
+    "Halong Bay": {
+      "problem": "Highest risk day. Cruises cancel if wind > 25km/h or typhoon warning.",
+      "alternative": "Ninh Binh — 'Halong Bay on land' (boat ride through limestone karsts, rain or shine)",
+      "alternative2": "Hanoi full museum day + Train Street + water puppet",
+      "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
+      "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately."
+    }
+  },
+  "city_comparison": [
+    {
+      "city": "Hanoi",
+      "type": "original",
+      "avg_rain": 65,
+      "high_risk_days": 9,
+      "weather_score": 28,
+      "verdict": "MONITOR"
+    },
+    {
+      "city": "Halong Bay",
+      "type": "original",
+      "avg_rain": 87,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "SWAP"
+    },
+    {
+      "city": "HCMC",
+      "type": "original",
+      "avg_rain": 93,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "SWAP"
+    },
+    {
+      "city": "Phu Quoc",
+      "type": "original",
+      "avg_rain": 94,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "SWAP"
+    },
+    {
+      "city": "Sapa",
+      "type": "original",
+      "avg_rain": 96,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "SWAP"
+    },
+    {
+      "city": "Phong Nha",
+      "type": "alternative",
+      "avg_rain": 50,
+      "high_risk_days": 3,
+      "weather_score": 52,
+      "verdict": "GOOD OPTION",
+      "info": {
+        "name": "Phong Nha",
+        "lat": 17.4689,
+        "lon": 106.296,
+        "region": "Central North",
+        "why": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
+        "highlights": [
+          "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
+          "Paradise Cave (₹700) — 31km underground, dry walkway",
+          "Phong Nha Cave boat + kayak (₹525)",
+          "Jungle trekking to Bot Cave (₹1,500)",
+          "ALL weather-proof — it's underground!"
+        ],
+        "budget_per_day": "₹1,000-1,800",
+        "flight_from_hanoi": "1hr to Dong Hoi + 45min taxi"
+      }
+    },
+    {
+      "city": "Quy Nhon",
+      "type": "alternative",
+      "avg_rain": 56,
+      "high_risk_days": 4,
+      "weather_score": 48,
+      "verdict": "GOOD OPTION",
+      "info": {
+        "name": "Quy Nhon",
+        "lat": 13.782,
+        "lon": 109.2194,
+        "region": "Central South",
+        "why": "Hidden adventure beach. Ky Co Beach boat trip (snorkeling + cliff jumping). Eo Gio cliff walk + rock climbing. No crowds. Half price of Nha Trang.",
+        "highlights": [
+          "Ky Co Beach (₹350 boat) — snorkel + cliff jump + pristine",
+          "Eo Gio cliff walk + snorkeling (FREE)",
+          "Jet ski rental (₹500/hr)",
+          "Fresh seafood dives (₹200-400)",
+          "No tourist traps — raw adventure"
+        ],
+        "budget_per_day": "₹600-1,200",
+        "flight_from_hcmc": "1hr, ₹1,500-2,000"
+      }
+    },
+    {
+      "city": "Da Nang",
+      "type": "alternative",
+      "avg_rain": 66,
+      "high_risk_days": 8,
+      "weather_score": 24,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Da Nang",
+        "lat": 16.0544,
+        "lon": 108.2022,
+        "region": "Central",
+        "why": "Action central. Ba Na Hills cable car (5km) + Golden Bridge. Marble Mountains (caves + climbing). My Khe Beach (watersports). Dragon Bridge fire show.",
+        "highlights": [
+          "Ba Na Hills + Golden Bridge (₹1,400) — cable car + French village + fantasy park",
+          "Marble Mountains (₹105) — climb caves + pagoda",
+          "My Khe Beach jetski + parasailing (₹700)",
+          "Dragon Bridge breathes FIRE Sat/Sun 9PM"
+        ],
+        "budget_per_day": "₹1,500-2,500",
+        "flight_from_hcmc": "1hr, ₹1,500-2,500"
+      }
+    },
+    {
+      "city": "Nha Trang",
+      "type": "alternative",
+      "avg_rain": 81,
+      "high_risk_days": 11,
+      "weather_score": 8,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Nha Trang",
+        "lat": 12.2388,
+        "lon": 109.1967,
+        "region": "Central South",
+        "why": "Adventure beach city. VinWonders (bigger than Phu Quoc). Island snorkeling + scuba diving. Mud baths. Parasailing. Best nightlife.",
+        "highlights": [
+          "VinWonders Nha Trang (₹2,800) — bigger than Phu Quoc version",
+          "Scuba diving (₹2,500, PADI intro dive)",
+          "Mud baths (₹350) — volcanic mineral pools",
+          "Parasailing + jetski (₹700)",
+          "Island hopping snorkel tour (₹1,200)"
+        ],
+        "budget_per_day": "₹1,200-2,200",
+        "flight_from_hcmc": "1hr, ₹1,500-2,500"
+      }
+    },
+    {
+      "city": "Mui Ne",
+      "type": "alternative",
+      "avg_rain": 79,
+      "high_risk_days": 11,
+      "weather_score": 8,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Mui Ne",
+        "lat": 10.935,
+        "lon": 108.265,
+        "region": "South Coast",
+        "why": "Desert adventure by the sea. Sand dune jeep tours. Kite surfing capital of Asia. ATV riding on dunes. Fairy Stream trek. Cheapest watersports.",
+        "highlights": [
+          "White Sand Dunes jeep + ATV tour (₹1,200) — sunrise",
+          "Kite surfing lesson (₹1,500/2hr) — best spot in Asia",
+          "Red Sand Dunes sandboarding (FREE)",
+          "Fairy Stream barefoot trek (FREE)",
+          "Jet ski + parasailing (₹700)"
+        ],
+        "budget_per_day": "₹800-1,500",
+        "flight_from_hcmc": "4hr bus, ₹500"
+      }
+    },
+    {
+      "city": "Dalat",
+      "type": "alternative",
+      "avg_rain": 91,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Dalat",
+        "lat": 11.9404,
+        "lon": 108.4583,
+        "region": "Central Highlands",
+        "why": "Mountain adventure like Sapa but DRIER. Alpine coaster (2km downhill track). Canyoning down waterfalls. Zipline across pine valleys. Cool weather 18-22°C.",
+        "highlights": [
+          "Canyoning (₹1,500) — rappel down 3 waterfalls + cliff jump",
+          "Datanla Alpine Coaster (₹280) — 2km self-drive downhill",
+          "Zipline + high ropes course (₹700)",
+          "Pongour Falls (₹35) — biggest waterfall in area",
+          "Night market food crawl"
+        ],
+        "budget_per_day": "₹800-1,500",
+        "flight_from_hcmc": "50min, ₹1,500-2,000"
+      }
+    },
+    {
+      "city": "Con Dao",
+      "type": "alternative",
+      "avg_rain": 75,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Con Dao",
+        "lat": 8.726,
+        "lon": 106.626,
+        "region": "South Islands",
+        "why": "Paradise islands + diving. Best snorkeling/diving in Vietnam. Sea turtle nesting in July (night beach watch!). Speedboat island hopping. Hidden coves.",
+        "highlights": [
+          "Scuba diving (₹3,500) — coral reefs + turtles + rays",
+          "Snorkeling speedboat tour (₹1,200) — 3 islands",
+          "Sea turtle nesting night watch (July season!)",
+          "Bay Canh Island kayak + jungle trek",
+          "Dat Doc Beach 6km — yours alone"
+        ],
+        "budget_per_day": "₹2,000-3,500",
+        "flight_from_hcmc": "45min, ₹2,500-4,000"
+      }
+    },
+    {
+      "city": "Ha Giang",
+      "type": "alternative",
+      "avg_rain": 87,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Ha Giang",
+        "lat": 23.2781,
+        "lon": 105.0128,
+        "region": "North",
+        "why": "ULTIMATE motorbike adventure. Ha Giang Loop — 3 days on mountain roads. Ma Pi Leng Pass (best view in SE Asia). Less fog than Sapa. Raw, wild, no tourist traps.",
+        "highlights": [
+          "Ha Giang Loop 3-day motorbike (₹2,000 rental + guide)",
+          "Ma Pi Leng Pass — most spectacular road in Vietnam",
+          "Cave exploration + river crossing",
+          "Lung Cu Flag Tower (northernmost Vietnam)",
+          "Sleep in Hmong villages — authentic homestays"
+        ],
+        "budget_per_day": "₹500-1,000",
+        "flight_from_hanoi": "6hr bus from Hanoi, ₹600"
+      }
+    },
+    {
+      "city": "Cat Ba Island",
+      "type": "alternative",
+      "avg_rain": 74,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Cat Ba Island",
+        "lat": 20.725,
+        "lon": 107.0514,
+        "region": "North",
+        "why": "Island adventure — Lan Ha Bay kayaking (untouched Halong), rock climbing on limestone cliffs, jungle trekking, Monkey Island. Cheaper + less crowded than Halong Bay.",
+        "highlights": [
+          "Lan Ha Bay kayak tour (₹1,200) — 100x less crowded than Halong",
+          "Deep water solo rock climbing (₹1,500) — climb limestone cliffs over water",
+          "Cat Ba National Park jungle trek (₹70)",
+          "Monkey Island beach + zip line (₹350)",
+          "Speedboat island hopping (₹800)"
+        ],
+        "budget_per_day": "₹1,000-1,800",
+        "flight_from_hanoi": "2hr bus+boat from Hanoi, ₹400"
+      }
+    }
+  ],
+  "swap_recommendations": [
+    {
+      "original_city": "Sapa",
+      "original_rain": 96,
+      "alternative_city": "Phong Nha",
+      "alternative_rain": 50,
+      "alternative_score": 52,
+      "cost_impact": "Flight to Phong Nha instead of Sapa bus. Similar cost ₹1,500-2,500.",
+      "reasoning": "Sapa avg rain: 96%. Phong Nha avg rain: 50%. Phong Nha is 46% drier during your trip.",
+      "what_you_get": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
+      "highlights": [
+        "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
+        "Paradise Cave (₹700) — 31km underground, dry walkway",
+        "Phong Nha Cave boat + kayak (₹525)",
+        "Jungle trekking to Bot Cave (₹1,500)",
+        "ALL weather-proof — it's underground!"
+      ],
+      "how_to_get_there": "1hr to Dong Hoi + 45min taxi",
+      "budget": "₹1,000-1,800",
+      "urgency": "HIGH"
+    },
+    {
+      "original_city": "Phu Quoc",
+      "original_rain": 94,
+      "alternative_city": "Quy Nhon",
+      "alternative_rain": 56,
+      "alternative_score": 48,
+      "cost_impact": "Flight to Quy Nhon instead of Phu Quoc. Similar cost ₹1,500-2,500.",
+      "reasoning": "Phu Quoc avg rain: 94%. Quy Nhon avg rain: 56%. Quy Nhon is 38% drier.",
+      "what_you_get": "Hidden adventure beach. Ky Co Beach boat trip (snorkeling + cliff jumping). Eo Gio cliff walk + rock climbing. No crowds. Half price of Nha Trang.",
+      "highlights": [
+        "Ky Co Beach (₹350 boat) — snorkel + cliff jump + pristine",
+        "Eo Gio cliff walk + snorkeling (FREE)",
+        "Jet ski rental (₹500/hr)",
+        "Fresh seafood dives (₹200-400)",
+        "No tourist traps — raw adventure"
+      ],
+      "how_to_get_there": "1hr, ₹1,500-2,000",
+      "budget": "₹600-1,200",
+      "urgency": "HIGH"
+    }
+  ],
+  "reorder_suggestion": {
+    "current_order": "HCMC → Phu Quoc → Hanoi → Sapa → Hanoi",
+    "issue": "Both Phu Quoc (monsoon) and Sapa (fog season) are in the WETTEST period. Central Vietnam is drier in July.",
+    "suggested_reorder": "HCMC (2 days) → Da Nang/Hoi An (3 days, DRIEST) → Hanoi (2 days) → Sapa (2 days) → Hanoi departure",
+    "why": "Central Vietnam (Da Nang/Hoi An) has the BEST weather in July. By going there during Jun 30-Jul 3 (instead of Phu Quoc), you get the driest window.",
+    "cost_impact": "Same number of flights. Da Nang flights ₹1,500-2,500 (same as Phu Quoc). Hoi An is cheaper than Phu Quoc (₹1,000/day vs ₹1,500/day).",
+    "what_you_lose": "VinWonders Phu Quoc, 4-island tour, cable car",
+    "what_you_gain": "Ba Na Hills Golden Bridge, Hoi An ancient town, My Khe Beach, Cao Lau noodles, tailor shopping — ALL in better weather"
+  },
+  "alt_city_weather": {
+    "Da Nang": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 90,
+          "high": 35,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 82,
+          "high": 35,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 75,
+          "high": 34,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 73,
+          "high": 34,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 75,
+          "high": 35,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 78,
+          "high": 34,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 67,
+          "high": 33,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 65,
+          "high": 30,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 43,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 47,
+          "high": 33,
+          "condition": "Overcast",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 56,
+          "high": 29,
+          "condition": "Heavy drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 39,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "low"
+        }
+      ],
+      "avg_rain_prob": 66,
+      "high_risk_days": 8,
+      "low_risk_days": 1,
+      "total_days": 12,
+      "weather_score": 24
+    },
+    "Nha Trang": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 90,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 90,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 86,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 90,
+          "high": 31,
+          "condition": "Overcast",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 85,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 87,
+          "high": 30,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 84,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 91,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 78,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 71,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 67,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 55,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "medium"
+        }
+      ],
+      "avg_rain_prob": 81,
+      "high_risk_days": 11,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 8
+    },
+    "Phong Nha": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 18,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "low"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 39,
+          "high": 30,
+          "condition": "Overcast",
+          "risk": "low"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 45,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 43,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 43,
+          "high": 31,
+          "condition": "Overcast",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 57,
+          "high": 30,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 73,
+          "high": 30,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 59,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 71,
+          "high": 27,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 65,
+          "high": 27,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 55,
+          "high": 24,
+          "condition": "Drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 32,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "low"
+        }
+      ],
+      "avg_rain_prob": 50,
+      "high_risk_days": 3,
+      "low_risk_days": 3,
+      "total_days": 12,
+      "weather_score": 52
+    },
+    "Dalat": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 94,
+          "high": 25,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 90,
+          "high": 25,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 94,
+          "high": 25,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 99,
+          "high": 23,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 99,
+          "high": 20,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 99,
+          "high": 22,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 99,
+          "high": 22,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 92,
+          "high": 22,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 89,
+          "high": 19,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 83,
+          "high": 21,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 83,
+          "high": 21,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 75,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "avg_rain_prob": 91,
+      "high_risk_days": 12,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 4
+    },
+    "Quy Nhon": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 78,
+          "high": 36,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 57,
+          "high": 35,
+          "condition": "Thunderstorm",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 57,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 57,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 69,
+          "high": 34,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 71,
+          "high": 35,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 67,
+          "high": 30,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 51,
+          "high": 31,
+          "condition": "Overcast",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 49,
+          "high": 28,
+          "condition": "Heavy drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 39,
+          "high": 31,
+          "condition": "Overcast",
+          "risk": "low"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 40,
+          "high": 32,
+          "condition": "Overcast",
+          "risk": "low"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 34,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "low"
+        }
+      ],
+      "avg_rain_prob": 56,
+      "high_risk_days": 4,
+      "low_risk_days": 3,
+      "total_days": 12,
+      "weather_score": 48
+    },
+    "Con Dao": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 65,
+          "high": 29,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 83,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 85,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 81,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 84,
+          "high": 28,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 90,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 76,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 70,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 65,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 63,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 66,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 72,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "avg_rain_prob": 75,
+      "high_risk_days": 12,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 4
+    },
+    "Mui Ne": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 65,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 67,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 80,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 73,
+          "high": 28,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 80,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 98,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 93,
+          "high": 30,
+          "condition": "Heavy drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 90,
+          "high": 29,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 86,
+          "high": 30,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 90,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 73,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 54,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "medium"
+        }
+      ],
+      "avg_rain_prob": 79,
+      "high_risk_days": 11,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 8
+    },
+    "Ha Giang": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 89,
+          "high": 28,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 90,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 84,
+          "high": 26,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 73,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 87,
+          "high": 28,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 88,
+          "high": 26,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 88,
+          "high": 23,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 80,
+          "high": 25,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 84,
+          "high": 29,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 98,
+          "high": 30,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 97,
+          "high": 26,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 87,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "avg_rain_prob": 87,
+      "high_risk_days": 12,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 4
+    },
+    "Cat Ba Island": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 80,
+          "high": 32,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 73,
+          "high": 31,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 88,
+          "high": 31,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 78,
+          "high": 31,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 71,
+          "high": 32,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 78,
+          "high": 31,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 84,
+          "high": 30,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 80,
+          "high": 31,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 69,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 63,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 63,
+          "high": 32,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 61,
+          "high": null,
+          "condition": "Unknown",
+          "risk": "high"
+        }
+      ],
+      "avg_rain_prob": 74,
+      "high_risk_days": 12,
+      "low_risk_days": 0,
+      "total_days": 12,
+      "weather_score": 4
+    }
+  },
+  "alt_cities_info": {
+    "Da Nang": {
+      "why": "Action central. Ba Na Hills cable car (5km) + Golden Bridge. Marble Mountains (caves + climbing). My Khe Beach (watersports). Dragon Bridge fire show.",
+      "highlights": [
+        "Ba Na Hills + Golden Bridge (₹1,400) — cable car + French village + fantasy park",
+        "Marble Mountains (₹105) — climb caves + pagoda",
+        "My Khe Beach jetski + parasailing (₹700)",
+        "Dragon Bridge breathes FIRE Sat/Sun 9PM"
+      ],
+      "budget_per_day": "₹1,500-2,500",
+      "transport": "1hr, ₹1,500-2,500",
+      "region": "Central"
+    },
+    "Nha Trang": {
+      "why": "Adventure beach city. VinWonders (bigger than Phu Quoc). Island snorkeling + scuba diving. Mud baths. Parasailing. Best nightlife.",
+      "highlights": [
+        "VinWonders Nha Trang (₹2,800) — bigger than Phu Quoc version",
+        "Scuba diving (₹2,500, PADI intro dive)",
+        "Mud baths (₹350) — volcanic mineral pools",
+        "Parasailing + jetski (₹700)",
+        "Island hopping snorkel tour (₹1,200)"
+      ],
+      "budget_per_day": "₹1,200-2,200",
+      "transport": "1hr, ₹1,500-2,500",
+      "region": "Central South"
+    },
+    "Phong Nha": {
+      "why": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
+      "highlights": [
+        "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
+        "Paradise Cave (₹700) — 31km underground, dry walkway",
+        "Phong Nha Cave boat + kayak (₹525)",
+        "Jungle trekking to Bot Cave (₹1,500)",
+        "ALL weather-proof — it's underground!"
+      ],
+      "budget_per_day": "₹1,000-1,800",
+      "transport": "1hr to Dong Hoi + 45min taxi",
+      "region": "Central North"
+    },
+    "Dalat": {
+      "why": "Mountain adventure like Sapa but DRIER. Alpine coaster (2km downhill track). Canyoning down waterfalls. Zipline across pine valleys. Cool weather 18-22°C.",
+      "highlights": [
+        "Canyoning (₹1,500) — rappel down 3 waterfalls + cliff jump",
+        "Datanla Alpine Coaster (₹280) — 2km self-drive downhill",
+        "Zipline + high ropes course (₹700)",
+        "Pongour Falls (₹35) — biggest waterfall in area",
+        "Night market food crawl"
+      ],
+      "budget_per_day": "₹800-1,500",
+      "transport": "50min, ₹1,500-2,000",
+      "region": "Central Highlands"
+    },
+    "Quy Nhon": {
+      "why": "Hidden adventure beach. Ky Co Beach boat trip (snorkeling + cliff jumping). Eo Gio cliff walk + rock climbing. No crowds. Half price of Nha Trang.",
+      "highlights": [
+        "Ky Co Beach (₹350 boat) — snorkel + cliff jump + pristine",
+        "Eo Gio cliff walk + snorkeling (FREE)",
+        "Jet ski rental (₹500/hr)",
+        "Fresh seafood dives (₹200-400)",
+        "No tourist traps — raw adventure"
+      ],
+      "budget_per_day": "₹600-1,200",
+      "transport": "1hr, ₹1,500-2,000",
+      "region": "Central South"
+    },
+    "Con Dao": {
+      "why": "Paradise islands + diving. Best snorkeling/diving in Vietnam. Sea turtle nesting in July (night beach watch!). Speedboat island hopping. Hidden coves.",
+      "highlights": [
+        "Scuba diving (₹3,500) — coral reefs + turtles + rays",
+        "Snorkeling speedboat tour (₹1,200) — 3 islands",
+        "Sea turtle nesting night watch (July season!)",
+        "Bay Canh Island kayak + jungle trek",
+        "Dat Doc Beach 6km — yours alone"
+      ],
+      "budget_per_day": "₹2,000-3,500",
+      "transport": "45min, ₹2,500-4,000",
+      "region": "South Islands"
+    },
+    "Mui Ne": {
+      "why": "Desert adventure by the sea. Sand dune jeep tours. Kite surfing capital of Asia. ATV riding on dunes. Fairy Stream trek. Cheapest watersports.",
+      "highlights": [
+        "White Sand Dunes jeep + ATV tour (₹1,200) — sunrise",
+        "Kite surfing lesson (₹1,500/2hr) — best spot in Asia",
+        "Red Sand Dunes sandboarding (FREE)",
+        "Fairy Stream barefoot trek (FREE)",
+        "Jet ski + parasailing (₹700)"
+      ],
+      "budget_per_day": "₹800-1,500",
+      "transport": "4hr bus, ₹500",
+      "region": "South Coast"
+    },
+    "Ha Giang": {
+      "why": "ULTIMATE motorbike adventure. Ha Giang Loop — 3 days on mountain roads. Ma Pi Leng Pass (best view in SE Asia). Less fog than Sapa. Raw, wild, no tourist traps.",
+      "highlights": [
+        "Ha Giang Loop 3-day motorbike (₹2,000 rental + guide)",
+        "Ma Pi Leng Pass — most spectacular road in Vietnam",
+        "Cave exploration + river crossing",
+        "Lung Cu Flag Tower (northernmost Vietnam)",
+        "Sleep in Hmong villages — authentic homestays"
+      ],
+      "budget_per_day": "₹500-1,000",
+      "transport": "6hr bus from Hanoi, ₹600",
+      "region": "North"
+    },
+    "Cat Ba Island": {
+      "why": "Island adventure — Lan Ha Bay kayaking (untouched Halong), rock climbing on limestone cliffs, jungle trekking, Monkey Island. Cheaper + less crowded than Halong Bay.",
+      "highlights": [
+        "Lan Ha Bay kayak tour (₹1,200) — 100x less crowded than Halong",
+        "Deep water solo rock climbing (₹1,500) — climb limestone cliffs over water",
+        "Cat Ba National Park jungle trek (₹70)",
+        "Monkey Island beach + zip line (₹350)",
+        "Speedboat island hopping (₹800)"
+      ],
+      "budget_per_day": "₹1,000-1,800",
+      "transport": "2hr bus+boat from Hanoi, ₹400",
+      "region": "North"
+    }
+  },
+  "high_risk_days": 12,
+  "swap_needed": 8,
+  "city_swaps_available": 2,
+  "summary": "12 high-risk days, 2 city swaps suggested, 14 cities compared",
+  "indoor_alternatives_count": 33,
+  "source": "Weather forecast analysis + alternative city weather comparison"
+}

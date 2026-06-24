@@ -1,0 +1,264 @@
+{
+  "agent": "Destination Intelligence",
+  "timestamp": "2026-06-23T19:04:10Z",
+  "cities": {
+    "HCMC": {
+      "top_attractions": [
+        {
+          "name": "War Remnants Museum",
+          "rating": 4.7,
+          "must_see": true,
+          "duration": "2 hrs",
+          "maps": "https://maps.google.com/?q=War+Remnants+Museum+HCMC"
+        },
+        {
+          "name": "Saigon Opera House",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "30 min",
+          "maps": "https://maps.google.com/?q=Saigon+Opera+House"
+        },
+        {
+          "name": "Notre Dame Cathedral",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "20 min",
+          "maps": "https://maps.google.com/?q=Notre+Dame+Cathedral+HCMC"
+        },
+        {
+          "name": "Van Gogh Metashow",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "2 hrs",
+          "maps": "https://maps.google.com/?q=Van+Gogh+Metashow+HCMC"
+        }
+      ],
+      "hidden_gems": [
+        {
+          "name": "Vinh Khanh Food Street",
+          "note": "Locals' seafood spot, not in guidebooks"
+        },
+        {
+          "name": "Banh Canh Cua Ba Ba",
+          "note": "MICHELIN Bib Gourmand 2026, sells out 1PM"
+        },
+        {
+          "name": "Cu Chi Tunnels morning visit",
+          "note": "Go at 7AM to beat heat + crowds"
+        }
+      ],
+      "avoid": [
+        "Bui Vien after midnight (pickpockets)",
+        "Cu Chi in afternoon (heat + mud)"
+      ],
+      "best_time": "Morning 6-11 AM before PM storms",
+      "recommended_duration": "2 days"
+    },
+    "Phu Quoc": {
+      "top_attractions": [
+        {
+          "name": "4 Island Tour + Cable Car",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "Full day",
+          "maps": "https://maps.google.com/?q=An+Thoi+Port+Phu+Quoc"
+        },
+        {
+          "name": "VinWonders Theme Park",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "Full day",
+          "maps": "https://maps.google.com/?q=VinWonders+Phu+Quoc"
+        },
+        {
+          "name": "Grand World (FREE)",
+          "rating": 4.4,
+          "must_see": true,
+          "duration": "Evening",
+          "maps": "https://maps.google.com/?q=Grand+World+Phu+Quoc"
+        },
+        {
+          "name": "Sunset Town + Kiss Bridge",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "2 hrs",
+          "maps": "https://maps.google.com/?q=Sunset+Town+Phu+Quoc"
+        }
+      ],
+      "hidden_gems": [
+        {
+          "name": "Ong Lang Beach",
+          "note": "Hidden cove, no crowds, best sunrise"
+        },
+        {
+          "name": "Ham Ninh Fishing Village",
+          "note": "Authentic fishing village, fresh sea urchin"
+        },
+        {
+          "name": "Starfish Beach",
+          "note": "Free, natural starfish sighting (don't touch!)"
+        }
+      ],
+      "avoid": [
+        "Overpriced online island tours (2x local price)",
+        "Duong Dong per-100g pricing trap"
+      ],
+      "best_time": "Morning for tours, evening for Grand World shows",
+      "recommended_duration": "3-4 days"
+    },
+    "Hanoi": {
+      "top_attractions": [
+        {
+          "name": "Hoan Kiem Lake + Ngoc Son",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "1 hr",
+          "maps": "https://maps.google.com/?q=Hoan+Kiem+Lake"
+        },
+        {
+          "name": "Temple of Literature",
+          "rating": 4.7,
+          "must_see": true,
+          "duration": "1.5 hrs",
+          "maps": "https://maps.google.com/?q=Temple+of+Literature+Hanoi"
+        },
+        {
+          "name": "Train Street",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "30 min",
+          "maps": "https://maps.google.com/?q=Hanoi+Train+Street"
+        },
+        {
+          "name": "Water Puppet Theatre",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "1 hr",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet"
+        },
+        {
+          "name": "X Space Immersive",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "2 hrs",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi"
+        }
+      ],
+      "hidden_gems": [
+        {
+          "name": "Pho Thin",
+          "note": "#1 pho in Vietnam since 1979, locals' choice"
+        },
+        {
+          "name": "Ceramic Mosaic Mural",
+          "note": "Guinness World Record, free sunrise walk"
+        },
+        {
+          "name": "Long Bien Bridge",
+          "note": "Historic Eiffel-designed bridge, best at dawn"
+        }
+      ],
+      "avoid": [
+        "Cyclo rides (scam)",
+        "Unsolicited shoe shines",
+        "Weekend crowds at Temple of Literature"
+      ],
+      "best_time": "Morning 7-10 AM, evening 6-9 PM. Avoid 12-4 PM (heat + rain)",
+      "recommended_duration": "3 days"
+    },
+    "Sapa": {
+      "top_attractions": [
+        {
+          "name": "Fansipan Cable Car",
+          "rating": 4.7,
+          "must_see": true,
+          "duration": "Half day",
+          "maps": "https://maps.google.com/?q=Fansipan+Cable+Car+Sapa"
+        },
+        {
+          "name": "Cat Cat Village",
+          "rating": 4.4,
+          "must_see": true,
+          "duration": "3 hrs",
+          "maps": "https://maps.google.com/?q=Cat+Cat+Village+Sapa"
+        },
+        {
+          "name": "Rong May Tourism Area",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "Full day",
+          "maps": "https://maps.google.com/?q=Rong+May+Sapa"
+        },
+        {
+          "name": "Moana Sapa",
+          "rating": 4.3,
+          "must_see": false,
+          "duration": "1 hr",
+          "maps": "https://maps.google.com/?q=Moana+Sapa"
+        }
+      ],
+      "hidden_gems": [
+        {
+          "name": "Heaven's Gate Pass",
+          "note": "Free viewpoint, best clouds in morning"
+        },
+        {
+          "name": "Sapa Square at sunset",
+          "note": "Free, local life, mountain backdrop"
+        },
+        {
+          "name": "Hill Station cafe",
+          "note": "Best coffee + valley views"
+        }
+      ],
+      "avoid": [
+        "Fake 'free' trekking guides",
+        "Sunday Fansipan (2-hour queue)",
+        "Afternoon outdoor (fog rolls in 2PM)"
+      ],
+      "best_time": "Morning 7 AM - 2 PM (before fog). Tuesday for Fansipan (10 min queue)",
+      "recommended_duration": "3-4 days"
+    },
+    "Halong Bay": {
+      "top_attractions": [
+        {
+          "name": "Halong Bay Cruise",
+          "rating": 4.6,
+          "must_see": true,
+          "duration": "Full day",
+          "maps": "https://maps.google.com/?q=Halong+Bay+Cruise"
+        },
+        {
+          "name": "Titop Island viewpoint",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "1 hr",
+          "maps": "https://maps.google.com/?q=Titop+Island"
+        },
+        {
+          "name": "Surprise Cave (Sung Sot)",
+          "rating": 4.5,
+          "must_see": true,
+          "duration": "45 min",
+          "maps": "https://maps.google.com/?q=Surprise+Cave+Halong"
+        }
+      ],
+      "hidden_gems": [
+        {
+          "name": "Kayaking through limestone caves",
+          "note": "Most cruises include — don't skip!"
+        }
+      ],
+      "avoid": [
+        "Bait-and-switch cruise quality",
+        "Boats without life jackets",
+        "High wind days — cruises cancel"
+      ],
+      "best_time": "Check windy.com 3 days before. Morning departure best.",
+      "recommended_duration": "1 day trip"
+    }
+  },
+  "total_attractions": 20,
+  "total_hidden_gems": 13,
+  "source": "Curated research + Apify Google Maps (on-demand)"
+}

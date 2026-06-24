@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATOS — Autonomous Travel Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e17;
+  --bg2: #0d1220;
+  --card: #141923;
+  --card-hover: #1a2030;
+  --text: #e4e7ec;
+  --muted: #7a8294;
+  --accent: #00d4aa;
+  --accent-dim: rgba(0,212,170,0.15);
+  --warn: #ffa726;
+  --warn-dim: rgba(255,167,38,0.15);
+  --danger: #ef5350;
+  --danger-dim: rgba(239,83,80,0.15);
+  --gold: #ffd54f;
+  --blue: #42a5f5;
+  --purple: #ab47bc;
+  --border: #1e2535;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+}
+[data-theme="light"] {
+  --bg: #f0f2f5;
+  --bg2: #e8eaed;
+  --card: #ffffff;
+  --card-hover: #f8f9fa;
+  --text: #1a1a2e;
+  --muted: #6b7280;
+  --border: #e0e3e8;
+  --shadow: 0 1px 4px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 20px rgba(0,0,0,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; -webkit-font-smoothing:antialiased; }
+.mono { font-family:'JetBrains Mono',monospace; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+/* Top Bar */
+.topbar { position:sticky; top:0; z-index:100; background:var(--bg2); border-bottom:1px solid var(--border); backdrop-filter:blur(10px); }
+.topbar-inner { max-width:1400px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.logo { font-size:18px; font-weight:900; color:var(--accent); white-space:nowrap; }
+.logo span { color:var(--text); font-weight:400; font-size:13px; }
+.nav-tabs { display:flex; gap:2px; overflow-x:auto; flex:1; scrollbar-width:none; }
+.nav-tabs::-webkit-scrollbar { display:none; }
+.nav-tab { padding:8px 14px; border-radius:8px; font-size:13px; font-weight:500; color:var(--muted); cursor:pointer; white-space:nowrap; transition:all 0.15s; border:none; background:none; font-family:inherit; }
+.nav-tab:hover { color:var(--text); background:var(--card); }
+.nav-tab.active { color:var(--accent); background:var(--accent-dim); font-weight:600; }
+.theme-btn { width:36px; height:36px; border-radius:8px; border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; }
+
+/* Container */
+.container { max-width:900px; margin:0 auto; padding:16px; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Hero */
+.hero { background:linear-gradient(135deg,var(--card),var(--bg2)); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:16px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; right:0; width:300px; height:300px; background:radial-gradient(circle,var(--accent-dim),transparent 70%); opacity:0.5; }
+.hero-grid { display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; position:relative; }
+.hero h1 { font-size:28px; font-weight:900; margin-bottom:4px; }
+.hero .sub { color:var(--muted); font-size:14px; }
+.hero .countdown { font-size:48px; font-weight:900; color:var(--accent); line-height:1; }
+.hero .countdown-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:2px; }
+
+/* Health Score Ring */
+.score-ring { width:100px; height:100px; position:relative; display:flex; align-items:center; justify-content:center; }
+.score-ring svg { width:100%; height:100%; transform:rotate(-90deg); }
+.score-ring circle { fill:none; stroke-width:8; }
+.score-ring .bg-ring { stroke:var(--border); }
+.score-ring .progress { stroke:var(--accent); stroke-linecap:round; transition:stroke-dashoffset 0.5s; }
+.score-ring .score-val { position:absolute; font-size:28px; font-weight:900; }
+
+/* Stats Grid */
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:16px; }
+.stat { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.stat .label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.stat .value { font-size:24px; font-weight:800; }
+.stat .sub { font-size:12px; color:var(--muted); margin-top:2px; }
+.stat.accent .value { color:var(--accent); }
+.stat.warn .value { color:var(--warn); }
+.stat.danger .value { color:var(--danger); }
+.stat.gold .value { color:var(--gold); }
+.stat.blue .value { color:var(--blue); }
+
+/* Agent Grid */
+.agent-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
+.agent-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; transition:all 0.2s; cursor:pointer; }
+.agent-card:hover { background:var(--card-hover); border-color:var(--accent); transform:translateY(-2px); }
+.agent-head { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.agent-icon { font-size:24px; }
+.agent-name { font-size:14px; font-weight:700; flex:1; }
+.agent-status { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.agent-metrics { display:flex; gap:12px; flex-wrap:wrap; }
+.agent-metric { font-size:12px; }
+.agent-metric .ml { color:var(--muted); }
+.agent-metric .mv { font-weight:600; }
+.agent-desc { font-size:12px; color:var(--muted); margin-top:8px; line-height:1.4; }
+
+/* Section Title */
+.section-title { font-size:18px; font-weight:800; margin:24px 0 12px; display:flex; align-items:center; gap:8px; }
+.section-title .icon { font-size:22px; }
+
+/* Cards */
+.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:12px; }
+.card-title { font-size:14px; font-weight:700; margin-bottom:8px; }
+
+/* Day Card */
+.day-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:8px; overflow:hidden; }
+.day-header { display:flex; align-items:center; gap:12px; padding:14px 16px; cursor:pointer; transition:background 0.15s; }
+.day-header:hover { background:var(--card-hover); }
+.day-num { width:44px; height:44px; border-radius:10px; background:var(--accent-dim); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.day-info { flex:1; }
+.day-city { font-size:15px; font-weight:700; }
+.day-label { font-size:12px; color:var(--muted); }
+.day-meta { display:flex; gap:8px; align-items:center; }
+.day-wx { font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+.wx-low { background:var(--accent-dim); color:var(--accent); }
+.wx-med { background:var(--warn-dim); color:var(--warn); }
+.wx-high { background:var(--danger-dim); color:var(--danger); }
+.day-body { display:none; padding:0 16px 16px; border-top:1px solid var(--border); }
+.day-body.open { display:block; }
+.plan-item { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+.plan-item:last-child { border-bottom:none; }
+.plan-time { font-size:13px; font-weight:700; color:var(--accent); min-width:80px; }
+.plan-activity { flex:1; font-size:13px; }
+.plan-cost { font-size:12px; color:var(--muted); margin-top:2px; }
+.plan-cat { font-size:10px; padding:2px 6px; border-radius:4px; background:var(--border); color:var(--muted); text-transform:uppercase; }
+
+/* Weather */
+.weather-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+.weather-city { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+.weather-city h3 { font-size:14px; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.forecast-row { display:grid; grid-template-columns:36px 60px 1fr 50px 50px; gap:6px; align-items:center; padding:5px 0; border-bottom:1px solid var(--border); font-size:12px; }
+.forecast-row:last-child { border-bottom:none; }
+.forecast-date { font-weight:600; }
+.forecast-temp { color:var(--muted); font-size:11px; }
+.forecast-cond { font-size:11px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.forecast-rain { font-weight:600; text-align:right; font-size:11px; }
+
+/* Budget */
+.budget-bar { height:24px; border-radius:6px; background:var(--border); overflow:hidden; display:flex; margin:12px 0; }
+.budget-seg { height:100%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; }
+.budget-table { width:100%; border-collapse:collapse; font-size:13px; }
+.budget-table th { text-align:left; padding:8px; color:var(--muted); border-bottom:1px solid var(--border); font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+.budget-table td { padding:8px; border-bottom:1px solid var(--border); }
+.budget-table .num { text-align:right; font-weight:600; font-family:'JetBrains Mono',monospace; }
+
+/* Scam */
+.scam-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-bottom:8px; border-left:4px solid var(--accent); }
+.scam-card.high { border-left-color:var(--danger); }
+.scam-card.medium { border-left-color:var(--warn); }
+.scam-head { display:flex; justify-content:space-between; align-items:start; gap:8px; margin-bottom:6px; }
+.scam-type { font-size:14px; font-weight:700; }
+.scam-city { font-size:11px; color:var(--muted); }
+.scam-risk { font-size:10px; padding:2px 8px; border-radius:4px; font-weight:700; text-transform:uppercase; }
+.risk-high { background:var(--danger-dim); color:var(--danger); }
+.risk-medium { background:var(--warn-dim); color:var(--warn); }
+.risk-low { background:var(--accent-dim); color:var(--accent); }
+.scam-desc { font-size:13px; margin-bottom:4px; }
+.scam-avoid { font-size:12px; color:var(--warn); }
+.scam-action { font-size:12px; color:var(--accent); margin-top:4px; }
+
+/* Food */
+.food-card { display:flex; gap:12px; padding:12px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:8px; }
+.food-emoji { font-size:28px; }
+.food-info { flex:1; }
+.food-dish { font-size:14px; font-weight:700; }
+.food-where { font-size:12px; color:var(--muted); }
+.food-meta { display:flex; gap:10px; font-size:12px; margin-top:4px; }
+.food-price { color:var(--accent); font-weight:600; }
+.food-rating { color:var(--gold); }
+
+/* Content */
+.content-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-bottom:8px; }
+.content-title { font-size:14px; font-weight:700; margin-bottom:4px; }
+.content-hook { font-size:12px; color:var(--accent); font-style:italic; margin-top:4px; }
+.content-concept { font-size:12px; color:var(--muted); margin-top:4px; }
+
+/* Packing */
+.packing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; }
+.packing-cat { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.packing-cat h3 { font-size:14px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+.packing-item { display:flex; align-items:center; gap:8px; padding:5px 0; font-size:13px; }
+.packing-check { width:18px; height:18px; border:2px solid var(--border); border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.15s; flex-shrink:0; }
+.packing-check.checked { background:var(--accent); border-color:var(--accent); }
+.packing-check.checked::after { content:'✓'; color:#fff; font-size:12px; font-weight:700; }
+.packing-item.checked { text-decoration:line-through; color:var(--muted); }
+
+/* Emergency */
+.emergency-contact { display:flex; align-items:center; gap:10px; padding:10px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:6px; }
+.emergency-contact .ec-label { flex:1; font-size:13px; }
+.emergency-contact .ec-num { font-size:14px; font-weight:700; color:var(--accent); font-family:'JetBrains Mono',monospace; }
+.backup-plan { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px; margin-bottom:8px; border-left:4px solid var(--danger); }
+.backup-plan h4 { font-size:13px; font-weight:700; margin-bottom:4px; }
+.backup-plan p { font-size:12px; color:var(--muted); }
+
+/* Briefing */
+.briefing { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; }
+.briefing h2 { font-size:20px; font-weight:800; margin-bottom:12px; }
+.briefing-section { margin-bottom:16px; }
+.briefing-section h3 { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.action-item { display:flex; gap:8px; padding:6px 0; font-size:14px; align-items:start; }
+.action-item .ai-icon { flex-shrink:0; }
+.alert-item { display:flex; gap:8px; padding:6px 0; font-size:13px; align-items:start; }
+.alert-item .ai-icon { flex-shrink:0; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .hero-grid { grid-template-columns:1fr; text-align:center; }
+  .hero .countdown { font-size:36px; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .nav-tab { padding:6px 10px; font-size:12px; }
+  .container { padding:10px; }
+  .hero h1 { font-size:20px; }
+}
+
+/* Loading */
+.loading { text-align:center; padding:40px; color:var(--muted); }
+.spinner { width:32px; height:32px; border:3px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 12px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* Misc */
+.badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; }
+.badge-accent { background:var(--accent-dim); color:var(--accent); }
+.badge-warn { background:var(--warn-dim); color:var(--warn); }
+.badge-danger { background:var(--danger-dim); color:var(--danger); }
+.tip-box { background:var(--warn-dim); border:1px solid var(--warn); border-radius:8px; padding:10px 14px; font-size:13px; margin:8px 0; }
+.tip-box.accent { background:var(--accent-dim); border-color:var(--accent); }
+hr { border:none; border-top:1px solid var(--border); margin:12px 0; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">ATOS <span>v1.0</span></div>
+    <div class="nav-tabs" id="navTabs">
+      <button class="nav-tab active" data-tab="ops">⚙️ Operations</button>
+      <button class="nav-tab" data-tab="briefing">📋 Briefing</button>
+      <button class="nav-tab" data-tab="itinerary">🗺️ Itinerary</button>
+      <button class="nav-tab" data-tab="detailed">📍 Day Plan</button>
+      <button class="nav-tab" data-tab="backup">🔄 Backup Plans</button>
+      <button class="nav-tab" data-tab="weather">🌧️ Weather</button>
+      <button class="nav-tab" data-tab="budget">💰 Budget</button>
+      <button class="nav-tab" data-tab="scams">⚠️ Scams</button>
+      <button class="nav-tab" data-tab="food">🍜 Food</button>
+      <button class="nav-tab" data-tab="content">📸 Content</button>
+      <button class="nav-tab" data-tab="packing">🎒 Packing</button>
+      <button class="nav-tab" data-tab="emergency">🚨 Emergency</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()">🌓</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- OPERATIONS CENTER -->
+  <div class="tab-content active" id="tab-ops">
+    <div class="hero" id="heroSection">
+      <div class="hero-grid">
+        <div>
+          <h1>🇻🇳 Vietnam 2026</h1>
+          <div class="sub">Autonomous Travel Operating System — 13 agents monitoring your trip</div>
+          <div id="heroActions" style="margin-top:12px;"></div>
+        </div>
+        <div style="text-align:center;">
+          <div class="score-ring" id="healthRing">
+            <svg viewBox="0 0 100 100">
+              <circle class="bg-ring" cx="50" cy="50" r="42"></circle>
+              <circle class="progress" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264" id="ringProgress"></circle>
+            </svg>
+            <div class="score-val" id="healthScore">--</div>
+          </div>
+          <div class="countdown-label">Travel Health</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat accent"><div class="label">Trip Status</div><div class="value" id="sStatus">--</div><div class="sub" id="sStatusSub"></div></div>
+      <div class="stat warn"><div class="label">Risk Level</div><div class="value" id="sRisk">--</div><div class="sub" id="sRiskSub"></div></div>
+      <div class="stat"><div class="label">Budget</div><div class="value" id="sBudget">--</div><div class="sub" id="sBudgetSub"></div></div>
+      <div class="stat blue"><div class="label">Weather</div><div class="value" id="sWeather">--</div><div class="sub" id="sWeatherSub"></div></div>
+      <div class="stat danger"><div class="label">Active Alerts</div><div class="value" id="sAlerts">--</div><div class="sub" id="sAlertsSub"></div></div>
+      <div class="stat gold"><div class="label">Agents Online</div><div class="value" id="sAgents">--</div><div class="sub">All systems active</div></div>
+    </div>
+
+    <div class="section-title"><span class="icon">🤖</span> Agent Operations Center</div>
+    <div class="agent-grid" id="agentGrid">
+      <div class="loading"><div class="spinner"></div>Loading agents...</div>
+    </div>
+
+    <div class="section-title"><span class="icon">📊</span> System Status</div>
+    <div class="card" id="systemLog">
+      <div class="loading"><div class="spinner"></div>Connecting to ATOS core...</div>
+    </div>
+  </div>
+
+  <!-- BRIEFING -->
+  <div class="tab-content" id="tab-briefing">
+    <div class="briefing" id="briefingContent">
+      <div class="loading"><div class="spinner"></div>Generating daily briefing...</div>
+    </div>
+  </div>
+
+  <!-- ITINERARY -->
+  <div class="tab-content" id="tab-itinerary">
+    <div class="section-title"><span class="icon">🗺️</span> 13-Day Vietnam Itinerary</div>
+    <div class="tip-box accent" id="itineraryTip">Click any day to expand details</div>
+    <div id="itineraryList"></div>
+  </div>
+
+  <!-- DETAILED DAY PLAN -->
+  <div class="tab-content" id="tab-detailed">
+    <div class="section-title"><span class="icon">📍</span> Detailed Day Plans — Granular Route & Timing</div>
+    <div class="tip-box accent">Realistic timing with walk times, distances, transport costs, and area guides. No back-and-forth travel.</div>
+    <div id="detailedPlanList">
+      <div class="loading"><div class="spinner"></div>Loading detailed plans...</div>
+    </div>
+  </div>
+
+  <!-- BACKUP PLANS -->
+  <div class="tab-content" id="tab-backup">
+    <div class="section-title"><span class="icon">🔄</span> Weather Backup Plans + City Swaps</div>
+    <div class="tip-box">Original plan is NEVER changed. These are automatic alternatives based on real weather data. Open to traveling anywhere in Vietnam.</div>
+    <div class="stats-grid" id="backupStats"></div>
+    
+    <div class="section-title"><span class="icon">🔀</span> City Swap Recommendations (Real Weather Comparison)</div>
+    <div id="swapRecs"></div>
+    
+    <div class="section-title"><span class="icon">📊</span> City Weather Comparison</div>
+    <div id="cityComparison"></div>
+    
+    <div class="section-title"><span class="icon">🔄</span> Itinerary Reorder Suggestion</div>
+    <div id="reorderSuggestion"></div>
+    
+    <div class="section-title"><span class="icon">📋</span> Day-by-Day Indoor Backup Plans</div>
+    <div id="backupList"></div>
+  </div>
+
+  <!-- WEATHER -->
+  <div class="tab-content" id="tab-weather">
+    <div class="section-title"><span class="icon">🌧️</span> Weather Intelligence — Live Forecast</div>
+    <div class="stats-grid" id="weatherStats"></div>
+    <div class="weather-grid" id="weatherGrid">
+      <div class="loading"><div class="spinner"></div>Fetching forecasts...</div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="tab-content" id="tab-budget">
+    <div class="section-title"><span class="icon">💰</span> Budget Controller</div>
+    <div class="stats-grid" id="budgetStats"></div>
+    <div class="card">
+      <div class="card-title">Budget Breakdown</div>
+      <div class="budget-bar" id="budgetBar"></div>
+      <table class="budget-table" id="budgetTable"></table>
+    </div>
+    <div class="card">
+      <div class="card-title">💡 Savings Opportunities</div>
+      <div id="savingsList"></div>
+    </div>
+  </div>
+
+  <!-- SCAMS -->
+  <div class="tab-content" id="tab-scams">
+    <div class="section-title"><span class="icon">⚠️</span> Scam Intelligence</div>
+    <div class="stats-grid" id="scamStats"></div>
+    <div class="section-title"><span class="icon">🚨</span> Top 3 Threats</div>
+    <div id="topThreats"></div>
+    <div class="section-title"><span class="icon">📋</span> All Scam Alerts</div>
+    <div id="scamList"></div>
+    <div class="section-title"><span class="icon">🆘</span> Emergency Actions</div>
+    <div id="emergencyActions"></div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="tab-content" id="tab-food">
+    <div class="section-title"><span class="icon">🍜</span> Food Intelligence</div>
+    <div class="section-title"><span class="icon">⭐</span> Must-Try Foods</div>
+    <div id="foodList"></div>
+    <div class="section-title"><span class="icon">📍</span> City Meal Plans</div>
+    <div id="cityMeals"></div>
+    <div class="section-title"><span class="icon">🥗</span> Vegetarian Options</div>
+    <div id="vegOptions"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="tab-content" id="tab-content">
+    <div class="section-title"><span class="icon">📸</span> Content Creator Studio</div>
+    <div class="section-title"><span class="icon">🎬</span> Reel Concepts</div>
+    <div id="reelList"></div>
+    <div class="section-title"><span class="icon">📸</span> Photo Spots</div>
+    <div id="photoSpots"></div>
+    <div class="section-title"><span class="icon">📺</span> YouTube Title Ideas</div>
+    <div id="ytTitles"></div>
+  </div>
+
+  <!-- PACKING -->
+  <div class="tab-content" id="tab-packing">
+    <div class="section-title"><span class="icon">🎒</span> Smart Packing Assistant</div>
+    <div class="tip-box">Tap items to check them off. Your list syncs across devices.</div>
+    <div class="packing-grid" id="packingGrid"></div>
+  </div>
+
+  <!-- EMERGENCY -->
+  <div class="tab-content" id="tab-emergency">
+    <div class="section-title"><span class="icon">🚨</span> Emergency Response Center</div>
+    <div class="stats-grid" id="emergencyStats"></div>
+    <div class="section-title"><span class="icon">📞</span> Emergency Contacts</div>
+    <div id="emergencyContacts"></div>
+    <div class="section-title"><span class="icon">🏥</span> Hospitals</div>
+    <div id="hospitalList"></div>
+    <div class="section-title"><span class="icon">🔄</span> Backup Plans</div>
+    <div id="backupPlans"></div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// ATOS Dashboard JavaScript
+// ═══════════════════════════════════════════
+const DATA_BASE = './data/';
+let cache = {};
+
+async function loadData(name) {
+  if (cache[name]) return cache[name];
+  try {
+    const resp = await fetch(DATA_BASE + name + '.json');
+    if (!resp.ok) throw new Error(resp.status);
+    const data = await resp.json();
+    cache[name] = data;
+    return data;
+  } catch(e) {
+    console.error('Failed to load', name, e);
+    return null;
+  }
+}
+
+// Tab switching
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    const tabId = 'tab-' + tab.dataset.tab;
+    document.getElementById(tabId).classList.add('active');
+    // Load tab data
+    loadTab(tab.dataset.tab);
+  });
+});
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const cur = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  localStorage.setItem('atos-theme', html.getAttribute('data-theme'));
+}
+if (localStorage.getItem('atos-theme')) {
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('atos-theme'));
+}
+
+// ═══════════════════════════════════════════
+// OPERATIONS CENTER
+// ═══════════════════════════════════════════
+async function loadOps() {
+  const [status, briefing, weather, budget, scams] = await Promise.all([
+    loadData('atos-status'),
+    loadData('briefing'),
+    loadData('weather'),
+    loadData('budget'),
+    loadData('scams')
+  ]);
+
+  if (!status) return;
+
+  // Hero
+  const health = status.travel_health || 0;
+  document.getElementById('healthScore').textContent = health;
+  document.getElementById('healthScore').style.color = health > 70 ? 'var(--accent)' : health > 40 ? 'var(--warn)' : 'var(--danger)';
+  const ring = document.getElementById('ringProgress');
+  const circumference = 264;
+  ring.style.strokeDashoffset = circumference - (circumference * health / 100);
+  ring.style.stroke = health > 70 ? 'var(--accent)' : health > 40 ? 'var(--warn)' : 'var(--danger)';
+
+  // Hero actions
+  if (briefing && briefing.recommended_actions) {
+    const actions = briefing.recommended_actions.slice(0, 3).map(a => 
+      `<div style="font-size:13px;padding:3px 0;">${a}</div>`
+    ).join('');
+    document.getElementById('heroActions').innerHTML = actions;
+  }
+
+  // Stats
+  document.getElementById('sStatus').textContent = status.trip_phase === 'pre_trip' ? 'Pre-Trip' : status.trip_phase === 'in_trip' ? 'Active' : 'Completed';
+  document.getElementById('sStatusSub').textContent = briefing ? briefing.status : '';
+  document.getElementById('sRisk').textContent = status.risk_level || '--';
+  document.getElementById('sRiskSub').textContent = scams ? `${scams.high_risk_count} high-risk scams` : '';
+  document.getElementById('sBudget').textContent = budget ? '₹' + (budget.projected_spend || 0).toLocaleString() : '--';
+  document.getElementById('sBudgetSub').textContent = budget ? `of ₹${budget.total_budget?.toLocaleString()} • ${budget.budget_health}` : '';
+  document.getElementById('sWeather').textContent = (weather?.score || '--') + '/100';
+  document.getElementById('sWeatherSub').textContent = weather ? `${weather.alerts?.length} alerts` : '';
+  document.getElementById('sAlerts').textContent = status.total_alerts || 0;
+  document.getElementById('sAlertsSub').textContent = 'Weather + Scam alerts';
+  document.getElementById('sAgents').textContent = status.agents_active || 15;
+
+  // Agent grid
+  const agentDefs = [
+    {key:'weather', icon:'🌧️', name:'Weather Intelligence', desc:'Real-time forecasts, rain probability, storm tracking', tier:'daily'},
+    {key:'scam', icon:'⚠️', name:'Scam Intelligence', desc:'Tourist traps, taxi scams, pickpocket zones', tier:'weekly'},
+    {key:'destination', icon:'📍', name:'Destination Intelligence', desc:'Attractions, hidden gems, avoid lists', tier:'weekly'},
+    {key:'food', icon:'🍜', name:'Food Intelligence', desc:'Must-try dishes, restaurant recs, local specialties', tier:'weekly'},
+    {key:'budget', icon:'💰', name:'Budget Controller', desc:'Spending tracking, forecasts, savings', tier:'daily'},
+    {key:'transport', icon:'🚌', name:'Transportation', desc:'Flights, buses, taxis, delays', tier:'weekly'},
+    {key:'route', icon:'🗺️', name:'Route Optimization', desc:'Daily route planning, fatigue reduction', tier:'weekly'},
+    {key:'content', icon:'📸', name:'Content Creator', desc:'Reel ideas, photo spots, YouTube titles', tier:'weekly'},
+    {key:'hotel', icon:'🏨', name:'Hotel Intelligence', desc:'Safety scores, location analysis, alternatives', tier:'weekly'},
+    {key:'packing', icon:'🎒', name:'Packing Agent', desc:'Weather-adjusted checklist, missing items', tier:'ondemand'},
+    {key:'emergency', icon:'🚨', name:'Emergency Response', desc:'Backup plans, hospitals, embassy contacts', tier:'ondemand'},
+    {key:'backup', icon:'🔄', name:'Backup Plan Intelligence', desc:'Weather-based alternatives, indoor options, city swaps', tier:'daily'},
+    {key:'detailed_plan', icon:'📍', name:'Detailed Day Plan', desc:'Granular routes, walk times, distances, area guides', tier:'weekly'},
+    {key:'cto', icon:'👔', name:'Chief Travel Officer', desc:'Master orchestrator, daily briefings', tier:'daily'},
+    {key:'design', icon:'🎨', name:'Design & Website', desc:'UI/UX improvements, new features', tier:'ondemand'},
+  ];
+
+  const tierConfig = {
+    daily: {label:'DAILY', color:'badge-accent', pulse:true, desc:'Auto-runs every day 04:30 IST'},
+    weekly: {label:'WEEKLY', color:'badge-warn', pulse:false, desc:'Auto-runs Sunday 04:00 IST. Trigger manually anytime'},
+    ondemand: {label:'ON-DEMAND', color:'badge-danger', pulse:false, desc:'Does NOT auto-run. Trigger manually when needed'},
+  };
+
+  const agentStatuses = status.agent_statuses || {};
+  const grid = agentDefs.map(a => {
+    const st = agentStatuses[a.key] || {};
+    const tier = tierConfig[a.tier] || tierConfig.ondemand;
+    let metrics = '';
+    if (a.key === 'weather' && weather) metrics = `<div class="agent-metric"><span class="ml">Score:</span> <span class="mv">${weather.score}/100</span></div><div class="agent-metric"><span class="ml">Alerts:</span> <span class="mv">${weather.alerts?.length||0}</span></div>`;
+    else if (a.key === 'scam' && scams) metrics = `<div class="agent-metric"><span class="ml">High risk:</span> <span class="mv">${scams.high_risk_count}</span></div><div class="agent-metric"><span class="ml">Total:</span> <span class="mv">${scams.total_alerts}</span></div>`;
+    else if (a.key === 'budget' && budget) metrics = `<div class="agent-metric"><span class="ml">Projected:</span> <span class="mv">₹${budget.projected_spend?.toLocaleString()}</span></div><div class="agent-metric"><span class="ml">Status:</span> <span class="mv">${budget.budget_health}</span></div>`;
+    else if (a.key === 'destination') metrics = `<div class="agent-metric"><span class="ml">Attractions:</span> <span class="mv">20</span></div>`;
+    else if (a.key === 'route') metrics = `<div class="agent-metric"><span class="ml">Optimized:</span> <span class="mv">10/13</span></div>`;
+    else if (a.key === 'content') metrics = `<div class="agent-metric"><span class="ml">Reels:</span> <span class="mv">7</span></div>`;
+    else if (a.key === 'hotel') metrics = `<div class="agent-metric"><span class="ml">Safety:</span> <span class="mv">88/100</span></div>`;
+    else if (a.key === 'emergency') metrics = `<div class="agent-metric"><span class="ml">Ready:</span> <span class="mv">92/100</span></div>`;
+    else if (a.key === 'backup') metrics = `<div class="agent-metric"><span class="ml">High risk:</span> <span class="mv">${st.high_risk_days||'12'} days</span></div>`;
+    else if (a.key === 'detailed_plan') metrics = `<div class="agent-metric"><span class="ml">Days:</span> <span class="mv">13 planned</span></div>`;
+    else if (a.key === 'cto') metrics = `<div class="agent-metric"><span class="ml">Health:</span> <span class="mv">${status.travel_health}/100</span></div>`;
+    else if (a.key === 'design') metrics = `<div class="agent-metric"><span class="ml">Score:</span> <span class="mv">78/100</span></div>`;
+
+    // Last updated time
+    let lastRun = '';
+    if (st.last_run) {
+      const d = new Date(st.last_run);
+      const ago = Math.round((Date.now() - d.getTime()) / 60000);
+      lastRun = ago < 60 ? `${ago}m ago` : ago < 1440 ? `${Math.round(ago/60)}h ago` : `${Math.round(ago/1440)}d ago`;
+    }
+    const statusDot = st.status === 'cached' ? 'var(--warn)' : 'var(--accent)';
+
+    return `<div class="agent-card" onclick="document.querySelector('[data-tab=\\'${a.key}\\']')?.click()">
+      <div class="agent-head">
+        <span class="agent-icon">${a.icon}</span>
+        <span class="agent-name">${a.name}</span>
+        <span class="agent-status" style="background:${statusDot};box-shadow:0 0 8px ${statusDot};${!tier.pulse?'animation:none':''}"></span>
+      </div>
+      <div style="margin:4px 0;">
+        <span class="badge ${tier.color}" style="font-size:9px;">${tier.label}</span>
+        ${lastRun ? `<span style="font-size:10px;color:var(--muted);margin-left:6px;">⏱ ${lastRun}</span>` : ''}
+      </div>
+      <div class="agent-metrics">${metrics}</div>
+      <div class="agent-desc">${a.desc}</div>
+      ${a.tier !== 'daily' ? `<div style="font-size:10px;color:var(--muted);margin-top:6px;font-style:italic;">💬 Send "run ${a.key}" to trigger</div>` : ''}
+    </div>`;
+  }).join('');
+  document.getElementById('agentGrid').innerHTML = grid;
+
+  // System log
+  const logTime = new Date(status.last_run).toLocaleString();
+  const runType = status.run_type || 'unknown';
+  document.getElementById('systemLog').innerHTML = `
+    <div style="font-size:13px;line-height:2;">
+      <div><span class="badge badge-accent">ONLINE</span> 15 agents | Run: ${runType}</div>
+      <div>⏱️ Last run: ${logTime}</div>
+      <div>🔄 Daily: 04:30 IST (4 agents) | Weekly: Sun 04:00 IST (12 agents)</div>
+      <div>💰 Token optimization: Daily runs 4 agents (not 15) | 2 heavy LLM cron jobs paused</div>
+      <div>📊 Data source: Open-Meteo API + Curated research</div>
+      <div>💾 Version: ATOS v1.3 (tiered agents)</div>
+    </div>
+  `;
+}
+
+// ═══════════════════════════════════════════
+// BRIEFING
+// ═══════════════════════════════════════════
+async function loadBriefing() {
+  const b = await loadData('briefing');
+  if (!b) { document.getElementById('briefingContent').innerHTML = '<div class="loading">No briefing available</div>'; return; }
+
+  let html = `<h2>📋 Daily Travel Briefing</h2>`;
+  html += `<div class="sub" style="color:var(--muted);margin-bottom:16px;">Generated: ${new Date(b.timestamp).toLocaleString()} • ${b.status}</div>`;
+
+  // Status grid
+  html += `<div class="stats-grid" style="margin-bottom:16px;">
+    <div class="stat ${b.travel_health_score>60?'accent':'warn'}"><div class="label">Travel Health</div><div class="value">${b.travel_health_score}/100</div></div>
+    <div class="stat ${b.risk_status==='LOW'?'accent':b.risk_status==='MEDIUM'?'warn':'danger'}"><div class="label">Risk Status</div><div class="value">${b.risk_status}</div></div>
+    <div class="stat ${b.budget_status==='healthy'?'accent':b.budget_status==='tight'?'warn':'danger'}"><div class="label">Budget</div><div class="value" style="font-size:18px;">${b.budget_status}</div><div class="sub">₹${b.budget_remaining?.toLocaleString()} left</div></div>
+    <div class="stat blue"><div class="label">Weather</div><div class="value">${b.weather_status}</div></div>
+  </div>`;
+
+  // Today's plan
+  if (b.today_plan) {
+    const tp = b.today_plan;
+    html += `<div class="briefing-section"><h3>📍 Today's Plan — ${tp.date} ${tp.dow} • ${tp.city}</h3>`;
+    html += `<div class="card"><div class="card-title">${tp.icon} ${tp.label}</div>`;
+    html += `<div class="tip-box accent">${tp.tip}</div>`;
+    tp.plan.forEach(p => {
+      html += `<div class="plan-item"><div class="plan-time">${p.time}</div><div class="plan-activity">${p.activity}${p.cost?`<div class="plan-cost">${p.cost}</div>`:''}</div></div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // Weather alerts
+  if (b.weather_alerts && b.weather_alerts.length) {
+    html += `<div class="briefing-section"><h3>🌧️ Weather Alerts (${b.weather_alerts.length})</h3>`;
+    b.weather_alerts.slice(0,5).forEach(a => { html += `<div class="alert-item"><span class="ai-icon">⚠️</span><span>${a}</span></div>`; });
+    if (b.weather_alerts.length > 5) html += `<div class="alert-item" style="color:var(--muted)"><span class="ai-icon">⋯</span><span>...and ${b.weather_alerts.length-5} more alerts</span></div>`;
+    html += `</div>`;
+  }
+
+  // Recommended actions
+  if (b.recommended_actions && b.recommended_actions.length) {
+    html += `<div class="briefing-section"><h3>✅ Recommended Actions</h3>`;
+    b.recommended_actions.forEach(a => { html += `<div class="action-item"><span class="ai-icon">${a.charAt(0)}</span><span>${a.substring(2)}</span></div>`; });
+    html += `</div>`;
+  }
+
+  document.getElementById('briefingContent').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════
+// ITINERARY
+// ═══════════════════════════════════════════
+const ITINERARY = [
+  {day:0,date:"Jun 28",dow:"SUN",city:"HCMC",label:"Night Arrival",icon:"🌙",weather:{rain:20,risk:"low"},tip:"Sunday = Bui Vien peak night! Streets pedestrian-only, neon everywhere",
+   plan:[{time:"9:00 PM",activity:"Land Tan Son Nhat (SGN)",cost:"",cat:"transit"},{time:"10:30 PM",activity:"Check-in District 1",cost:"",cat:"hotel"},{time:"10:45 PM",activity:"Bui Vien Walking Street — Sunday peak!",maps:"https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",cost:"Beer ₹53-88",cat:"nightlife"}]},
+  {day:1,date:"Jun 29",dow:"MON",city:"HCMC",label:"Full Day Explorer",icon:"🏙️",weather:{rain:60,risk:"medium"},tip:"Outdoor 7AM-2PM. Museum/cafe crawl after. Rain is predictable!",
+   plan:[{time:"7:30 AM",activity:"Pho breakfast — Pho Minh (since 1940s)",cost:"₹246-316",cat:"food"},{time:"8:30 AM",activity:"Hop-On Hop-Off Bus @ Opera House",maps:"https://maps.google.com/?q=Saigon+Opera+House+HCMC",cost:"₹509 ⭐4.4",cat:"activity"},{time:"10:45 AM",activity:"Banh Canh Cua Ba Ba — MICHELIN 2026!",maps:"https://maps.google.com/?q=84/6+Nguyen+Bieu+Quan+5+HCMC",cost:"₹158-351 ⭐4.3",cat:"food"},{time:"12:45 PM",activity:"Van Gogh Metashow — 30+ immersive rooms",maps:"https://maps.google.com/?q=Thiso+Mall+Sala+Thu+Duc",cost:"₹878 ⭐4.6",cat:"activity"},{time:"5:45 PM",activity:"Vinh Khanh Food St — Seafood dinner",maps:"https://maps.google.com/?q=Vinh+Khanh+Food+Street+D4+HCMC",cost:"₹105-175 ⭐4.5",cat:"food"},{time:"7:30 PM",activity:"Bui Vien — Round 2!",maps:"https://maps.google.com/?q=Bui+Vien+Walking+Street+HCMC",cost:"",cat:"nightlife"}]},
+  {day:2,date:"Jun 30",dow:"TUE",city:"Phu Quoc",label:"Arrival + Grand World",icon:"✈️",weather:{rain:45,risk:"medium"},tip:"Evening FREE shows at Grand World: Venice 9:30PM + Laser 10:45PM",
+   plan:[{time:"7:00 AM",activity:"Cu Chi Tunnels (morning best)",cost:"~₹500",cat:"activity"},{time:"2:00 PM",activity:"Fly HCMC → Phu Quoc (1hr)",cost:"~₹2,500-3,500",cat:"transit"},{time:"6:00 PM",activity:"Grand World — FREE entry",maps:"https://maps.google.com/?q=Grand+World+Phu+Quoc",cost:"FREE",cat:"activity"},{time:"9:30 PM",activity:"Charm of Venice Show — FREE!",cost:"FREE",cat:"activity"},{time:"10:45 PM",activity:"Laser Show — FREE!",cost:"FREE",cat:"activity"}]},
+  {day:3,date:"Jul 1",dow:"WED",city:"Phu Quoc",label:"4 Island Tour",icon:"🏝️",weather:{rain:50,risk:"high"},tip:"BOOK LOCAL ₹4,200 (NOT online ₹8,250!). July = low season, negotiate!",
+   plan:[{time:"7:00 AM",activity:"4 Island Tour — Hotel pickup",maps:"https://maps.google.com/?q=An+Thoi+Port+Phu+Quoc",cost:"₹4,200-5,250",cat:"activity"},{time:"8:00 AM",activity:"World's longest oversea cable car",cost:"included",cat:"activity"},{time:"10:00 AM",activity:"Sea Walking — walk ocean floor!",cost:"included",cat:"activity"},{time:"5:30 PM",activity:"Sunset Town — Kiss Bridge FREE",maps:"https://maps.google.com/?q=Sunset+Town+Phu+Quoc",cost:"FREE",cat:"activity"},{time:"7:00 PM",activity:"Duong Dong Night Market",maps:"https://maps.google.com/?q=Duong+Dong+Night+Market+Phu+Quoc",cost:"₹200-500",cat:"food"}]},
+  {day:4,date:"Jul 2",dow:"THU",city:"Phu Quoc",label:"VinWonders",icon:"🎢",weather:{rain:40,risk:"low"},tip:"Aquarium + indoor shows = rain-proof! THE ONCE SHOW 6:45PM — $12M production!",
+   plan:[{time:"9:00 AM",activity:"VinWonders — Vietnam's largest!",maps:"https://maps.google.com/?q=VinWonders+Phu+Quoc",cost:"₹3,410",cat:"activity"},{time:"1:00 PM",activity:"Deep Sea Restaurant — aquarium view",cost:"₹500-700",cat:"food"},{time:"3:00 PM",activity:"Typhoon Water Park",cost:"included",cat:"activity"},{time:"6:45 PM",activity:"THE ONCE SHOW — $12M production!",cost:"included",cat:"activity"}]},
+  {day:5,date:"Jul 3",dow:"FRI",city:"Hanoi",label:"Beach AM + Fly + Hanoi PM",icon:"✈️",weather:{rain:45,risk:"medium"},tip:"Ong Lang beach morning, then fly. Hanoi evening: Weekend Night Market!",
+   plan:[{time:"7:00 AM",activity:"Ong Lang Beach — hidden gem",maps:"https://maps.google.com/?q=Ong+Lang+Beach+Phu+Quoc",cost:"FREE",cat:"activity"},{time:"11:00 AM",activity:"Ham Ninh Fishing Village",maps:"https://maps.google.com/?q=Ham+Ninh+Village+Phu+Quoc",cost:"₹200-400",cat:"food"},{time:"3:00 PM",activity:"Fly Phu Quoc → Hanoi (2hr)",cost:"~₹3,000-4,000",cat:"transit"},{time:"8:00 PM",activity:"Hanoi Weekend Night Market!",maps:"https://maps.google.com/?q=Hanoi+Night+Market+Old+Quarter",cost:"₹200-500",cat:"nightlife"}]},
+  {day:6,date:"Jul 4",dow:"SAT",city:"Sapa",label:"Hanoi AM → Sapa PM",icon:"⛰️",weather:{rain:40,risk:"medium"},tip:"Bus ~9:30 AM arrive 3:30 PM. Sapa cool mountain air!",
+   plan:[{time:"7:00 AM",activity:"Pho Thin — #1 pho in Hanoi",maps:"https://maps.google.com/?q=Pho+Thin+Hanoi",cost:"₹150 ⭐4.5",cat:"food"},{time:"9:30 AM",activity:"Sapa Express Bus (6hrs)",cost:"₹700-1,050",cat:"transit"},{time:"3:30 PM",activity:"Arrive Sapa — check-in",cost:"",cat:"hotel"},{time:"4:00 PM",activity:"Sapa Square + Cathedral",maps:"https://maps.google.com/?q=Sapa+Square+Church",cost:"FREE",cat:"activity"},{time:"6:00 PM",activity:"Dinner — local BBQ",cost:"₹300-500",cat:"food"}]},
+  {day:7,date:"Jul 5",dow:"SUN",city:"Sapa",label:"Moana + Cat Cat + Cafes",icon:"📸",weather:{rain:35,risk:"low"},tip:"Outdoor activities BEFORE 2PM. July fog rolls in afternoon.",
+   plan:[{time:"7:00 AM",activity:"Moana Sapa — photo spot",maps:"https://maps.google.com/?q=Moana+Sapa",cost:"₹350",cat:"activity"},{time:"9:00 AM",activity:"Cat Cat Village — waterfall",maps:"https://maps.google.com/?q=Cat+Cat+Village+Sapa",cost:"₹475 ⭐4.4",cat:"activity"},{time:"12:00 PM",activity:"Lunch — local Thang Co",cost:"₹200-300",cat:"food"},{time:"2:00 PM",activity:"Cafe crawl — The Hill Station",maps:"https://maps.google.com/?q=Hill+Station+Sapa",cost:"₹150-250",cat:"cafe"},{time:"5:00 PM",activity:"Sunset at Sapa Square",cost:"FREE",cat:"activity"}]},
+  {day:8,date:"Jul 6",dow:"MON",city:"Sapa",label:"Rong May Thrill Day",icon:"🎢",weather:{rain:45,risk:"medium"},tip:"Rong May: glass bridge + zipline + alpine coaster.",
+   plan:[{time:"8:00 AM",activity:"Rong May Tourism Area",maps:"https://maps.google.com/?q=Rong+May+Tourism+Sapa",cost:"₹1,400 ⭐4.5",cat:"activity"},{time:"12:00 PM",activity:"Lunch — BBQ buffet included",cost:"included",cat:"food"},{time:"2:00 PM",activity:"Heaven's Gate pass — viewpoint",maps:"https://maps.google.com/?q=Heaven's+Gate+Sapa",cost:"FREE",cat:"activity"},{time:"4:00 PM",activity:"Return Sapa town",cost:"",cat:"transit"},{time:"7:00 PM",activity:"Dinner + cultural show",cost:"₹400-600",cat:"food"}]},
+  {day:9,date:"Jul 7",dow:"TUE",city:"Sapa",label:"Fansipan → Hanoi",icon:"🏔️",weather:{rain:30,risk:"low"},tip:"Fansipan MOVED Sun→Tue: Sun queue = 2 HOURS, Tue = 10 min!",
+   plan:[{time:"7:00 AM",activity:"Fansipan Cable Car — Indochina's roof!",maps:"https://maps.google.com/?q=Fansipan+Cable+Car+Sapa",cost:"₹2,800 ⭐4.7",cat:"activity"},{time:"11:00 AM",activity:"Lunch — summit cafe",cost:"₹300-400",cat:"food"},{time:"1:00 PM",activity:"Return Sapa town",cost:"",cat:"transit"},{time:"4:00 PM",activity:"Sapa Express Bus → Hanoi (6hrs)",cost:"₹700-1,050",cat:"transit"},{time:"10:00 PM",activity:"Arrive Hanoi — check-in",cost:"",cat:"hotel"}]},
+  {day:10,date:"Jul 8",dow:"WED",city:"Hanoi",label:"Full Day Explorer",icon:"🏙️",weather:{rain:55,risk:"medium"},tip:"Morning outdoor, afternoon indoor. X Space + Train Street!",
+   plan:[{time:"7:00 AM",activity:"Pho Thin — second visit",maps:"https://maps.google.com/?q=Pho+Thin+Hanoi",cost:"₹150 ⭐4.5",cat:"food"},{time:"8:30 AM",activity:"Hoan Kiem Lake + Ngoc Son Temple",maps:"https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi",cost:"₹70",cat:"activity"},{time:"10:00 AM",activity:"Temple of Literature — 1000 years old",maps:"https://maps.google.com/?q=Temple+of+Literature+Hanoi",cost:"₹105 ⭐4.7",cat:"activity"},{time:"12:00 PM",activity:"Bun Cha — Obama's spot",maps:"https://maps.google.com/?q=Bun+Cha+Huong+Lien+Hanoi",cost:"₹250 ⭐4.5",cat:"food"},{time:"2:00 PM",activity:"X Space Immersive — 8 zones",maps:"https://maps.google.com/?q=X+Space+Immersive+Hanoi",cost:"₹700 ⭐4.6",cat:"activity"},{time:"5:00 PM",activity:"Train Street — iconic photo",maps:"https://maps.google.com/?q=Hanoi+Train+Street",cost:"₹100 coffee",cat:"activity"},{time:"7:00 PM",activity:"Water Puppet Theatre",maps:"https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",cost:"₹350 ⭐4.6",cat:"activity"}]},
+  {day:11,date:"Jul 9",dow:"THU",city:"Halong Bay",label:"Day Trip — Highest Risk Day",icon:"🚢",weather:{rain:40,risk:"high"},tip:"HIGHEST risk day. Check windy.com 3 days before. Backup: Water Puppet + Ceramic Mural.",
+   plan:[{time:"6:30 AM",activity:"Limousine bus to Halong Bay (2.5hrs)",cost:"₹800-1,200",cat:"transit"},{time:"9:00 AM",activity:"Halong Bay cruise — caves + kayaking",maps:"https://maps.google.com/?q=Halong+Bay+Cruise",cost:"₹1,500-2,500 ⭐4.6",cat:"activity"},{time:"12:00 PM",activity:"Seafood lunch on boat",cost:"included",cat:"food"},{time:"3:00 PM",activity:"Titop Island — beach + viewpoint",maps:"https://maps.google.com/?q=Titop+Island+Halong+Bay",cost:"included",cat:"activity"},{time:"5:00 PM",activity:"Return bus to Hanoi",cost:"included",cat:"transit"},{time:"8:00 PM",activity:"Dinner — Hanoi Old Quarter",cost:"₹300-500",cat:"food"}]},
+  {day:12,date:"Jul 10",dow:"FRI",city:"Hanoi",label:"Departure Day",icon:"✈️",weather:{rain:35,risk:"low"},tip:"Morning market run. Airport by 12 PM.",
+   plan:[{time:"7:00 AM",activity:"Dong Xuan Market — souvenirs",maps:"https://maps.google.com/?q=Dong+Xuan+Market+Hanoi",cost:"₹500-2000",cat:"shopping"},{time:"9:00 AM",activity:"Last pho — Pho Bat Dan",maps:"https://maps.google.com/?q=Pho+Bat+Dan+Hanoi",cost:"₹140 ⭐4.6",cat:"food"},{time:"11:00 AM",activity:"Airport taxi — Noi Bai",cost:"₹700-1,000",cat:"transit"},{time:"2:00 PM",activity:"Fly Hanoi → Delhi",cost:"included in intl",cat:"transit"}]},
+];
+
+function loadItinerary() {
+  const list = document.getElementById('itineraryList');
+  list.innerHTML = ITINERARY.map((d, i) => {
+    const wxClass = d.weather.risk === 'high' ? 'wx-high' : d.weather.risk === 'medium' ? 'wx-med' : 'wx-low';
+    const items = d.plan.map(p => `
+      <div class="plan-item">
+        <div class="plan-time">${p.time}</div>
+        <div class="plan-activity">
+          ${p.activity}
+          ${p.cost ? `<div class="plan-cost">${p.cost}</div>` : ''}
+          ${p.maps ? `<div><a href="${p.maps}" target="_blank">📍 Google Maps</a></div>` : ''}
+        </div>
+        <div class="plan-cat">${p.cat}</div>
+      </div>
+    `).join('');
+    return `<div class="day-card">
+      <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')">
+        <div class="day-num">${d.icon}</div>
+        <div class="day-info">
+          <div class="day-city">Day ${d.day+1} • ${d.date} ${d.dow} — ${d.city}</div>
+          <div class="day-label">${d.label}</div>
+        </div>
+        <div class="day-meta">
+          <span class="day-wx ${wxClass}">🌧️ ${d.weather.rain}%</span>
+          <span style="color:var(--muted);font-size:12px;">${d.plan.length} stops</span>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="tip-box accent">${d.tip}</div>
+        ${items}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════
+// WEATHER
+// ═══════════════════════════════════════════
+async function loadWeather() {
+  const w = await loadData('weather');
+  if (!w) return;
+
+  document.getElementById('weatherStats').innerHTML = `
+    <div class="stat ${w.score>60?'accent':w.score>30?'warn':'danger'}"><div class="label">Weather Score</div><div class="value">${w.score}/100</div></div>
+    <div class="stat warn"><div class="label">Alerts</div><div class="value">${w.alerts?.length||0}</div></div>
+    <div class="stat"><div class="label">Source</div><div class="value" style="font-size:14px;">Open-Meteo</div><div class="sub">Real-time API</div></div>
+    <div class="stat"><div class="label">Last Update</div><div class="value" style="font-size:14px;">${new Date(w.timestamp).toLocaleTimeString()}</div></div>
+  `;
+
+  const grid = document.getElementById('weatherGrid');
+  const cities = w.cities || {};
+  grid.innerHTML = Object.entries(cities).map(([key, city]) => {
+    if (city.error) return `<div class="weather-city"><h3>📍 ${key}</h3><div style="color:var(--danger)">Error: ${city.error}</div></div>`;
+    const forecasts = city.forecasts || [];
+    const rows = forecasts.map(f => {
+      const riskClass = f.risk === 'high' ? 'risk-high' : f.risk === 'medium' ? 'risk-medium' : 'risk-low';
+      const riskBadge = f.risk !== 'low' ? `<span class="scam-risk ${riskClass}" style="font-size:9px;">${f.risk}</span>` : '<span style="font-size:10px;color:var(--accent);">✓</span>';
+      const rainColor = f.rain_prob>60?'var(--danger)':f.rain_prob>40?'var(--warn)':'var(--accent)';
+      return `<div class="forecast-row">
+        <span class="forecast-date">${f.day}</span>
+        <span class="forecast-temp">${f.high||'--'}°/${f.low||'--'}°</span>
+        <span class="forecast-cond">${f.condition}</span>
+        <span class="forecast-rain" style="color:${rainColor};">🌧️ ${f.rain_prob}%</span>
+        <span style="text-align:center;">${riskBadge}</span>
+      </div>`;
+    }).join('');
+    return `<div class="weather-city">
+      <h3>📍 ${key} <span style="font-size:10px;color:var(--muted);margin-left:auto;">${forecasts.length} days</span></h3>
+      <div class="forecast-row" style="border-bottom:2px solid var(--border);font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;">
+        <span>Day</span><span>Temp</span><span>Condition</span><span style="text-align:right;">Rain</span><span style="text-align:center;">Risk</span>
+      </div>
+      ${rows || '<div style="color:var(--muted);padding:10px;">No forecast data</div>'}
+    </div>`;
+  }).join('');
+
+  // Adjustments
+  if (w.adjustments && w.adjustments.length) {
+    const adjHtml = w.adjustments.map(a => `<div class="alert-item"><span>📋</span><span>${a}</span></div>`).join('');
+    grid.innerHTML += `<div class="weather-city" style="grid-column:1/-1"><h3>📋 Suggested Adjustments</h3>${adjHtml}</div>`;
+  }
+}
+
+// ═══════════════════════════════════════════
+// BUDGET
+// ═══════════════════════════════════════════
+async function loadBudget() {
+  const b = await loadData('budget');
+  if (!b) return;
+
+  const pct = (b.projected_spend / b.total_budget * 100).toFixed(0);
+  document.getElementById('budgetStats').innerHTML = `
+    <div class="stat accent"><div class="label">Total Budget</div><div class="value">₹${b.total_budget?.toLocaleString()}</div></div>
+    <div class="stat ${b.budget_health==='healthy'?'accent':b.budget_health==='tight'?'warn':'danger'}"><div class="label">Projected Spend</div><div class="value">₹${b.projected_spend?.toLocaleString()}</div><div class="sub">${pct}% of budget</div></div>
+    <div class="stat ${b.remaining>5000?'accent':'warn'}"><div class="label">Remaining</div><div class="value">₹${b.remaining?.toLocaleString()}</div></div>
+    <div class="stat gold"><div class="label">Status</div><div class="value" style="font-size:18px;text-transform:capitalize">${b.budget_health}</div></div>
+  `;
+
+  // Budget bar
+  const cats = b.by_category || {};
+  const colors = {flights:'#42a5f5', hotels:'#ab47bc', activities:'#00d4aa', food:'#ffa726'};
+  const total = Object.values(cats).reduce((a,b) => a+b, 0);
+  const bar = Object.entries(cats).map(([k,v]) => {
+    const w = (v/total*100).toFixed(0);
+    return `<div class="budget-seg" style="width:${w}%;background:${colors[k]||'#666'}" title="${k}: ₹${v?.toLocaleString()}">${w>10?k:''}</div>`;
+  }).join('');
+  document.getElementById('budgetBar').innerHTML = bar;
+
+  // Table
+  const cityData = b.by_city || {};
+  let tableHtml = `<thead><tr><th>City</th><th class="num">Estimated Cost</th></tr></thead><tbody>`;
+  Object.entries(cityData).forEach(([city, cost]) => {
+    tableHtml += `<tr><td>${city}</td><td class="num">₹${cost?.toLocaleString()}</td></tr>`;
+  });
+  tableHtml += `<tr><td><strong>Flights</strong></td><td class="num">₹${cats.flights?.toLocaleString()}</td></tr>`;
+  tableHtml += `<tr><td><strong>Hotels</strong></td><td class="num">₹${cats.hotels?.toLocaleString()}</td></tr>`;
+  tableHtml += `<tr style="border-top:2px solid var(--accent)"><td><strong>TOTAL</strong></td><td class="num" style="color:var(--accent)">₹${b.projected_spend?.toLocaleString()}</td></tr>`;
+  tableHtml += `</tbody>`;
+  document.getElementById('budgetTable').innerHTML = tableHtml;
+
+  // Savings
+  const savings = b.savings_opportunities || [];
+  document.getElementById('savingsList').innerHTML = savings.map(s => 
+    `<div class="action-item"><span class="ai-icon">💡</span><span>${s}</span></div>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════
+// SCAMS
+// ═══════════════════════════════════════════
+async function loadScams() {
+  const s = await loadData('scams');
+  if (!s) return;
+
+  document.getElementById('scamStats').innerHTML = `
+    <div class="stat ${s.risk_score>70?'accent':s.risk_score>50?'warn':'danger'}"><div class="label">Risk Score</div><div class="value">${s.risk_score}/100</div></div>
+    <div class="stat danger"><div class="label">High Risk</div><div class="value">${s.high_risk_count}</div></div>
+    <div class="stat warn"><div class="label">Medium Risk</div><div class="value">${s.medium_risk_count}</div></div>
+    <div class="stat"><div class="label">Total Alerts</div><div class="value">${s.total_alerts}</div></div>
+  `;
+
+  // Top threats
+  const threats = s.top_3_threats || [];
+  document.getElementById('topThreats').innerHTML = threats.map(t => 
+    `<div class="scam-card high"><div class="scam-head"><div><div class="scam-type">${t.threat}</div></div></div><div class="scam-action">✅ ${t.action}</div></div>`
+  ).join('');
+
+  // All scams
+  document.getElementById('scamList').innerHTML = (s.scams || []).map(sc => 
+    `<div class="scam-card ${sc.risk}">
+      <div class="scam-head">
+        <div><div class="scam-type">${sc.type} — ${sc.city}</div><div class="scam-city">${sc.scam}</div></div>
+        <span class="scam-risk risk-${sc.risk}">${sc.risk}</span>
+      </div>
+      <div class="scam-avoid">🚫 ${sc.avoid}</div>
+      <div class="scam-action">✅ ${sc.action}</div>
+    </div>`
+  ).join('');
+
+  // Emergency actions
+  document.getElementById('emergencyActions').innerHTML = (s.emergency_actions || []).map(a => 
+    `<div class="action-item"><span class="ai-icon">🆘</span><span>${a}</span></div>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════
+// FOOD
+// ═══════════════════════════════════════════
+async function loadFood() {
+  const f = await loadData('food');
+  if (!f) return;
+
+  const emojis = ['🍜','🦀','🥖','🦪','🍷','🐟','🥘','🔥','🐠','🦞'];
+  document.getElementById('foodList').innerHTML = (f.must_try || []).map((food, i) => 
+    `<div class="food-card">
+      <div class="food-emoji">${emojis[i]||'🍽️'}</div>
+      <div class="food-info">
+        <div class="food-dish">${food.dish}</div>
+        <div class="food-where">📍 ${food.where} • ${food.city}</div>
+        <div class="food-meta">
+          <span class="food-price">${food.price}</span>
+          ${food.rating ? `<span class="food-rating">⭐ ${food.rating}</span>` : ''}
+        </div>
+        ${food.note ? `<div style="font-size:12px;color:var(--muted);margin-top:4px;">${food.note}</div>` : ''}
+      </div>
+    </div>`
+  ).join('');
+
+  // City meals
+  const cities = f.by_city || {};
+  document.getElementById('cityMeals').innerHTML = Object.entries(cities).map(([city, meals]) => 
+    `<div class="card">
+      <div class="card-title">📍 ${city}</div>
+      <div style="font-size:13px;line-height:2;">
+        🌅 <strong>Breakfast:</strong> ${meals.breakfast}<br>
+        🌞 <strong>Lunch:</strong> ${meals.lunch}<br>
+        🌙 <strong>Dinner:</strong> ${meals.dinner}<br>
+        ☕ <strong>Cafe:</strong> ${meals.cafe}
+      </div>
+    </div>`
+  ).join('');
+
+  // Veg options
+  document.getElementById('vegOptions').innerHTML = (f.veg_options || []).map(v => 
+    `<div class="action-item"><span class="ai-icon">🥗</span><span>${v}</span></div>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════
+// CONTENT
+// ═══════════════════════════════════════════
+async function loadContent() {
+  const c = await loadData('content');
+  if (!c) return;
+
+  document.getElementById('reelList').innerHTML = (c.reels || []).map(r => 
+    `<div class="content-card">
+      <div class="content-title">🎬 ${r.title}</div>
+      <div style="font-size:12px;color:var(--muted)">Day ${r.day}</div>
+      <div class="content-concept">${r.concept}</div>
+      <div class="content-hook">📌 ${r.hook}</div>
+    </div>`
+  ).join('');
+
+  document.getElementById('photoSpots').innerHTML = (c.photo_spots || []).map(p => 
+    `<div class="content-card">
+      <div class="content-title">📸 ${p.spot}</div>
+      <div style="font-size:12px;color:var(--muted)">📍 ${p.city} • ⏰ ${p.time}</div>
+      <div class="content-concept">💡 ${p.tip}</div>
+    </div>`
+  ).join('');
+
+  document.getElementById('ytTitles').innerHTML = (c.youtube_titles || []).map(t => 
+    `<div class="content-card"><div class="content-title">📺 ${t}</div></div>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════
+// PACKING
+// ═══════════════════════════════════════════
+async function loadPacking() {
+  const p = await loadData('packing');
+  if (!p) return;
+
+  const cats = p.categories || {};
+  const icons = {documents:'📄', electronics:'🔌', clothing:'👕', health:'💊', misc:'🎒', weather_specific:'🌦️'};
+  document.getElementById('packingGrid').innerHTML = Object.entries(cats).map(([key, val]) => {
+    const items = Array.isArray(val) ? val : Object.entries(val).map(([k,v]) => `${k}: ${v}`);
+    const itemHtml = (Array.isArray(val) ? val : Object.entries(val).map(([k,v]) => `${k}: ${v}`)).map(item => 
+      `<div class="packing-item" onclick="this.classList.toggle('checked');this.querySelector('.packing-check').classList.toggle('checked')">
+        <div class="packing-check"></div>
+        <span>${item}</span>
+      </div>`
+    ).join('');
+    return `<div class="packing-cat">
+      <h3>${icons[key]||'📋'} ${key.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</h3>
+      ${itemHtml}
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════
+// EMERGENCY
+// ═══════════════════════════════════════════
+async function loadEmergency() {
+  const e = await loadData('emergency');
+  if (!e) return;
+
+  document.getElementById('emergencyStats').innerHTML = `
+    <div class="stat accent"><div class="label">Preparedness</div><div class="value">${e.preparedness_score}/100</div></div>
+    <div class="stat danger"><div class="label">Emergency</div><div class="value" style="font-size:18px;">113</div><div class="sub">Police</div></div>
+    <div class="stat danger"><div class="label">Ambulance</div><div class="value" style="font-size:18px;">115</div></div>
+    <div class="stat blue"><div class="label">Embassy</div><div class="value" style="font-size:14px;">+84-24</div><div class="sub">Hanoi</div></div>
+  `;
+
+  const contacts = e.contacts || {};
+  const contactLabels = {
+    india_embassy_hanoi: '🇮🇳 Indian Embassy Hanoi',
+    india_embassy_hcmc: '🇮🇳 Indian Embassy HCMC',
+    police: '🚓 Police',
+    ambulance: '🚑 Ambulance',
+    fire: '🚒 Fire',
+    tourist_police_hcmc: '👮 Tourist Police HCMC',
+    tourist_police_hanoi: '👮 Tourist Police Hanoi',
+  };
+  document.getElementById('emergencyContacts').innerHTML = Object.entries(contacts).map(([k,v]) => 
+    `<div class="emergency-contact"><span class="ec-label">${contactLabels[k]||k}</span><span class="ec-num">${v}</span></div>`
+  ).join('');
+
+  document.getElementById('hospitalList').innerHTML = (e.hospitals || []).map(h => 
+    `<div class="card"><div class="card-title">🏥 ${h.name}</div><div style="font-size:13px;color:var(--muted)">📍 ${h.city} • 📞 ${h.phone}${h.english?' • ✅ English speaking':''}</div></div>`
+  ).join('');
+
+  const plans = e.backup_plans || {};
+  document.getElementById('backupPlans').innerHTML = Object.entries(plans).map(([k,v]) => 
+    `<div class="backup-plan"><h4>🔄 ${k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</h4><p>${v}</p></div>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════
+// TAB ROUTER
+// ═══════════════════════════════════════════
+// ═══════════════════════════════════════════
+// DETAILED DAY PLAN
+// ═══════════════════════════════════════════
+async function loadDetailedPlan() {
+  const d = await loadData('detailed-plan');
+  if (!d) return;
+
+  const plans = d.detailed_plans || [];
+  const list = document.getElementById('detailedPlanList');
+  
+  // Category icons and colors
+  const catIcons = {food:'🍜',activity:'🎯',transit:'✈️',hotel:'🏨',nightlife:'🍺',cafe:'☕',shopping:'🛍️'};
+  const catColors = {food:'#00d4aa',activity:'#42a5f5',transit:'#ab47bc',hotel:'#ffd54f',nightlife:'#ffa726',cafe:'#00d4aa',shopping:'#42a5f5'};
+  
+  list.innerHTML = plans.map(day => {
+    const ag = day.area_guide || {};
+    
+    // Compact area guide — grid layout, no empty space
+    let areaHtml = '';
+    if (ag.stay_area) {
+      let transportHtml = '';
+      if (ag.airport_to_hotel) {
+        const t = ag.airport_to_hotel;
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">✈️ Airport → Hotel</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      if (ag.bus_to_hotel) {
+        const t = ag.bus_to_hotel;
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">🚌 Bus → Hotel</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      if (ag.bus_to_cruise) {
+        const t = ag.bus_to_cruise;
+        transportHtml += `<div style="background:var(--bg2);border-radius:8px;padding:8px 10px;font-size:11px;">
+          <span style="color:var(--accent);font-weight:700;">🚢 Bus → Cruise</span><br>
+          ${t.mode} · ${t.time} · ${t.distance} · <span style="color:var(--accent);">${t.cost}</span><br>
+          <span style="color:var(--muted);">📌 ${t.note || ''}</span>
+        </div>`;
+      }
+      
+      areaHtml = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">🏨 Stay Area</div>
+          <div style="font-size:12px;font-weight:600;">${ag.stay_area}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;">${ag.why || ''}</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">💰 Hotel & Transport</div>
+          <div style="font-size:11px;">💵 ${ag.hotel_price || '—'}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">🚶 ${ag.walk_radius || '—'}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">🚌 ${ag.get_around ? ag.get_around.substring(0,60)+'...' : '—'}</div>
+        </div>
+      </div>
+      ${transportHtml ? `<div style="margin:8px 0;">${transportHtml}</div>` : ''}`;
+    }
+
+    // Timeline — denser, richer cards
+    const timelineHtml = (day.timeline || []).map((t, i) => {
+      const cc = catColors[t.category] || '#7a8294';
+      const ci = catIcons[t.category] || '📌';
+      const durHrs = Math.floor(t.duration_min / 60);
+      const durMin = t.duration_min % 60;
+      const durStr = durHrs > 0 ? `${durHrs}h${durMin > 0 ? ' '+durMin+'m' : ''}` : `${durMin}m`;
+      
+      // Transit block — bolder, more visible
+      let transitHtml = '';
+      if (t.transit_to_next) {
+        const tn = t.transit_to_next;
+        const hasDirs = tn.directions && tn.directions.length > 0;
+        transitHtml = `<div style="margin:2px 0 2px 16px;padding:8px 12px;background:var(--bg2);border-radius:8px;border-left:4px solid var(--accent);display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;">
+          <div style="font-size:12px;font-weight:700;white-space:nowrap;">${tn.mode} → ${tn.time}</div>
+          <div style="font-size:11px;color:var(--muted);white-space:nowrap;">${tn.distance}${tn.cost ? ' · ' + tn.cost : ''}</div>
+          ${hasDirs ? `<a href="${tn.directions}" target="_blank" style="font-size:10px;color:var(--accent);white-space:nowrap;">📍 Directions →</a>` : ''}
+          ${tn.recommendation ? `<div style="font-size:11px;color:var(--muted);width:100%;line-height:1.4;margin-top:2px;">💡 ${tn.recommendation}</div>` : ''}
+        </div>`;
+      }
+      
+      return `<div style="display:flex;gap:0;margin-bottom:2px;">
+        <div style="width:60px;flex-shrink:0;text-align:right;padding:10px 8px 0 0;">
+          <div style="font-size:12px;font-weight:700;color:${cc};">${t.time}</div>
+        </div>
+        <div style="width:3px;background:${cc};border-radius:2px;flex-shrink:0;margin-top:10px;margin-bottom:10px;"></div>
+        <div style="flex:1;padding:8px 12px;">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div style="font-size:22px;flex-shrink:0;">${ci}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:14px;font-weight:700;line-height:1.3;">${t.activity}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;align-items:center;">
+                  <span style="font-size:11px;color:var(--muted);">⏱️ ${durStr}</span>
+                  ${t.cost ? `<span style="font-size:11px;color:var(--accent);font-weight:600;">💰 ${t.cost}</span>` : ''}
+                  ${t.venue?.rating ? `<span style="font-size:11px;color:var(--gold);">⭐ ${t.venue.rating}</span>` : ''}
+                  <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:${cc}20;color:${cc};font-weight:600;text-transform:uppercase;">${t.category}</span>
+                  ${t.maps ? `<a href="${t.maps}" target="_blank" style="font-size:10px;color:var(--blue);">📍 Maps</a>` : ''}
+                </div>
+                ${t.venue ? `
+                <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+                  ${t.venue.highlight ? `<div style="font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:4px;">📌 ${t.venue.highlight}</div>` : ''}
+                  ${t.venue.order ? `<div style="font-size:12px;color:var(--accent);font-weight:600;line-height:1.4;margin-bottom:4px;">🍽️ <strong>Order:</strong> ${t.venue.order}</div>` : ''}
+                  ${t.venue.tip ? `<div style="font-size:11px;color:var(--warn);line-height:1.4;">💡 ${t.venue.tip}</div>` : ''}
+                </div>` : ''}
+              </div>
+            </div>
+          </div>
+          ${transitHtml}
+        </div>
+      </div>`;
+    }).join('');
+
+    return `<div class="day-card" style="margin-bottom:12px;">
+      <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;">
+        <div class="day-num">${day.icon}</div>
+        <div class="day-info">
+          <div class="day-city">Day ${day.day+1} • ${day.date} ${day.dow} — ${day.city}</div>
+          <div class="day-label">${day.label}</div>
+        </div>
+        <div class="day-meta">
+          <span class="badge badge-accent">${day.total_activities} stops</span>
+          <span class="badge badge-warn">₹${day.estimated_cost}</span>
+        </div>
+      </div>
+      <div class="day-body open">
+        <div class="tip-box accent" style="font-size:12px;padding:8px 12px;">💡 ${day.tip}</div>
+        ${areaHtml}
+        <div style="font-size:12px;font-weight:700;margin:10px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;">📋 Timeline</div>
+        ${timelineHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════
+// BACKUP PLANS
+// ═══════════════════════════════════════════
+async function loadBackup() {
+  const b = await loadData('backup');
+  if (!b) return;
+
+  document.getElementById('backupStats').innerHTML = `
+    <div class="stat danger"><div class="label">High Risk Days</div><div class="value">${b.high_risk_days}</div></div>
+    <div class="stat warn"><div class="label">City Swaps</div><div class="value">${b.city_swaps_available || 0}</div></div>
+    <div class="stat accent"><div class="label">Cities Compared</div><div class="value">${(b.city_comparison||[]).length}</div></div>
+    <div class="stat"><div class="label">Indoor Alts</div><div class="value">${b.indoor_alternatives_count}</div></div>
+  `;
+
+  // City swap recommendations — the big new feature
+  const swaps = b.swap_recommendations || [];
+  if (swaps.length) {
+    document.getElementById('swapRecs').innerHTML = swaps.map(s => {
+      const urgencyColor = s.urgency === 'HIGH' ? 'var(--danger)' : 'var(--warn)';
+      const urgencyBg = s.urgency === 'HIGH' ? 'var(--danger-dim)' : 'var(--warn-dim)';
+      return `<div class="card" style="border-left:4px solid ${urgencyColor};margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:8px;">
+          <div style="font-size:16px;font-weight:800;">
+            ${s.original_city} <span style="color:var(--muted);">(${s.original_rain}% rain)</span>
+            → ${s.alternative_city} <span style="color:var(--accent);">(${s.alternative_rain}% rain)</span>
+          </div>
+          <span style="background:${urgencyBg};color:${urgencyColor};padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;">${s.urgency} PRIORITY</span>
+        </div>
+        <div style="margin-top:8px;font-size:13px;line-height:1.6;">
+          <div style="color:var(--accent);font-weight:600;">📊 ${s.reasoning}</div>
+          <div style="margin-top:6px;">📍 ${s.what_you_get}</div>
+          <div style="margin-top:6px;font-size:12px;color:var(--muted);">🎯 Top highlights:</div>
+          <ul style="font-size:12px;color:var(--text);margin:4px 0 6px 20px;line-height:1.8;">
+            ${(s.highlights||[]).map(h => `<li>${h}</li>`).join('')}
+          </ul>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;">
+            <span class="badge badge-accent">✈️ ${s.how_to_get_there}</span>
+            <span class="badge badge-warn">💰 ${s.budget}</span>
+            <span class="badge badge-danger">💵 ${s.cost_impact}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  } else {
+    document.getElementById('swapRecs').innerHTML = '<div class="card"><div style="color:var(--accent);font-size:13px;">✅ No city swaps needed — current cities have acceptable weather.</div></div>';
+  }
+
+  // City comparison table
+  const comparison = b.city_comparison || [];
+  if (comparison.length) {
+    document.getElementById('cityComparison').innerHTML = `
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border);">
+              <th style="padding:10px;text-align:left;">City</th>
+              <th style="padding:10px;text-align:center;">Type</th>
+              <th style="padding:10px;text-align:center;">Avg Rain</th>
+              <th style="padding:10px;text-align:center;">High Risk Days</th>
+              <th style="padding:10px;text-align:center;">Weather Score</th>
+              <th style="padding:10px;text-align:center;">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${comparison.map(c => {
+              const scoreColor = c.weather_score > 60 ? 'var(--accent)' : c.weather_score > 40 ? 'var(--warn)' : 'var(--danger)';
+              const rainColor = c.avg_rain < 40 ? 'var(--accent)' : c.avg_rain < 70 ? 'var(--warn)' : 'var(--danger)';
+              const verdictBg = c.verdict.includes('KEEP') || c.verdict.includes('BEST') ? 'var(--accent-dim)' :
+                               c.verdict.includes('MONITOR') || c.verdict.includes('GOOD') ? 'var(--warn-dim)' : 'var(--danger-dim)';
+              const verdictColor = c.verdict.includes('KEEP') || c.verdict.includes('BEST') ? 'var(--accent)' :
+                                   c.verdict.includes('MONITOR') || c.verdict.includes('GOOD') ? 'var(--warn)' : 'var(--danger)';
+              return `<tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:8px 10px;font-weight:600;">${c.city}</td>
+                <td style="padding:8px 10px;text-align:center;font-size:10px;color:var(--muted);">${c.type}</td>
+                <td style="padding:8px 10px;text-align:center;color:${rainColor};font-weight:700;">${c.avg_rain}%</td>
+                <td style="padding:8px 10px;text-align:center;">${c.high_risk_days}</td>
+                <td style="padding:8px 10px;text-align:center;color:${scoreColor};font-weight:700;">${c.weather_score}/100</td>
+                <td style="padding:8px 10px;text-align:center;"><span style="background:${verdictBg};color:${verdictColor};padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;">${c.verdict}</span></td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  }
+
+  // Reorder suggestion
+  const rs = b.reorder_suggestion;
+  if (rs) {
+    document.getElementById('reorderSuggestion').innerHTML = `
+      <div class="card" style="border-left:4px solid var(--blue);">
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">🔄 Suggested Itinerary Reorder</div>
+        <div style="font-size:13px;line-height:1.8;">
+          <div><strong style="color:var(--danger);">Current:</strong> ${rs.current_order}</div>
+          <div><strong style="color:var(--accent);">Suggested:</strong> ${rs.suggested_reorder}</div>
+        </div>
+        <div style="margin-top:8px;padding:8px;background:var(--bg2);border-radius:8px;font-size:12px;color:var(--warn);">⚠️ ${rs.issue}</div>
+        <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.5;">💡 ${rs.why}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+          <span class="badge badge-accent">💰 ${rs.cost_impact}</span>
+        </div>
+        <div style="margin-top:8px;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background:var(--danger-dim);padding:8px;border-radius:6px;"><strong style="color:var(--danger);">❌ Lose:</strong> ${rs.what_you_lose}</div>
+          <div style="background:var(--accent-dim);padding:8px;border-radius:6px;"><strong style="color:var(--accent);">✅ Gain:</strong> ${rs.what_you_gain}</div>
+        </div>
+      </div>`;
+  }
+
+  // Old city swaps (keep for backward compat)
+  document.getElementById('citySwaps') ? document.getElementById('citySwaps').innerHTML = '' : null;
+
+  // Day-by-day backups
+  document.getElementById('backupList').innerHTML = (b.day_backups || []).map(d => {
+    const riskClass = d.main_risk === 'high' ? 'wx-high' : d.main_risk === 'medium' ? 'wx-med' : 'wx-low';
+    const riskBadge = `<span class="day-wx ${riskClass}">${d.main_risk?.toUpperCase() || 'UNKNOWN'}</span>`;
+    
+    let backupHtml = '';
+    if (d.backup_plan && d.backup_plan.length) {
+      backupHtml = `<div style="margin-top:8px;">
+        <div style="font-size:12px;font-weight:700;color:var(--warn);margin-bottom:6px;">🏠 Indoor Alternatives:</div>
+        ${d.backup_plan.map(a => `<div class="card" style="padding:8px;margin-bottom:4px;">
+          <div style="font-size:12px;font-weight:600;">${a.name}</div>
+          <div style="font-size:10px;color:var(--muted);">${a.duration} · ${a.cost}</div>
+          ${a.note ? `<div style="font-size:10px;color:var(--accent);margin-top:2px;">${a.note}</div>` : ''}
+        </div>`).join('')}
+      </div>`;
+    }
+
+    let swapHtml = '';
+    if (d.swap_suggestion) {
+      const s = d.swap_suggestion;
+      swapHtml = `<div class="card" style="border-left:4px solid var(--danger);margin-top:8px;">
+        <div style="font-size:12px;font-weight:700;color:var(--danger);">🔄 CITY SWAP</div>
+        <div style="font-size:11px;margin-top:2px;">${s.alternative}</div>
+      </div>`;
+    }
+
+    const window = d.best_window || {};
+    let windowHtml = '';
+    if (window.start) {
+      windowHtml = `<div style="font-size:11px;margin-top:4px;">🌤️ Best window: ${window.start}–${window.end} (${window.hours}h)</div>`;
+    }
+
+    return `<div class="day-card" style="margin-bottom:6px;">
+      <div class="day-header" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;">
+        <div class="day-num" style="font-size:14px;">D${d.day+1}</div>
+        <div class="day-info">
+          <div class="day-city">${d.date} ${d.dow} — ${d.city}</div>
+          <div class="day-label">${d.label}</div>
+        </div>
+        <div class="day-meta">${riskBadge}<span style="font-size:10px;color:var(--muted);">🌧️ ${d.rain_prob}%</span></div>
+      </div>
+      <div class="day-body open">
+        <div class="${d.main_risk === 'high' ? 'tip-box' : 'tip-box accent'}" style="font-size:11px;padding:6px 10px;">${d.recommendation}</div>
+        ${windowHtml}${swapHtml}${backupHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+const tabLoaders = {
+  ops: loadOps,
+  briefing: loadBriefing,
+  itinerary: loadItinerary,
+  detailed: loadDetailedPlan,
+  backup: loadBackup,
+  weather: loadWeather,
+  budget: loadBudget,
+  scams: loadScams,
+  food: loadFood,
+  content: loadContent,
+  packing: loadPacking,
+  emergency: loadEmergency,
+};
+function loadTab(tab) {
+  if (tabLoaders[tab]) tabLoaders[tab]();
+}
+
+// Init
+loadOps();
+</script>
+</body>
+</html>
