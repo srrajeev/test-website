@@ -1,0 +1,132 @@
+{
+  "agent": "Food Intelligence",
+  "timestamp": "2026-06-23T19:04:10Z",
+  "must_try": [
+    {
+      "dish": "Pho (Pho Thin)",
+      "city": "Hanoi",
+      "where": "Pho Thin",
+      "price": "₹150",
+      "rating": 4.5,
+      "note": "#1 pho in Vietnam"
+    },
+    {
+      "dish": "Bun Cha",
+      "city": "Hanoi",
+      "where": "Bun Cha Huong Lien",
+      "price": "₹250",
+      "rating": 4.5,
+      "note": "Obama ate here"
+    },
+    {
+      "dish": "Banh Canh Cua",
+      "city": "HCMC",
+      "where": "Banh Canh Cua Ba Ba",
+      "price": "₹158-351",
+      "rating": 4.3,
+      "note": "MICHELIN Bib Gourmand 2026"
+    },
+    {
+      "dish": "Banh Mi Huynh Hoa",
+      "city": "HCMC",
+      "where": "Bui Vien",
+      "price": "₹105",
+      "rating": 4.9,
+      "note": "Bourdain-approved"
+    },
+    {
+      "dish": "Seafood (Vinh Khanh)",
+      "city": "HCMC",
+      "where": "Vinh Khanh Food St",
+      "price": "₹105-175",
+      "rating": 4.5,
+      "note": "Time Out UK top 31"
+    },
+    {
+      "dish": "Sim Wine",
+      "city": "Phu Quoc",
+      "where": "Duong Dong Market",
+      "price": "₹200-400",
+      "rating": 0,
+      "note": "Local specialty — rose myrtle wine"
+    },
+    {
+      "dish": "Fish Sauce",
+      "city": "Phu Quoc",
+      "where": "Duong Dong",
+      "price": "₹300-600",
+      "rating": 0,
+      "note": "World's best fish sauce — souvenir"
+    },
+    {
+      "dish": "Thang Co",
+      "city": "Sapa",
+      "where": "Sapa town",
+      "price": "₹200-300",
+      "rating": 0,
+      "note": "Hmong horse meat stew — adventurous!"
+    },
+    {
+      "dish": "Grilled Mountain Food",
+      "city": "Sapa",
+      "where": "Sapa BBQ",
+      "price": "₹300-500",
+      "rating": 0,
+      "note": "Buffalo, pork, vegetables on grill"
+    },
+    {
+      "dish": "Deep Sea Restaurant",
+      "city": "Phu Quoc",
+      "where": "VinWonders",
+      "price": "₹500-700",
+      "rating": 0,
+      "note": "Aquarium view dining"
+    }
+  ],
+  "by_city": {
+    "HCMC": {
+      "breakfast": "Pho Minh (₹246-316)",
+      "lunch": "Banh Canh Cua Ba Ba (₹158-351)",
+      "dinner": "Vinh Khanh Food St (₹105-175)",
+      "cafe": "Cong Caphe (₹150)"
+    },
+    "Phu Quoc": {
+      "breakfast": "Hotel breakfast",
+      "lunch": "4-island tour lunch (included)",
+      "dinner": "Duong Dong Night Market (₹200-500)",
+      "cafe": "Oasis Cafe (₹150)"
+    },
+    "Hanoi": {
+      "breakfast": "Pho Thin (₹150)",
+      "lunch": "Bun Cha Huong Lien (₹250)",
+      "dinner": "Hanoi Old Quarter (₹300-500)",
+      "cafe": "Train St cafe (₹100)"
+    },
+    "Sapa": {
+      "breakfast": "Hotel breakfast",
+      "lunch": "Local Thang Co (₹200-300)",
+      "dinner": "Sapa BBQ (₹400-600)",
+      "cafe": "The Hill Station (₹150-250)"
+    }
+  },
+  "veg_options": [
+    "Banh Mi Chay (vegetarian banh mi) — everywhere",
+    "Com Chay (vegetarian rice) — most restaurants",
+    "Fresh spring rolls — request no shrimp",
+    "Pho Chay — vegetable broth pho, common in Hanoi"
+  ],
+  "budget_per_meal": {
+    "breakfast": "₹150-350",
+    "lunch": "₹200-500",
+    "dinner": "₹300-700",
+    "cafe": "₹100-250"
+  },
+  "tips": [
+    "Street food is SAFER than tourist restaurants in Vietnam",
+    "Banh Mi is the cheapest meal — ₹100-150 for a full sandwich",
+    "Pho is breakfast food — eat before 10 AM for best experience",
+    "Always carry napkins — most street stalls don't provide",
+    "Vietnamese coffee is STRONG — order 'bac xiu' if you want milk"
+  ],
+  "source": "Curated research + MICHELIN Guide 2026"
+}
