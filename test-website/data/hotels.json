@@ -1,6 +1,20 @@
 {
   "agent": "Hotel Intelligence",
-  "timestamp": "2026-06-23T19:04:10Z",
+  "timestamp": "2026-06-26T23:01:00Z",
+  "confirmed_booking": {
+    "name": "Cochinchine Central D1 Cozy Compact Studio",
+    "host": "Mujo",
+    "host_phone": "+84 909 655 095",
+    "address": "7 +7/1C Đường Nguyễn Trãi, Phường Bến Thành, Quận 1, Hồ Chí Minh 70000, Vietnam",
+    "check_in": "2026-06-28T14:00",
+    "check_out": "2026-06-30T12:00",
+    "nights": 2,
+    "guests": 1,
+    "guest_name": "Sohel Khan",
+    "confirmation_code": "HM348RHAMK",
+    "amount_paid_inr": 6918.50,
+    "booking_source": "Airbnb"
+  },
   "cities": {
     "HCMC": {
       "recommended_area": "District 1 — walking distance to everything",

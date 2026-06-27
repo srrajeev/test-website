@@ -1,27 +1,28 @@
 {
   "agent": "Chief Travel Officer",
-  "timestamp": "2026-06-23T23:00:58Z",
+  "timestamp": "2026-06-26T23:01:07Z",
   "phase": "pre_trip",
-  "status": "4 days until departure",
+  "status": "1 days until departure",
   "current_day": null,
-  "travel_health_score": 56,
+  "travel_health_score": 53,
   "budget_status": "tight",
   "budget_remaining": 3751,
   "risk_status": "HIGH",
-  "weather_status": "28/100",
+  "weather_status": "22/100",
   "weather_alerts": [
     "⚠️ 2026-06-28: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-06-29: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-06-30: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
-    "⚠️ 2026-07-01: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay",
-    "⚠️ 2026-07-02: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay",
+    "⚠️ 2026-07-01: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-02: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-03: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-04: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-05: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-06: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-07: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
     "⚠️ 2026-07-08: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
-    "⚠️ 2026-07-09: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay"
+    "⚠️ 2026-07-09: High rain risk in HCMC, Phu Quoc, Hanoi, Sapa, Halong Bay",
+    "⚠️ 2026-07-10: High rain risk in HCMC, Phu Quoc, Sapa, Halong Bay"
   ],
   "scam_alerts": 12,
   "route_warnings": 3,
@@ -35,10 +36,10 @@
     "🛡️ Verify travel insurance covers Vietnam",
     "🎫 Book Halong Bay cruise (Klook/Tripadvisor top-rated)",
     "🎫 Book Sapa Express bus ticket",
-    "🌧️ 12 weather alerts — check dashboard for details",
+    "🌧️ 13 weather alerts — check dashboard for details",
     "💰 ⚠️ Only ₹3,751 buffer remaining",
     "⚠️ 6 high-risk scams identified — review scam dashboard"
   ],
   "emergency_alerts": [],
-  "countdown": 4
+  "countdown": 1
 }

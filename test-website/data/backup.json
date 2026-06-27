@@ -1,6 +1,6 @@
 {
   "agent": "Backup Plan Intelligence",
-  "timestamp": "2026-06-23T23:00:58Z",
+  "timestamp": "2026-06-26T23:01:07Z",
   "day_backups": [
     {
       "day": 0,
@@ -9,13 +9,13 @@
       "city": "HCMC",
       "label": "Night Arrival",
       "main_risk": "high",
-      "rain_prob": 92,
+      "rain_prob": 100,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
         "end": "10:00",
         "hours": 5,
-        "max_rain_in_window": 31
+        "max_rain_in_window": 37
       },
       "original_plan": [
         "Land Tan Son Nhat (SGN)",
@@ -53,7 +53,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (92% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
+      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
     },
     {
       "day": 1,
@@ -62,13 +62,13 @@
       "city": "HCMC",
       "label": "Full Day Explorer",
       "main_risk": "high",
-      "rain_prob": 92,
-      "fog_hours": 1,
+      "rain_prob": 99,
+      "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "09:00",
-        "hours": 4,
-        "max_rain_in_window": 37
+        "end": "08:00",
+        "hours": 3,
+        "max_rain_in_window": 36
       },
       "original_plan": [
         "Pho breakfast — Pho Minh (since 1940s)",
@@ -109,7 +109,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (92% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
     },
     {
       "day": 2,
@@ -118,13 +118,13 @@
       "city": "Phu Quoc",
       "label": "Arrival + Grand World",
       "main_risk": "high",
-      "rain_prob": 92,
+      "rain_prob": 86,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "08:00",
-        "hours": 3,
-        "max_rain_in_window": 39
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 33
       },
       "original_plan": [
         "Cu Chi Tunnels (morning best)",
@@ -170,7 +170,7 @@
         "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
         "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
       },
-      "recommendation": "⚠️ High weather risk (92% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+      "recommendation": "⚠️ High weather risk (86% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
     },
     {
       "day": 3,
@@ -179,13 +179,13 @@
       "city": "Phu Quoc",
       "label": "4 Island Tour",
       "main_risk": "high",
-      "rain_prob": 97,
+      "rain_prob": 100,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "06:00",
-        "hours": 1,
-        "max_rain_in_window": 37
+        "end": "09:00",
+        "hours": 4,
+        "max_rain_in_window": 40
       },
       "original_plan": [
         "4 Island Tour — Hotel pickup",
@@ -231,7 +231,7 @@
         "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
         "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
       },
-      "recommendation": "⚠️ High weather risk (97% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
     },
     {
       "day": 4,
@@ -240,13 +240,13 @@
       "city": "Phu Quoc",
       "label": "VinWonders",
       "main_risk": "high",
-      "rain_prob": 99,
+      "rain_prob": 98,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
         "end": "06:00",
         "hours": 1,
-        "max_rain_in_window": 46,
+        "max_rain_in_window": 42,
         "note": "No clear window — best available slot only"
       },
       "original_plan": [
@@ -292,7 +292,7 @@
         "cost_impact": "VinWonders ₹3,410 vs island tour ₹4,200. Save ₹790",
         "verdict": "Keep Phu Quoc — VinWonders is an excellent rain backup. Island tour runs if wind < 20km/h."
       },
-      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+      "recommendation": "⚠️ High weather risk (98% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
     },
     {
       "day": 5,
@@ -301,13 +301,13 @@
       "city": "Hanoi",
       "label": "Beach AM + Fly + Hanoi PM",
       "main_risk": "high",
-      "rain_prob": 99,
-      "fog_hours": 0,
+      "rain_prob": 100,
+      "fog_hours": 1,
       "best_window": {
         "start": "06:00",
         "end": "06:00",
         "hours": 1,
-        "max_rain_in_window": 42,
+        "max_rain_in_window": 49,
         "note": "No clear window — best available slot only"
       },
       "original_plan": [
@@ -347,7 +347,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (99% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
+      "recommendation": "⚠️ High weather risk (100% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
     },
     {
       "day": 6,
@@ -356,13 +356,14 @@
       "city": "Sapa",
       "label": "Hanoi AM → Sapa PM",
       "main_risk": "high",
-      "rain_prob": 96,
-      "fog_hours": 1,
+      "rain_prob": 100,
+      "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "08:00",
-        "hours": 3,
-        "max_rain_in_window": 40
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 49,
+        "note": "No clear window — best available slot only"
       },
       "original_plan": [
         "Pho Thin — #1 pho in Hanoi",
@@ -408,7 +409,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (96% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-08:00."
+      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
     },
     {
       "day": 7,
@@ -421,9 +422,9 @@
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "07:00",
-        "hours": 2,
-        "max_rain_in_window": 25
+        "end": "06:00",
+        "hours": 1,
+        "max_rain_in_window": 40
       },
       "original_plan": [
         "Moana Sapa — photo spot",
@@ -469,7 +470,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+      "recommendation": "⚠️ High weather risk (100% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-06:00."
     },
     {
       "day": 8,
@@ -478,13 +479,13 @@
       "city": "Sapa",
       "label": "Rong May Thrill Day",
       "main_risk": "high",
-      "rain_prob": 94,
-      "fog_hours": 0,
+      "rain_prob": 95,
+      "fog_hours": 1,
       "best_window": {
         "start": "06:00",
         "end": "07:00",
         "hours": 2,
-        "max_rain_in_window": 27
+        "max_rain_in_window": 29
       },
       "original_plan": [
         "Rong May Tourism Area",
@@ -530,7 +531,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (94% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+      "recommendation": "⚠️ High weather risk (95% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
     },
     {
       "day": 9,
@@ -539,13 +540,13 @@
       "city": "Sapa",
       "label": "Fansipan → Hanoi",
       "main_risk": "high",
-      "rain_prob": 96,
+      "rain_prob": 90,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "09:00",
-        "hours": 4,
-        "max_rain_in_window": 38
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 35
       },
       "original_plan": [
         "Fansipan Cable Car — Indochina's roof!",
@@ -591,7 +592,7 @@
         "cost_impact": "Bus to Ninh Binh ₹600 vs Sapa bus ₹1,050. Save ₹450",
         "verdict": "Keep Sapa — but use backup indoor activities. Fog is part of the experience. Only swap if 3+ consecutive days show >80% rain."
       },
-      "recommendation": "⚠️ High weather risk (96% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+      "recommendation": "⚠️ High weather risk (90% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
     },
     {
       "day": 10,
@@ -600,13 +601,13 @@
       "city": "Hanoi",
       "label": "Full Day Explorer",
       "main_risk": "high",
-      "rain_prob": 89,
-      "fog_hours": 0,
+      "rain_prob": 85,
+      "fog_hours": 1,
       "best_window": {
         "start": "06:00",
-        "end": "09:00",
-        "hours": 4,
-        "max_rain_in_window": 36
+        "end": "10:00",
+        "hours": 5,
+        "max_rain_in_window": 40
       },
       "original_plan": [
         "Pho Thin — second visit (it's that good)",
@@ -648,7 +649,7 @@
         }
       ],
       "swap_suggestion": null,
-      "recommendation": "⚠️ High weather risk (89% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-09:00."
+      "recommendation": "⚠️ High weather risk (85% rain, 1h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-10:00."
     },
     {
       "day": 11,
@@ -657,13 +658,13 @@
       "city": "Halong Bay",
       "label": "Day Trip — Highest Risk Day",
       "main_risk": "high",
-      "rain_prob": 73,
+      "rain_prob": 72,
       "fog_hours": 0,
       "best_window": {
         "start": "06:00",
-        "end": "07:00",
-        "hours": 2,
-        "max_rain_in_window": 39
+        "end": "11:00",
+        "hours": 6,
+        "max_rain_in_window": 36
       },
       "original_plan": [
         "Limousine bus to Halong Bay (2.5hrs)",
@@ -703,7 +704,7 @@
         "cost_impact": "Ninh Binh tour ₹1,200 vs Halong cruise ₹2,000. Save ₹800",
         "verdict": "Check windy.com 3 days before. If wind > 25km/h or storm warning → switch to Ninh Binh immediately."
       },
-      "recommendation": "⚠️ High weather risk (73% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-07:00."
+      "recommendation": "⚠️ High weather risk (72% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-11:00."
     },
     {
       "day": 12,
@@ -711,19 +712,53 @@
       "dow": "FRI",
       "city": "Hanoi",
       "label": "Departure Day",
-      "main_risk": "unknown",
-      "rain_prob": 0,
+      "main_risk": "high",
+      "rain_prob": 75,
       "fog_hours": 0,
-      "best_window": {},
+      "best_window": {
+        "start": "06:00",
+        "end": "13:00",
+        "hours": 8,
+        "max_rain_in_window": 39
+      },
       "original_plan": [
         "Dong Xuan Market — souvenirs",
         "Last pho — Pho Bat Dan",
         "Airport taxi — Noi Bai",
         "Fly Hanoi → Delhi"
       ],
-      "backup_plan": [],
+      "backup_plan": [
+        {
+          "name": "Water Puppet Theatre",
+          "duration": "1 hr",
+          "cost": "₹350",
+          "maps": "https://maps.google.com/?q=Thang+Long+Water+Puppet+Hanoi",
+          "note": "Indoor, iconic, book ahead"
+        },
+        {
+          "name": "X Space Immersive (8 zones)",
+          "duration": "2 hrs",
+          "cost": "₹700",
+          "maps": "https://maps.google.com/?q=X+Space+Immersive+Hanoi",
+          "note": "Fully indoor AC immersive art"
+        },
+        {
+          "name": "Hoa Lo Prison Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi",
+          "note": "Indoor, powerful history"
+        },
+        {
+          "name": "Vietnamese Women's Museum",
+          "duration": "1.5 hrs",
+          "cost": "₹70",
+          "maps": "https://maps.google.com/?q=Women's+Museum+Hanoi",
+          "note": "AC, fascinating exhibits"
+        }
+      ],
       "swap_suggestion": null,
-      "recommendation": "✅ Low risk (0% rain). Original plan is good. Best outdoor window: ?-?."
+      "recommendation": "⚠️ High weather risk (75% rain, 0h fog). Keep original plan but prepare to switch to indoor alternatives. Best window: 06:00-13:00."
     }
   ],
   "city_swaps": {
@@ -753,74 +788,50 @@
     {
       "city": "Hanoi",
       "type": "original",
-      "avg_rain": 65,
-      "high_risk_days": 9,
-      "weather_score": 28,
-      "verdict": "MONITOR"
+      "avg_rain": 75,
+      "high_risk_days": 12,
+      "weather_score": 4,
+      "verdict": "SWAP"
     },
     {
       "city": "Halong Bay",
       "type": "original",
-      "avg_rain": 87,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 88,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "SWAP"
     },
     {
       "city": "HCMC",
       "type": "original",
-      "avg_rain": 93,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 92,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "SWAP"
     },
     {
       "city": "Phu Quoc",
       "type": "original",
-      "avg_rain": 94,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 93,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "SWAP"
     },
     {
       "city": "Sapa",
       "type": "original",
-      "avg_rain": 96,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 95,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "SWAP"
-    },
-    {
-      "city": "Phong Nha",
-      "type": "alternative",
-      "avg_rain": 50,
-      "high_risk_days": 3,
-      "weather_score": 52,
-      "verdict": "GOOD OPTION",
-      "info": {
-        "name": "Phong Nha",
-        "lat": 17.4689,
-        "lon": 106.296,
-        "region": "Central North",
-        "why": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
-        "highlights": [
-          "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
-          "Paradise Cave (₹700) — 31km underground, dry walkway",
-          "Phong Nha Cave boat + kayak (₹525)",
-          "Jungle trekking to Bot Cave (₹1,500)",
-          "ALL weather-proof — it's underground!"
-        ],
-        "budget_per_day": "₹1,000-1,800",
-        "flight_from_hanoi": "1hr to Dong Hoi + 45min taxi"
-      }
     },
     {
       "city": "Quy Nhon",
       "type": "alternative",
-      "avg_rain": 56,
-      "high_risk_days": 4,
-      "weather_score": 48,
-      "verdict": "GOOD OPTION",
+      "avg_rain": 58,
+      "high_risk_days": 7,
+      "weather_score": 36,
+      "verdict": "ALSO RAINY",
       "info": {
         "name": "Quy Nhon",
         "lat": 13.782,
@@ -839,11 +850,59 @@
       }
     },
     {
-      "city": "Da Nang",
+      "city": "Phong Nha",
       "type": "alternative",
-      "avg_rain": 66,
+      "avg_rain": 64,
       "high_risk_days": 8,
       "weather_score": 24,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Phong Nha",
+        "lat": 17.4689,
+        "lon": 106.296,
+        "region": "Central North",
+        "why": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
+        "highlights": [
+          "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
+          "Paradise Cave (₹700) — 31km underground, dry walkway",
+          "Phong Nha Cave boat + kayak (₹525)",
+          "Jungle trekking to Bot Cave (₹1,500)",
+          "ALL weather-proof — it's underground!"
+        ],
+        "budget_per_day": "₹1,000-1,800",
+        "flight_from_hanoi": "1hr to Dong Hoi + 45min taxi"
+      }
+    },
+    {
+      "city": "Con Dao",
+      "type": "alternative",
+      "avg_rain": 69,
+      "high_risk_days": 8,
+      "weather_score": 24,
+      "verdict": "ALSO RAINY",
+      "info": {
+        "name": "Con Dao",
+        "lat": 8.726,
+        "lon": 106.626,
+        "region": "South Islands",
+        "why": "Paradise islands + diving. Best snorkeling/diving in Vietnam. Sea turtle nesting in July (night beach watch!). Speedboat island hopping. Hidden coves.",
+        "highlights": [
+          "Scuba diving (₹3,500) — coral reefs + turtles + rays",
+          "Snorkeling speedboat tour (₹1,200) — 3 islands",
+          "Sea turtle nesting night watch (July season!)",
+          "Bay Canh Island kayak + jungle trek",
+          "Dat Doc Beach 6km — yours alone"
+        ],
+        "budget_per_day": "₹2,000-3,500",
+        "flight_from_hcmc": "45min, ₹2,500-4,000"
+      }
+    },
+    {
+      "city": "Da Nang",
+      "type": "alternative",
+      "avg_rain": 69,
+      "high_risk_days": 8,
+      "weather_score": 16,
       "verdict": "ALSO RAINY",
       "info": {
         "name": "Da Nang",
@@ -864,9 +923,9 @@
     {
       "city": "Nha Trang",
       "type": "alternative",
-      "avg_rain": 81,
-      "high_risk_days": 11,
-      "weather_score": 8,
+      "avg_rain": 75,
+      "high_risk_days": 9,
+      "weather_score": 12,
       "verdict": "ALSO RAINY",
       "info": {
         "name": "Nha Trang",
@@ -886,34 +945,10 @@
       }
     },
     {
-      "city": "Mui Ne",
-      "type": "alternative",
-      "avg_rain": 79,
-      "high_risk_days": 11,
-      "weather_score": 8,
-      "verdict": "ALSO RAINY",
-      "info": {
-        "name": "Mui Ne",
-        "lat": 10.935,
-        "lon": 108.265,
-        "region": "South Coast",
-        "why": "Desert adventure by the sea. Sand dune jeep tours. Kite surfing capital of Asia. ATV riding on dunes. Fairy Stream trek. Cheapest watersports.",
-        "highlights": [
-          "White Sand Dunes jeep + ATV tour (₹1,200) — sunrise",
-          "Kite surfing lesson (₹1,500/2hr) — best spot in Asia",
-          "Red Sand Dunes sandboarding (FREE)",
-          "Fairy Stream barefoot trek (FREE)",
-          "Jet ski + parasailing (₹700)"
-        ],
-        "budget_per_day": "₹800-1,500",
-        "flight_from_hcmc": "4hr bus, ₹500"
-      }
-    },
-    {
       "city": "Dalat",
       "type": "alternative",
-      "avg_rain": 91,
-      "high_risk_days": 12,
+      "avg_rain": 86,
+      "high_risk_days": 11,
       "weather_score": 4,
       "verdict": "ALSO RAINY",
       "info": {
@@ -934,35 +969,35 @@
       }
     },
     {
-      "city": "Con Dao",
+      "city": "Mui Ne",
       "type": "alternative",
-      "avg_rain": 75,
+      "avg_rain": 78,
       "high_risk_days": 12,
-      "weather_score": 4,
+      "weather_score": 0,
       "verdict": "ALSO RAINY",
       "info": {
-        "name": "Con Dao",
-        "lat": 8.726,
-        "lon": 106.626,
-        "region": "South Islands",
-        "why": "Paradise islands + diving. Best snorkeling/diving in Vietnam. Sea turtle nesting in July (night beach watch!). Speedboat island hopping. Hidden coves.",
+        "name": "Mui Ne",
+        "lat": 10.935,
+        "lon": 108.265,
+        "region": "South Coast",
+        "why": "Desert adventure by the sea. Sand dune jeep tours. Kite surfing capital of Asia. ATV riding on dunes. Fairy Stream trek. Cheapest watersports.",
         "highlights": [
-          "Scuba diving (₹3,500) — coral reefs + turtles + rays",
-          "Snorkeling speedboat tour (₹1,200) — 3 islands",
-          "Sea turtle nesting night watch (July season!)",
-          "Bay Canh Island kayak + jungle trek",
-          "Dat Doc Beach 6km — yours alone"
+          "White Sand Dunes jeep + ATV tour (₹1,200) — sunrise",
+          "Kite surfing lesson (₹1,500/2hr) — best spot in Asia",
+          "Red Sand Dunes sandboarding (FREE)",
+          "Fairy Stream barefoot trek (FREE)",
+          "Jet ski + parasailing (₹700)"
         ],
-        "budget_per_day": "₹2,000-3,500",
-        "flight_from_hcmc": "45min, ₹2,500-4,000"
+        "budget_per_day": "₹800-1,500",
+        "flight_from_hcmc": "4hr bus, ₹500"
       }
     },
     {
       "city": "Ha Giang",
       "type": "alternative",
-      "avg_rain": 87,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 89,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "ALSO RAINY",
       "info": {
         "name": "Ha Giang",
@@ -984,9 +1019,9 @@
     {
       "city": "Cat Ba Island",
       "type": "alternative",
-      "avg_rain": 74,
-      "high_risk_days": 12,
-      "weather_score": 4,
+      "avg_rain": 82,
+      "high_risk_days": 13,
+      "weather_score": 0,
       "verdict": "ALSO RAINY",
       "info": {
         "name": "Cat Ba Island",
@@ -1006,48 +1041,7 @@
       }
     }
   ],
-  "swap_recommendations": [
-    {
-      "original_city": "Sapa",
-      "original_rain": 96,
-      "alternative_city": "Phong Nha",
-      "alternative_rain": 50,
-      "alternative_score": 52,
-      "cost_impact": "Flight to Phong Nha instead of Sapa bus. Similar cost ₹1,500-2,500.",
-      "reasoning": "Sapa avg rain: 96%. Phong Nha avg rain: 50%. Phong Nha is 46% drier during your trip.",
-      "what_you_get": "UNDERGROUND ADVENTURE. World's largest caves. Zipline into Dark Cave + mud bath inside. Kayak underground rivers. Jungle trekking. PERFECT rain backup.",
-      "highlights": [
-        "Dark Cave (₹1,400) — zipline in + mud bath + kayak OUT",
-        "Paradise Cave (₹700) — 31km underground, dry walkway",
-        "Phong Nha Cave boat + kayak (₹525)",
-        "Jungle trekking to Bot Cave (₹1,500)",
-        "ALL weather-proof — it's underground!"
-      ],
-      "how_to_get_there": "1hr to Dong Hoi + 45min taxi",
-      "budget": "₹1,000-1,800",
-      "urgency": "HIGH"
-    },
-    {
-      "original_city": "Phu Quoc",
-      "original_rain": 94,
-      "alternative_city": "Quy Nhon",
-      "alternative_rain": 56,
-      "alternative_score": 48,
-      "cost_impact": "Flight to Quy Nhon instead of Phu Quoc. Similar cost ₹1,500-2,500.",
-      "reasoning": "Phu Quoc avg rain: 94%. Quy Nhon avg rain: 56%. Quy Nhon is 38% drier.",
-      "what_you_get": "Hidden adventure beach. Ky Co Beach boat trip (snorkeling + cliff jumping). Eo Gio cliff walk + rock climbing. No crowds. Half price of Nha Trang.",
-      "highlights": [
-        "Ky Co Beach (₹350 boat) — snorkel + cliff jump + pristine",
-        "Eo Gio cliff walk + snorkeling (FREE)",
-        "Jet ski rental (₹500/hr)",
-        "Fresh seafood dives (₹200-400)",
-        "No tourist traps — raw adventure"
-      ],
-      "how_to_get_there": "1hr, ₹1,500-2,000",
-      "budget": "₹600-1,200",
-      "urgency": "HIGH"
-    }
-  ],
+  "swap_recommendations": [],
   "reorder_suggestion": {
     "current_order": "HCMC → Phu Quoc → Hanoi → Sapa → Hanoi",
     "issue": "Both Phu Quoc (monsoon) and Sapa (fog season) are in the WETTEST period. Central Vietnam is drier in July.",
@@ -1062,838 +1056,901 @@
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 90,
-          "high": 35,
-          "condition": "Drizzle",
+          "rain_prob": 96,
+          "high": 36,
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 82,
-          "high": 35,
+          "rain_prob": 88,
+          "high": 36,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-30",
-          "rain_prob": 75,
+          "rain_prob": 90,
           "high": 34,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-01",
-          "rain_prob": 73,
+          "rain_prob": 78,
           "high": 34,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-02",
-          "rain_prob": 75,
-          "high": 35,
+          "rain_prob": 81,
+          "high": 34,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-03",
-          "rain_prob": 78,
-          "high": 34,
+          "rain_prob": 73,
+          "high": 33,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-04",
-          "rain_prob": 67,
-          "high": 33,
-          "condition": "Storm + hail",
+          "rain_prob": 75,
+          "high": 34,
+          "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-05",
-          "rain_prob": 65,
-          "high": 30,
-          "condition": "Storm + hail",
+          "rain_prob": 63,
+          "high": 36,
+          "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-06",
-          "rain_prob": 43,
-          "high": 32,
-          "condition": "Light drizzle",
+          "rain_prob": 49,
+          "high": 35,
+          "condition": "Storm + hail",
           "risk": "medium"
         },
         {
           "date": "2026-07-07",
-          "rain_prob": 47,
-          "high": 33,
+          "rain_prob": 55,
+          "high": 35,
           "condition": "Overcast",
           "risk": "medium"
         },
         {
           "date": "2026-07-08",
-          "rain_prob": 56,
-          "high": 29,
-          "condition": "Heavy drizzle",
+          "rain_prob": 49,
+          "high": 34,
+          "condition": "Light drizzle",
           "risk": "medium"
         },
         {
           "date": "2026-07-09",
-          "rain_prob": 39,
-          "high": null,
-          "condition": "Unknown",
-          "risk": "low"
+          "rain_prob": 47,
+          "high": 34,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 53,
+          "high": 38,
+          "condition": "Thunderstorm",
+          "risk": "medium"
         }
       ],
-      "avg_rain_prob": 66,
+      "avg_rain_prob": 69,
       "high_risk_days": 8,
-      "low_risk_days": 1,
-      "total_days": 12,
-      "weather_score": 24
+      "low_risk_days": 0,
+      "total_days": 13,
+      "weather_score": 16
     },
     "Nha Trang": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 90,
+          "rain_prob": 98,
           "high": 33,
-          "condition": "Thunderstorm",
+          "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 90,
+          "rain_prob": 94,
           "high": 32,
-          "condition": "Light drizzle",
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-30",
-          "rain_prob": 86,
+          "rain_prob": 98,
           "high": 31,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-01",
-          "rain_prob": 90,
-          "high": 31,
-          "condition": "Overcast",
+          "rain_prob": 94,
+          "high": 32,
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-02",
-          "rain_prob": 85,
-          "high": 31,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-03",
-          "rain_prob": 87,
-          "high": 30,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-04",
           "rain_prob": 84,
-          "high": 31,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-05",
-          "rain_prob": 91,
-          "high": 31,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-06",
-          "rain_prob": 78,
-          "high": 29,
-          "condition": "Light drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-07",
-          "rain_prob": 71,
-          "high": 29,
-          "condition": "Light drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-08",
-          "rain_prob": 67,
           "high": 32,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
-          "date": "2026-07-09",
+          "date": "2026-07-03",
+          "rain_prob": 77,
+          "high": 33,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 79,
+          "high": 32,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 69,
+          "high": 32,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 67,
+          "high": 31,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
           "rain_prob": 55,
-          "high": null,
-          "condition": "Unknown",
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 59,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 49,
+          "high": 32,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 51,
+          "high": 31,
+          "condition": "Mainly clear",
           "risk": "medium"
         }
       ],
-      "avg_rain_prob": 81,
-      "high_risk_days": 11,
+      "avg_rain_prob": 75,
+      "high_risk_days": 9,
       "low_risk_days": 0,
-      "total_days": 12,
-      "weather_score": 8
+      "total_days": 13,
+      "weather_score": 12
     },
     "Phong Nha": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 18,
+          "rain_prob": 31,
           "high": 31,
           "condition": "Light drizzle",
           "risk": "low"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 39,
-          "high": 30,
-          "condition": "Overcast",
-          "risk": "low"
+          "rain_prob": 55,
+          "high": 31,
+          "condition": "Thunderstorm",
+          "risk": "medium"
         },
         {
           "date": "2026-06-30",
-          "rain_prob": 45,
-          "high": 32,
-          "condition": "Light drizzle",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-01",
-          "rain_prob": 43,
-          "high": 31,
-          "condition": "Light drizzle",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-02",
-          "rain_prob": 43,
-          "high": 31,
-          "condition": "Overcast",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-03",
-          "rain_prob": 57,
-          "high": 30,
-          "condition": "Light drizzle",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-04",
-          "rain_prob": 73,
+          "rain_prob": 75,
           "high": 30,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
-          "date": "2026-07-05",
-          "rain_prob": 59,
-          "high": 29,
+          "date": "2026-07-01",
+          "rain_prob": 88,
+          "high": 31,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 82,
+          "high": 30,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 82,
+          "high": 31,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 55,
+          "high": 30,
           "condition": "Light drizzle",
           "risk": "medium"
+        },
+        {
+          "date": "2026-07-05",
+          "rain_prob": 65,
+          "high": 29,
+          "condition": "Rain showers",
+          "risk": "high"
         },
         {
           "date": "2026-07-06",
           "rain_prob": 71,
-          "high": 27,
-          "condition": "Light drizzle",
+          "high": 28,
+          "condition": "Rain showers",
           "risk": "high"
         },
         {
           "date": "2026-07-07",
-          "rain_prob": 65,
-          "high": 27,
-          "condition": "Light drizzle",
+          "rain_prob": 80,
+          "high": 23,
+          "condition": "Heavy drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-08",
-          "rain_prob": 55,
+          "rain_prob": 63,
           "high": 24,
           "condition": "Drizzle",
-          "risk": "medium"
+          "risk": "high"
         },
         {
           "date": "2026-07-09",
-          "rain_prob": 32,
-          "high": null,
-          "condition": "Unknown",
+          "rain_prob": 52,
+          "high": 27,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 37,
+          "high": 27,
+          "condition": "Light drizzle",
           "risk": "low"
         }
       ],
-      "avg_rain_prob": 50,
-      "high_risk_days": 3,
-      "low_risk_days": 3,
-      "total_days": 12,
-      "weather_score": 52
+      "avg_rain_prob": 64,
+      "high_risk_days": 8,
+      "low_risk_days": 2,
+      "total_days": 13,
+      "weather_score": 24
     },
     "Dalat": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 94,
-          "high": 25,
+          "rain_prob": 100,
+          "high": 26,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 90,
+          "rain_prob": 100,
           "high": 25,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-30",
-          "rain_prob": 94,
-          "high": 25,
+          "rain_prob": 98,
+          "high": 26,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-01",
-          "rain_prob": 99,
-          "high": 23,
+          "rain_prob": 100,
+          "high": 25,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-02",
-          "rain_prob": 99,
-          "high": 20,
-          "condition": "Heavy drizzle",
+          "rain_prob": 100,
+          "high": 23,
+          "condition": "Rain showers",
           "risk": "high"
         },
         {
           "date": "2026-07-03",
-          "rain_prob": 99,
+          "rain_prob": 100,
           "high": 22,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-04",
-          "rain_prob": 99,
-          "high": 22,
-          "condition": "Heavy drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-05",
-          "rain_prob": 92,
-          "high": 22,
-          "condition": "Drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-06",
-          "rain_prob": 89,
-          "high": 19,
-          "condition": "Drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-07",
-          "rain_prob": 83,
+          "rain_prob": 100,
           "high": 21,
           "condition": "Drizzle",
           "risk": "high"
         },
         {
-          "date": "2026-07-08",
-          "rain_prob": 83,
+          "date": "2026-07-05",
+          "rain_prob": 87,
+          "high": 22,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 81,
           "high": 21,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
-          "date": "2026-07-09",
-          "rain_prob": 75,
-          "high": null,
-          "condition": "Unknown",
+          "date": "2026-07-07",
+          "rain_prob": 72,
+          "high": 22,
+          "condition": "Light drizzle",
           "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 65,
+          "high": 20,
+          "condition": "Light drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 58,
+          "high": 23,
+          "condition": "Light drizzle",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 58,
+          "high": 23,
+          "condition": "Light drizzle",
+          "risk": "medium"
         }
       ],
-      "avg_rain_prob": 91,
-      "high_risk_days": 12,
+      "avg_rain_prob": 86,
+      "high_risk_days": 11,
       "low_risk_days": 0,
-      "total_days": 12,
+      "total_days": 13,
       "weather_score": 4
     },
     "Quy Nhon": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 78,
-          "high": 36,
+          "rain_prob": 98,
+          "high": 37,
           "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 57,
-          "high": 35,
+          "rain_prob": 80,
+          "high": 36,
           "condition": "Thunderstorm",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-06-30",
-          "rain_prob": 57,
-          "high": 33,
-          "condition": "Thunderstorm",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-01",
-          "rain_prob": 57,
-          "high": 31,
-          "condition": "Light drizzle",
-          "risk": "medium"
-        },
-        {
-          "date": "2026-07-02",
-          "rain_prob": 69,
-          "high": 34,
-          "condition": "Light drizzle",
           "risk": "high"
         },
         {
-          "date": "2026-07-03",
-          "rain_prob": 71,
+          "date": "2026-06-30",
+          "rain_prob": 72,
+          "high": 36,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 74,
           "high": 35,
           "condition": "Storm + hail",
           "risk": "high"
         },
         {
+          "date": "2026-07-02",
+          "rain_prob": 84,
+          "high": 36,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 73,
+          "high": 33,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
           "date": "2026-07-04",
-          "rain_prob": 67,
-          "high": 30,
+          "rain_prob": 61,
+          "high": 34,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-05",
           "rain_prob": 51,
-          "high": 31,
-          "condition": "Overcast",
+          "high": 33,
+          "condition": "Thunderstorm",
           "risk": "medium"
         },
         {
           "date": "2026-07-06",
-          "rain_prob": 49,
-          "high": 28,
-          "condition": "Heavy drizzle",
+          "rain_prob": 42,
+          "high": 29,
+          "condition": "Drizzle",
           "risk": "medium"
         },
         {
           "date": "2026-07-07",
-          "rain_prob": 39,
-          "high": 31,
-          "condition": "Overcast",
-          "risk": "low"
-        },
-        {
-          "date": "2026-07-08",
-          "rain_prob": 40,
+          "rain_prob": 31,
           "high": 32,
           "condition": "Overcast",
           "risk": "low"
         },
         {
+          "date": "2026-07-08",
+          "rain_prob": 30,
+          "high": 30,
+          "condition": "Light drizzle",
+          "risk": "low"
+        },
+        {
           "date": "2026-07-09",
-          "rain_prob": 34,
-          "high": null,
-          "condition": "Unknown",
+          "rain_prob": 33,
+          "high": 34,
+          "condition": "Overcast",
+          "risk": "low"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 20,
+          "high": 35,
+          "condition": "Overcast",
           "risk": "low"
         }
       ],
-      "avg_rain_prob": 56,
-      "high_risk_days": 4,
-      "low_risk_days": 3,
-      "total_days": 12,
-      "weather_score": 48
+      "avg_rain_prob": 58,
+      "high_risk_days": 7,
+      "low_risk_days": 4,
+      "total_days": 13,
+      "weather_score": 36
     },
     "Con Dao": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 65,
-          "high": 29,
-          "condition": "Storm + hail",
-          "risk": "high"
-        },
-        {
-          "date": "2026-06-29",
-          "rain_prob": 83,
-          "high": 29,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-06-30",
-          "rain_prob": 85,
-          "high": 29,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-01",
-          "rain_prob": 81,
-          "high": 29,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-02",
-          "rain_prob": 84,
-          "high": 28,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-03",
-          "rain_prob": 90,
-          "high": 29,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-04",
           "rain_prob": 76,
           "high": 29,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
+          "date": "2026-06-29",
+          "rain_prob": 96,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 73,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
+          "rain_prob": 89,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-02",
+          "rain_prob": 86,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-03",
+          "rain_prob": 87,
+          "high": 28,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-04",
+          "rain_prob": 88,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
           "date": "2026-07-05",
-          "rain_prob": 70,
+          "rain_prob": 74,
           "high": 29,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-06",
-          "rain_prob": 65,
+          "rain_prob": 55,
           "high": 29,
           "condition": "Thunderstorm",
-          "risk": "high"
+          "risk": "medium"
         },
         {
           "date": "2026-07-07",
-          "rain_prob": 63,
+          "rain_prob": 39,
           "high": 29,
-          "condition": "Thunderstorm",
-          "risk": "high"
+          "condition": "Light drizzle",
+          "risk": "low"
         },
         {
           "date": "2026-07-08",
-          "rain_prob": 66,
+          "rain_prob": 51,
           "high": 29,
-          "condition": "Light drizzle",
-          "risk": "high"
+          "condition": "Thunderstorm",
+          "risk": "medium"
         },
         {
           "date": "2026-07-09",
-          "rain_prob": 72,
-          "high": null,
-          "condition": "Unknown",
-          "risk": "high"
+          "rain_prob": 48,
+          "high": 29,
+          "condition": "Thunderstorm",
+          "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 39,
+          "high": 30,
+          "condition": "Light drizzle",
+          "risk": "low"
         }
       ],
-      "avg_rain_prob": 75,
-      "high_risk_days": 12,
-      "low_risk_days": 0,
-      "total_days": 12,
-      "weather_score": 4
+      "avg_rain_prob": 69,
+      "high_risk_days": 8,
+      "low_risk_days": 2,
+      "total_days": 13,
+      "weather_score": 24
     },
     "Mui Ne": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 65,
-          "high": 33,
-          "condition": "Thunderstorm",
+          "rain_prob": 88,
+          "high": 34,
+          "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-06-29",
-          "rain_prob": 67,
-          "high": 31,
+          "rain_prob": 84,
+          "high": 32,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-06-30",
-          "rain_prob": 80,
-          "high": 33,
+          "rain_prob": 61,
+          "high": 34,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-01",
-          "rain_prob": 73,
-          "high": 28,
-          "condition": "Heavy drizzle",
+          "rain_prob": 88,
+          "high": 33,
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-02",
-          "rain_prob": 80,
+          "rain_prob": 78,
           "high": 31,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-03",
-          "rain_prob": 98,
-          "high": 29,
+          "rain_prob": 92,
+          "high": 28,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-04",
-          "rain_prob": 93,
-          "high": 30,
-          "condition": "Heavy drizzle",
+          "rain_prob": 95,
+          "high": 26,
+          "condition": "Rain showers",
           "risk": "high"
         },
         {
           "date": "2026-07-05",
-          "rain_prob": 90,
+          "rain_prob": 93,
           "high": 29,
-          "condition": "Drizzle",
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-06",
-          "rain_prob": 86,
-          "high": 30,
-          "condition": "Drizzle",
+          "rain_prob": 80,
+          "high": 29,
+          "condition": "Heavy drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-07",
-          "rain_prob": 90,
-          "high": 29,
+          "rain_prob": 69,
+          "high": 32,
           "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-08",
-          "rain_prob": 73,
-          "high": 31,
-          "condition": "Light drizzle",
+          "rain_prob": 64,
+          "high": 29,
+          "condition": "Drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-09",
-          "rain_prob": 54,
-          "high": null,
-          "condition": "Unknown",
+          "rain_prob": 57,
+          "high": 32,
+          "condition": "Light drizzle",
           "risk": "medium"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 67,
+          "high": 33,
+          "condition": "Partly cloudy",
+          "risk": "high"
         }
       ],
-      "avg_rain_prob": 79,
-      "high_risk_days": 11,
+      "avg_rain_prob": 78,
+      "high_risk_days": 12,
       "low_risk_days": 0,
-      "total_days": 12,
-      "weather_score": 8
+      "total_days": 13,
+      "weather_score": 0
     },
     "Ha Giang": {
       "forecasts": [
         {
           "date": "2026-06-28",
-          "rain_prob": 89,
+          "rain_prob": 98,
           "high": 28,
-          "condition": "Light drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-06-29",
-          "rain_prob": 90,
-          "high": 29,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
+          "date": "2026-06-29",
+          "rain_prob": 94,
+          "high": 28,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
           "date": "2026-06-30",
-          "rain_prob": 84,
-          "high": 26,
+          "rain_prob": 96,
+          "high": 28,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-01",
-          "rain_prob": 73,
+          "rain_prob": 96,
           "high": 29,
-          "condition": "Light drizzle",
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-02",
-          "rain_prob": 87,
-          "high": 28,
+          "rain_prob": 86,
+          "high": 30,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-03",
-          "rain_prob": 88,
-          "high": 26,
-          "condition": "Thunderstorm",
+          "rain_prob": 84,
+          "high": 30,
+          "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-07-04",
-          "rain_prob": 88,
-          "high": 23,
+          "rain_prob": 76,
+          "high": 27,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-05",
-          "rain_prob": 80,
+          "rain_prob": 82,
           "high": 25,
-          "condition": "Drizzle",
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-06",
-          "rain_prob": 84,
+          "rain_prob": 92,
           "high": 29,
-          "condition": "Drizzle",
+          "condition": "Light drizzle",
           "risk": "high"
         },
         {
           "date": "2026-07-07",
+          "rain_prob": 94,
+          "high": 30,
+          "condition": "Storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 90,
+          "high": 25,
+          "condition": "Thunderstorm",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 93,
+          "high": 26,
+          "condition": "Drizzle",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-10",
+          "rain_prob": 80,
+          "high": 29,
+          "condition": "Light drizzle",
+          "risk": "high"
+        }
+      ],
+      "avg_rain_prob": 89,
+      "high_risk_days": 13,
+      "low_risk_days": 0,
+      "total_days": 13,
+      "weather_score": 0
+    },
+    "Cat Ba Island": {
+      "forecasts": [
+        {
+          "date": "2026-06-28",
+          "rain_prob": 100,
+          "high": 30,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-29",
+          "rain_prob": 98,
+          "high": 31,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-06-30",
+          "rain_prob": 100,
+          "high": 30,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-01",
           "rain_prob": 98,
           "high": 30,
           "condition": "Thunderstorm",
           "risk": "high"
         },
         {
-          "date": "2026-07-08",
-          "rain_prob": 97,
-          "high": 26,
-          "condition": "Light drizzle",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-09",
-          "rain_prob": 87,
-          "high": null,
-          "condition": "Unknown",
-          "risk": "high"
-        }
-      ],
-      "avg_rain_prob": 87,
-      "high_risk_days": 12,
-      "low_risk_days": 0,
-      "total_days": 12,
-      "weather_score": 4
-    },
-    "Cat Ba Island": {
-      "forecasts": [
-        {
-          "date": "2026-06-28",
-          "rain_prob": 80,
-          "high": 32,
-          "condition": "Storm + hail",
-          "risk": "high"
-        },
-        {
-          "date": "2026-06-29",
-          "rain_prob": 73,
-          "high": 31,
-          "condition": "Storm + hail",
-          "risk": "high"
-        },
-        {
-          "date": "2026-06-30",
-          "rain_prob": 88,
-          "high": 31,
-          "condition": "Heavy storm + hail",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-01",
-          "rain_prob": 78,
-          "high": 31,
-          "condition": "Storm + hail",
-          "risk": "high"
-        },
-        {
           "date": "2026-07-02",
-          "rain_prob": 71,
-          "high": 32,
-          "condition": "Thunderstorm",
+          "rain_prob": 94,
+          "high": 31,
+          "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-07-03",
-          "rain_prob": 78,
+          "rain_prob": 76,
           "high": 31,
-          "condition": "Storm + hail",
+          "condition": "Thunderstorm",
           "risk": "high"
         },
         {
           "date": "2026-07-04",
-          "rain_prob": 84,
-          "high": 30,
+          "rain_prob": 69,
+          "high": 31,
           "condition": "Storm + hail",
           "risk": "high"
         },
         {
           "date": "2026-07-05",
-          "rain_prob": 80,
+          "rain_prob": 74,
+          "high": 30,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-06",
+          "rain_prob": 74,
+          "high": 31,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-07",
+          "rain_prob": 68,
+          "high": 31,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-08",
+          "rain_prob": 73,
+          "high": 29,
+          "condition": "Heavy storm + hail",
+          "risk": "high"
+        },
+        {
+          "date": "2026-07-09",
+          "rain_prob": 77,
           "high": 31,
           "condition": "Storm + hail",
           "risk": "high"
         },
         {
-          "date": "2026-07-06",
-          "rain_prob": 69,
-          "high": 31,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-07",
-          "rain_prob": 63,
-          "high": 33,
-          "condition": "Thunderstorm",
-          "risk": "high"
-        },
-        {
-          "date": "2026-07-08",
-          "rain_prob": 63,
+          "date": "2026-07-10",
+          "rain_prob": 65,
           "high": 32,
           "condition": "Thunderstorm",
           "risk": "high"
-        },
-        {
-          "date": "2026-07-09",
-          "rain_prob": 61,
-          "high": null,
-          "condition": "Unknown",
-          "risk": "high"
         }
       ],
-      "avg_rain_prob": 74,
-      "high_risk_days": 12,
+      "avg_rain_prob": 82,
+      "high_risk_days": 13,
       "low_risk_days": 0,
-      "total_days": 12,
-      "weather_score": 4
+      "total_days": 13,
+      "weather_score": 0
     }
   },
   "alt_cities_info": {
@@ -2014,10 +2071,10 @@
       "region": "North"
     }
   },
-  "high_risk_days": 12,
+  "high_risk_days": 13,
   "swap_needed": 8,
-  "city_swaps_available": 2,
-  "summary": "12 high-risk days, 2 city swaps suggested, 14 cities compared",
+  "city_swaps_available": 0,
+  "summary": "13 high-risk days, 0 city swaps suggested, 14 cities compared",
   "indoor_alternatives_count": 33,
   "source": "Weather forecast analysis + alternative city weather comparison"
 }
