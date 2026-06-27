@@ -1,6 +1,51 @@
 {
   "agent": "Emergency Response",
-  "timestamp": "2026-06-23T19:04:10Z",
+  "timestamp": "2026-06-26T23:01:00Z",
+  "visa": {
+    "type": "Electronic Visa (E-Visa)",
+    "number": "107547626",
+    "application_code": "E260617INDS311015524",
+    "valid_from": "2026-06-27",
+    "valid_until": "2026-07-12",
+    "entries": "Single entry",
+    "issued_by": "Vietnam Immigration Department - Ministry of Public Security",
+    "issued_date": "2026-06-22",
+    "purpose": "Tourist",
+    "REQUIRED": "HARD COPY at immigration — soft copies NOT accepted. Print before departure!"
+  },
+  "passenger": {
+    "name": "KHAN SOHEL AHMAD",
+    "dob": "1992-06-20",
+    "nationality": "India",
+    "passport_number": "S3110155",
+    "passport_expiry": "2028-06-26"
+  },
+  "flight": {
+    "outbound": {
+      "flight": "AI 2388",
+      "airline": "Air India",
+      "route": "DEL → SGN (Tan Son Nhat)",
+      "date": "2026-06-28",
+      "ticket_no": "0985807670633"
+    },
+    "return": {
+      "flight": "AI 2391",
+      "airline": "Air India",
+      "route": "HAN → DEL",
+      "date": "2026-07-11",
+      "departure": "08:20 HAN (Noibai Terminal 2)",
+      "arrival": "11:30 DEL (IGI Terminal 3)",
+      "duration": "4h 40m",
+      "class": "Economy (Eco Value)",
+      "fare_type": "Eco Value",
+      "airline_pnr": "ERRBEI",
+      "trip_id": "0127062640001182",
+      "ticket_no": "0985807670633",
+      "baggage_check_in": "25 KG",
+      "baggage_cabin": "7 KG",
+      "checkin_rule": "Report 2 hours before departure. Check-in closes 1 hour before."
+    }
+  },
   "contacts": {
     "india_embassy_hanoi": "+84-24-38239899",
     "india_embassy_hcmc": "+84-28-39303200",
