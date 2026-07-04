@@ -731,44 +731,44 @@
       "date": "Jul 4",
       "dow": "SAT",
       "city": "Sapa",
-      "label": "Hanoi AM → Sapa PM",
+      "label": "Arrive Sapa + Ham Rong + Viettrekking Café",
       "icon": "⛰️",
-      "tip": "Bus ~9:30 AM arrive 3:30 PM. Sapa cool mountain air!",
+      "tip": "Bus ~9:30 AM arrive 3:30 PM. Ham Rong sunset is incredible!",
       "area_guide": {
         "stay_area": "Sapa town center — near Sapa Square / Stone Church",
-        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "why": "Walking to ALL 15 reel spots. Stone Church, Sun Plaza, Ham Rong, Viettrekking — sab 5 min walk.",
         "hotel_price": "₹500-800/night",
-        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "walk_radius": "0.5 km covers ALL town attractions, cafes, restaurants",
         "bus_to_hotel": {
           "mode": "Walk from bus stop",
           "time": "5 min",
           "cost": "FREE",
           "distance": "400m",
-          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk."
         },
-        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May/Silver Waterfall. Hotel shuttle free for Fansipan."
       },
       "timeline": [
         {
           "time": "7:00 AM",
-          "activity": "Pho Thin — #1 pho in Hanoi",
+          "activity": "Pho Thin — #1 pho in Hanoi (before bus)",
           "cost": "₹150 ⭐4.5",
           "category": "food",
           "maps": "https://maps.google.com/?q=Pho+Thin+Hanoi",
           "duration_min": 45,
           "transit_to_next": {
             "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
+            "time": "15-30 min",
             "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "distance": "1 km - 3 km",
+            "recommendation": "Walk to bus station from Old Quarter hotel.",
             "directions": ""
           },
           "venue": {
-            "order": "Pho Tai Nam (rare + well-done beef) — THE dish. Add Quay.",
-            "highlight": "#1 pho in Vietnam since 1979. Charred ginger broth — unique smoky flavor. Obama's team ate here.",
+            "order": "Pho Tai Nam — add Quay",
+            "highlight": "#1 pho in Vietnam since 1979. Charred ginger broth.",
             "rating": "4.5",
-            "tip": "Go 6-7 AM — no queue. After 8 AM = 20 min wait. Only 2 things on menu: Pho Tai and Pho Tai Nam."
+            "tip": "Go 6-7 AM — no queue. After 8 AM = 20 min wait."
           }
         },
         {
@@ -783,8 +783,8 @@
             "time": "5 min",
             "cost": "FREE",
             "distance": "400 m",
-            "recommendation": "Walk — Sapa Express bus drops at town center. Most hotels 5-min walk. Hotel can send staff to carry bags if you ask.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20Bus%20Station/Sapa%20town%20center"
+            "recommendation": "Walk — bus drops at town center.",
+            "directions": ""
           },
           "venue": null
         },
@@ -794,157 +794,250 @@
           "cost": "",
           "category": "hotel",
           "maps": "",
-          "duration_min": 15,
+          "duration_min": 30,
           "transit_to_next": {
             "mode": "🚶 Walk",
-            "time": "3 min",
+            "time": "2 min",
             "cost": "FREE",
-            "distance": "200 m",
-            "recommendation": "Walk — Sapa Square and Stone Church are in the absolute center. 3 min from any town hotel.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Stone%20Church"
+            "distance": "100 m",
+            "recommendation": "Quick check-in, drop bags, head out!",
+            "directions": ""
           },
           "venue": null
         },
         {
           "time": "4:00 PM",
-          "activity": "Sapa Square + Cathedral",
+          "activity": "Sun Plaza + Stone Church 📸 — Reel #12, #14",
           "cost": "FREE",
           "category": "activity",
-          "maps": "https://maps.google.com/?q=Sapa+Square+Church",
-          "duration_min": 90,
+          "maps": "https://maps.google.com/?q=Sun+Plaza+Sapa",
+          "duration_min": 30,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "mode": "🚶 Walk",
+            "time": "3 min",
+            "cost": "FREE",
+            "distance": "200 m",
+            "recommendation": "Sun Plaza is opposite Stone Church. Cross the square.",
             "directions": ""
           },
           "venue": {
-            "order": "Roasted chestnuts (₹100), corn on cob (₹50), hot soy milk (₹50)",
-            "highlight": "Town center. Local life. Mountain backdrop. Free. Best at sunset (5-6 PM).",
+            "order": "Photo at Sun Plaza's European facade + Stone Church front",
+            "highlight": "Sun Plaza = iconic yellow European building. Stone Church = 1930s French Gothic. Both in reel!",
+            "rating": "4.4",
+            "tip": "5 min photo stop. Sun Plaza has a supermarket inside — buy water/snacks cheap."
+          }
+        },
+        {
+          "time": "4:30 PM",
+          "activity": "Ham Rong Mountain — panoramic view 🌄 — Reel #10",
+          "cost": "₹300 ⭐4.3",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Ham+Rong+Mountain+Sapa",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "distance": "300 m",
+            "recommendation": "Walk back to town center. Viettrekking Café is on way.",
+            "directions": ""
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Panoramic Sapa town view. Orchid garden + rock garden. Sunset from the top is unreal. Reel ka #10 spot!",
             "rating": "4.3",
-            "tip": "Minority women sell handicrafts here — negotiate. Don't take photos without asking + paying small tip."
+            "tip": "Entrance right behind Stone Church. 45 min easy trek up. Sunset golden hour = best photos."
           }
         },
         {
           "time": "6:00 PM",
-          "activity": "Dinner — local BBQ",
+          "activity": "Viettrekking Café ☕ — Reel #13 (mountain + train views!)",
+          "cost": "₹150-250",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=Viettrekking+Cafe+Sapa",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "distance": "300 m",
+            "recommendation": "Walk to dinner spot.",
+            "directions": ""
+          },
+          "venue": {
+            "order": "Egg coffee (₹200), mountain view hot chocolate (₹250)",
+            "highlight": "BEST mountain + train view cafe! Reel ka #13 spot. See trains pass through mountains while sipping coffee.",
+            "rating": "4.5",
+            "tip": "Go at sunset golden hour. Window seat on upper floor. Train passes every 30 min — ask staff for schedule."
+          }
+        },
+        {
+          "time": "7:00 PM",
+          "activity": "Dinner — local BBQ + grilled skewers",
           "cost": "₹300-500",
           "category": "food",
           "maps": "",
           "duration_min": 60,
           "transit_to_next": null,
-          "venue": null
+          "venue": {
+            "order": "Grilled pork skewers, sticky rice, local veggies",
+            "highlight": "BBQ street near Stone Church. Fresh grilled meat. Mountain air.",
+            "rating": "4.2",
+            "tip": "Try the purple sticky rice — local specialty."
+          }
         }
       ],
-      "total_activities": 3,
-      "estimated_cost": 1150
+      "total_activities": 4,
+      "estimated_cost": 1450
     },
     {
       "day": 7,
       "date": "Jul 5",
       "dow": "SUN",
       "city": "Sapa",
-      "label": "Moana + Cat Cat + Cafes",
-      "icon": "📸",
-      "tip": "Outdoor activities BEFORE 2PM. July fog rolls in afternoon.",
+      "label": "Moana + Cat Cat → Lao Chai → Ta Van Trek",
+      "icon": "🏔️",
+      "tip": "BIGGEST day! Cat Cat + Lao Chai + Ta Van = Muong Hoa Valley covered! Start 7AM SHARP.",
       "area_guide": {
         "stay_area": "Sapa town center — near Sapa Square / Stone Church",
-        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "why": "Walking to all restaurants, cafes, Moana. Trek starts from Moana area downhill.",
         "hotel_price": "₹500-800/night",
-        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "walk_radius": "0.5 km covers town center",
         "bus_to_hotel": {
           "mode": "Walk from bus stop",
           "time": "5 min",
           "cost": "FREE",
           "distance": "400m",
-          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+          "note": ""
         },
-        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+        "get_around": "Walking trek downhill through villages. Motorbike taxi back from Ta Van (₹150)."
       },
       "timeline": [
         {
           "time": "7:00 AM",
-          "activity": "Moana Sapa — photo spot",
-          "cost": "₹350",
+          "activity": "Moana Sapa — photo spot 📸 — Reel #15",
+          "cost": "₹350 ⭐4.3",
           "category": "activity",
           "maps": "https://maps.google.com/?q=Moana+Sapa",
           "duration_min": 90,
           "transit_to_next": {
             "mode": "🚶 Walk downhill",
-            "time": "20 min down",
+            "time": "20 min",
             "cost": "FREE",
             "distance": "1.5 km",
-            "recommendation": "Walk downhill 20 min — steep path from Moana to Cat Cat Village entrance. Coming back up is 35 min — take motorbike taxi ₹100.",
+            "recommendation": "Walk downhill from Moana to Cat Cat entrance. Same path continues to Lao Chai!",
             "directions": "https://www.google.com/maps/dir/Moana%20Sapa/Cat%20Cat%20Village%20Sapa"
           },
           "venue": {
             "order": "",
-            "highlight": "Photo zone with rice terrace backdrop. Swing, infinity pool illusion, bamboo bridge. ₹350 entry.",
+            "highlight": "Famous check-in spot. Bali gate, swing, infinity pool illusion. Mountain backdrop.",
             "rating": "4.3",
-            "tip": "Go 7 AM for clear skies + no crowds. Fog after 2 PM ruins photos. Bring someone to take your photo — staff won't."
+            "tip": "7 AM = golden light + NO crowds. After 9 AM queue of 20+ people for each spot."
           }
         },
         {
           "time": "9:00 AM",
-          "activity": "Cat Cat Village — waterfall",
+          "activity": "Cat Cat Village — Reel #4 🌊",
           "cost": "₹475 ⭐4.4",
           "category": "activity",
           "maps": "https://maps.google.com/?q=Cat+Cat+Village+Sapa",
           "duration_min": 90,
           "transit_to_next": {
-            "mode": "🚵 Motorbike taxi",
-            "time": "15 min",
-            "cost": "₹100",
-            "distance": "2 km",
-            "recommendation": "Take motorbike taxi back up to Sapa town — ₹100. Walking up is 35 min steep climb, not worth it.",
-            "directions": "https://www.google.com/maps/dir/Cat%20Cat%20Village%20Sapa/Sapa%20town%20center"
+            "mode": "🚶 TREK continues",
+            "time": "45 min",
+            "cost": "FREE",
+            "distance": "3 km",
+            "recommendation": "Continue trekking path from Cat Cat → Y Linh Ho → Lao Chai. All one trail through Muong Hoa Valley!",
+            "directions": "https://www.google.com/maps/dir/Cat%20Cat%20Village%20Sapa/Lao%20Chai%20Village"
           },
           "venue": {
-            "order": "Thang Co (horse meat stew ₹200) — try if adventurous. BBQ corn (₹50).",
-            "highlight": "Hmong village + waterfall. Cultural show (dance + music) at 10 AM + 3 PM. Traditional houses.",
+            "order": "Thang Co to try, BBQ corn ₹50",
+            "highlight": "Traditional Hmong village + waterfall. Cultural show at 10 AM. Reel ka #4 spot!",
             "rating": "4.4",
-            "tip": "Walk DOWN (20 min) — take motorbike UP (₹100, 35 min walk otherwise). Don't touch the dye vats."
+            "tip": "After Cat Cat falls, continue trekking to Lao Chai — don't go back up! The trail goes forward through rice terraces."
+          }
+        },
+        {
+          "time": "10:45 AM",
+          "activity": "Lao Chai Village — Trek through Muong Hoa Valley 🌾 — Reel #5, #3",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Lao+Chai+Village+Sapa",
+          "duration_min": 75,
+          "transit_to_next": {
+            "mode": "🚶 TREK continues",
+            "time": "30 min",
+            "cost": "FREE",
+            "distance": "2 km",
+            "recommendation": "Continue trail through rice terraces to Ta Van. 🌾 Muong Hoa Valley is ALL along this walk!",
+            "directions": "https://www.google.com/maps/dir/Lao%20Chai%20Village/Ta%20Van%20Village%20Sapa"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Best rice terrace views! Muong Hoa Valley = Reel #3. Lao Chai = Reel #5. BEST trekking route in Sapa. Peaceful countryside.",
+            "rating": "4.6",
+            "tip": "Local Hmong kids might walk with you and ask for money ₹50-100 — carry small notes. The terraces are most beautiful at this time of day."
           }
         },
         {
           "time": "12:00 PM",
-          "activity": "Lunch — local Thang Co",
-          "cost": "₹200-300",
-          "category": "food",
+          "activity": "Ta Van Village — lunch + local culture 🏡 — Reel #6",
+          "cost": "₹200-350",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Ta+Van+Village+Sapa",
+          "duration_min": 90,
+          "transit_to_next": {
+            "mode": "🏍️ Motorbike taxi back",
+            "time": "25 min",
+            "cost": "₹150",
+            "distance": "8 km",
+            "recommendation": "Motorbike taxi from Ta Van back to Sapa town. ₹150-200. 25 min uphill ride.",
+            "directions": "https://www.google.com/maps/dir/Ta%20Van%20Village/Sapa%20town%20center"
+          },
+          "venue": {
+            "order": "Local lunch at homestay — pho or rice with pork ₹200",
+            "highlight": "Beautiful village, rice fields, local culture. Giay ethnic minority village. Reel ka #6!",
+            "rating": "4.5",
+            "tip": "Eat at a local homestay — best value food. The trail from Lao Chai to Ta Van is the most scenic 30 min walk in your whole trip."
+          }
+        },
+        {
+          "time": "1:45 PM",
+          "activity": "Return Sapa town",
+          "cost": "₹150",
+          "category": "transit",
           "maps": "",
-          "duration_min": 60,
+          "duration_min": 25,
           "transit_to_next": {
             "mode": "🚶 Walk",
-            "time": "8 min",
+            "time": "5 min",
             "cost": "FREE",
-            "distance": "500 m",
-            "recommendation": "Walk — The Hill Station cafe is 500m from Sapa town center. 8 min walk. Mountain valley views from the cafe.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Hill%20Station%20Sapa"
+            "distance": "200 m",
+            "recommendation": "Motorbike drops at town center. Walk to cafe.",
+            "directions": ""
           },
           "venue": null
         },
         {
-          "time": "2:00 PM",
-          "activity": "Cafe crawl — The Hill Station",
-          "cost": "₹150-250",
+          "time": "2:30 PM",
+          "activity": "Cafe crawl — Viettrekking ☕ + The Hill Station",
+          "cost": "₹200-350",
           "category": "cafe",
-          "maps": "https://maps.google.com/?q=Hill+Station+Sapa",
-          "duration_min": 45,
+          "maps": "https://maps.google.com/?q=Viettrekking+Cafe+Sapa",
+          "duration_min": 90,
           "transit_to_next": {
             "mode": "🚶 Walk",
-            "time": "3 min",
+            "time": "5 min",
             "cost": "FREE",
             "distance": "200 m",
-            "recommendation": "Walk — Sapa Square and Stone Church are in the absolute center. 3 min from any town hotel.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Stone%20Church"
+            "recommendation": "Viettrekking → walk to The Hill Station (3 min).",
+            "directions": ""
           },
           "venue": {
-            "order": "Sapa mountain coffee (₹200), hot chocolate with cinnamon (₹250), apple pie (₹200)",
-            "highlight": "Best cafe in Sapa. Valley + mountain views from window. Roasts own beans. Warm inside.",
+            "order": "Viettrekking: egg coffee. Hill Station: salt coffee + apple pie",
+            "highlight": "Do BOTH! Viettrekking = mountain+train view (Reel #13). Hill Station = valley view (original fav).",
             "rating": "4.5",
-            "tip": "Sit by the window. WiFi good. Great rain/fog escape. Try the salt coffee — local specialty."
+            "tip": "Viettrekking first for train views (trains pass every 30 min). Then Hill Station for valley sunset."
           }
         },
         {
@@ -953,177 +1046,226 @@
           "cost": "FREE",
           "category": "activity",
           "maps": "",
-          "duration_min": 90,
+          "duration_min": 60,
           "transit_to_next": null,
           "venue": {
-            "order": "Roasted chestnuts (₹100), corn on cob (₹50), hot soy milk (₹50)",
-            "highlight": "Town center. Local life. Mountain backdrop. Free. Best at sunset (5-6 PM).",
+            "order": "Roasted chestnuts ₹100, hot soy milk ₹50",
+            "highlight": "Town center. Local life. Mountain backdrop at golden hour.",
             "rating": "4.3",
-            "tip": "Minority women sell handicrafts here — negotiate. Don't take photos without asking + paying small tip."
+            "tip": "Buy handicrafts from minority women — negotiate fair but don't haggle hard."
           }
         }
       ],
       "total_activities": 5,
-      "estimated_cost": 1175
+      "estimated_cost": 1525
     },
     {
       "day": 8,
       "date": "Jul 6",
       "dow": "MON",
       "city": "Sapa",
-      "label": "Rong May Thrill Day",
+      "label": "Rong May → Silver → Love → Heaven's Gate",
       "icon": "🎢",
-      "tip": "Rong May: glass bridge + zipline + alpine coaster. No weekend crowd difference.",
+      "tip": "Rong May (glass bridge + zipline) → Silver Waterfall → Love Waterfall → O Quy Ho Pass. ALL on same road!",
       "area_guide": {
         "stay_area": "Sapa town center — near Sapa Square / Stone Church",
-        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "why": "Same hotel, no need to move. Taxi for Rong May/Silver Waterfall route.",
         "hotel_price": "₹500-800/night",
-        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "walk_radius": "0.5 km covers town center",
         "bus_to_hotel": {
-          "mode": "Walk from bus stop",
-          "time": "5 min",
-          "cost": "FREE",
-          "distance": "400m",
-          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+          "mode": "",
+          "time": "",
+          "cost": "",
+          "distance": "",
+          "note": ""
         },
-        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+        "get_around": "Hire taxi for the day (₹800-1,000 for 4 stops) OR motorbike taxi per stop. Rong May 18km, Silver/Love/Pass all further on same road."
       },
       "timeline": [
         {
           "time": "8:00 AM",
-          "activity": "Rong May Tourism Area",
+          "activity": "Rong May Glass Bridge 🎢 — Reel #9",
           "cost": "₹1,400 ⭐4.5",
           "category": "activity",
           "maps": "https://maps.google.com/?q=Rong+May+Tourism+Sapa",
-          "duration_min": 90,
+          "duration_min": 120,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
-            "directions": ""
+            "mode": "🚕 Same taxi continues",
+            "time": "10 min",
+            "cost": "INCLUDED in day taxi",
+            "distance": "3 km",
+            "recommendation": "Same taxi waits and takes you to Silver Waterfall. 10 min drive.",
+            "directions": "https://www.google.com/maps/dir/Rong%20May%20Sapa/Silver%20Waterfall%20Sapa"
           },
           "venue": {
-            "order": "BBQ buffet lunch included in ticket. Grilled pork, vegetables, rice.",
-            "highlight": "Glass bridge 2200m altitude. Zipline + alpine coaster. Cloud sea views. Full day activity.",
+            "order": "BBQ buffet lunch included in ticket. Eat at 12 PM.",
+            "highlight": "Glass bridge at 2200m! Zipline + alpine coaster. Cloud sea views. Reel ka #9 spot!",
             "rating": "4.5",
-            "tip": "Go early (8 AM) before clouds roll in. Glass bridge closes in high wind. Alpine coaster is the best part — go twice."
+            "tip": "Go early. Alpine coaster = best part — ride it TWICE. BBQ lunch is included — good value."
           }
         },
         {
           "time": "12:00 PM",
-          "activity": "Lunch — BBQ buffet included",
+          "activity": "Lunch — BBQ buffet at Rong May",
           "cost": "included",
           "category": "food",
           "maps": "",
           "duration_min": 60,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "mode": "🚕 Same taxi",
+            "time": "10 min",
+            "cost": "included",
+            "distance": "5 km",
+            "recommendation": "Silver Waterfall is 5km further on the same road to Heaven's Gate.",
             "directions": ""
           },
           "venue": null
         },
         {
-          "time": "2:00 PM",
-          "activity": "Heaven's Gate pass — viewpoint",
-          "cost": "FREE",
+          "time": "1:00 PM",
+          "activity": "Silver Waterfall 🌊 — Reel #11",
+          "cost": "₹200 ⭐4.2",
           "category": "activity",
-          "maps": "https://maps.google.com/?q=Heaven's+Gate+Sapa",
-          "duration_min": 90,
+          "maps": "https://maps.google.com/?q=Silver+Waterfall+Sapa",
+          "duration_min": 40,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "mode": "🚕 Same taxi",
+            "time": "5 min",
+            "cost": "included",
+            "distance": "2 km",
+            "recommendation": "Love Waterfall is just 2km further up the same road!",
+            "directions": "https://www.google.com/maps/dir/Silver%20Waterfall%20Sapa/Love%20Waterfall%20Sapa"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "One of tallest waterfalls near Sapa. Very accessible — 5 min walk from parking. Reel ka #11!",
+            "rating": "4.2",
+            "tip": "10 min stop. Take photo from viewing platform. Can feel the mist 50m away."
+          }
+        },
+        {
+          "time": "1:45 PM",
+          "activity": "Love Waterfall 💧 — Reel #7",
+          "cost": "₹200 ⭐4.3",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Love+Waterfall+Sapa",
+          "duration_min": 40,
+          "transit_to_next": {
+            "mode": "🚕 Same taxi",
+            "time": "15 min",
+            "cost": "included",
+            "distance": "8 km",
+            "recommendation": "Heaven's Gate / O Quy Ho Pass is the final stop — 8km further.",
+            "directions": "https://www.google.com/maps/dir/Love%20Waterfall%20Sapa/Heaven%27s%20Gate%20Sapa"
+          },
+          "venue": {
+            "order": "",
+            "highlight": "Hidden waterfall in mountains. Less crowded, more peaceful. Short 15 min hike through bamboo forest.",
+            "rating": "4.3",
+            "tip": "15 min easy hike to waterfall. Path can be muddy after rain — wear grippy shoes. Cool mist feels amazing."
+          }
+        },
+        {
+          "time": "2:30 PM",
+          "activity": "O Quy Ho Pass — Heaven's Gate 🏔️ — Reel #8",
+          "cost": "FREE ⭐4.6",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Heaven%27s+Gate+Sapa",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "🚕 Taxi back to town",
+            "time": "45 min",
+            "cost": "included",
+            "distance": "25 km",
+            "recommendation": "Taxi back to Sapa town. 45 min drive winding road. If feeling sleepy, tell driver.",
             "directions": ""
           },
           "venue": {
             "order": "",
-            "highlight": "Highest mountain pass in Vietnam. Free viewpoint. Cloud sea on clear days.",
+            "highlight": "Highest mountain pass in Vietnam. Cloud sea viewpoint. Motorcyclist paradise. Reel ka #8 spot!",
             "rating": "4.6",
-            "tip": "Ask taxi driver to stop 10 min. Best at 9-11 AM before afternoon fog. Free — no entry fee."
+            "tip": "Best viewpoint on O Quy Ho Pass. FREE. 2,000m altitude — can get cold. Ask taxi to wait 20 min."
           }
         },
         {
-          "time": "4:00 PM",
-          "activity": "Return Sapa town",
+          "time": "3:45 PM",
+          "activity": "Return Sapa town — rest",
           "cost": "",
           "category": "transit",
           "maps": "",
-          "duration_min": 30,
+          "duration_min": 45,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "distance": "200 m",
+            "recommendation": "Rest at hotel. Freshen up for dinner.",
             "directions": ""
           },
           "venue": null
         },
         {
           "time": "7:00 PM",
-          "activity": "Dinner + cultural show",
+          "activity": "Dinner + H'Mong cultural show",
           "cost": "₹400-600",
           "category": "food",
           "maps": "",
-          "duration_min": 60,
+          "duration_min": 90,
           "transit_to_next": null,
-          "venue": null
+          "venue": {
+            "order": "Local set menu — grilled fish, sticky rice, vegetable soup",
+            "highlight": "Traditional dance + music show while you eat. H'Mong cultural performance.",
+            "rating": "4.3",
+            "tip": "Most hotels arrange this for ₹400/person. Includes show + dinner. Worth it."
+          }
         }
       ],
-      "total_activities": 4,
-      "estimated_cost": 1800
+      "total_activities": 5,
+      "estimated_cost": 2600
     },
     {
       "day": 9,
       "date": "Jul 7",
       "dow": "TUE",
       "city": "Sapa",
-      "label": "Fansipan → Hanoi",
-      "icon": "🏔️",
-      "tip": "Fansipan MOVED Sun→Tue: Sun queue = 2 HOURS, Tue = 10 min!",
+      "label": "Fansipan Summit → Hanoi",
+      "icon": "🗻",
+      "tip": "Fansipan Tue = 10 min queue (vs 2hr Sun!). Muong Hoa Valley visible from cable car ride!",
       "area_guide": {
         "stay_area": "Sapa town center — near Sapa Square / Stone Church",
-        "why": "Walking to all restaurants, cafes, Moana, Sapa Square. Cat Cat Village 2 km downhill walk. Fansipan cable car 3 km (hotel shuttle free).",
+        "why": "Hotel shuttle to Fansipan. Bus back to Hanoi from center.",
         "hotel_price": "₹500-800/night",
-        "walk_radius": "0.5 km covers town center, cafes, restaurants, Sapa Square",
+        "walk_radius": "0.5 km covers town center",
         "bus_to_hotel": {
-          "mode": "Walk from bus stop",
-          "time": "5 min",
-          "cost": "FREE",
-          "distance": "400m",
-          "note": "Sapa Express bus drops at Sapa center. Most hotels 5-min walk. Hotel can send someone to carry bags if you ask."
+          "mode": "",
+          "time": "",
+          "cost": "",
+          "distance": "",
+          "note": ""
         },
-        "get_around": "Walk in town. Motorbike taxi (₹100-200) for Fansipan/Rong May. Hotel arranges Fansipan shuttle free. Cat Cat is a 25-min downhill walk (35 min back up — take motorbike ₹100)."
+        "get_around": "Hotel shuttle to Fansipan (free). Walk for everything else."
       },
       "timeline": [
         {
           "time": "7:00 AM",
-          "activity": "Fansipan Cable Car — Indochina's roof!",
+          "activity": "Fansipan Cable Car 🚡 — Reel #1, #2 — Roof of Indochina!",
           "cost": "₹2,800 ⭐4.7",
           "category": "activity",
           "maps": "https://maps.google.com/?q=Fansipan+Cable+Car+Sapa",
           "duration_min": 240,
           "transit_to_next": {
-            "mode": "🚐 Hotel shuttle / 🚗 Grab",
+            "mode": "🚐 Hotel shuttle / 🚕 Grab",
             "time": "10 min",
             "cost": "FREE / ₹100",
             "distance": "3 km",
-            "recommendation": "Shuttle back to Sapa town. 10 min. Or Grab for ₹100.",
-            "directions": "https://www.google.com/maps/dir/Fansipan%20Cable%20Car%20Sapa/Sapa%20town%20center"
+            "recommendation": "Shuttle back to Sapa town. Bus to Hanoi from same drop point.",
+            "directions": ""
           },
           "venue": {
-            "order": "Summit cafe: hot chocolate (₹250), instant noodles (₹200) — warm up at 3000m!",
-            "highlight": "Roof of Indochina (3143m). Cable car 6km up. Buddha statue, pagoda, cloud sea. Tuesday = 10 min queue!",
+            "order": "Summit cafe: hot chocolate ₹250, noodles ₹200 at 3000m!",
+            "highlight": "Roof of Indochina (3143m)! Cable car = Muong Hoa Valley views from above (Reel #3 view!). Summit = cloud sea + buddha + pagoda. TUESDAY = 10 MIN QUEUE!",
             "rating": "4.7",
-            "tip": "Go TUESDAY not Sunday (2hr vs 10min queue). Bring jacket — 10°C at summit vs 20°C in town. Camera fogs — bring microfiber."
+            "tip": "BRING JACKET — 10°C at summit vs 20°C town. Camera lens fogs — carry microfiber cloth. Cable car ride has best valley views — sit on LEFT side going up, RIGHT side coming down."
           }
         },
         {
@@ -1132,22 +1274,44 @@
           "cost": "₹300-400",
           "category": "food",
           "maps": "",
-          "duration_min": 60,
+          "duration_min": 45,
           "transit_to_next": {
-            "mode": "🚶 Walk / 🚕 Taxi",
-            "time": "5-30 min",
-            "cost": "FREE - ₹300",
-            "distance": "200m - 18 km",
-            "recommendation": "Walk in town center. Taxi for Fansipan (3km) or Rong May (18km). Motorbike taxi ₹100 for Cat Cat return.",
+            "mode": "🚐 Shuttle",
+            "time": "10 min",
+            "cost": "FREE",
+            "distance": "3 km",
+            "recommendation": "Shuttle to town. Quick change before bus.",
             "directions": ""
           },
           "venue": null
         },
         {
+          "time": "12:00 PM",
+          "activity": "Quick Viettrekking Café — final farewell ☕",
+          "cost": "₹150-200",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=Viettrekking+Cafe+Sapa",
+          "duration_min": 45,
+          "transit_to_next": {
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "distance": "400 m",
+            "recommendation": "Walk to bus station. 5 min.",
+            "directions": ""
+          },
+          "venue": {
+            "order": "One last egg coffee",
+            "highlight": "Last coffee before 6hr bus to Hanoi. Watch one more train pass!",
+            "rating": "4.5",
+            "tip": "Quick coffee. Ask when next train passes."
+          }
+        },
+        {
           "time": "1:00 PM",
-          "activity": "Return Sapa town",
+          "activity": "Check out + pack",
           "cost": "",
-          "category": "transit",
+          "category": "hotel",
           "maps": "",
           "duration_min": 30,
           "transit_to_next": {
@@ -1155,14 +1319,14 @@
             "time": "5 min",
             "cost": "FREE",
             "distance": "400 m",
-            "recommendation": "Walk to Sapa Express bus stop. 5 min from any town hotel. Bring water + snacks for 6-hr ride back to Hanoi.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20town%20center/Sapa%20Express%20Bus"
+            "recommendation": "Walk to bus station.",
+            "directions": ""
           },
           "venue": null
         },
         {
-          "time": "4:00 PM",
-          "activity": "Sapa Express Bus → Hanoi (6hrs)",
+          "time": "2:00 PM",
+          "activity": "Sapa Express Bus → Hanoi 🚌 (6hrs)",
           "cost": "₹700-1,050",
           "category": "transit",
           "maps": "",
@@ -1172,13 +1336,13 @@
             "time": "5 min",
             "cost": "FREE",
             "distance": "400 m",
-            "recommendation": "Walk — Sapa Express bus drops at town center. Most hotels 5-min walk. Hotel can send staff to carry bags if you ask.",
-            "directions": "https://www.google.com/maps/dir/Sapa%20Bus%20Station/Sapa%20town%20center"
+            "recommendation": "Walk to Hanoi hotel from bus drop. Most are in Old Quarter.",
+            "directions": ""
           },
           "venue": null
         },
         {
-          "time": "10:00 PM",
+          "time": "8:00 PM",
           "activity": "Arrive Hanoi — check-in",
           "cost": "",
           "category": "hotel",
@@ -1188,8 +1352,8 @@
           "venue": null
         }
       ],
-      "total_activities": 2,
-      "estimated_cost": 3800
+      "total_activities": 3,
+      "estimated_cost": 3950
     },
     {
       "day": 10,
