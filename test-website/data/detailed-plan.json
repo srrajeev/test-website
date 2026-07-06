@@ -834,127 +834,82 @@
       "date": "Jul 6",
       "dow": "MON",
       "city": "Sapa",
-      "label": "🏍️ Paragliding + Ham Rong + Cafes + Shopping",
-      "icon": "🪂",
-      "tip": "Morning O Quy Ho paragliding (weather clear usually). Baaki din town explore + shopping.",
+      "label": "🏍️ Muong Hoa Valley Drive + Cafe End",
+      "icon": "🏍️",
+      "tip": "Bike ride Cat Cat → Lao Chai → Ta Van. Last stop = BEST CAFE!",
       "area_guide": {
-        "stay_area": "D Home Sapa 2",
-        "why": "Same hotel. Bike sab jagah le jayega.",
+        "stay_area": "D Home Sapa 2 — 29 Violet Street, Sapa center",
+        "why": "Sab walking distance. Bike ride ke liye best location.",
         "hotel_price": "₹500-800/night",
-        "walk_radius": "0.5 km covers town",
-        "bike_rent": {
-          "price": "₹350/day (already rented yesterday)",
-          "where": "Same bike rakho",
-          "need": ""
-        },
-        "get_around": "🏍️ Bike already hai! O Quy Ho 15 min, town mein walk."
+        "walk_radius": "0.5 km covers Stone Church, cafes",
+        "get_around": "🏍️ Bike already hai!"
       },
       "timeline": [
         {
-          "time": "7AM 🪂",
-          "activity": "O Quy Ho Pass — PARAGLIDING! 🪂",
-          "cost": "₹3,000-4,000 (VND 800k-1M)",
+          "time": "10AM-12PM 🏍️",
+          "activity": "RIDE: Cat Cat Valley → Lao Chai Rice Terraces → Ta Van Village 🌾",
+          "cost": "FREE (bike rent already paid)",
           "category": "activity",
-          "maps": "https://maps.google.com/?q=O+Quy+Ho+Pass+Sapa",
+          "maps": "https://www.google.com/maps/dir/D+Home+Sapa+2,+29+Violet,+Sa+Pa/Cat+Cat+Village+Sapa/Lao+Chai+Village+Sapa/Ta+Van+Village+Sapa",
           "duration_min": 120,
           "transit_to_next": {
-            "mode": "🏍️ Bike se wapas",
-            "time": "15 min",
+            "mode": "🏍️ Wapas ride",
+            "time": "20 min",
             "cost": "FREE",
-            "distance": "9.5 km",
-            "recommendation": "Bike se wapas town. 15 min downhill.",
+            "recommendation": "Ta Van → wapas town. 20 min ride through rice terraces.",
             "directions": ""
           },
           "venue": {
-            "order": "Tandem flight with instructor. 10-15 min over valley!",
-            "highlight": "🪂 FLY OVER MOUNTAINS! O Quy Ho se paragliding — valley + cloud sea view! ₹3,000-4,000, 10-15 min flight.",
-            "rating": "4.8",
-            "tip": "Morning 7AM best — wind calm, views clear. Book hotel se ya direct O Quy Ho pe. 22km from town. Bike se 15 min."
+            "order": "STOPS: Cat Cat viewpoint photos 📸 → Lao Chai rice terraces 🌾 → Ta Van village walk 🏘️",
+            "highlight": "12 km of pure mountain scenery! Rice terraces, local villages, foggy mountains. Bike ke liye best route of Sapa!",
+            "rating": "4.7",
+            "tip": "Ta Van mein rukna mat bhoolna — wahan se wapas aate waqt sunset light rice terraces pe!"
           }
         },
         {
-          "time": "10AM 🏛️",
-          "activity": "Ham Rong Mountain + Sun Plaza + Stone Church",
-          "cost": "₹300 (Ham Rong) + FREE",
-          "category": "activity",
-          "maps": "https://maps.google.com/?q=Ham+Rong+Mountain+Sapa",
-          "duration_min": 120,
+          "time": "5:30PM ☕",
+          "activity": "🚶 BEST CAFE: Cafe in the Clouds ☁️ (rooftop view)",
+          "cost": "₹150-250",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=Cafe+in+the+Clouds+Sapa",
+          "duration_min": 60,
           "transit_to_next": {
-            "mode": "🚶 Walk",
-            "time": "3 min",
+            "mode": "🚶 Walk 2 min",
+            "time": "2 min",
             "cost": "FREE",
-            "distance": "200 m",
-            "recommendation": "Ham Rong se wapas aate waqt Stone Church photos. Sab ek area mein.",
+            "recommendation": "Ya The Hill Station bhi try kar sakta hai — 3 min walk.",
             "directions": ""
           },
           "venue": {
-            "order": "Ham Rong summit panoramic view (45 min trek) → Stone Church photos → Sun Plaza facade",
-            "highlight": "🌄 Ham Rong = best Sapa town view! Plus reel spots — Sun Plaza (#14) + Stone Church (#12).",
-            "rating": "4.3",
-            "tip": "Ham Rong entrance Stone Church ke peeche. 45 min easy trek, upar se poora Sapa dikhega."
+            "order": "Try: Coconut coffee 🥥☕ ya Hot Chocolate",
+            "highlight": "Rooftop cafe! Puri valley + mountain view. Fog rolling in = cloud cafe experience!",
+            "rating": "4.5",
+            "tip": "Upper floor window seat lo. 5PM-6PM best light for photos. Bike ride ke baad yahan aake baithna = pure bliss!"
           }
         },
         {
-          "time": "1PM 🛍️",
-          "activity": "Last gift shopping — coffee, handicrafts",
+          "time": "6:30PM 🛍️",
+          "activity": "Last shopping — gifts for family (coffee, scarves, handicrafts)",
           "cost": "₹500-1,000",
           "category": "shopping",
           "maps": "",
           "duration_min": 60,
-          "transit_to_next": {
-            "mode": "🚶 Walk",
-            "time": "3 min",
-            "cost": "FREE",
-            "distance": "200 m",
-            "recommendation": "Stone Church ke paas market.",
-            "directions": ""
-          },
-          "venue": {
-            "order": "Sapa coffee (₹300-500/kg), H'Mong silver jewelry for sister (₹200-500), bamboo items for dad",
-            "highlight": "LAST CHANCE for Sapa gifts! Kal subah Fansipan, phir bus!",
-            "rating": "4.2",
-            "tip": "Viettrekking Café also sells good coffee packed — ₹300-500/kg. Quality better than market."
-          }
+          "transit_to_next": null,
+          "venue": null
         },
         {
-          "time": "3PM-6PM ☕",
-          "activity": "Final cafe crawl — Viettrekking + Hill Station + Cafe in the Clouds",
-          "cost": "₹300-500",
-          "category": "cafe",
-          "maps": "https://maps.google.com/?q=Viettrekking+Cafe+Sapa",
-          "duration_min": 120,
-          "transit_to_next": {
-            "mode": "",
-            "time": "",
-            "cost": "",
-            "recommendation": "",
-            "directions": ""
-          },
-          "venue": {
-            "order": "Viettrekking (egg coffee + train) → Hill Station (salt coffee + valley) → Cafe in the Clouds (rooftop farewell)",
-            "highlight": "LAST evening in Sapa! 3 cafes, 3 vibes. Train, valley, rooftop — Sapa ka best!",
-            "rating": "4.5",
-            "tip": "Start at Viettrekking — ask when next train comes. End at Cafe in the Clouds — rooftop sunset agar weather clear ho."
-          }
-        },
-        {
-          "time": "7PM 🍖",
-          "activity": "Farewell dinner — local BBQ",
+          "time": "7:30PM 🍖",
+          "activity": "Farewell BBQ dinner in Sapa",
           "cost": "₹300-500",
           "category": "food",
           "maps": "",
           "duration_min": 60,
           "transit_to_next": null,
-          "venue": {
-            "order": "Last BBQ dinner in Sapa!",
-            "highlight": "Sapa ka aakhri dinner. Mountain air + grilled meat.",
-            "rating": "4.2",
-            "tip": "Try Thang Co (horse stew) if nahi try kiya — Sapa specialty."
-          }
+          "venue": null
         }
       ],
-      "total_activities": 4,
-      "estimated_cost": 4500
+      "total_activities": 3,
+      "estimated_cost": 1200
     },
     {
       "day": 8,
