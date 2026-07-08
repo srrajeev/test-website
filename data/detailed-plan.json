@@ -1044,158 +1044,151 @@
       "date": "Jul 8",
       "dow": "WED",
       "city": "Hanoi",
-      "label": "🏙️ Hanoi — Old Quarter + Train Street + Food",
-      "icon": "🏙️",
-      "tip": "Sleeper bus se subah 12:30AM arrive. Sone do phir poora day explore!",
+      "label": "🏙️ Hanoi — Coffee + Train Street + Beer Corner",
+      "icon": "☕",
+      "tip": "Sleeper bus se aaya hai. Abhi 3PM — cafes, train, beer!",
       "area_guide": {
         "stay_area": "Old Quarter — near Hoan Kiem Lake",
-        "why": "Walking to EVERYTHING. Train Street, Water Puppet, night market, Beer Corner.",
+        "why": "Walking to EVERYTHING!",
         "hotel_price": "₹600-1,000/night",
-        "walk_radius": "1 km covers Old Quarter, Hoan Kiem, Train Street",
-        "airport_to_hotel": {
-          "mode": "Grab",
-          "time": "45-60 min",
-          "cost": "₹500-700",
-          "distance": "27 km",
-          "note": "Noi Bai (HAN) → Old Quarter. Grab fixed price."
-        },
-        "get_around": "Walk everywhere! Grab for Temple of Literature (10 min, ₹100)."
+        "walk_radius": "1 km covers everything",
+        "get_around": "🚶 Walk everywhere. Grab for far places."
       },
       "timeline": [
         {
-          "time": "12:30AM 🛌",
-          "activity": "Arrive + sleep",
-          "cost": "",
-          "category": "hotel",
-          "maps": "",
-          "duration_min": 480,
-          "transit_to_next": null,
-          "venue": null
-        },
-        {
-          "time": "9AM 🥖",
-          "activity": "Breakfast — Banh Mi + Egg Coffee",
+          "time": "3PM ☕",
+          "activity": "📍 C.O.C Legacy Specialty Coffee ☕ — Must visit!",
           "cost": "₹150-250",
-          "category": "food",
-          "maps": "https://maps.google.com/?q=Banh+Mi+25+Hanoi",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=C.O.C+Legacy+Coffee+Hanoi",
           "duration_min": 60,
           "transit_to_next": {
-            "mode": "🚶 Walk",
+            "mode": "🚶 Walk 5 min",
             "time": "5 min",
             "cost": "FREE",
-            "recommendation": "Hoan Kiem Lake is 5 min walk. Morning walk.",
+            "recommendation": "C.O.C → Cafe Giang (2 min). Ya seedha Train Street.",
             "directions": ""
           },
-          "venue": null
+          "venue": {
+            "order": "Try their specialty coffee — pour over or phin filter",
+            "highlight": "Best specialty coffee in Old Quarter! Legacy roast, great vibe.",
+            "rating": "4.6",
+            "tip": "Ask barista for recommendation. Their signature brew is amazing."
+          }
         },
         {
-          "time": "10AM 🏯",
-          "activity": "Hoan Kiem Lake + Ngoc Son Temple + Train Street 🚂",
-          "cost": "FREE - ₹100",
+          "time": "4PM 🚂",
+          "activity": "Train Street 🚃 — watch train pass!",
+          "cost": "FREE",
           "category": "activity",
-          "maps": "https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi",
-          "duration_min": 120,
+          "maps": "https://maps.google.com/?q=Train+Street+Hanoi",
+          "duration_min": 60,
           "transit_to_next": {
             "mode": "🚶 Walk",
             "time": "10 min",
             "cost": "FREE",
             "distance": "800 m",
-            "recommendation": "Walk to Train Street. 10 min through Old Quarter.",
+            "recommendation": "Train Street → Hoan Kiem Lake walk.",
+            "directions": ""
+          },
+          "venue": {
+            "order": "Coffee at trackside cafe while waiting for train",
+            "highlight": "Train passes through narrow street! Houses on both sides. Unreal experience.",
+            "rating": "4.5",
+            "tip": "Ask local cafe what time next train. Usually every 30-45 min. Sit at a trackside cafe."
+          }
+        },
+        {
+          "time": "5:30PM 🏞️",
+          "activity": "Hoan Kiem Lake evening walk + The Huc Bridge sunset 📸",
+          "cost": "FREE",
+          "category": "activity",
+          "maps": "https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi",
+          "duration_min": 60,
+          "transit_to_next": {
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "recommendation": "Lake → Bun Cha Obama (5 min walk).",
             "directions": ""
           },
           "venue": null
         },
         {
-          "time": "1PM 🍜",
-          "activity": "Lunch — Bun Cha Obama! (Famous)",
+          "time": "6:30PM 🍜",
+          "activity": "Dinner — Bun Cha Obama 🥟 (Anthony Bourdain + Obama ate here!)",
           "cost": "₹200-300",
           "category": "food",
           "maps": "https://maps.google.com/?q=Bun+Cha+Huong+Lien+Hanoi",
           "duration_min": 60,
-          "transit_to_next": null,
-          "venue": null
-        },
-        {
-          "time": "3PM 🛍️",
-          "activity": "Shopping — Hang Gai Street (silk, souvenirs, phin coffee)",
-          "cost": "₹1,000-2,000",
-          "category": "shopping",
-          "maps": "",
-          "duration_min": 120,
-          "transit_to_next": null,
-          "venue": null
-        },
-        {
-          "time": "6PM 🎭",
-          "activity": "Water Puppet Show",
-          "cost": "₹400-700",
-          "category": "activity",
-          "maps": "",
-          "duration_min": 60,
-          "transit_to_next": null,
-          "venue": null
+          "transit_to_next": {
+            "mode": "🚶 Walk",
+            "time": "5 min",
+            "cost": "FREE",
+            "recommendation": "Bun Cha → Beer Corner 5 min walk.",
+            "directions": ""
+          },
+          "venue": {
+            "order": "Bun Cha + spring rolls + Hanoi beer",
+            "highlight": "Famous! Obama & Bourdain ate here in 2016. Best Bun Cha in Hanoi!",
+            "rating": "4.5",
+            "tip": "Order Bun Cha set (₹200) + Nem (spring rolls). Don't skip the Nem!"
+          }
         },
         {
           "time": "8PM 🍺",
-          "activity": "Beer Corner (Bia Hoi Junction) — last night",
-          "cost": "₹200-400",
+          "activity": "BEER CORNER — Bia Hoi Junction! 🍻",
+          "cost": "₹100-300",
           "category": "food",
-          "maps": "",
-          "duration_min": 60,
+          "maps": "https://maps.google.com/?q=Bia+Hoi+Junction+Hanoi",
+          "duration_min": 90,
           "transit_to_next": null,
-          "venue": null
+          "venue": {
+            "order": "Bia Hoi (₹18/glass!) + grilled corn + fried snacks",
+            "highlight": "CHEAPEST BEER IN THE WORLD! ₹18 per glass. Street seating, local vibes, live music sometimes.",
+            "rating": "4.6",
+            "tip": "Sit on the tiny plastic stools — that's the real Hanoi experience! Bia Hoi is fresh draft beer, only available in Hanoi. Try all 3-4 shops on the corner."
+          }
         }
       ],
-      "total_activities": 5,
-      "estimated_cost": 2500
+      "total_activities": 4,
+      "estimated_cost": 800
     },
     {
       "day": 10,
       "date": "Jul 9",
       "dow": "THU",
       "city": "Hanoi",
-      "label": "🏙️ Hanoi Day 2 — Food tour + Temple + Last shopping",
+      "label": "🍜 Hanoi Food Tour + C.O.C + Beer Corner Again",
       "icon": "🍜",
-      "tip": "Halong Bay removed — extra relaxing day in Hanoi! Food crawl + temple + gifts",
+      "tip": "Full day eating! Pho → Banh Mi → Egg Coffee → Street food",
       "area_guide": {
         "stay_area": "Old Quarter",
         "why": "All walking distance.",
         "hotel_price": "₹600-1,000/night",
         "walk_radius": "1 km",
-        "get_around": "Walk + Grab."
+        "get_around": "🚶 Walk"
       },
       "timeline": [
         {
-          "time": "8AM 🥣",
-          "activity": "Pho Bo (beef pho) — #1 Hanoi breakfast",
+          "time": "9AM 🥣",
+          "activity": "Pho Bo (beef pho) — #1 Hanoi breakfast!",
           "cost": "₹150-200",
           "category": "food",
-          "maps": "",
+          "maps": "https://maps.google.com/?q=Pho+10+Ly+Quoc+Su+Hanoi",
           "duration_min": 45,
           "transit_to_next": null,
-          "venue": null
+          "venue": {
+            "order": "Pho Tai Nam + quay (fried bread)",
+            "highlight": "Real Hanoi pho! Different from Saigon pho — wider noodles, clearer broth.",
+            "rating": "4.5",
+            "tip": "Go early 9AM — no queue. Add lime + chili + basil yourself."
+          }
         },
         {
-          "time": "9:30AM 🛕",
-          "activity": "Temple of Literature + Train Street",
-          "cost": "₹200",
-          "category": "activity",
-          "maps": "https://maps.google.com/?q=Temple+of+Literature+Hanoi",
-          "duration_min": 120,
-          "transit_to_next": {
-            "mode": "🚶 Walk",
-            "time": "15 min",
-            "cost": "FREE",
-            "distance": "1 km",
-            "recommendation": "Temple to Train Street walk.",
-            "directions": ""
-          },
-          "venue": null
-        },
-        {
-          "time": "1PM 🥟",
-          "activity": "Lunch — Banh Cuon (steamed rice rolls) + Ca Phe Trung (egg coffee) at Cafe Giang",
-          "cost": "₹200-300",
+          "time": "10AM 🥖",
+          "activity": "Banh Mi + Egg Coffee at Cafe Giang 🥚☕",
+          "cost": "₹100-200",
           "category": "food",
           "maps": "https://maps.google.com/?q=Cafe+Giang+Hanoi",
           "duration_min": 60,
@@ -1203,38 +1196,62 @@
           "venue": null
         },
         {
-          "time": "3PM 🛍️",
-          "activity": "LAST gift shopping — Dong Xuan Market + Hang Gai",
+          "time": "11:30AM ☕",
+          "activity": "📍 C.O.C Legacy Specialty Coffee (again! because it's that good) ☕",
+          "cost": "₹150-250",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=C.O.C+Legacy+Coffee+Hanoi",
+          "duration_min": 60,
+          "transit_to_next": null,
+          "venue": null
+        },
+        {
+          "time": "1PM 🛍️",
+          "activity": "Shopping — Hang Gai Street (silk) + Dong Xuan Market (everything) 🛒",
           "cost": "₹1,000-2,000",
           "category": "shopping",
           "maps": "",
           "duration_min": 120,
           "transit_to_next": null,
           "venue": {
-            "order": "Silk scarf (mom ₹500), Phin coffee filter set (dad/friends ₹400-700), Ao Dai (sister ₹800), dried fruit for friends",
-            "highlight": "FINAL SHOPPING! Family ke liye gifts complete karo!",
-            "tip": "Hang Gai = silk street. Dong Xuan = wholesale market, cheaper."
+            "order": "Mom: silk scarf (₹500). Dad: phin coffee filter (₹400). Sister: Ao Dai (₹800). Friends: dried fruit, coffee packs",
+            "highlight": "Hang Gai = silk street. Dong Xuan = wholesale market (cheaper). FAMILY GIFTS COMPLETE KARO!",
+            "tip": "Hang Gai pe negotiate 30% off. Dong Xuan pe 50% off se start."
           }
         },
         {
-          "time": "6PM 🍜",
-          "activity": "Farewell dinner — Bun Bo Nam Bo + Bia Hanoi",
-          "cost": "₹300-500",
+          "time": "3PM 🍜",
+          "activity": "Lunch — Bun Bo Nam Bo (beef noodle, no soup!)",
+          "cost": "₹150-250",
           "category": "food",
-          "maps": "",
-          "duration_min": 60,
+          "maps": "https://maps.google.com/?q=Bun+Bo+Nam+Bo+Hanoi",
+          "duration_min": 45,
           "transit_to_next": null,
           "venue": null
         },
         {
-          "time": "8PM 🌃",
-          "activity": "Night Market + Hoan Kiem Lake walk",
+          "time": "5PM 🚶",
+          "activity": "Train Street again 🚂 (different time = different vibe) + Old Quarter wander",
           "cost": "FREE",
           "category": "activity",
           "maps": "",
           "duration_min": 60,
           "transit_to_next": null,
           "venue": null
+        },
+        {
+          "time": "7PM 🍺",
+          "activity": "Beer Corner — Farewell Bia Hoi night! 🍻🔥",
+          "cost": "₹150-300",
+          "category": "food",
+          "maps": "https://maps.google.com/?q=Bia+Hoi+Junction+Hanoi",
+          "duration_min": 120,
+          "transit_to_next": null,
+          "venue": {
+            "order": "Bia Hoi + grilled squid + peanuts",
+            "highlight": "LAST Beer Corner night! Bia Hoi ₹18/glass. Street plastic stools. Local life!",
+            "tip": "Try ALL the food stalls around Beer Corner — grilled corn, squid, skewers. Everything is ₹50-100."
+          }
         }
       ],
       "total_activities": 5,
@@ -1245,20 +1262,18 @@
       "date": "Jul 10",
       "dow": "FRI",
       "city": "Hanoi",
-      "label": "🏙️ Hanoi Day 3 — Chill + Last shopping",
+      "label": "☕ Last Day — C.O.C + Shopping + Relax",
       "icon": "☕",
-      "tip": "Last full day! Relax, walk around, grab final gifts, enjoy Hanoi!",
+      "tip": "Last full day! Chill mode. Final gifts, one last egg coffee, pack bags.",
       "area_guide": {
-        "stay_area": "Old Quarter — near Hoan Kiem Lake",
-        "why": "Walking to everything.",
-        "hotel_price": "₹600-1,000/night",
-        "walk_radius": "1 km",
-        "get_around": "Walk everywhere."
+        "stay_area": "Old Quarter",
+        "why": "Walking distance.",
+        "get_around": "🚶 Walk"
       },
       "timeline": [
         {
-          "time": "8AM 🥖",
-          "activity": "Breakfast — Banh Mi + Phin coffee",
+          "time": "9AM 🥖",
+          "activity": "Last Banh Mi + Egg Coffee",
           "cost": "₹100-200",
           "category": "food",
           "maps": "",
@@ -1267,52 +1282,49 @@
           "venue": null
         },
         {
-          "time": "10AM 🚶",
-          "activity": "Hoan Kiem Lake morning walk + Ngoc Son Temple",
-          "cost": "FREE",
-          "category": "activity",
-          "maps": "",
+          "time": "10:30AM ☕",
+          "activity": "One last C.O.C Legacy Specialty Coffee ☕",
+          "cost": "₹150-250",
+          "category": "cafe",
+          "maps": "https://maps.google.com/?q=C.O.C+Legacy+Coffee+Hanoi",
           "duration_min": 60,
           "transit_to_next": null,
           "venue": null
         },
         {
-          "time": "12PM 🥟",
-          "activity": "Lunch — Pho + Spring Rolls",
-          "cost": "₹200-300",
-          "category": "food",
-          "maps": "",
-          "duration_min": 60,
-          "transit_to_next": null,
-          "venue": null
-        },
-        {
-          "time": "2PM 🛍️",
-          "activity": "FINAL gift shopping — anything missing!",
-          "cost": "₹1,000-2,000",
+          "time": "12PM 🛍️",
+          "activity": "FINAL shopping — anything missed! Dong Xuan Market",
+          "cost": "₹500-1,000",
           "category": "shopping",
           "maps": "",
           "duration_min": 120,
           "transit_to_next": null,
-          "venue": {
-            "order": "Last minute: coffee, silk, handicrafts",
-            "highlight": "LAST SHOPPING CHANCE! Dong Xuan Market ya Hang Gai. Sab kuch lelo."
-          }
+          "venue": null
         },
         {
-          "time": "5PM ☕",
-          "activity": "Final Egg Coffee at Cafe Giang",
-          "cost": "₹100-200",
-          "category": "cafe",
-          "maps": "https://maps.google.com/?q=Cafe+Giang+Hanoi",
+          "time": "2PM 🍜",
+          "activity": "Lunch — Pho or Bun Cha one last time",
+          "cost": "₹150-250",
+          "category": "food",
+          "maps": "",
           "duration_min": 45,
           "transit_to_next": null,
           "venue": null
         },
         {
-          "time": "7PM 🎭",
-          "activity": "Water Puppet Show (if missed) OR Beer Corner farewell 🍺",
-          "cost": "₹200-400",
+          "time": "4PM 📦",
+          "activity": "Rest + Pack bags",
+          "cost": "",
+          "category": "hotel",
+          "maps": "",
+          "duration_min": 120,
+          "transit_to_next": null,
+          "venue": null
+        },
+        {
+          "time": "7PM 🍺",
+          "activity": "Farewell dinner + last Hanoi walk around Hoan Kiem",
+          "cost": "₹300-500",
           "category": "food",
           "maps": "",
           "duration_min": 60,
@@ -1321,25 +1333,24 @@
         }
       ],
       "total_activities": 4,
-      "estimated_cost": 2000
+      "estimated_cost": 1500
     },
     {
       "day": 12,
       "date": "Jul 11",
       "dow": "SAT",
       "city": "Hanoi",
-      "label": "✈️ Departure Day — Goodbye Vietnam! 🇻🇳",
+      "label": "✈️ Departure — 7AM one last Egg Coffee → Airport",
       "icon": "✈️",
-      "tip": "Morning flight! Grab to airport 45-60 min. Keep ₹500-700 for Grab.",
+      "tip": "Morning flight! Grab to airport 45 min. Book night before.",
       "area_guide": {
         "stay_area": "Old Quarter",
-        "why": "Quick Grab to Noi Bai airport.",
-        "get_around": "Grab to airport."
+        "get_around": "Grab to airport ₹500-700"
       },
       "timeline": [
         {
           "time": "6AM 📦",
-          "activity": "Pack bags + Check-out",
+          "activity": "Check-out + pack",
           "cost": "",
           "category": "hotel",
           "maps": "",
@@ -1348,8 +1359,8 @@
           "venue": null
         },
         {
-          "time": "7AM ☕",
-          "activity": "One LAST Egg Coffee at Cafe Giang",
+          "time": "6:30AM ☕",
+          "activity": "One LAST Egg Coffee at Cafe Giang (5 min walk before airport!) 🥚☕",
           "cost": "₹100-200",
           "category": "cafe",
           "maps": "https://maps.google.com/?q=Cafe+Giang+Hanoi",
@@ -1358,14 +1369,14 @@
             "mode": "🚕 Grab",
             "time": "45 min",
             "cost": "₹500-700",
-            "recommendation": "Book Grab in advance.",
+            "recommendation": "Book Grab night before. Noi Bai Airport 27km.",
             "directions": ""
           },
           "venue": null
         },
         {
-          "time": "8AM 🚕",
-          "activity": "Grab to Noi Bai Airport (27km)",
+          "time": "7:30AM 🚕",
+          "activity": "Grab to Noi Bai Airport ✈️",
           "cost": "₹500-700",
           "category": "transit",
           "maps": "",
@@ -1374,8 +1385,8 @@
           "venue": null
         },
         {
-          "time": "9:30AM ✈️",
-          "activity": "FLIGHT — Goodbye Vietnam! 🇻🇳 See you next time!",
+          "time": "9AM ✈️",
+          "activity": "FLIGHT — Goodbye Vietnam! 🇻🇳🎉",
           "cost": "",
           "category": "departure",
           "maps": "",
@@ -1383,8 +1394,8 @@
           "transit_to_next": null,
           "venue": {
             "order": "",
-            "highlight": "🇻🇳 Vietnam trip complete! Sapa, Hanoi, waterfalls, paragliding, Fansipan — sab kar liya! 🎉",
-            "tip": "Airport pe coffee expensive hai — pee ke jaana."
+            "highlight": "TRIP COMPLETE! 🏆 Sapa treks ✅ Fansipan ✅ Paragliding ✅ Waterfalls ✅ Hanoi food ✅ Beer Corner ✅ Gifts for family ✅",
+            "tip": "Airport pe coffee expensive — Cafe Giang mein pee ke jaana!"
           }
         }
       ],
